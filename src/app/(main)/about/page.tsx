@@ -41,7 +41,7 @@ export default function AboutPage() {
       <div style={{ padding: "0 2rem", width: "100%", maxWidth: "1600px", margin: "0 auto" }}>
         <div className="page-content-layout">
           {/* Index Sidebar */}
-          <aside style={{ alignSelf: "start", position: "sticky", top: "100px", height: "fit-content", background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "12px", padding: "1.5rem", boxShadow: "0 4px 15px rgba(0,0,0,0.02)" }}>
+          <aside style={{ alignSelf: "start", position: "sticky", top: "30vh", height: "fit-content", background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "12px", padding: "1.5rem", boxShadow: "0 4px 15px rgba(0,0,0,0.02)" }}>
             <h4 style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--primary-dark)", marginBottom: "1rem", borderBottom: "2px solid #f1f5f9", paddingBottom: "0.75rem" }}>On this page</h4>
             <ul className="about-sidebar-nav">
               <li><a href="#founding" className="about-sidebar-link">Founding of RGUKT</a></li>
