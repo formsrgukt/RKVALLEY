@@ -28,9 +28,9 @@ export default function HeroSection() {
     },
     {
       image: "slide-3",
-      badge: "Founding Leadership",
-      title: <>Prof D Raj Reddy as its <span>founding Chancellor</span></>,
-      subtitle: "Rajiv Gandhi University of Knowledge Technologies is privileged to have Prof D Raj Reddy, an internationally acclaimed computer scientist and Turing Award winner, guiding our institution's vision and academic excellence.",
+      badge: "Founding Chancellor",
+      title: <>Prof <span>D Raj Reddy</span></>,
+      subtitle: "Prof D Raj Reddy as its founding Chancellor. He is a pioneer in Artificial Intelligence and an esteemed academician who laid the foundation for RGUKT's vision of rural empowerment through world-class technological education.",
       action: "Learn More",
       link: "/about"
     }
