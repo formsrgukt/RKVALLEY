@@ -124,7 +124,7 @@ export default function NIRFYearPage({ params }: { params: Promise<{ year: strin
           <div style={{ textAlign: "center", padding: "3rem 0", color: "#64748b" }}>
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" style={{ marginBottom: "1rem", opacity: 0.5 }}><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 12 12 14 14"></polyline></svg>
             <h2 style={{ color: "var(--primary-dark)", fontSize: "1.5rem", marginBottom: "0.5rem" }}>No Data Available</h2>
-            <p style={{ fontSize: "1.1rem" }}>The NIRF data for the year {params.year} is currently being updated or is not available.</p>
+            <p style={{ fontSize: "1.1rem" }}>The NIRF data for the year {resolvedParams.year} is currently being updated or is not available.</p>
           </div>
         )}
       </div>
