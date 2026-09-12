@@ -31,8 +31,8 @@ export default function HeroSection() {
     {
       image: "slide-3",
       badge: "Founding Chancellor",
-      title: <>Prof <span>D Raj Reddy</span></>,
-      subtitle: "Prof D Raj Reddy as its founding Chancellor. He is a pioneer in Artificial Intelligence and an esteemed academician who laid the foundation for RGUKT's vision of rural empowerment through world-class technological education.",
+      title: <>Prof. <span>D. Raj Reddy</span></>,
+      subtitle: "Prof. D. Raj Reddy as its founding Chancellor. He is a Pioneer in Artificial Intelligence and an esteemed academician who laid the foundation for RGUKT's vision of rural empowerment through world-class technological education.",
       action: "Learn More",
       link: "/about",
       align: "right"
