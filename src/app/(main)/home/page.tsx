@@ -105,13 +105,9 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* 5. Campus Video Tour */}
-      <section className="section-padding" style={{ background: "var(--surface-card)" }} aria-label="Campus Video Tour">
-        <div className="container">
-          <div className="section-header" style={{ textAlign: "center", justifyContent: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
+          {/* 5. Campus Video Tour (Merged) */}
+          <div className="section-header" style={{ textAlign: "center", justifyContent: "center", display: "flex", flexDirection: "column", alignItems: "center", marginTop: "4rem" }}>
             <div style={{ maxWidth: "800px" }}>
               <span className="section-tag" style={{ justifyContent: "center" }}>Campus Life</span>
               <h3 className="section-title">Experience RGUKT RK Valley</h3>
