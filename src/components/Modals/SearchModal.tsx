@@ -16,7 +16,7 @@ export default function SearchModal() {
     { title: "About RGUKT RK Valley", link: "/about", desc: "Vision, History, Act 18 of 2008 & 330-Acre Campus" },
     { title: "University Administration", link: "/administration", desc: "Chancellor, Vice Chancellor, Director & Deans" },
     { title: "Academic Programs", link: "/academics", desc: "6-Year Integrated B.Tech Structure & Curricula" },
-    { title: "Departments Directory", link: "/departments", desc: "CSE, ECE, EEE, Mechanical, Civil, Chemical, MME, Sciences" },
+    { title: "Departments Directory", link: "/departments", desc: "AI&ML, Chemical, Civil, CSE, EEE, ECE, Mechanical, MME, Sciences" },
     { title: "Admissions 2026-27", link: "/admissions", desc: "Eligibility, Deprivation points, Application instructions" },
     { title: "Examinations Cell", link: "/examinations", desc: "10-Point Grading Scale, Timetables & Results" },
     { title: "Placements Cell (CDPC)", link: "/placements", desc: "Highest CTC, Top Recruiters & Training Roadmap" },

@@ -5,7 +5,7 @@ import { RGUKT_DATA } from "@/data/rguktData";
 
 export const metadata = {
   title: "Departments Directory | RGUKT RK Valley",
-  description: "Explore 12 academic departments, course curricula, laboratory facilities, and faculty members."
+  description: "Explore 13 academic departments, course curricula, laboratory facilities, and faculty members."
 };
 
 export default function DepartmentsPage() {
@@ -28,7 +28,7 @@ export default function DepartmentsPage() {
           <article className="page-main-body">
             <h3>Explore Academic & Engineering Departments</h3>
             <p style={{ marginBottom: "2rem", color: "#475569" }}>
-              Discover our 12 specialized departments equipped with state-of-the-art laboratories, experienced faculty, and industry-aligned curricula.
+              Discover our 13 specialized departments equipped with state-of-the-art laboratories, experienced faculty, and industry-aligned curricula.
             </p>
 
             <div className="departments-grid">

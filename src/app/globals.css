@@ -2080,6 +2080,14 @@ button {
   transition: all var(--transition-fast);
 }
 
+button.sidebar-link {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+}
+
 .sidebar-link.active, .sidebar-link:hover {
   background: #ffffff;
   color: var(--primary-maroon);

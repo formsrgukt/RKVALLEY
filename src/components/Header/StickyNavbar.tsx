@@ -159,13 +159,14 @@ export default function StickyNavbar() {
                 <div>
                   <div className="mega-column-title">Engineering Disciplines</div>
                   <ul className="mega-menu-list">
-                    <li><Link href="/departments/cse" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Computer Science & Engg (CSE)</Link></li>
-                    <li><Link href="/departments/ece" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Electronics & Communication (ECE)</Link></li>
-                    <li><Link href="/departments/eee" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Electrical & Electronics (EEE)</Link></li>
-                    <li><Link href="/departments/me" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Mechanical Engineering (ME)</Link></li>
-                    <li><Link href="/departments/ce" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Civil Engineering (CE)</Link></li>
+                    <li><Link href="/departments/aiml" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Artificial Intelligence & Machine Learning (AI&ML)</Link></li>
                     <li><Link href="/departments/che" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Chemical Engineering (CHE)</Link></li>
-                    <li><Link href="/departments/mme" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Metallurgical & Materials (MME)</Link></li>
+                    <li><Link href="/departments/ce" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Civil Engineering (CE)</Link></li>
+                    <li><Link href="/departments/cse" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Computer Science & Engineering (CSE)</Link></li>
+                    <li><Link href="/departments/eee" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Electrical & Electronics Engineering (EEE)</Link></li>
+                    <li><Link href="/departments/ece" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Electronics & Communication Engineering (ECE)</Link></li>
+                    <li><Link href="/departments/me" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Mechanical Engineering (ME)</Link></li>
+                    <li><Link href="/departments/mme" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Metallurgical & Materials Engineering (MME)</Link></li>
                   </ul>
                 </div>
                 <div>
@@ -176,7 +177,7 @@ export default function StickyNavbar() {
                     <li><Link href="/departments/chem" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Chemistry</Link></li>
                     <li><Link href="/departments/bio" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Bio-Sciences</Link></li>
                     <li><Link href="/departments/humanities" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Humanities & Management</Link></li>
-                    <li><Link href="/departments" className="dropdown-link" onClick={() => setPinnedDropdown(null)} style={{ fontWeight: 700, color: "var(--accent-royal)" }}>All 12 Departments →</Link></li>
+                    <li><Link href="/departments" className="dropdown-link" onClick={() => setPinnedDropdown(null)} style={{ fontWeight: 700, color: "var(--accent-royal)" }}>All 13 Departments →</Link></li>
                   </ul>
                 </div>
               </div>

@@ -40,7 +40,7 @@ export default function AcademicsPage() {
                 </div>
                 <div style={{ background: "#fff", padding: "1.25rem", borderRadius: "8px", borderLeft: "4px solid var(--accent-gold)", boxShadow: "0 1px 3px rgba(0,0,0,0.05)" }}>
                   <h5 style={{ color: "var(--accent-gold-dark)", fontWeight: 700, marginBottom: "0.35rem" }}>Phase 2: Bachelor of Technology (E1, E2, E3, E4)</h5>
-                  <p style={{ fontSize: "0.85rem", color: "#475569" }}>Four years of specialized engineering education in 7 core engineering streams with minor specializations in AI, Data Science, Cyber Security, and Renewable Energy.</p>
+                  <p style={{ fontSize: "0.85rem", color: "#475569" }}>Four years of specialized engineering education in 8 core engineering streams with minor specializations in AI, Data Science, Cyber Security, and Renewable Energy.</p>
                 </div>
               </div>
             </div>

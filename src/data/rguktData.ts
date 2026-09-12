@@ -128,7 +128,7 @@ export const RGUKT_DATA = {
     stats: {
       studentsEnrolled: "6,500+",
       facultyMembers: "240+",
-      departments: "12",
+      departments: "13",
       campusAcres: "330+",
       placementRate: "87.4%",
       highestPackage: "₹28.5 LPA",
@@ -188,6 +188,74 @@ export const RGUKT_DATA = {
 
   departments: [
     {
+      id: "aiml",
+      code: "AI&ML",
+      name: "Artificial Intelligence and Machine Learning",
+      category: "Engineering",
+      icon: "cpu",
+      hod: "Dr. K. Eswara Rao, Ph.D.",
+      hodEmail: "hod.aiml@rguktrkv.ac.in",
+      facultyCount: 18,
+      studentCount: 360,
+      labsCount: 5,
+      overview: "The Department of Artificial Intelligence and Machine Learning imparts comprehensive education in Deep Learning, Generative AI, Computer Vision, Natural Language Processing, Autonomous Systems, and Applied Data Science, equipped with high-performance GPU computing clusters.",
+      labs: [
+        "Advanced Deep Learning & Neural Computing Lab",
+        "Generative AI & Large Language Models (LLM) Studio",
+        "Computer Vision & Pattern Recognition Lab",
+        "Autonomous Systems & Robotics Studio",
+        "Data Science & Predictive Modeling Center"
+      ],
+      highlights: [
+        "NVIDIA GPU Supercomputing Cluster for AI Research",
+        "Funded projects in AI for Smart Agriculture & Healthcare",
+        "Active student collaborations with leading tech research labs"
+      ]
+    },
+    {
+      id: "che",
+      code: "CHE",
+      name: "Chemical Engineering",
+      category: "Engineering",
+      icon: "flask",
+      hod: "Dr. N. Chandra Sekhar, Ph.D.",
+      hodEmail: "hod.che@rguktrkv.ac.in",
+      facultyCount: 16,
+      studentCount: 380,
+      labsCount: 5,
+      overview: "Specializing in Process Engineering, Nanotechnology, Reaction Kinetics, Bioprocess Engineering, Membrane Separation, and Industrial Pollution Abatement.",
+      labs: [
+        "Chemical Reaction Engineering (CRE) Lab",
+        "Mass Transfer Operations (MTO) Lab",
+        "Heat Transfer Operations & Furnace Lab",
+        "Process Dynamics & Instrumentation Control Lab",
+        "Effluent Treatment & Membrane Technology Lab"
+      ],
+      highlights: ["Campus pilot plant for bio-diesel extraction", "Placements in Pharma, Petrochem, and Process industries", "IIChE Student Chapter active activities"]
+    },
+    {
+      id: "ce",
+      code: "CE",
+      name: "Civil Engineering",
+      category: "Engineering",
+      icon: "home",
+      hod: "Dr. S. K. Mahaboob Basha, Ph.D.",
+      hodEmail: "hod.ce@rguktrkv.ac.in",
+      facultyCount: 22,
+      studentCount: 600,
+      labsCount: 6,
+      overview: "Focusing on Structural Design, Geotechnical Engineering, GIS & Remote Sensing, Environmental Water Treatment, and Sustainable Smart Infrastructure Development.",
+      labs: [
+        "Structural Engineering & Concrete Technology Lab",
+        "Geotechnical & Soil Mechanics Testing Center",
+        "Geographic Information Systems (GIS) & Total Station Lab",
+        "Environmental Engineering & Water Quality Lab",
+        "Transportation Engineering & Highway Materials Lab",
+        "Hydraulics & Water Resources Engineering Lab"
+      ],
+      highlights: ["State Government Infrastructure Consultancy Partner", "Hands-on Total Station & Drone Surveying Modules", "Green Building Design Specialization"]
+    },
+    {
       id: "cse",
       code: "CSE",
       name: "Computer Science and Engineering",
@@ -210,6 +278,28 @@ export const RGUKT_DATA = {
         "IoT & Embedded Systems Prototyping Lab"
       ],
       highlights: ["96% Placement in Top Tier Product & IT firms", "Active ACM and CSI Student Chapters", "NVIDIA Deep Learning Institute Academic Partner"]
+    },
+    {
+      id: "eee",
+      code: "EEE",
+      name: "Electrical and Electronics Engineering",
+      category: "Engineering",
+      icon: "zap",
+      hod: "Dr. M. Veera Reddy, Ph.D.",
+      hodEmail: "hod.eee@rguktrkv.ac.in",
+      facultyCount: 24,
+      studentCount: 640,
+      labsCount: 6,
+      overview: "Leading sustainable electrical engineering with dedicated research in Smart Power Grids, Renewable Energy Systems, Electric Vehicles (EV) Powertrain, and Power Electronics.",
+      labs: [
+        "Electric Vehicles & Battery Management Lab",
+        "Smart Grid & Renewable Energy Center",
+        "Power Electronics & Drives Laboratory",
+        "Electrical Machines & Transformers Lab",
+        "Control Systems & Simulation Lab (MATLAB/Simulink)",
+        "Power Systems Protection & High Voltage Lab"
+      ],
+      highlights: ["Campus 1MW Rooftop Solar Integration Research", "Active IEEE Power & Energy Society Chapter", "Sponsored Projects from DST and SERB"]
     },
     {
       id: "ece",
@@ -235,28 +325,6 @@ export const RGUKT_DATA = {
       highlights: ["TI Innovation Lab & ARM University Program Center", "Multiple Student Patents in Smart Agriculture Sensors", "Extensive Core Semiconductor Placements"]
     },
     {
-      id: "eee",
-      code: "EEE",
-      name: "Electrical and Electronics Engineering",
-      category: "Engineering",
-      icon: "zap",
-      hod: "Dr. M. Veera Reddy, Ph.D.",
-      hodEmail: "hod.eee@rguktrkv.ac.in",
-      facultyCount: 24,
-      studentCount: 640,
-      labsCount: 6,
-      overview: "Leading sustainable electrical engineering with dedicated research in Smart Power Grids, Renewable Energy Systems, Electric Vehicles (EV) Powertrain, and Power Electronics.",
-      labs: [
-        "Electric Vehicles & Battery Management Lab",
-        "Smart Grid & Renewable Energy Center",
-        "Power Electronics & Drives Laboratory",
-        "Electrical Machines & Transformers Lab",
-        "Control Systems & Simulation Lab (MATLAB/Simulink)",
-        "Power Systems Protection & High Voltage Lab"
-      ],
-      highlights: ["Campus 1MW Rooftop Solar Integration Research", "Active IEEE Power & Energy Society Chapter", "Sponsored Projects from DST and SERB"]
-    },
-    {
       id: "me",
       code: "ME",
       name: "Mechanical Engineering",
@@ -279,49 +347,6 @@ export const RGUKT_DATA = {
         "Central Mechanical Fabrication & Foundry Workshop"
       ],
       highlights: ["Annual participation in SAE BAJA & E-Baja Racing", "Collaborative MOUs with L&T and Bosch", "Fully automated CNC machining center"]
-    },
-    {
-      id: "ce",
-      code: "CE",
-      name: "Civil Engineering",
-      category: "Engineering",
-      icon: "home",
-      hod: "Dr. S. K. Mahaboob Basha, Ph.D.",
-      hodEmail: "hod.ce@rguktrkv.ac.in",
-      facultyCount: 22,
-      studentCount: 600,
-      labsCount: 6,
-      overview: "Focusing on Structural Design, Geotechnical Engineering, GIS & Remote Sensing, Environmental Water Treatment, and Sustainable Smart Infrastructure Development.",
-      labs: [
-        "Structural Engineering & Concrete Technology Lab",
-        "Geotechnical & Soil Mechanics Testing Center",
-        "Geographic Information Systems (GIS) & Total Station Lab",
-        "Environmental Engineering & Water Quality Lab",
-        "Transportation Engineering & Highway Materials Lab",
-        "Hydraulics & Water Resources Engineering Lab"
-      ],
-      highlights: ["State Government Infrastructure Consultancy Partner", "Hands-on Total Station & Drone Surveying Modules", "Green Building Design Specialization"]
-    },
-    {
-      id: "che",
-      code: "CHE",
-      name: "Chemical Engineering",
-      category: "Engineering",
-      icon: "flask",
-      hod: "Dr. N. Chandra Sekhar, Ph.D.",
-      hodEmail: "hod.che@rguktrkv.ac.in",
-      facultyCount: 16,
-      studentCount: 380,
-      labsCount: 5,
-      overview: "Specializing in Process Engineering, Nanotechnology, Reaction Kinetics, Bioprocess Engineering, Membrane Separation, and Industrial Pollution Abatement.",
-      labs: [
-        "Chemical Reaction Engineering (CRE) Lab",
-        "Mass Transfer Operations (MTO) Lab",
-        "Heat Transfer Operations & Furnace Lab",
-        "Process Dynamics & Instrumentation Control Lab",
-        "Effluent Treatment & Membrane Technology Lab"
-      ],
-      highlights: ["Campus pilot plant for bio-diesel extraction", "Placements in Pharma, Petrochem, and Process industries", "IIChE Student Chapter active activities"]
     },
     {
       id: "mme",

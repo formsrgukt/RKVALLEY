@@ -61,7 +61,27 @@ When you are done with your feature, push your specific branch up to GitHub.
 git push -u origin feature/footer-section
 ```
 
+### ⚡ Fast-Track: Single Command to Commit & Push
+If you prefer a quicker flow, I have created a script that automatically adds all files, generates an auto-commit message (with the current timestamp), and pushes them to your current branch in one single command.
+
+Whenever you want to save your work, simply run:
+```bash
+./commit.sh
+```
+
+
+
 ### Step E: Create a Pull Request (PR) & Merge
+You can create a Pull Request either from the terminal or through the browser.
+
+**Option 1: From the Terminal (Fastest)**
+If you have the [GitHub CLI (`gh`)](https://cli.github.com/) installed, just run:
+```bash
+gh pr create --fill
+```
+*(This automatically sets the title and body of the PR for you).*
+
+**Option 2: From the Browser**
 1. Go to the repository on GitHub: `https://github.com/formsrgukt/RKVALLEY`
 2. You will see a green button that says **"Compare & pull request"** for your newly pushed branch. Click it.
 3. This creates a request to merge your feature branch into the `main` branch. 

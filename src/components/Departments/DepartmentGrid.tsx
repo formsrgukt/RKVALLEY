@@ -21,7 +21,7 @@ export default function DepartmentGrid() {
           <span className="section-tag">Academics & Research</span>
           <h3 className="section-title">Academic Departments</h3>
           <p className="section-subtitle">
-            12 specialized engineering, scientific, and humanities departments fostering world-class technical education.
+            13 specialized engineering, scientific, and humanities departments fostering world-class technical education.
           </p>
         </div>
 

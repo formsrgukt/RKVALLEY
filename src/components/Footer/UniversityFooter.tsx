@@ -50,12 +50,13 @@ export default function UniversityFooter() {
           <h4 className="footer-column-title">Academics</h4>
           <ul className="footer-links-list">
             <li><Link href="/academics">6-Year Integrated B.Tech</Link></li>
-            <li><Link href="/departments/cse">Computer Science & Engg</Link></li>
-            <li><Link href="/departments/ece">Electronics & Communication</Link></li>
+            <li><Link href="/departments/aiml">AI & Machine Learning</Link></li>
+            <li><Link href="/departments/cse">Computer Science & Engineering</Link></li>
+            <li><Link href="/departments/ece">Electronics & Communication Engineering</Link></li>
+            <li><Link href="/departments/eee">Electrical & Electronics Engineering</Link></li>
             <li><Link href="/departments/me">Mechanical Engineering</Link></li>
-            <li><Link href="/departments/eee">Electrical & Electronics</Link></li>
             <li><Link href="/departments/ce">Civil Engineering</Link></li>
-            <li><Link href="/departments">All 12 Departments</Link></li>
+            <li><Link href="/departments">All 13 Departments</Link></li>
           </ul>
         </div>
 
