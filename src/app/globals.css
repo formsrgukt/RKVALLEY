@@ -834,9 +834,9 @@ button {
 }
 
 .hero-content {
-  max-width: 820px;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 .hero-badge {
@@ -943,6 +943,7 @@ button {
 }
 
 .hero-stats-ticker {
+  max-width: 820px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
@@ -16,7 +16,8 @@ export default function HeroSection() {
       title: <>Nurturing <span>Rural Intellect</span> Into World-Class Engineers & Innovators</>,
       subtitle: "Rajiv Gandhi University of Knowledge Technologies (RGUKT) RK Valley provides an immersive 6-year integrated B.Tech residential education empowering gifted rural youth with cutting-edge ICT and technological mastery.",
       action: "Explore RK Valley Campus",
-      link: "/about"
+      link: "/about",
+      align: "left"
     },
     {
       image: "slide-2",
@@ -24,7 +25,8 @@ export default function HeroSection() {
       title: <>About the <span>Ceremony</span></>,
       subtitle: "The RGUKT Convocation is more than a ceremony; it is a celebration of the relentless pursuit of knowledge and the transformation of rural talent into global professionals. Each year, we honor the resilience of our students who have excelled in a unique educational ecosystem.\n\nJoin us as we confer degrees upon the graduating batch, marking the culmination of years of hard work, innovation, and dedication to the vision of Rajiv Gandhi University of Knowledge Technologies.",
       action: "Read More",
-      link: "/about"
+      link: "/about",
+      align: "left"
     },
     {
       image: "slide-3",
@@ -32,7 +34,8 @@ export default function HeroSection() {
       title: <>Prof <span>D Raj Reddy</span></>,
       subtitle: "Prof D Raj Reddy as its founding Chancellor. He is a pioneer in Artificial Intelligence and an esteemed academician who laid the foundation for RGUKT's vision of rural empowerment through world-class technological education.",
       action: "Learn More",
-      link: "/about"
+      link: "/about",
+      align: "right"
     }
   ];
 
@@ -65,7 +68,7 @@ export default function HeroSection() {
         {slides.map((slide, idx) => (
           <div 
             key={idx}
-            className={`hero-bg-slide ${slide.image} ${activeSlide === idx ? 'active' : ''}`}
+            className={hero-bg-slide  }
             style={{
               opacity: activeSlide === idx ? 1 : 0,
               transform: activeSlide === idx ? 'scale(1)' : 'scale(1.05)',
@@ -85,6 +88,12 @@ export default function HeroSection() {
                 key={idx}
                 style={{
                   gridArea: '1 / 1',
+                  maxWidth: '820px',
+                  marginLeft: slide.align === 'right' ? 'auto' : '0',
+                  textAlign: slide.align === 'right' ? 'right' : 'left',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: slide.align === 'right' ? 'flex-end' : 'flex-start',
                   opacity: activeSlide === idx ? 1 : 0,
                   transform: activeSlide === idx ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.97)',
                   filter: activeSlide === idx ? 'blur(0px)' : 'blur(10px)',
