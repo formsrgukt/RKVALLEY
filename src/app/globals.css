@@ -869,7 +869,7 @@ button {
 }
 
 .hero-title span {
-  color: #e63946; /* Vibrant reddish maroon for dark backgrounds */
+  color: var(--accent-gold);
 }
 
 .hero-subtitle {
@@ -959,7 +959,7 @@ button {
 .stat-number {
   font-size: 1.75rem;
   font-weight: 800;
-  color: #e63946;
+  color: var(--accent-gold);
   line-height: 1.1;
   font-family: var(--font-heading);
 }
@@ -2624,3 +2624,51 @@ html { font-size: 16px !important; }
 .about-sidebar-link { display: block; padding: 0.6rem 1rem; color: #475569; text-decoration: none; font-size: 0.95rem; font-weight: 500; border-radius: 6px; transition: all 0.2s ease; margin-bottom: 0.25rem; }
 .about-sidebar-link:hover { background: #f8fafc; color: var(--primary-maroon); transform: translateX(4px); }
 
+/* Departments Marquee */
+.departments-marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 1rem 0;
+}
+.departments-marquee-wrapper::before,
+.departments-marquee-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.departments-marquee-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #ffffff, transparent);
+}
+.departments-marquee-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #ffffff, transparent);
+}
+.departments-marquee-track {
+  display: flex;
+  width: max-content;
+  /* animation duration set via inline style based on items */
+  animation: scrollTrack 60s linear infinite;
+}
+.departments-marquee-track:hover {
+  animation-play-state: paused;
+}
+.marquee-content {
+  display: flex;
+  gap: 1.5rem;
+  padding-right: 1.5rem;
+}
+.marquee-content .department-card {
+  width: 380px;
+  flex-shrink: 0;
+  margin: 0;
+}
+@keyframes scrollTrack {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-25%); }
+}
