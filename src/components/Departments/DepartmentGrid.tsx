@@ -59,17 +59,7 @@ export default function DepartmentGrid() {
           </p>
         </div>
 
-        <div className="dept-filter-tabs">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`dept-filter-btn ${selectedCategory === cat ? "active" : ""}`}
-            >
-              {cat === "All" ? "All Departments" : cat === "Engineering" ? "Engineering Streams" : cat === "Sciences" ? "Basic Sciences" : "Humanities & Management"}
-            </button>
-          ))}
-        </div>
+
 
         <div className="departments-marquee-wrapper">
           <div className="departments-marquee-track" style={{ animationDuration: `${animationDuration}s` }}>
