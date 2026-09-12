@@ -107,16 +107,7 @@ export default function HomePage() {
           </div>
 
           {/* 5. Campus Video Tour (Merged) */}
-          <div className="section-header" style={{ textAlign: "center", justifyContent: "center", display: "flex", flexDirection: "column", alignItems: "center", marginTop: "4rem" }}>
-            <div style={{ maxWidth: "800px" }}>
-              <span className="section-tag" style={{ justifyContent: "center" }}>Campus Life</span>
-              <h3 className="section-title">Experience RGUKT RK Valley</h3>
-              <p className="section-subtitle" style={{ margin: "0 auto" }}>
-                Take a glimpse into the vibrant academic environment, world-class infrastructure, and lush green campus.
-              </p>
-            </div>
-          </div>
-          <div style={{ maxWidth: "960px", margin: "2rem auto 0", borderRadius: "16px", overflow: "hidden", boxShadow: "var(--shadow-xl)", aspectRatio: "16/9", background: "#000" }}>
+          <div style={{ maxWidth: "960px", margin: "4rem auto 0", borderRadius: "16px", overflow: "hidden", boxShadow: "var(--shadow-xl)", aspectRatio: "16/9", background: "#000" }}>
             <iframe 
               width="100%" 
               height="100%" 
