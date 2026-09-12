@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -24,7 +24,7 @@ export default function ImportantNews() {
           <div className="news-ticker-track">
             {/* Duplicated for seamless loop */}
             {[...newsItems, ...newsItems].map((news, idx) => (
-              <div key={\-\} className="news-ticker-item">
+              <div key={`${news.id}-${idx}`} className="news-ticker-item">
                 <span className="news-ticker-date">{news.date}</span>
                 <span className="news-ticker-divider">|</span>
                 <a href="#" className="news-ticker-link">
