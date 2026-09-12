@@ -27,8 +27,8 @@ export default function MainHeader() {
           <div className="brand-text">
             <h1 className="brand-main-title">
               {lang === "te"
-                ? "రాజీవ్ గాంధీ వైజ్ఞానిక సాంకేతిక విశ్వవిద్యాలయం, ఆర్కే వ్యాలీ"
-                : "RAJIV GANDHI UNIVERSITY OF KNOWLEDGE TECHNOLOGIES, RKVALLEY"}
+                ? "రాజీవ్ గాంధీ వైజ్ఞానిక సాంకేతిక విశ్వవిద్యాలయం - ఆర్కే వ్యాలీ"
+                : "RAJIV GANDHI UNIVERSITY OF KNOWLEDGE TECHNOLOGIES - R.K.VALLEY"}
             </h1>
             <p className="brand-sub-act">
               {lang === "te"
