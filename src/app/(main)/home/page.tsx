@@ -1,10 +1,11 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
 import HeroSection from "@/components/Hero/HeroSection";
 import QuickAccessGrid from "@/components/Hero/QuickAccessGrid";
 import NoticeBoard from "@/components/Notices/NoticeBoard";
+import ImportantNews from "@/components/Notices/ImportantNews";
 
 import DepartmentGrid from "@/components/Departments/DepartmentGrid";
 import PlacementSection from "@/components/Placements/PlacementSection";
@@ -19,6 +20,9 @@ export default function HomePage() {
     <>
       {/* 1. Hero Section */}
       <HeroSection />
+
+      {/* Important News Ticker */}
+      <ImportantNews />
 
       {/* 2. Quick Access Command Grid */}
       <QuickAccessGrid />
@@ -95,7 +99,7 @@ export default function HomePage() {
               </div>
 
               <Link href="/about" className="btn btn-primary" style={{ marginTop: "1rem" }}>
-                Learn More About RGUKT Paradigm →
+                Learn More About RGUKT Paradigm â†’
               </Link>
             </div>
 
@@ -139,7 +143,7 @@ export default function HomePage() {
               </p>
             </div>
             <Link href="/students" className="btn btn-primary" style={{ fontSize: "0.85rem" }}>
-              Explore Campus Life →
+              Explore Campus Life â†’
             </Link>
           </div>
 
@@ -194,7 +198,7 @@ export default function HomePage() {
               </p>
             </div>
             <Link href="/tenders" className="btn btn-outline" style={{ fontSize: "0.85rem" }}>
-              View All Tenders →
+              View All Tenders â†’
             </Link>
           </div>
 
@@ -417,3 +421,4 @@ export default function HomePage() {
     </>
   );
 }
+

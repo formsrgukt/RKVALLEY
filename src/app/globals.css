@@ -2672,3 +2672,94 @@ html { font-size: 16px !important; }
   0% { transform: translateX(0); }
   100% { transform: translateX(-25%); }
 }
+/* Important News Ticker */
+.important-news-bar {
+  background-color: var(--primary-maroon);
+  color: white;
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+}
+.important-news-bar .container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.news-badge {
+  background-color: var(--accent-gold);
+  color: var(--primary-maroon);
+  padding: 0 1.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+}
+.news-ticker-container {
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  /* mask-image causes syntax error in some setups, let's omit it for safety or use webkit prefix */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+}
+.news-ticker-track {
+  display: flex;
+  height: 100%;
+  width: max-content;
+  align-items: center;
+  animation: newsTicker 40s linear infinite;
+}
+.news-ticker-track:hover {
+  animation-play-state: paused;
+}
+.news-ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 2.5rem;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+.news-ticker-date {
+  color: var(--accent-gold);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.news-ticker-divider {
+  color: rgba(255,255,255,0.3);
+}
+.news-ticker-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.news-ticker-link:hover {
+  text-decoration: underline;
+  color: var(--accent-gold);
+}
+.news-ticker-new {
+  background-color: #ef4444;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}
+@keyframes newsTicker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
