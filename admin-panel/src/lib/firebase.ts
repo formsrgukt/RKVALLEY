@@ -1,5 +1,6 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAnalytics, isSupported } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -15,6 +16,9 @@ const firebaseConfig = {
 // Initialize Firebase securely (avoiding double initialization)
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
+// Initialize Firestore
+const db = getFirestore(app);
+
 // Initialize Analytics only on the client side
 let analytics;
 if (typeof window !== "undefined") {
@@ -25,4 +29,4 @@ if (typeof window !== "undefined") {
   });
 }
 
-export { app, analytics };
+export { app, db, analytics };
