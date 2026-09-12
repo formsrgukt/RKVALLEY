@@ -33,7 +33,7 @@ export default function NoticeBoard() {
         <div className="section-header">
           <div>
             <span className="section-tag">Official Circulars</span>
-            <h3 className="section-title">Latest News & Notice Board</h3>
+            <h3 className="section-title">Notice Board</h3>
             <p className="section-subtitle">
               Real-time academic circulars, exam notifications, admissions announcements, and procurement notices.
             </p>
