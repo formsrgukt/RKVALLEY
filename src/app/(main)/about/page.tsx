@@ -106,7 +106,7 @@ export default function AboutPage() {
               alt="RGUKT Campus" 
               width={1200} 
               height={500} 
-              style={{ width: "100%", height: "auto", borderRadius: "12px", marginBottom: "2rem", boxShadow: "0 8px 24px rgba(0,0,0,0.08)", objectFit: "cover" }} 
+              style={{ width: "100%", maxWidth: "800px", height: "auto", display: "block", margin: "0 auto 2.5rem auto", borderRadius: "12px", boxShadow: "0 8px 24px rgba(0,0,0,0.08)", objectFit: "cover" }} 
             />
 
             <div style={sectionStyle} id="educational-objectives">
