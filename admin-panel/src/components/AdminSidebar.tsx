@@ -28,7 +28,7 @@ export default function AdminSidebar() {
             <Link 
               key={item.name} 
               href={item.path}
-              className={px-4 py-3 rounded-lg text-sm transition-all font-medium }
+              className={"" + "px-4 py-3 rounded-lg text-sm transition-all font-medium " + (isActive ? "bg-red-50 text-red-700 border-l-4 border-red-700" : "text-slate-600 hover:bg-slate-50 hover:text-red-700 border-l-4 border-transparent")}
             >
               {item.name}
             </Link>
