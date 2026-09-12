@@ -8,7 +8,7 @@ import InlineSearch from "./InlineSearch";
 
 export default function StickyNavbar() {
   const pathname = usePathname();
-  const { openSearch, openMobileDrawer, openGpaModal } = useApp();
+  const { openSearch, openMobileDrawer, openGpaModal, lang, toggleLang } = useApp();
   const [pinnedDropdown, setPinnedDropdown] = useState<string | null>(null);
   const navRef = useRef<HTMLUListElement>(null);
 
@@ -227,6 +227,10 @@ export default function StickyNavbar() {
 
         <div className="nav-actions-right">
           <InlineSearch />
+
+          <button onClick={toggleLang} className="btn-mobile-lang" aria-label="Toggle Language">
+            {lang === "en" ? "తెలుగు" : "EN"}
+          </button>
 
           <button onClick={openMobileDrawer} className="btn-mobile-toggle" aria-label="Open Mobile Menu">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
