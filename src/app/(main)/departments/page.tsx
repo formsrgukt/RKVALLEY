@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import ExploreSidebar from "@/components/Common/ExploreSidebar";
 import { RGUKT_DATA } from "@/data/rguktData";
 
 export const metadata = {
@@ -15,15 +16,7 @@ export default function DepartmentsPage() {
 
       <div className="container">
         <div className="page-content-layout">
-          <aside className="page-sidebar" aria-label="Section Navigation">
-            <h4 className="sidebar-menu-title">Explore Section</h4>
-            <ul className="sidebar-nav-list">
-              <li><Link href="/departments" className="sidebar-link active">All Departments</Link></li>
-              <li><Link href="/curriculum" className="sidebar-link">Curriculum & Syllabus</Link></li>
-              <li><Link href="/research" className="sidebar-link">Research Centers</Link></li>
-              <li><Link href="/admissions" className="sidebar-link">Admissions</Link></li>
-            </ul>
-          </aside>
+          <ExploreSidebar activeSection="departments" />
 
           <article className="page-main-body">
             <h3>Explore Academic & Engineering Departments</h3>
@@ -31,8 +24,11 @@ export default function DepartmentsPage() {
               Discover our 13 specialized departments equipped with state-of-the-art laboratories, experienced faculty, and industry-aligned curricula.
             </p>
 
-            <div className="academic-two-col-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "1.25rem", marginBottom: "2rem" }}>
-              {RGUKT_DATA.departments.map((d, idx) => {
+            {(() => {
+              const engineeringDepts = RGUKT_DATA.departments.filter((d) => d.category === "Engineering");
+              const sciencesDepts = RGUKT_DATA.departments.filter((d) => d.category !== "Engineering");
+
+              const renderDeptCard = (d: (typeof RGUKT_DATA.departments)[0], idx: number) => {
                 const isYellow = idx % 2 === 1;
                 const accentBorder = isYellow ? "4px solid var(--accent-gold)" : "4px solid var(--accent-royal)";
                 const titleColor = isYellow ? "var(--accent-gold-dark)" : "var(--accent-royal)";
@@ -120,8 +116,42 @@ export default function DepartmentsPage() {
                     </div>
                   </div>
                 );
-              })}
-            </div>
+              };
+
+              return (
+                <div>
+                  {/* Engineering Departments Section */}
+                  <div id="engineering" style={{ scrollMarginTop: "110px", marginBottom: "2.5rem" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+                      <h4 style={{ color: "var(--primary-dark)", margin: 0 }}>
+                        Engineering Departments (8 Disciplines)
+                      </h4>
+                      <span style={{ fontSize: "0.82rem", color: "#64748b" }}>
+                        B.Tech Degree Programs
+                      </span>
+                    </div>
+                    <div className="academic-two-col-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "1.25rem" }}>
+                      {engineeringDepts.map((d, idx) => renderDeptCard(d, idx))}
+                    </div>
+                  </div>
+
+                  {/* Sciences & Humanities Departments Section */}
+                  <div id="sciences" style={{ scrollMarginTop: "110px", marginBottom: "2.5rem" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+                      <h4 style={{ color: "var(--primary-dark)", margin: 0 }}>
+                        Sciences &amp; Humanities Departments (5 Disciplines)
+                      </h4>
+                      <span style={{ fontSize: "0.82rem", color: "#64748b" }}>
+                        Foundation &amp; Allied Studies
+                      </span>
+                    </div>
+                    <div className="academic-two-col-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "1.25rem" }}>
+                      {sciencesDepts.map((d, idx) => renderDeptCard(d, idx))}
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
           </article>
         </div>
       </div>

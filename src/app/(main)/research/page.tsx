@@ -40,7 +40,7 @@ export default function ResearchPage() {
               Faculty and research scholars have secured competitive grants from the Department of Science & Technology (DST), Science and Engineering Research Board (SERB), AP Pollution Control Board, and AICTE.
             </p>
 
-            <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "10px", padding: "1.25rem", borderLeft: "4px solid var(--accent-gold)" }}>
+            <div style={{ background: "#f8fafc", borderTop: "1px solid #e2e8f0", borderRight: "1px solid #e2e8f0", borderBottom: "1px solid #e2e8f0", borderLeft: "4px solid var(--accent-gold)", borderRadius: "10px", padding: "1.25rem" }}>
               <h5 style={{ color: "var(--primary-dark)", fontWeight: 700, fontSize: "1.05rem" }}>Student Incubation & Innovation Hub (SIIH)</h5>
               <p style={{ fontSize: "0.88rem", color: "#64748b", marginTop: "0.35rem" }}>
                 Providing seed funding, mentoring, and patent filing assistance for promising student technology startups and intellectual property creations.

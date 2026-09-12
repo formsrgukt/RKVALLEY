@@ -98,29 +98,40 @@ export default function StickyNavbar() {
                   <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
               </Link>
-              <div className="dropdown-menu mega-menu">
-                <div>
-                  <div className="mega-column-title">Programs & Structure</div>
-                  <ul className="mega-menu-list">
-                    <li><Link href="/academics" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>6-Year Integrated B.Tech</Link></li>
-                    <li><Link href="/academics" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Pre-University Course (PUC)</Link></li>
-                    <li><Link href="/academics" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Engineering Disciplines (E1 - E4)</Link></li>
-                    <li><Link href="/academics" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Postgraduate & Ph.D. Studies</Link></li>
-                  </ul>
-                </div>
-                <div>
-                  <div className="mega-column-title">Regulations & Tools</div>
-                  <ul className="mega-menu-list">
-                    <li><Link href="/academics" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Academic Regulations 2026</Link></li>
-                    <li><Link href="/academics" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Academic Calendar 2026-27</Link></li>
-                    <li>
-                      <button onClick={() => { openGpaModal(); setPinnedDropdown(null); }} className="dropdown-link" style={{ width: "100%", textAlign: "left" }}>
-                        RGUKT CGPA / SGPA Calculator
-                      </button>
-                    </li>
-                    <li><Link href="/curriculum" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Curricula & Syllabus</Link></li>
-                  </ul>
-                </div>
+              <div className="dropdown-menu" style={{ minWidth: "310px", padding: "0.5rem" }}>
+                <Link href="/academics" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                  6-Year Integrated B.Tech
+                </Link>
+                <Link href="/academics#audit" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                  Academic Audit Reports
+                </Link>
+                <Link href="/academics#council" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                  Minutes of Academic Council Meetings
+                </Link>
+                <Link href="/academics#ethics" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                  Faculty Ethics
+                </Link>
+                <Link href="/academics#programs" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                  Academic Programmes
+                </Link>
+                <Link href="/academics#regulations" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                  Academic Regulations
+                </Link>
+                <Link href="/academics#calendar" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                  Academic Calendar
+                </Link>
+                <Link href="/curriculum" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                  Curricula
+                </Link>
+                <Link href="/departments" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                  Departments
+                </Link>
+                <Link href="/examinations#timetable" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                  Time Table
+                </Link>
+                <Link href="/examinations" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                  Examinations
+                </Link>
               </div>
             </li>
 

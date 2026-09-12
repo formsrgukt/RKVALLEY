@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import ExploreSidebar from "@/components/Common/ExploreSidebar";
 import { RGUKT_DATA } from "@/data/rguktData";
 import { useApp } from "@/context/AppContext";
 
@@ -15,15 +16,7 @@ export default function ExaminationsPage() {
 
       <div className="container">
         <div className="page-content-layout">
-          <aside className="page-sidebar" aria-label="Section Navigation">
-            <h4 className="sidebar-menu-title">Explore Section</h4>
-            <ul className="sidebar-nav-list">
-              <li><Link href="/examinations" className="sidebar-link active">Exam Regulations & Grading</Link></li>
-              <li><Link href="/academics" className="sidebar-link">Academic Calendars</Link></li>
-              <li><Link href="/tenders" className="sidebar-link">Examination Circulars</Link></li>
-              <li><Link href="/admissions" className="sidebar-link">Admissions</Link></li>
-            </ul>
-          </aside>
+          <ExploreSidebar activeSection="examinations" />
 
           <article className="page-main-body">
             <h3>Examination Cell & Evaluation System</h3>
@@ -33,7 +26,7 @@ export default function ExaminationsPage() {
 
             {/* Academic Evaluation Scheme Comparison */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem", marginBottom: "1.5rem" }}>
-              <div style={{ background: "#ffffff", border: "1px solid #fecdd3", borderLeft: "4px solid var(--accent-royal)", borderRadius: "8px", padding: "1rem" }}>
+              <div style={{ background: "#ffffff", borderTop: "1px solid #fecdd3", borderRight: "1px solid #fecdd3", borderBottom: "1px solid #fecdd3", borderLeft: "4px solid var(--accent-royal)", borderRadius: "8px", padding: "1rem" }}>
                 <h5 style={{ color: "var(--accent-royal)", margin: "0 0 0.35rem 0", fontWeight: 700, fontSize: "0.95rem" }}>
                   Pre-University Course (PUC I &amp; PUC II)
                 </h5>
@@ -42,7 +35,7 @@ export default function ExaminationsPage() {
                 </p>
               </div>
 
-              <div style={{ background: "#ffffff", border: "1px solid #fde68a", borderLeft: "4px solid var(--accent-gold)", borderRadius: "8px", padding: "1rem" }}>
+              <div style={{ background: "#ffffff", borderTop: "1px solid #fde68a", borderRight: "1px solid #fde68a", borderBottom: "1px solid #fde68a", borderLeft: "4px solid var(--accent-gold)", borderRadius: "8px", padding: "1rem" }}>
                 <h5 style={{ color: "var(--accent-gold-dark)", margin: "0 0 0.35rem 0", fontWeight: 700, fontSize: "0.95rem" }}>
                   Engineering Program (E1 to E4)
                 </h5>

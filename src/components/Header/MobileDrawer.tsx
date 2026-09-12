@@ -78,18 +78,17 @@ export default function MobileDrawer() {
                 <span>{openAccordions["acad"] ? "−" : "+"}</span>
               </button>
               <ul className={`drawer-submenu ${openAccordions["acad"] ? "open" : ""}`}>
-                <li><Link href="/academics" className="drawer-sublink" onClick={closeMobileDrawer}>6-Year B.Tech Program</Link></li>
-                <li><Link href="/curriculum" className="drawer-sublink" onClick={closeMobileDrawer}>Curriculum & Syllabus</Link></li>
-                <li><Link href="/examinations" className="drawer-sublink" onClick={closeMobileDrawer}>Examinations & Grading</Link></li>
-                <li>
-                  <button
-                    onClick={() => { closeMobileDrawer(); openGpaModal(); }}
-                    className="drawer-sublink"
-                    style={{ textAlign: "left", width: "100%" }}
-                  >
-                    CGPA Calculator
-                  </button>
-                </li>
+                <li><Link href="/academics" className="drawer-sublink" onClick={closeMobileDrawer}>6-Year Integrated B.Tech</Link></li>
+                <li><Link href="/academics#audit" className="drawer-sublink" onClick={closeMobileDrawer}>Academic Audit Reports</Link></li>
+                <li><Link href="/academics#council" className="drawer-sublink" onClick={closeMobileDrawer}>Minutes of Academic Council Meetings</Link></li>
+                <li><Link href="/academics#ethics" className="drawer-sublink" onClick={closeMobileDrawer}>Faculty Ethics</Link></li>
+                <li><Link href="/academics#programs" className="drawer-sublink" onClick={closeMobileDrawer}>Academic Programmes</Link></li>
+                <li><Link href="/academics#regulations" className="drawer-sublink" onClick={closeMobileDrawer}>Academic Regulations</Link></li>
+                <li><Link href="/academics#calendar" className="drawer-sublink" onClick={closeMobileDrawer}>Academic Calendar</Link></li>
+                <li><Link href="/curriculum" className="drawer-sublink" onClick={closeMobileDrawer}>Curricula</Link></li>
+                <li><Link href="/departments" className="drawer-sublink" onClick={closeMobileDrawer}>Departments</Link></li>
+                <li><Link href="/examinations#timetable" className="drawer-sublink" onClick={closeMobileDrawer}>Time Table</Link></li>
+                <li><Link href="/examinations" className="drawer-sublink" onClick={closeMobileDrawer}>Examinations</Link></li>
               </ul>
             </li>
 

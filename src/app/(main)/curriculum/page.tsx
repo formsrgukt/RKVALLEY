@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import ExploreSidebar from "@/components/Common/ExploreSidebar";
 import { RGUKT_DATA } from "@/data/rguktData";
 import { useApp } from "@/context/AppContext";
 
@@ -118,17 +119,8 @@ export default function CurriculumPage() {
 
       <div className="container">
         <div className="page-content-layout">
-          {/* Sidebar */}
-          <aside className="page-sidebar" aria-label="Section Navigation">
-            <h4 className="sidebar-menu-title">Explore Section</h4>
-            <ul className="sidebar-nav-list">
-              <li><Link href="/curriculum" className="sidebar-link active">Curriculum & Syllabus</Link></li>
-              <li><Link href="/departments" className="sidebar-link">All Departments</Link></li>
-              <li><Link href="/academics" className="sidebar-link">6-Year B.Tech Overview</Link></li>
-              <li><Link href="/examinations" className="sidebar-link">Grading & Exam Regulations</Link></li>
-              <li><Link href="/admissions" className="sidebar-link">Admissions Guidelines</Link></li>
-            </ul>
-          </aside>
+          {/* Sidebar with interactive mouseover flyout */}
+          <ExploreSidebar activeSection="curriculum" />
 
           {/* Main Content */}
           <article className="page-main-body">
@@ -163,7 +155,7 @@ export default function CurriculumPage() {
 
             {/* SECTION 1: PUC SYLLABUS */}
             {(activeFilter === "All" || activeFilter === "PUC") && (
-              <div style={{ marginBottom: "2.5rem" }}>
+              <div id="puc" style={{ marginBottom: "2.5rem", scrollMarginTop: "110px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
                   <h4 style={{ color: "var(--primary-dark)", margin: 0 }}>
                     Pre-University Course (PUC I &amp; PUC II) Curriculum
@@ -260,7 +252,7 @@ export default function CurriculumPage() {
 
             {/* SECTION 2: ENGINEERING DISCIPLINES (E1 - E4) SYLLABI */}
             {(activeFilter === "All" || activeFilter === "Engineering") && (
-              <div style={{ marginBottom: "2.5rem" }}>
+              <div id="engineering" style={{ marginBottom: "2.5rem", scrollMarginTop: "110px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
                   <h4 style={{ color: "var(--primary-dark)", margin: 0 }}>
                     4-Year B.Tech Engineering Curricula (E1 to E4)

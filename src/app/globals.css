@@ -441,7 +441,7 @@ button {
 .sticky-nav-container {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 2000;
   background: rgba(90, 0, 18, 0.82); /* Sleek translucent dark maroon */
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -2144,6 +2144,7 @@ button {
   grid-template-columns: 280px 1fr;
   gap: 2.5rem;
   align-items: start;
+  position: relative;
 }
 
 .academic-two-col-grid {
@@ -2168,8 +2169,9 @@ button {
   position: sticky;
   top: 90px;
   max-height: calc(100vh - 110px);
-  overflow-y: auto;
+  overflow: visible;
   align-self: start;
+  z-index: 900;
 }
 
 .sidebar-menu-title {
@@ -2200,7 +2202,10 @@ button {
   font-weight: 600;
   color: #475569;
   text-decoration: none;
-  border: 1px solid transparent;
+  border-top: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-left: 3px solid transparent;
   transition: all var(--transition-fast);
 }
 
@@ -2215,9 +2220,194 @@ button.sidebar-link {
 .sidebar-link.active, .sidebar-link:hover {
   background: #ffffff;
   color: var(--primary-maroon);
-  border: 1px solid #e2e8f0;
+  border-top: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  border-left: 3px solid var(--primary-maroon);
   box-shadow: 0 2px 4px rgba(0,0,0,0.02);
   transform: translateX(4px);
+}
+
+/* EXPLORE SIDEBAR FLYOUT ITEM LINK */
+.flyout-item-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.45rem 0.65rem;
+  border-radius: 6px;
+  text-decoration: none;
+  background: #ffffff;
+  border-top: 1px solid #f1f5f9;
+  border-right: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+  border-left: 3px solid transparent;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #334155;
+  transition: all 0.15s ease;
+}
+
+.flyout-item-link:hover {
+  background: #fdf2f4;
+  border-top-color: #fecdd3;
+  border-right-color: #fecdd3;
+  border-bottom-color: #fecdd3;
+  border-left: 3px solid var(--primary-maroon);
+  color: var(--primary-maroon);
+  transform: translateX(3px);
+}
+
+/* ACADEMICS PAGE ARCHITECTURE & GATEWAY STYLES */
+.academic-section-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.academic-phase-card {
+  background: #ffffff;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.academic-phase-card.phase-puc {
+  border-left: 4px solid var(--accent-royal);
+}
+
+.academic-phase-card.phase-btech {
+  border-left: 4px solid var(--accent-gold);
+}
+
+.academic-progression-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.9rem;
+}
+
+.academic-gateway-container {
+  background: #fdf2f4;
+  border: 1px solid #fecdd3;
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.academic-gateway-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 0.75rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+
+.academic-gateway-card:hover {
+  border-color: var(--primary-maroon);
+  transform: translateY(-2px);
+}
+
+/* PUC Detailed Cards */
+.academic-puc-card {
+  background: #ffffff;
+  padding: 1.35rem;
+  border-radius: 8px;
+  border-top: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+.academic-puc-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  border-top-color: #cbd5e1;
+  border-right-color: #cbd5e1;
+  border-bottom-color: #cbd5e1;
+}
+.academic-puc-card.card-puc1 {
+  border-left: 4px solid var(--accent-royal);
+}
+.academic-puc-card.card-puc2 {
+  border-left: 4px solid var(--accent-gold);
+}
+
+/* Engineering Department Cards */
+.academic-dept-card {
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+.academic-dept-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-top-color: #cbd5e1;
+  border-right-color: #cbd5e1;
+  border-bottom-color: #cbd5e1;
+}
+.academic-dept-card.card-royal {
+  border-left: 4px solid var(--accent-royal);
+}
+.academic-dept-card.card-gold {
+  border-left: 4px solid var(--accent-gold);
+}
+
+/* EXPLORE SIDEBAR FLYOUT SUB-SECTIONS */
+@keyframes flyoutFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-8px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.desktop-sidebar-flyout {
+  display: block;
+  z-index: 99999 !important;
+  background: #ffffff !important;
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.08) !important;
+}
+
+@media (max-width: 991px) {
+  .desktop-sidebar-flyout {
+    display: none !important;
+  }
+}
+
+.flyout-scroll-container::-webkit-scrollbar {
+  width: 5px;
+}
+.flyout-scroll-container::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+.flyout-scroll-container::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.flyout-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-maroon);
 }
 
 .page-main-body {
@@ -2226,6 +2416,8 @@ button.sidebar-link {
   border-radius: var(--radius-lg);
   padding: 2.25rem;
   box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 1;
 }
 
 /* MODALS */

@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import ExploreSidebar from "@/components/Common/ExploreSidebar";
 import { RGUKT_DATA } from "@/data/rguktData";
 import { useApp } from "@/context/AppContext";
 
@@ -15,15 +16,7 @@ export default function AdmissionsPage() {
 
       <div className="container">
         <div className="page-content-layout">
-          <aside className="page-sidebar" aria-label="Section Navigation">
-            <h4 className="sidebar-menu-title">Explore Section</h4>
-            <ul className="sidebar-nav-list">
-              <li><Link href="/admissions" className="sidebar-link active">Admission Guidelines</Link></li>
-              <li><Link href="/academics" className="sidebar-link">6-Year B.Tech Program</Link></li>
-              <li><Link href="/departments" className="sidebar-link">Engineering Branches</Link></li>
-              <li><Link href="/contact" className="sidebar-link">Admissions Helpdesk</Link></li>
-            </ul>
-          </aside>
+          <ExploreSidebar activeSection="admissions" />
 
           <article className="page-main-body">
             <div style={{ background: "linear-gradient(135deg, #680015 0%, #4a000f 100%)", color: "#fff", padding: "2rem", borderRadius: "12px", marginBottom: "2rem" }}>

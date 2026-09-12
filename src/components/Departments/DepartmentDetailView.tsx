@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Department } from "@/data/rguktData";
@@ -39,6 +39,22 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [staffSearchQuery, setStaffSearchQuery] = useState<string>("");
   const [selectedFaculty, setSelectedFaculty] = useState<FacultyProfile | null>(null);
+  const [hoveredDeptSection, setHoveredDeptSection] = useState<string | null>(null);
+  const deptCloseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleDeptMouseEnter = (id: string) => {
+    if (deptCloseTimeoutRef.current) {
+      clearTimeout(deptCloseTimeoutRef.current);
+      deptCloseTimeoutRef.current = null;
+    }
+    setHoveredDeptSection(id);
+  };
+
+  const handleDeptMouseLeave = () => {
+    deptCloseTimeoutRef.current = setTimeout(() => {
+      setHoveredDeptSection(null);
+    }, 180);
+  };
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
@@ -276,26 +292,163 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
     );
   });
 
+  const getDeptSubSections = (sectionId: string) => {
+    switch (sectionId) {
+      case "curricula":
+        return [
+          { title: "E1 First Year Engineering", badge: "Semester 1 & 2", desc: "Foundational engineering mathematics, physics & computing." },
+          { title: "E2 Second Year Engineering", badge: "Core Branch", desc: "Core departmental subjects, professional theory & labs." },
+          { title: "E3 Third Year Engineering", badge: "Electives", desc: "Advanced branch specializations & mini projects." },
+          { title: "E4 Fourth Year Engineering", badge: "Capstone", desc: "Major project, industrial internship & research thesis." },
+          { title: "Download Syllabus Handbook", badge: "PDF", desc: `Official verified ${dept.name} curriculum handbook.` }
+        ];
+      case "faculty":
+        return [
+          { title: "HOD Executive Profile", badge: "Leadership", desc: `${dept.hod} • Head of Department` },
+          { title: "Core Faculty Directory", badge: "Distinguished", desc: "Professors, research supervisors & specialized lecturers." },
+          { title: "Research Areas & Publications", badge: "Research", desc: "Departmental research initiatives, patents & grants." }
+        ];
+      case "staff":
+        return [
+          { title: "Technical Staff", badge: "Laboratories", desc: "Specialized lab technicians & system administrators." },
+          { title: "Administrative Staff", badge: "Office", desc: "Department coordinators & academic office staff." }
+        ];
+      case "bos":
+        return [
+          { title: "Board of Studies Committee", badge: "Academic Council", desc: "Internal department faculty & curriculum heads." },
+          { title: "External Industry Advisors", badge: "Industry & Academia", desc: "Advisors from IITs, NITs, and top tech industry." }
+        ];
+      case "labs":
+        return [
+          { title: "Department Laboratories", badge: `${dept.labs?.length || 4} Facilities`, desc: "Modern practical laboratories & computational equipment." },
+          { title: "Specialized R&D Centers", badge: "Innovation", desc: "Research centers for advanced engineering projects." }
+        ];
+      case "contact":
+        return [
+          { title: "Department Office & Helpdesk", badge: "Main Campus", desc: "Academic inquiry, student affairs & consultation." },
+          { title: "HOD Office Contact", badge: "Direct", desc: `hod.${dept.id}@rgukt.ac.in • Intercom 2401` }
+        ];
+      default:
+        return [];
+    }
+  };
+
   return (
     <div className="container" style={{ paddingBottom: "3rem" }}>
       <div className="page-content-layout">
         {/* Standard Page Sidebar used across all pages */}
-        <aside className="page-sidebar" aria-label="Department Navigation">
-          <h4 className="sidebar-menu-title">
-            Dept of {dept.name}
+        <aside className="page-sidebar" aria-label="Department Navigation" style={{ overflow: "visible", position: "sticky", top: "90px", zIndex: 900 }}>
+          <h4 className="sidebar-menu-title" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <span>Dept of {dept.name}</span>
+            <span style={{ fontSize: "0.68rem", fontWeight: 600, color: "var(--accent-gold-dark)", textTransform: "none" }}>Hover</span>
           </h4>
 
-          <ul className="sidebar-nav-list">
+          <ul className="sidebar-nav-list" style={{ position: "relative" }}>
             {DEPARTMENT_SECTIONS.map((item) => {
               const isActive = (activeSection || "faculty") === item.id;
+              const isHovered = hoveredDeptSection === item.id;
+              const subSections = getDeptSubSections(item.id);
+
               return (
-                <li key={item.id}>
+                <li
+                  key={item.id}
+                  style={{ position: "relative" }}
+                  onMouseEnter={() => handleDeptMouseEnter(item.id)}
+                  onMouseLeave={handleDeptMouseLeave}
+                >
                   <Link
                     href={`/departments/${dept.id}/${item.id}`}
                     className={`sidebar-link ${isActive ? "active" : ""}`}
+                    style={{
+                      display: "block",
+                      borderLeft: isActive
+                        ? "3px solid var(--primary-maroon)"
+                        : isHovered
+                        ? "3px solid var(--accent-gold)"
+                        : "3px solid transparent",
+                      background: isHovered && !isActive ? "#f8fafc" : undefined
+                    }}
                   >
                     {item.label}
                   </Link>
+
+                  {/* Flyout Side Bar on Mouseover */}
+                  {isHovered && subSections.length > 0 && (
+                    <div
+                      className="desktop-sidebar-flyout"
+                      onMouseEnter={() => handleDeptMouseEnter(item.id)}
+                      onMouseLeave={handleDeptMouseLeave}
+                      style={{
+                        position: "absolute",
+                        left: "calc(100% + 12px)",
+                        top: "0px",
+                        width: "310px",
+                        background: "#ffffff",
+                        borderRadius: "10px",
+                        border: "1px solid #e2e8f0",
+                        borderLeft: "4px solid var(--primary-maroon)",
+                        boxShadow: "0 20px 40px -6px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(0, 0, 0, 0.05)",
+                        zIndex: 99999,
+                        padding: "0.9rem 1rem",
+                        animation: "flyoutFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards"
+                      }}
+                    >
+                      {/* Invisible Hover Bridge */}
+                      <div
+                        style={{
+                          position: "absolute",
+                          left: "-16px",
+                          top: 0,
+                          width: "18px",
+                          height: "100%",
+                          background: "transparent"
+                        }}
+                      />
+
+                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingBottom: "0.5rem", borderBottom: "1px solid #f1f5f9", marginBottom: "0.65rem" }}>
+                        <span style={{ fontWeight: 800, fontSize: "0.9rem", color: "var(--primary-maroon)" }}>
+                          {item.label} Sub-sections
+                        </span>
+                        <Link
+                          href={`/departments/${dept.id}/${item.id}`}
+                          style={{ fontSize: "0.7rem", fontWeight: 700, color: "var(--accent-royal)", textDecoration: "none" }}
+                        >
+                          View Section →
+                        </Link>
+                      </div>
+
+                      <div style={{ display: "flex", flexDirection: "column", gap: "0.3rem" }}>
+                        {subSections.map((sub, sIdx) => (
+                          <div
+                            key={sIdx}
+                            style={{
+                              padding: "0.4rem 0.55rem",
+                              borderRadius: "6px",
+                              background: "#ffffff",
+                              border: "1px solid #f1f5f9",
+                              transition: "all 0.15s ease"
+                            }}
+                          >
+                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: sub.desc ? "0.15rem" : 0 }}>
+                              <span style={{ fontSize: "0.82rem", fontWeight: 700, color: "var(--primary-dark)" }}>
+                                {sub.title}
+                              </span>
+                              {sub.badge && (
+                                <span style={{ fontSize: "0.65rem", fontWeight: 700, color: "#b45309", background: "#fef3c7", padding: "0.08rem 0.35rem", borderRadius: "3px" }}>
+                                  {sub.badge}
+                                </span>
+                              )}
+                            </div>
+                            {sub.desc && (
+                              <p style={{ margin: 0, fontSize: "0.72rem", color: "#64748b", lineHeight: 1.35 }}>
+                                {sub.desc}
+                              </p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </li>
               );
             })}
@@ -397,7 +550,9 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                 <div
                   style={{
                     background: "linear-gradient(135deg, #ffffff 0%, #fdf6f7 100%)",
-                    border: "1px solid #f2cfd5",
+                    borderTop: "1px solid #f2cfd5",
+                    borderRight: "1px solid #f2cfd5",
+                    borderBottom: "1px solid #f2cfd5",
                     borderLeft: "5px solid var(--primary-maroon)",
                     borderRadius: "10px",
                     padding: "1.5rem",
@@ -510,7 +665,9 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                   const theme = isYellow
                     ? {
                         cardBg: "linear-gradient(135deg, #ffffff 0%, #fffdf0 100%)",
-                        border: "1px solid #fde68a",
+                        borderTop: "1px solid #fde68a",
+                        borderRight: "1px solid #fde68a",
+                        borderBottom: "1px solid #fde68a",
                         borderLeft: "5px solid #d97706",
                         shadow: "0 2px 8px rgba(217, 119, 6, 0.06)",
                         hoverShadow: "0 5px 14px rgba(217, 119, 6, 0.15)",
@@ -526,7 +683,9 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                       }
                     : {
                         cardBg: "linear-gradient(135deg, #ffffff 0%, #fdf6f7 100%)",
-                        border: "1px solid #f2cfd5",
+                        borderTop: "1px solid #f2cfd5",
+                        borderRight: "1px solid #f2cfd5",
+                        borderBottom: "1px solid #f2cfd5",
                         borderLeft: "5px solid var(--primary-maroon)",
                         shadow: "0 2px 8px rgba(122, 0, 25, 0.04)",
                         hoverShadow: "0 5px 14px rgba(122, 0, 25, 0.1)",
@@ -546,7 +705,9 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                       key={fac.id}
                       style={{
                         background: theme.cardBg,
-                        border: theme.border,
+                        borderTop: theme.borderTop,
+                        borderRight: theme.borderRight,
+                        borderBottom: theme.borderBottom,
                         borderLeft: theme.borderLeft,
                         borderRadius: "8px",
                         padding: "0.45rem 1.15rem",
@@ -738,7 +899,9 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                   const theme = isYellow
                     ? {
                         cardBg: "linear-gradient(135deg, #ffffff 0%, #fffdf0 100%)",
-                        border: "1px solid #fde68a",
+                        borderTop: "1px solid #fde68a",
+                        borderRight: "1px solid #fde68a",
+                        borderBottom: "1px solid #fde68a",
                         borderLeft: "5px solid #d97706",
                         shadow: "0 2px 8px rgba(217, 119, 6, 0.06)",
                         hoverShadow: "0 5px 14px rgba(217, 119, 6, 0.15)",
@@ -754,7 +917,9 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                       }
                     : {
                         cardBg: "linear-gradient(135deg, #ffffff 0%, #fdf6f7 100%)",
-                        border: "1px solid #f2cfd5",
+                        borderTop: "1px solid #f2cfd5",
+                        borderRight: "1px solid #f2cfd5",
+                        borderBottom: "1px solid #f2cfd5",
                         borderLeft: "5px solid var(--primary-maroon)",
                         shadow: "0 2px 8px rgba(122, 0, 25, 0.04)",
                         hoverShadow: "0 5px 14px rgba(122, 0, 25, 0.1)",
@@ -774,7 +939,9 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                       key={staff.id}
                       style={{
                         background: theme.cardBg,
-                        border: theme.border,
+                        borderTop: theme.borderTop,
+                        borderRight: theme.borderRight,
+                        borderBottom: theme.borderBottom,
                         borderLeft: theme.borderLeft,
                         borderRadius: "8px",
                         padding: "0.45rem 1.15rem",
@@ -923,7 +1090,9 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                     background: "#ffffff",
                     padding: "1.35rem 1.5rem",
                     borderRadius: "8px",
-                    border: "1px solid #f2cfd5",
+                    borderTop: "1px solid #f2cfd5",
+                    borderRight: "1px solid #f2cfd5",
+                    borderBottom: "1px solid #f2cfd5",
                     borderLeft: "5px solid var(--primary-maroon)",
                     boxShadow: "0 2px 6px rgba(122, 0, 25, 0.04)"
                   }}
@@ -941,7 +1110,9 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                     background: "#ffffff",
                     padding: "1.35rem 1.5rem",
                     borderRadius: "8px",
-                    border: "1px solid #fef08a",
+                    borderTop: "1px solid #fef08a",
+                    borderRight: "1px solid #fef08a",
+                    borderBottom: "1px solid #fef08a",
                     borderLeft: "5px solid #d97706",
                     boxShadow: "0 2px 6px rgba(217, 119, 6, 0.04)"
                   }}
@@ -959,7 +1130,9 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                     background: "#ffffff",
                     padding: "1.35rem 1.5rem",
                     borderRadius: "8px",
-                    border: "1px solid #f2cfd5",
+                    borderTop: "1px solid #f2cfd5",
+                    borderRight: "1px solid #f2cfd5",
+                    borderBottom: "1px solid #f2cfd5",
                     borderLeft: "5px solid var(--primary-maroon)",
                     boxShadow: "0 2px 6px rgba(122, 0, 25, 0.04)"
                   }}
@@ -977,7 +1150,9 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                     background: "#ffffff",
                     padding: "1.35rem 1.5rem",
                     borderRadius: "8px",
-                    border: "1px solid #fef08a",
+                    borderTop: "1px solid #fef08a",
+                    borderRight: "1px solid #fef08a",
+                    borderBottom: "1px solid #fef08a",
                     borderLeft: "5px solid #d97706",
                     boxShadow: "0 2px 6px rgba(217, 119, 6, 0.04)"
                   }}
