@@ -602,9 +602,10 @@ button {
   display: flex;
   align-items: center;
   width: 115px;
+  height: 34px;
   background: rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.85);
-  padding: 0.35rem 1.1rem;
+  padding: 0 1.1rem;
   border-radius: 99px;
   font-size: 0.9rem;
   font-weight: 500;
@@ -634,6 +635,7 @@ button {
   color: inherit;
   outline: none;
   width: 0;
+  height: 100%;
   opacity: 0;
   transition: all var(--transition-normal);
   font-size: 0.9rem;
