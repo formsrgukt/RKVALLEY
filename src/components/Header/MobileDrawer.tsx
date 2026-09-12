@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useApp } from "@/context/AppContext";
 
 export default function MobileDrawer() {
-  const { isMobileDrawerOpen, closeMobileDrawer, openGpaModal } = useApp();
+  const { isMobileDrawerOpen, closeMobileDrawer, openGpaModal, toggleLang, lang } = useApp();
   const [openAccordions, setOpenAccordions] = useState<{ [key: string]: boolean }>({});
 
   const toggleAccordion = (key: string) => {
@@ -41,6 +41,21 @@ export default function MobileDrawer() {
         </div>
         <div className="drawer-body">
           <ul className="drawer-nav-list">
+            <li className="drawer-item" style={{ padding: "0.5rem 1rem", borderBottom: "1px solid var(--border-light)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <span style={{ fontWeight: 600, color: "var(--primary-dark)" }}>Translate Site:</span>
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleLang();
+                  closeMobileDrawer();
+                }} 
+                className="lang-btn" 
+                title="Switch Language"
+                style={{ background: "var(--primary-maroon)", color: "#fff", padding: "0.4rem 1rem", borderRadius: "var(--radius-sm)", fontSize: "0.9rem", fontWeight: 700, border: "none", cursor: "pointer" }}
+              >
+                {lang === "en" ? "తెలుగు" : "English"}
+              </button>
+            </li>
             <li className="drawer-item">
               <Link href="/home" className="drawer-link" onClick={closeMobileDrawer}>Home</Link>
             </li>
