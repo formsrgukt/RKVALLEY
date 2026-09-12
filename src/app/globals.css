@@ -2488,7 +2488,7 @@ button {
 
 
 /* Hide Google Translate Default UI */
-.skiptranslate iframe, .VIpgJd-ZVi9od-ORHb-OEVmcd, .goog-te-banner-frame { display: none !important; }
+.skiptranslate iframe, .VIpgJd-ZVi9od-ORHb-OEVmcd, .goog-te-banner-frame, #goog-gt-tt, .goog-tooltip { display: none !important; }
 body { top: 0 !important; }
 .goog-te-combo { display: none !important; }
 
@@ -2516,4 +2516,7 @@ html { font-size: 16px !important; }
 
 .inline-search-dropdown-menu { position: absolute; top: calc(100% + 0.5rem); right: 0; width: 90vw; max-width: 400px; max-height: 450px; background: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; overflow-y: auto; z-index: 1000; }
 @media (max-width: 768px) { .inline-search-dropdown-menu { position: fixed; top: 70px; left: 50%; transform: translateX(-50%); width: 95vw; max-width: 95vw; right: auto; } }
+
+
+.goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
 
