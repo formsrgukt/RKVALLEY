@@ -2520,3 +2520,7 @@ html { font-size: 16px !important; }
 
 .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
 
+
+/* Hide all extra Google Translate popups, frames, and icons */
+.goog-te-gadget-icon, .goog-te-menu-value, .goog-te-menu2, .goog-te-menu-frame, #goog-gt-vt, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf-ti6hGc { display: none !important; }
+
