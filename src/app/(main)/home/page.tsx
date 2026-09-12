@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -101,7 +101,7 @@ export default function HomePage() {
               </div>
 
               <Link href="/about" className="btn btn-primary">
-                Learn More About RGUKT Paradigm →
+                Learn More About RGUKT Paradigm â†’
               </Link>
             </div>
           </div>
@@ -149,7 +149,7 @@ export default function HomePage() {
               </p>
             </div>
             <Link href="/students" className="btn btn-primary" style={{ fontSize: "0.85rem" }}>
-              Explore Campus Life →
+              Explore Campus Life â†’
             </Link>
           </div>
 
@@ -207,7 +207,7 @@ export default function HomePage() {
               </p>
             </div>
             <Link href="/tenders" className="btn btn-primary" style={{ fontSize: "0.85rem" }}>
-              View All Tenders Portal →
+              View All Tenders Portal â†’
             </Link>
           </div>
 
@@ -271,7 +271,7 @@ export default function HomePage() {
             marginTop: "2.5rem"
           }}>
             {/* Facebook Card */}
-            <a href="#" target="_blank" rel="noopener noreferrer" style={{
+              <a href="https://www.facebook.com/share/19PbLCmiBr/" target="_blank" rel="noopener noreferrer" style={{
               background: "#ffffff",
               borderRadius: "16px",
               padding: "2rem",
@@ -297,7 +297,7 @@ export default function HomePage() {
             </a>
 
             {/* Twitter Card */}
-            <a href="#" target="_blank" rel="noopener noreferrer" style={{
+              <a href="https://x.com/RGUKTRKVOFFI" target="_blank" rel="noopener noreferrer" style={{
               background: "#ffffff",
               borderRadius: "16px",
               padding: "2rem",
@@ -323,7 +323,7 @@ export default function HomePage() {
             </a>
 
             {/* LinkedIn Card */}
-            <a href="#" target="_blank" rel="noopener noreferrer" style={{
+              <a href="https://www.linkedin.com/school/rgukt-rkv/" target="_blank" rel="noopener noreferrer" style={{
               background: "#ffffff",
               borderRadius: "16px",
               padding: "2rem",
@@ -348,8 +348,34 @@ export default function HomePage() {
               <span style={{ color: "#64748b", fontSize: "0.9rem" }}>RGUKT RK Valley</span>
             </a>
 
-            {/* Instagram Card */}
-            <a href="#" target="_blank" rel="noopener noreferrer" style={{
+                          {/* Youtube Card */}
+              <a href="https://youtube.com/@adminsocialnetwork?si=mQhKRFaoIE_YA-y6" target="_blank" rel="noopener noreferrer" style={{
+                background: "#ffffff",
+                borderRadius: "16px",
+                padding: "2rem",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "1rem",
+                textDecoration: "none",
+                color: "inherit",
+                boxShadow: "var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1))",
+                transition: "transform 0.3s, box-shadow 0.3s",
+              }}
+              onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "var(--shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1))"; }}
+              onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1))"; }}
+              >
+                <div style={{ color: "#FF0000" }}>
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                  </svg>
+                </div>
+                <h4 style={{ margin: 0, fontSize: "1.1rem", fontWeight: 600 }}>YouTube</h4>
+                <span style={{ color: "#64748b", fontSize: "0.9rem" }}>@adminsocialnetwork</span>
+              </a>
+
+              {/* Instagram Card */}
+              <a href="https://www.instagram.com/rguktrkv_official?utm_source=qr&igsh=NXVrNmlpcjY2ZmM0" target="_blank" rel="noopener noreferrer" style={{
               background: "#ffffff",
               borderRadius: "16px",
               padding: "2rem",
@@ -393,4 +419,5 @@ export default function HomePage() {
     </>
   );
 }
+
 
