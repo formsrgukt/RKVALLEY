@@ -81,6 +81,26 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     document.body.classList.add(fontSize);
   }, [fontSize]);
 
+  // Trigger Google Translate when language changes
+  useEffect(() => {
+    const triggerTranslation = (targetLang: string) => {
+      const selectElement = document.querySelector(".goog-te-combo") as HTMLSelectElement;
+      if (selectElement) {
+        selectElement.value = targetLang;
+        selectElement.dispatchEvent(new Event("change"));
+      } else {
+        // If element is not yet injected, retry after a short delay
+        setTimeout(() => triggerTranslation(targetLang), 500);
+      }
+    };
+
+    if (lang === "te") {
+      triggerTranslation("te");
+    } else {
+      triggerTranslation("en");
+    }
+  }, [lang]);
+
   // Global Ctrl + K listener
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

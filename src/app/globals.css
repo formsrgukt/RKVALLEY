@@ -2484,3 +2484,9 @@ button {
   animation: fillLogoOnce 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
+
+/* Hide Google Translate Default UI */
+.skiptranslate iframe, .VIpgJd-ZVi9od-ORHb-OEVmcd, .goog-te-banner-frame { display: none !important; }
+body { top: 0 !important; }
+.goog-te-combo { display: none !important; }
+

@@ -8,6 +8,7 @@ import UniversityFooter from "@/components/Footer/UniversityFooter";
 import DocumentModal from "@/components/Modals/DocumentModal";
 import GpaCalculatorModal from "@/components/Modals/GpaCalculatorModal";
 import BackToTop from "@/components/Common/BackToTop";
+import Script from "next/script";
 import type { Viewport } from "next";
 
 export const viewport: Viewport = {
@@ -55,6 +56,26 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-size-md">
+        <div id="google_translate_element" style={{ display: "none" }}></div>
+        <Script
+          id="google-translate-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              function googleTranslateElementInit() {
+                new window.google.translate.TranslateElement({
+                  pageLanguage: 'en',
+                  includedLanguages: 'en,te',
+                  autoDisplay: false
+                }, 'google_translate_element');
+              }
+            `,
+          }}
+        />
+        <Script
+          src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+          strategy="afterInteractive"
+        />
         <SplashScreen />
         <OfflineDetector />
         <AppProvider>
