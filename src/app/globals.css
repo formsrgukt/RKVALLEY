@@ -76,7 +76,7 @@
   --radius-xl: 24px;
   --radius-full: 9999px;
   
-  --container-max: 1440px;
+  --container-max: 1920px;
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -602,13 +602,10 @@ button {
 .btn-nav-search {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  width: 108px;
-  height: 38px;
-  box-sizing: border-box;
+  width: 115px;
   background: rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.85);
-  padding: 0 1.1rem;
+  padding: 0.55rem 1.1rem;
   border-radius: 99px;
   font-size: 0.9rem;
   font-weight: 500;
@@ -638,8 +635,6 @@ button {
   color: inherit;
   outline: none;
   width: 0;
-  padding: 0;
-  margin: 0;
   opacity: 0;
   transition: all var(--transition-normal);
   font-size: 0.9rem;
@@ -2508,8 +2503,8 @@ body { top: 0 !important; }
 }
 
 
-/* Fluid root typography to auto-scale website */
-html { font-size: clamp(13px, 1.1vw + 9px, 16px) !important; }
+/* Fluid root typography to auto-scale website perfectly from 1024px to 1920px */
+html { font-size: clamp(10px, 0.67vw + 3.16px, 16px) !important; }
 
 
 /* Correct fluid root typography */
