@@ -36,7 +36,6 @@ export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps
   const [activeTab, setActiveTab] = useState<string>("faculty");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedFaculty, setSelectedFaculty] = useState<FacultyProfile | null>(null);
-  const [viewMode, setViewMode] = useState<"horizontal-cards" | "horizontal-scroll">("horizontal-cards");
 
   const menuItems = [
     { id: "faculty", label: "Faculty" },
@@ -208,16 +207,19 @@ export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps
   };
 
   const facultyList = getDepartmentFaculty();
-  const filteredFaculty = facultyList.filter((f) => {
-    if (!searchQuery.trim()) return true;
-    const q = searchQuery.toLowerCase();
-    return (
-      f.name.toLowerCase().includes(q) ||
-      f.designation.toLowerCase().includes(q) ||
-      f.specialization.toLowerCase().includes(q) ||
-      f.qualification.toLowerCase().includes(q)
-    );
-  });
+  const hodFaculty = facultyList.find((f) => f.isHod) || facultyList[0];
+  const filteredFaculty = facultyList
+    .filter((f) => !f.isHod)
+    .filter((f) => {
+      if (!searchQuery.trim()) return true;
+      const q = searchQuery.toLowerCase();
+      return (
+        f.name.toLowerCase().includes(q) ||
+        f.designation.toLowerCase().includes(q) ||
+        f.specialization.toLowerCase().includes(q) ||
+        f.qualification.toLowerCase().includes(q)
+      );
+    });
 
   const staffMembers = [
     {
@@ -367,7 +369,7 @@ export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps
               </div>
 
               {/* HOD Executive Spotlight Card */}
-              {(!searchQuery || facultyList[0].name.toLowerCase().includes(searchQuery.toLowerCase())) && (
+              {(!searchQuery || hodFaculty.name.toLowerCase().includes(searchQuery.toLowerCase())) && (
                 <div
                   style={{
                     background: "linear-gradient(135deg, #ffffff 0%, #fdf6f7 100%)",
@@ -425,17 +427,17 @@ export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps
                     </div>
 
                     <h4 style={{ margin: "0.2rem 0", color: "var(--primary-dark)", fontSize: "1.35rem", fontWeight: 800 }}>
-                      {facultyList[0].name}
+                      {hodFaculty.name}
                     </h4>
                     <p style={{ margin: "0 0 0.5rem 0", fontSize: "0.88rem", color: "#475569" }}>
-                      {facultyList[0].qualification} • <em>{facultyList[0].almaMater}</em>
+                      {hodFaculty.qualification} • <em>{hodFaculty.almaMater}</em>
                     </p>
 
                     <div style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap", fontSize: "0.85rem", color: "#334155" }}>
                       <span>
                         <strong style={{ color: "#0f172a" }}>Email:</strong>{" "}
-                        <a href={`mailto:${facultyList[0].email}`} style={{ color: "var(--primary-maroon)", fontWeight: 600 }}>
-                          {facultyList[0].email}
+                        <a href={`mailto:${hodFaculty.email}`} style={{ color: "var(--primary-maroon)", fontWeight: 600 }}>
+                          {hodFaculty.email}
                         </a>
                       </span>
                       <span>
@@ -449,286 +451,157 @@ export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps
 
                   <button
                     type="button"
-                    onClick={() => setSelectedFaculty(facultyList[0])}
+                    onClick={() => setSelectedFaculty(hodFaculty)}
                     className="btn btn-primary"
-                    style={{ fontSize: "0.85rem", padding: "0.6rem 1.15rem", whiteSpace: "nowrap" }}
+                    style={{
+                      fontSize: "0.75rem",
+                      padding: "0.3rem 0.75rem",
+                      whiteSpace: "nowrap",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.25rem",
+                      borderRadius: "5px",
+                      boxShadow: "0 2px 6px rgba(122, 0, 25, 0.25)"
+                    }}
                   >
-                    View Full Profile →
+                    View Profile
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
                   </button>
                 </div>
               )}
 
-              {/* Faculty Directory Header & View Controls */}
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem", marginBottom: "1.25rem" }}>
-                <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "var(--primary-dark)" }}>
+              {/* Faculty Directory Header */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem", marginBottom: "1rem" }}>
+                <div style={{ fontSize: "0.92rem", fontWeight: 700, color: "var(--primary-dark)" }}>
                   Showing {filteredFaculty.length} Faculty Members
-                </div>
-
-                {/* View Mode Toggle: Horizontal Cards vs Horizontal Scroll */}
-                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                  <button
-                    type="button"
-                    onClick={() => setViewMode("horizontal-cards")}
-                    style={{
-                      padding: "0.4rem 0.85rem",
-                      fontSize: "0.82rem",
-                      fontWeight: 700,
-                      borderRadius: "6px",
-                      cursor: "pointer",
-                      border: viewMode === "horizontal-cards" ? "1px solid var(--primary-maroon)" : "1px solid #cbd5e1",
-                      background: viewMode === "horizontal-cards" ? "var(--primary-maroon)" : "#ffffff",
-                      color: viewMode === "horizontal-cards" ? "#ffffff" : "#475569",
-                      transition: "all 0.15s ease"
-                    }}
-                  >
-                    ═ Horizontal Cards
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setViewMode("horizontal-scroll")}
-                    style={{
-                      padding: "0.4rem 0.85rem",
-                      fontSize: "0.82rem",
-                      fontWeight: 700,
-                      borderRadius: "6px",
-                      cursor: "pointer",
-                      border: viewMode === "horizontal-scroll" ? "1px solid var(--primary-maroon)" : "1px solid #cbd5e1",
-                      background: viewMode === "horizontal-scroll" ? "var(--primary-maroon)" : "#ffffff",
-                      color: viewMode === "horizontal-scroll" ? "#ffffff" : "#475569",
-                      transition: "all 0.15s ease"
-                    }}
-                  >
-                    ↔ Horizontal Scroll
-                  </button>
                 </div>
               </div>
 
-              {/* View 1: Horizontal Cards (Clean, Full-Width Rows) */}
-              {viewMode === "horizontal-cards" && (
-                <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                  {filteredFaculty.map((fac) => (
-                    <div
-                      key={fac.id}
-                      style={{
-                        background: "#ffffff",
-                        border: "1px solid #e2e8f0",
-                        borderRadius: "10px",
-                        padding: "1.25rem 1.5rem",
-                        boxShadow: "0 2px 6px rgba(0, 0, 0, 0.03)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        gap: "1.5rem",
-                        flexWrap: "wrap",
-                        transition: "all 0.2s ease"
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.boxShadow = "0 6px 14px rgba(0, 0, 0, 0.06)";
-                        e.currentTarget.style.borderColor = "#cbd5e1";
-                        e.currentTarget.style.transform = "translateY(-2px)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.03)";
-                        e.currentTarget.style.borderColor = "#e2e8f0";
-                        e.currentTarget.style.transform = "translateY(0)";
-                      }}
-                    >
-                      {/* Left Side: Avatar + Details */}
-                      <div style={{ display: "flex", alignItems: "center", gap: "1.25rem", flex: "1 1 500px" }}>
-                        <div
-                          style={{
-                            width: "68px",
-                            height: "68px",
-                            borderRadius: "50%",
-                            background: fac.gender === "f" ? "#fdf2f8" : "#f0f9ff",
-                            color: fac.gender === "f" ? "#be185d" : "#0284c7",
-                            border: `2px solid ${fac.gender === "f" ? "#fbcfe8" : "#bae6fd"}`,
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            flexShrink: 0
-                          }}
-                        >
-                          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                          </svg>
-                        </div>
-
-                        <div style={{ flex: 1 }}>
-                          <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", flexWrap: "wrap", marginBottom: "0.25rem" }}>
-                            <h4 style={{ margin: 0, fontSize: "1.15rem", color: "var(--primary-dark)", fontWeight: 700 }}>
-                              {fac.name}
-                            </h4>
-                            <span
-                              style={{
-                                fontSize: "0.72rem",
-                                fontWeight: 700,
-                                color: fac.isHod ? "var(--primary-maroon)" : "#0284c7",
-                                background: fac.isHod ? "#fdf2f4" : "#f0f9ff",
-                                padding: "0.15rem 0.55rem",
-                                borderRadius: "4px"
-                              }}
-                            >
-                              {fac.designation.split("&")[0].trim()}
-                            </span>
-                            <span style={{ fontSize: "0.78rem", color: "#64748b" }}>• {fac.experience.split(" ")[0]} Exp</span>
-                          </div>
-
-                          <div style={{ fontSize: "0.84rem", color: "#64748b", marginBottom: "0.3rem" }}>
-                            <strong>Qualification:</strong> {fac.qualification} • <span style={{ color: "#334155" }}>{fac.almaMater}</span>
-                          </div>
-
-                          <div style={{ fontSize: "0.84rem", color: "#334155", marginBottom: "0.35rem" }}>
-                            <strong style={{ color: "#64748b" }}>Specialization:</strong> {fac.specialization}
-                          </div>
-
-                          <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", fontSize: "0.82rem", color: "#475569" }}>
-                            <div>
-                              <strong>Email:</strong>{" "}
-                              <a href={`mailto:${fac.email}`} style={{ color: "var(--primary-maroon)", textDecoration: "none", fontWeight: 600 }}>
-                                {fac.email}
-                              </a>
-                            </div>
-                            <div>
-                              <strong>Cabin:</strong> {fac.cabin}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Right Side: View Profile Button */}
-                      <div style={{ flexShrink: 0 }}>
-                        <button
-                          type="button"
-                          onClick={() => setSelectedFaculty(fac)}
-                          className="btn btn-primary"
-                          style={{
-                            padding: "0.55rem 1.15rem",
-                            fontSize: "0.85rem",
-                            fontWeight: 700,
-                            whiteSpace: "nowrap"
-                          }}
-                        >
-                          View Faculty Profile →
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              {/* View 2: Horizontal Scroll Track (Side-by-Side Carousel) */}
-              {viewMode === "horizontal-scroll" && (
-                <div style={{ position: "relative" }}>
+              {/* Horizontal Cards */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.95rem" }}>
+                {filteredFaculty.map((fac) => (
                   <div
+                    key={fac.id}
                     style={{
+                      background: "#ffffff",
+                      border: "1px solid #e2e8f0",
+                      borderRadius: "10px",
+                      padding: "1.15rem 1.45rem",
+                      boxShadow: "0 1px 5px rgba(0, 0, 0, 0.04)",
                       display: "flex",
-                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "space-between",
                       gap: "1.25rem",
-                      overflowX: "auto",
-                      scrollSnapType: "x mandatory",
-                      paddingBottom: "1.25rem",
-                      scrollBehavior: "smooth"
+                      flexWrap: "wrap",
+                      transition: "all 0.18s ease"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.boxShadow = "0 5px 14px rgba(0, 0, 0, 0.07)";
+                      e.currentTarget.style.borderColor = "#cbd5e1";
+                      e.currentTarget.style.transform = "translateY(-1px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.boxShadow = "0 1px 5px rgba(0, 0, 0, 0.04)";
+                      e.currentTarget.style.borderColor = "#e2e8f0";
+                      e.currentTarget.style.transform = "translateY(0)";
                     }}
                   >
-                    {filteredFaculty.map((fac) => (
+                    {/* Left Side: Avatar + Details */}
+                    <div style={{ display: "flex", alignItems: "center", gap: "1.15rem", flex: "1 1 500px" }}>
                       <div
-                        key={fac.id}
                         style={{
-                          flex: "0 0 320px",
-                          scrollSnapAlign: "start",
-                          background: "#ffffff",
-                          border: "1px solid #e2e8f0",
-                          borderRadius: "10px",
-                          padding: "1.25rem",
-                          boxShadow: "0 2px 6px rgba(0, 0, 0, 0.04)",
+                          width: "56px",
+                          height: "56px",
+                          borderRadius: "50%",
+                          background: fac.gender === "f" ? "#fdf2f8" : "#f0f9ff",
+                          color: fac.gender === "f" ? "#be185d" : "#0284c7",
+                          border: `2px solid ${fac.gender === "f" ? "#fbcfe8" : "#bae6fd"}`,
                           display: "flex",
-                          flexDirection: "column",
-                          justifyContent: "space-between"
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0
                         }}
                       >
-                        <div>
-                          <div style={{ display: "flex", gap: "1rem", alignItems: "center", marginBottom: "0.85rem" }}>
-                            <div
-                              style={{
-                                width: "56px",
-                                height: "56px",
-                                borderRadius: "50%",
-                                background: fac.gender === "f" ? "#fdf2f8" : "#f0f9ff",
-                                color: fac.gender === "f" ? "#be185d" : "#0284c7",
-                                border: `2px solid ${fac.gender === "f" ? "#fbcfe8" : "#bae6fd"}`,
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                flexShrink: 0
-                              }}
-                            >
-                              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                              </svg>
-                            </div>
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                          <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                      </div>
 
-                            <div>
-                              <h4 style={{ margin: "0 0 0.15rem 0", fontSize: "1.05rem", color: "var(--primary-dark)", fontWeight: 700 }}>
-                                {fac.name}
-                              </h4>
-                              <span
-                                style={{
-                                  fontSize: "0.72rem",
-                                  fontWeight: 700,
-                                  color: fac.isHod ? "var(--primary-maroon)" : "#0284c7",
-                                  background: fac.isHod ? "#fdf2f4" : "#f0f9ff",
-                                  padding: "0.15rem 0.5rem",
-                                  borderRadius: "4px",
-                                  display: "inline-block"
-                                }}
-                              >
-                                {fac.designation.split("&")[0].trim()}
-                              </span>
-                            </div>
-                          </div>
-
-                          <div style={{ fontSize: "0.82rem", color: "#64748b", marginBottom: "0.5rem" }}>
-                            <strong>Qualification:</strong> {fac.qualification}
-                          </div>
-
-                          <div style={{ fontSize: "0.82rem", color: "#334155", background: "#f8fafc", padding: "0.5rem 0.75rem", borderRadius: "6px", marginBottom: "0.75rem", borderLeft: "3px solid #94a3b8" }}>
-                            <div style={{ fontSize: "0.7rem", color: "#64748b", textTransform: "uppercase", fontWeight: 700 }}>Specialization</div>
-                            <div style={{ marginTop: "0.1rem", lineHeight: 1.35 }}>{fac.specialization}</div>
-                          </div>
-
-                          <div style={{ fontSize: "0.8rem", color: "#475569", display: "flex", flexDirection: "column", gap: "0.25rem", marginBottom: "1rem" }}>
-                            <div>
-                              <strong>Email:</strong> <a href={`mailto:${fac.email}`} style={{ color: "var(--primary-maroon)" }}>{fac.email}</a>
-                            </div>
-                            <div>
-                              <strong>Cabin:</strong> {fac.cabin.split(",")[0]}
-                            </div>
-                          </div>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "0.55rem", flexWrap: "wrap", marginBottom: "0.3rem" }}>
+                          <h4 style={{ margin: 0, fontSize: "1.06rem", color: "var(--primary-dark)", fontWeight: 700 }}>
+                            {fac.name}
+                          </h4>
+                          <span
+                            style={{
+                              fontSize: "0.72rem",
+                              fontWeight: 700,
+                              color: fac.isHod ? "var(--primary-maroon)" : "#0284c7",
+                              background: fac.isHod ? "#fdf2f4" : "#f0f9ff",
+                              padding: "0.15rem 0.55rem",
+                              borderRadius: "4px"
+                            }}
+                          >
+                            {fac.designation.split("&")[0].trim()}
+                          </span>
+                          <span style={{ fontSize: "0.78rem", color: "#64748b" }}>• {fac.experience.split(" ")[0]} Exp</span>
                         </div>
 
-                        <button
-                          type="button"
-                          onClick={() => setSelectedFaculty(fac)}
-                          className="btn btn-primary"
-                          style={{
-                            width: "100%",
-                            padding: "0.5rem 0.85rem",
-                            fontSize: "0.82rem",
-                            fontWeight: 700
-                          }}
-                        >
-                          View Faculty Profile →
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
+                        <div style={{ fontSize: "0.85rem", color: "#64748b", lineHeight: 1.45, marginBottom: "0.25rem" }}>
+                          <strong style={{ color: "#475569" }}>Qualification:</strong> {fac.qualification} • <span style={{ color: "#334155" }}>{fac.almaMater}</span>
+                        </div>
 
-              {filteredFaculty.length === 0 && (
+                        <div style={{ fontSize: "0.85rem", color: "#334155", lineHeight: 1.45, marginBottom: "0.35rem" }}>
+                          <strong style={{ color: "#64748b" }}>Specialization:</strong> {fac.specialization}
+                        </div>
+
+                        <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", fontSize: "0.82rem", color: "#475569" }}>
+                          <div>
+                            <strong>Email:</strong>{" "}
+                            <a href={`mailto:${fac.email}`} style={{ color: "var(--primary-maroon)", textDecoration: "none", fontWeight: 600 }}>
+                              {fac.email}
+                            </a>
+                          </div>
+                          <div>
+                            <strong>Cabin:</strong> {fac.cabin}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right Side: Small View Profile Button */}
+                    <div style={{ flexShrink: 0 }}>
+                      <button
+                        type="button"
+                        onClick={() => setSelectedFaculty(fac)}
+                        className="btn btn-primary"
+                        style={{
+                          padding: "0.26rem 0.65rem",
+                          fontSize: "0.72rem",
+                          fontWeight: 600,
+                          borderRadius: "5px",
+                          whiteSpace: "nowrap",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "0.25rem",
+                          boxShadow: "0 2px 6px rgba(122, 0, 25, 0.25)"
+                        }}
+                      >
+                        View Profile
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                          <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+
+              {filteredFaculty.length === 0 && (!searchQuery || !hodFaculty.name.toLowerCase().includes(searchQuery.toLowerCase())) && (
                 <div style={{ textAlign: "center", padding: "3rem 1rem", background: "#f8fafc", borderRadius: "8px", color: "#64748b" }}>
                   <p>No faculty members found matching &quot;{searchQuery}&quot;.</p>
                   <button type="button" onClick={() => setSearchQuery("")} className="btn btn-secondary" style={{ fontSize: "0.85rem", marginTop: "0.5rem" }}>
