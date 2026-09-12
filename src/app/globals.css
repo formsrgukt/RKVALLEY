@@ -479,7 +479,7 @@ button {
   align-items: center;
   flex-wrap: nowrap;
   list-style: none;
-  gap: clamp(0.1rem, 0.5vw, 0.5rem);
+  gap: 0.15rem;
 }
 
 .nav-item {
@@ -490,7 +490,7 @@ button {
   color: rgba(255, 255, 255, 0.85);
   font-size: clamp(0.75rem, 0.8vw, 0.85rem);
   font-weight: 600;
-  padding: 0.4rem 0.65rem;
+  padding: 0.35rem 0.55rem;
   display: flex;
   align-items: center;
   gap: 0.25rem;
