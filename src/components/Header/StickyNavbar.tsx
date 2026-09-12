@@ -10,6 +10,7 @@ export default function StickyNavbar() {
   const pathname = usePathname();
   const { openSearch, openMobileDrawer, openGpaModal, lang, toggleLang } = useApp();
   const [pinnedDropdown, setPinnedDropdown] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
   const navRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
@@ -20,6 +21,14 @@ export default function StickyNavbar() {
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 140);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const isActive = (path: string) => {
@@ -34,10 +43,25 @@ export default function StickyNavbar() {
   };
 
   return (
-    <div className="sticky-nav-container">
+    <div className={`sticky-nav-container ${isScrolled ? "scrolled" : ""}`}>
       <div className="container navbar">
         <nav aria-label="Main Navigation">
           <ul className="nav-links-desktop" ref={navRef}>
+            {/* Dynamic Logo that appears only when scrolled */}
+            <li style={{ 
+              width: isScrolled ? "45px" : "0px", 
+              opacity: isScrolled ? 1 : 0, 
+              overflow: "hidden", 
+              transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+              display: "flex",
+              alignItems: "center",
+              marginRight: isScrolled ? "10px" : "0px"
+            }}>
+              <Link href="/home" aria-label="Go to Home" onClick={() => setPinnedDropdown(null)}>
+                <img src="/images/logo.png" alt="RGUKT Logo" style={{ width: "38px", height: "38px", filter: "brightness(0) invert(1)", objectFit: "contain" }} />
+              </Link>
+            </li>
+
             <li className={`nav-item ${isActive("/home") || isActive("/") ? "active" : ""}`}>
               <Link href="/home" className="nav-link" onClick={() => setPinnedDropdown(null)}>Home</Link>
             </li>
