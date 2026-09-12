@@ -8,6 +8,14 @@ import UniversityFooter from "@/components/Footer/UniversityFooter";
 import DocumentModal from "@/components/Modals/DocumentModal";
 import GpaCalculatorModal from "@/components/Modals/GpaCalculatorModal";
 import BackToTop from "@/components/Common/BackToTop";
+import type { Viewport } from "next";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.rguktrkv.ac.in'),
