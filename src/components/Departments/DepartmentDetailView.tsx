@@ -1,9 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Department } from "@/data/rguktData";
 import { useApp } from "@/context/AppContext";
+import { DEPARTMENT_SECTIONS } from "@/data/departmentSections";
 
 interface FacultyProfile {
   id: string;
@@ -28,24 +30,19 @@ interface FacultyProfile {
 
 interface DepartmentDetailViewProps {
   dept: Department;
+  activeSection?: string;
 }
 
-export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps) {
+export default function DepartmentDetailView({ dept, activeSection = "faculty" }: DepartmentDetailViewProps) {
   const router = useRouter();
   const { openDocModal } = useApp();
-  const [activeTab, setActiveTab] = useState<string>("faculty");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [staffSearchQuery, setStaffSearchQuery] = useState<string>("");
   const [selectedFaculty, setSelectedFaculty] = useState<FacultyProfile | null>(null);
 
-  const menuItems = [
-    { id: "faculty", label: "Faculty" },
-    { id: "staff", label: "Staff" },
-    { id: "curricula", label: "Curricula" },
-    { id: "bos", label: "Board of Studies" },
-    { id: "labs", label: "Lab Facilities" },
-    { id: "contact", label: "Contact" },
-    { id: "recreation", label: "Student Recreation Centre" },
-  ];
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [activeSection]);
 
   const handleBack = () => {
     if (typeof window !== "undefined" && window.history.length > 1) {
@@ -223,34 +220,61 @@ export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps
 
   const staffMembers = [
     {
+      id: "staff-1",
       name: "Sri C. H. Venkata Ramana",
       role: "Senior System Administrator & Technical Officer",
       qualification: "B.Tech, CCNA, RedHat Certified",
       responsibilities: "Network infrastructure, GPU server cluster & lab computing administration",
-      email: "sysadmin." + dept.id + "@rguktrkv.ac.in"
+      email: "sysadmin." + dept.id + "@rguktrkv.ac.in",
+      location: "Central Computing & Server Facility, Academic Block-I",
+      experience: "14+ Years",
+      gender: "m" as const
     },
     {
+      id: "staff-2",
       name: "Sri G. Suresh Babu",
       role: "Senior Technical Lab Assistant",
       qualification: "Diploma in Engg, B.Sc",
       responsibilities: "Hardware testing setups, equipment calibration & student lab maintenance",
-      email: "techassist." + dept.id + "@rguktrkv.ac.in"
+      email: "techassist." + dept.id + "@rguktrkv.ac.in",
+      location: "Department Engineering Laboratories, Academic Block-I",
+      experience: "11+ Years",
+      gender: "m" as const
     },
     {
+      id: "staff-3",
       name: "Smt. K. Anitha",
       role: "Junior Technical Assistant",
       qualification: "B.Sc (Comp Science)",
       responsibilities: "Software licenses, terminal setups & test bench provisioning",
-      email: "anitha.k@rguktrkv.ac.in"
+      email: "anitha.k@rguktrkv.ac.in",
+      location: "Academic Computing Lab, Academic Block-I",
+      experience: "7+ Years",
+      gender: "f" as const
     },
     {
+      id: "staff-4",
       name: "Sri D. Narasimhulu",
       role: "Department Superintendent & Record Officer",
       qualification: "M.A., PGDCA",
       responsibilities: "Departmental academic records, circulars, student attendance & official files",
-      email: "deptoffice." + dept.id + "@rguktrkv.ac.in"
+      email: "deptoffice." + dept.id + "@rguktrkv.ac.in",
+      location: "Department Secretariat Office, Academic Block-I",
+      experience: "16+ Years",
+      gender: "m" as const
     }
   ];
+
+  const filteredStaff = staffMembers.filter((staff) => {
+    if (!staffSearchQuery.trim()) return true;
+    const q = staffSearchQuery.toLowerCase();
+    return (
+      staff.name.toLowerCase().includes(q) ||
+      staff.role.toLowerCase().includes(q) ||
+      staff.qualification.toLowerCase().includes(q) ||
+      staff.responsibilities.toLowerCase().includes(q)
+    );
+  });
 
   return (
     <div className="container" style={{ paddingBottom: "3rem" }}>
@@ -262,17 +286,16 @@ export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps
           </h4>
 
           <ul className="sidebar-nav-list">
-            {menuItems.map((item) => {
-              const isActive = activeTab === item.id;
+            {DEPARTMENT_SECTIONS.map((item) => {
+              const isActive = (activeSection || "faculty") === item.id;
               return (
                 <li key={item.id}>
-                  <button
-                    type="button"
-                    onClick={() => setActiveTab(item.id)}
+                  <Link
+                    href={`/departments/${dept.id}/${item.id}`}
                     className={`sidebar-link ${isActive ? "active" : ""}`}
                   >
                     {item.label}
-                  </button>
+                  </Link>
                 </li>
               );
             })}
@@ -325,8 +348,9 @@ export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps
             </div>
           </div>
 
-          {/* Tab 1: Faculty */}
-          {activeTab === "faculty" && (
+          {/* Section 1: Faculty */}
+          {(activeSection === "faculty" || !activeSection) && (
+            <section style={{ marginBottom: "2rem" }}>
             <div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "1rem", marginBottom: "1.5rem" }}>
                 <div>
@@ -388,9 +412,9 @@ export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps
                   {/* Portrait Avatar */}
                   <div
                     style={{
-                      width: "90px",
-                      height: "90px",
-                      borderRadius: "50%",
+                      width: "88px",
+                      height: "88px",
+                      borderRadius: "12px",
                       border: "3px solid var(--accent-gold)",
                       background: "linear-gradient(135deg, #7a0019 0%, #4a000e 100%)",
                       color: "#ffffff",
@@ -481,123 +505,166 @@ export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps
 
               {/* Horizontal Cards */}
               <div style={{ display: "flex", flexDirection: "column", gap: "0.95rem" }}>
-                {filteredFaculty.map((fac) => (
-                  <div
-                    key={fac.id}
-                    style={{
-                      background: "#ffffff",
-                      border: "1px solid #e2e8f0",
-                      borderRadius: "10px",
-                      padding: "1.15rem 1.45rem",
-                      boxShadow: "0 1px 5px rgba(0, 0, 0, 0.04)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      gap: "1.25rem",
-                      flexWrap: "wrap",
-                      transition: "all 0.18s ease"
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.boxShadow = "0 5px 14px rgba(0, 0, 0, 0.07)";
-                      e.currentTarget.style.borderColor = "#cbd5e1";
-                      e.currentTarget.style.transform = "translateY(-1px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.boxShadow = "0 1px 5px rgba(0, 0, 0, 0.04)";
-                      e.currentTarget.style.borderColor = "#e2e8f0";
-                      e.currentTarget.style.transform = "translateY(0)";
-                    }}
-                  >
-                    {/* Left Side: Avatar + Details */}
-                    <div style={{ display: "flex", alignItems: "center", gap: "1.15rem", flex: "1 1 500px" }}>
-                      <div
-                        style={{
-                          width: "56px",
-                          height: "56px",
-                          borderRadius: "50%",
-                          background: fac.gender === "f" ? "#fdf2f8" : "#f0f9ff",
-                          color: fac.gender === "f" ? "#be185d" : "#0284c7",
-                          border: `2px solid ${fac.gender === "f" ? "#fbcfe8" : "#bae6fd"}`,
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          flexShrink: 0
-                        }}
-                      >
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                          <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                      </div>
+                {filteredFaculty.map((fac, idx) => {
+                  const isYellow = idx % 2 === 1;
+                  const theme = isYellow
+                    ? {
+                        cardBg: "linear-gradient(135deg, #ffffff 0%, #fffdf0 100%)",
+                        border: "1px solid #fde68a",
+                        borderLeft: "5px solid #d97706",
+                        shadow: "0 2px 8px rgba(217, 119, 6, 0.06)",
+                        hoverShadow: "0 5px 14px rgba(217, 119, 6, 0.15)",
+                        avatarBg: "linear-gradient(135deg, #d97706 0%, #92400e 100%)",
+                        avatarBorder: "3px solid #fbbf24",
+                        avatarShadow: "0 4px 10px rgba(180, 83, 9, 0.2)",
+                        badgeBg: "#fef3c7",
+                        badgeBorder: "1px solid #fde68a",
+                        badgeColor: "#b45309",
+                        textColor: "#b45309",
+                        btnBg: "linear-gradient(135deg, #d97706 0%, #b45309 100%)",
+                        btnShadow: "0 2px 5px rgba(217, 119, 6, 0.3)"
+                      }
+                    : {
+                        cardBg: "linear-gradient(135deg, #ffffff 0%, #fdf6f7 100%)",
+                        border: "1px solid #f2cfd5",
+                        borderLeft: "5px solid var(--primary-maroon)",
+                        shadow: "0 2px 8px rgba(122, 0, 25, 0.04)",
+                        hoverShadow: "0 5px 14px rgba(122, 0, 25, 0.1)",
+                        avatarBg: "linear-gradient(135deg, #7a0019 0%, #4a000e 100%)",
+                        avatarBorder: "3px solid var(--accent-gold)",
+                        avatarShadow: "0 4px 10px rgba(0,0,0,0.16)",
+                        badgeBg: fac.isHod ? "var(--primary-maroon)" : "#fdf2f4",
+                        badgeBorder: "1px solid #f9d5dc",
+                        badgeColor: fac.isHod ? "#ffffff" : "var(--primary-maroon)",
+                        textColor: "var(--primary-maroon)",
+                        btnBg: "linear-gradient(135deg, #7a0019 0%, #4a000e 100%)",
+                        btnShadow: "0 2px 5px rgba(122, 0, 25, 0.25)"
+                      };
 
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: "0.55rem", flexWrap: "wrap", marginBottom: "0.3rem" }}>
-                          <h4 style={{ margin: 0, fontSize: "1.06rem", color: "var(--primary-dark)", fontWeight: 700 }}>
+                  return (
+                    <div
+                      key={fac.id}
+                      style={{
+                        background: theme.cardBg,
+                        border: theme.border,
+                        borderLeft: theme.borderLeft,
+                        borderRadius: "8px",
+                        padding: "0.45rem 1.15rem",
+                        boxShadow: theme.shadow,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        gap: "1.15rem",
+                        flexWrap: "wrap",
+                        transition: "all 0.18s ease"
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.boxShadow = theme.hoverShadow;
+                        e.currentTarget.style.transform = "translateY(-1px)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.boxShadow = theme.shadow;
+                        e.currentTarget.style.transform = "translateY(0)";
+                      }}
+                    >
+                      {/* Left Side: Avatar + Details */}
+                      <div style={{ display: "flex", alignItems: "center", gap: "1.15rem", flex: "1 1 460px", flexWrap: "wrap" }}>
+                        {/* Portrait Avatar (Enlarged to fit card height) */}
+                        <div
+                          style={{
+                            width: "98px",
+                            height: "98px",
+                            borderRadius: "14px",
+                            border: theme.avatarBorder,
+                            background: theme.avatarBg,
+                            color: "#ffffff",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            flexShrink: 0,
+                            boxShadow: theme.avatarShadow
+                          }}
+                        >
+                          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                          </svg>
+                        </div>
+
+                        <div style={{ flex: 1, minWidth: "240px" }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", marginBottom: "0.15rem", flexWrap: "wrap" }}>
+                            <span
+                              style={{
+                                fontSize: "0.68rem",
+                                fontWeight: 800,
+                                background: theme.badgeBg,
+                                color: theme.badgeColor,
+                                border: theme.badgeBorder,
+                                padding: "0.15rem 0.5rem",
+                                borderRadius: "4px",
+                                letterSpacing: "0.4px"
+                              }}
+                            >
+                              {fac.designation.split("&")[0].trim().toUpperCase()}
+                            </span>
+                            <span style={{ fontSize: "0.74rem", color: "#64748b" }}>• {fac.experience.split(" ")[0]} Years Exp</span>
+                          </div>
+
+                          <h4 style={{ margin: "0.1rem 0 0.2rem 0", fontSize: "1.04rem", color: theme.textColor, fontWeight: 800 }}>
                             {fac.name}
                           </h4>
-                          <span
-                            style={{
-                              fontSize: "0.72rem",
-                              fontWeight: 700,
-                              color: fac.isHod ? "var(--primary-maroon)" : "#0284c7",
-                              background: fac.isHod ? "#fdf2f4" : "#f0f9ff",
-                              padding: "0.15rem 0.55rem",
-                              borderRadius: "4px"
-                            }}
-                          >
-                            {fac.designation.split("&")[0].trim()}
-                          </span>
-                          <span style={{ fontSize: "0.78rem", color: "#64748b" }}>• {fac.experience.split(" ")[0]} Exp</span>
-                        </div>
 
-                        <div style={{ fontSize: "0.85rem", color: "#64748b", lineHeight: 1.45, marginBottom: "0.25rem" }}>
-                          <strong style={{ color: "#475569" }}>Qualification:</strong> {fac.qualification} • <span style={{ color: "#334155" }}>{fac.almaMater}</span>
-                        </div>
-
-                        <div style={{ fontSize: "0.85rem", color: "#334155", lineHeight: 1.45, marginBottom: "0.35rem" }}>
-                          <strong style={{ color: "#64748b" }}>Specialization:</strong> {fac.specialization}
-                        </div>
-
-                        <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", fontSize: "0.82rem", color: "#475569" }}>
-                          <div>
-                            <strong>Email:</strong>{" "}
-                            <a href={`mailto:${fac.email}`} style={{ color: "var(--primary-maroon)", textDecoration: "none", fontWeight: 600 }}>
-                              {fac.email}
-                            </a>
+                          <div style={{ fontSize: "0.82rem", color: "#475569", marginBottom: "0.2rem", lineHeight: 1.35 }}>
+                            <strong style={{ color: "#334155" }}>Qualification:</strong> {fac.qualification} • <span style={{ fontStyle: "italic" }}>{fac.almaMater}</span>
                           </div>
-                          <div>
-                            <strong>Cabin:</strong> {fac.cabin}
+
+                          <div style={{ fontSize: "0.82rem", color: "#334155", lineHeight: 1.35, marginBottom: "0.2rem" }}>
+                            <strong style={{ color: "#64748b" }}>Specialization:</strong> {fac.specialization}
+                          </div>
+
+                          <div style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap", fontSize: "0.8rem", color: "#334155" }}>
+                            <div>
+                              <strong>Email:</strong>{" "}
+                              <a href={`mailto:${fac.email}`} style={{ color: theme.textColor, textDecoration: "none", fontWeight: 600 }}>
+                                {fac.email}
+                              </a>
+                            </div>
+                            <div>
+                              <strong>Cabin:</strong> {fac.cabin}
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
 
-                    {/* Right Side: Small View Profile Button */}
-                    <div style={{ flexShrink: 0 }}>
-                      <button
-                        type="button"
-                        onClick={() => setSelectedFaculty(fac)}
-                        className="btn btn-primary"
-                        style={{
-                          padding: "0.26rem 0.65rem",
-                          fontSize: "0.72rem",
-                          fontWeight: 600,
-                          borderRadius: "5px",
-                          whiteSpace: "nowrap",
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: "0.25rem",
-                          boxShadow: "0 2px 6px rgba(122, 0, 25, 0.25)"
-                        }}
-                      >
-                        View Profile
-                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                          <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                      </button>
+                      {/* Right Side: View Profile Button */}
+                      <div style={{ flexShrink: 0 }}>
+                        <button
+                          type="button"
+                          onClick={() => setSelectedFaculty(fac)}
+                          className="btn"
+                          style={{
+                            background: theme.btnBg,
+                            color: "#ffffff",
+                            border: "none",
+                            padding: "0.32rem 0.8rem",
+                            fontSize: "0.76rem",
+                            fontWeight: 600,
+                            borderRadius: "5px",
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "0.25rem",
+                            whiteSpace: "nowrap",
+                            boxShadow: theme.btnShadow,
+                            cursor: "pointer"
+                          }}
+                        >
+                          View Profile →
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
 
 
@@ -610,69 +677,238 @@ export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps
                 </div>
               )}
             </div>
+            </section>
           )}
 
-          {/* Tab 2: Staff */}
-          {activeTab === "staff" && (
+          {/* Section 2: Staff */}
+          {activeSection === "staff" && (
+            <section style={{ marginBottom: "2rem" }}>
             <div>
-              <h3 style={{ color: "var(--primary-dark)", fontSize: "1.35rem", marginBottom: "0.5rem", fontWeight: 800 }}>
-                Department Supporting Staff
-              </h3>
-              <p style={{ fontSize: "0.92rem", color: "#64748b", marginBottom: "1.5rem" }}>
-                Dedicated technical officers, laboratory assistants, and administrative personnel ensuring smooth day-to-day operations.
-              </p>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "1rem", marginBottom: "1.5rem" }}>
+                <div>
+                  <h3 style={{ color: "var(--primary-dark)", fontSize: "1.35rem", margin: "0 0 0.35rem 0", fontWeight: 800 }}>
+                    Department Supporting Staff
+                  </h3>
+                  <p style={{ fontSize: "0.92rem", color: "#64748b", margin: 0 }}>
+                    Dedicated technical officers, laboratory assistants, and administrative personnel ensuring smooth day-to-day operations.
+                  </p>
+                </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.25rem" }}>
-                {staffMembers.map((staff, idx) => (
-                  <div
-                    key={idx}
+                {/* Quick Search Filter */}
+                <div style={{ position: "relative", minWidth: "260px" }}>
+                  <input
+                    type="text"
+                    value={staffSearchQuery}
+                    onChange={(e) => setStaffSearchQuery(e.target.value)}
+                    placeholder="Search staff, role, specialization..."
                     style={{
-                      background: "#ffffff",
-                      border: "1px solid #e2e8f0",
-                      borderRadius: "8px",
-                      padding: "1.25rem",
-                      boxShadow: "0 1px 3px rgba(0,0,0,0.04)"
+                      width: "100%",
+                      padding: "0.55rem 0.85rem 0.55rem 2.2rem",
+                      fontSize: "0.85rem",
+                      borderRadius: "6px",
+                      border: "1px solid #cbd5e1",
+                      outline: "none",
+                      background: "#f8fafc"
                     }}
+                  />
+                  <svg
+                    style={{ position: "absolute", left: "0.75rem", top: "50%", transform: "translateY(-50%)", width: "15px", height: "15px", color: "#94a3b8" }}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
                   >
-                    <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.75rem" }}>
-                      <div
-                        style={{
-                          width: "42px",
-                          height: "42px",
-                          borderRadius: "50%",
-                          background: "#f1f5f9",
-                          color: "var(--primary-maroon)",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          fontWeight: 700,
-                          fontSize: "1rem"
-                        }}
-                      >
-                        {staff.name.charAt(0)}
-                      </div>
-                      <div>
-                        <h4 style={{ margin: 0, fontSize: "1rem", color: "#0f172a" }}>{staff.name}</h4>
-                        <span style={{ fontSize: "0.8rem", color: "#64748b" }}>{staff.qualification}</span>
-                      </div>
-                    </div>
-                    <div style={{ fontSize: "0.82rem", color: "var(--primary-maroon)", fontWeight: 700, marginBottom: "0.35rem" }}>
-                      {staff.role}
-                    </div>
-                    <p style={{ fontSize: "0.82rem", color: "#475569", lineHeight: 1.5, marginBottom: "0.75rem" }}>
-                      {staff.responsibilities}
-                    </p>
-                    <div style={{ fontSize: "0.8rem", color: "#64748b" }}>
-                      <strong>Email:</strong> <a href={`mailto:${staff.email}`} style={{ color: "var(--primary-maroon)" }}>{staff.email}</a>
-                    </div>
-                  </div>
-                ))}
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                </div>
               </div>
+
+              {/* Staff Directory Header */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1rem", marginBottom: "1rem" }}>
+                <div style={{ fontSize: "0.92rem", fontWeight: 700, color: "var(--primary-dark)" }}>
+                  Showing {filteredStaff.length} Supporting Staff Members
+                </div>
+              </div>
+
+              {/* Horizontal Staff Cards (Identical style to faculty cards) */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.95rem" }}>
+                {filteredStaff.map((staff, idx) => {
+                  const isYellow = idx % 2 === 1;
+                  const theme = isYellow
+                    ? {
+                        cardBg: "linear-gradient(135deg, #ffffff 0%, #fffdf0 100%)",
+                        border: "1px solid #fde68a",
+                        borderLeft: "5px solid #d97706",
+                        shadow: "0 2px 8px rgba(217, 119, 6, 0.06)",
+                        hoverShadow: "0 5px 14px rgba(217, 119, 6, 0.15)",
+                        avatarBg: "linear-gradient(135deg, #d97706 0%, #92400e 100%)",
+                        avatarBorder: "3px solid #fbbf24",
+                        avatarShadow: "0 4px 10px rgba(180, 83, 9, 0.2)",
+                        badgeBg: "#fef3c7",
+                        badgeBorder: "1px solid #fde68a",
+                        badgeColor: "#b45309",
+                        textColor: "#b45309",
+                        btnBg: "linear-gradient(135deg, #d97706 0%, #b45309 100%)",
+                        btnShadow: "0 2px 5px rgba(217, 119, 6, 0.3)"
+                      }
+                    : {
+                        cardBg: "linear-gradient(135deg, #ffffff 0%, #fdf6f7 100%)",
+                        border: "1px solid #f2cfd5",
+                        borderLeft: "5px solid var(--primary-maroon)",
+                        shadow: "0 2px 8px rgba(122, 0, 25, 0.04)",
+                        hoverShadow: "0 5px 14px rgba(122, 0, 25, 0.1)",
+                        avatarBg: "linear-gradient(135deg, #7a0019 0%, #4a000e 100%)",
+                        avatarBorder: "3px solid var(--accent-gold)",
+                        avatarShadow: "0 4px 10px rgba(0,0,0,0.16)",
+                        badgeBg: "#fdf2f4",
+                        badgeBorder: "1px solid #f9d5dc",
+                        badgeColor: "var(--primary-maroon)",
+                        textColor: "var(--primary-maroon)",
+                        btnBg: "linear-gradient(135deg, #7a0019 0%, #4a000e 100%)",
+                        btnShadow: "0 2px 5px rgba(122, 0, 25, 0.25)"
+                      };
+
+                  return (
+                    <div
+                      key={staff.id}
+                      style={{
+                        background: theme.cardBg,
+                        border: theme.border,
+                        borderLeft: theme.borderLeft,
+                        borderRadius: "8px",
+                        padding: "0.45rem 1.15rem",
+                        boxShadow: theme.shadow,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        gap: "1.15rem",
+                        flexWrap: "wrap",
+                        transition: "all 0.18s ease"
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.boxShadow = theme.hoverShadow;
+                        e.currentTarget.style.transform = "translateY(-1px)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.boxShadow = theme.shadow;
+                        e.currentTarget.style.transform = "translateY(0)";
+                      }}
+                    >
+                      {/* Left Side: Avatar + Details */}
+                      <div style={{ display: "flex", alignItems: "center", gap: "1.15rem", flex: "1 1 460px", flexWrap: "wrap" }}>
+                        {/* Portrait Avatar (Enlarged to fit card height) */}
+                        <div
+                          style={{
+                            width: "98px",
+                            height: "98px",
+                            borderRadius: "14px",
+                            border: theme.avatarBorder,
+                            background: theme.avatarBg,
+                            color: "#ffffff",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            flexShrink: 0,
+                            boxShadow: theme.avatarShadow
+                          }}
+                        >
+                          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                          </svg>
+                        </div>
+
+                        <div style={{ flex: 1, minWidth: "240px" }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", marginBottom: "0.15rem", flexWrap: "wrap" }}>
+                            <span
+                              style={{
+                                fontSize: "0.68rem",
+                                fontWeight: 800,
+                                background: theme.badgeBg,
+                                color: theme.badgeColor,
+                                border: theme.badgeBorder,
+                                padding: "0.15rem 0.5rem",
+                                borderRadius: "4px",
+                                letterSpacing: "0.4px"
+                              }}
+                            >
+                              {staff.role.toUpperCase()}
+                            </span>
+                            <span style={{ fontSize: "0.74rem", color: "#64748b" }}>• {staff.experience} Experience</span>
+                          </div>
+
+                          <h4 style={{ margin: "0.1rem 0 0.2rem 0", fontSize: "1.04rem", color: theme.textColor, fontWeight: 800 }}>
+                            {staff.name}
+                          </h4>
+
+                          <div style={{ fontSize: "0.82rem", color: "#475569", marginBottom: "0.2rem" }}>
+                            <strong style={{ color: "#334155" }}>Qualification:</strong> {staff.qualification}
+                          </div>
+
+                          <div style={{ fontSize: "0.82rem", color: "#334155", lineHeight: 1.35, marginBottom: "0.2rem" }}>
+                            <strong style={{ color: "#64748b" }}>Key Responsibilities:</strong> {staff.responsibilities}
+                          </div>
+
+                          <div style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap", fontSize: "0.8rem", color: "#334155" }}>
+                            <div>
+                              <strong>Email:</strong>{" "}
+                              <a href={`mailto:${staff.email}`} style={{ color: theme.textColor, textDecoration: "none", fontWeight: 600 }}>
+                                {staff.email}
+                              </a>
+                            </div>
+                            <div>
+                              <strong>Location:</strong> {staff.location}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right Side: Send Email Button */}
+                      <div style={{ flexShrink: 0 }}>
+                        <a
+                          href={`mailto:${staff.email}`}
+                          className="btn"
+                          style={{
+                            background: theme.btnBg,
+                            color: "#ffffff",
+                            border: "none",
+                            padding: "0.32rem 0.8rem",
+                            fontSize: "0.76rem",
+                            fontWeight: 600,
+                            borderRadius: "5px",
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "0.25rem",
+                            whiteSpace: "nowrap",
+                            textDecoration: "none",
+                            boxShadow: theme.btnShadow
+                          }}
+                        >
+                          Send Email →
+                        </a>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {filteredStaff.length === 0 && staffSearchQuery && (
+                <div style={{ textAlign: "center", padding: "3rem 1rem", background: "#f8fafc", borderRadius: "8px", color: "#64748b", marginTop: "1rem" }}>
+                  <p>No staff members found matching &quot;{staffSearchQuery}&quot;.</p>
+                  <button type="button" onClick={() => setStaffSearchQuery("")} className="btn btn-secondary" style={{ fontSize: "0.85rem", marginTop: "0.5rem" }}>
+                    Clear Search Filter
+                  </button>
+                </div>
+              )}
             </div>
+            </section>
           )}
 
-          {/* Tab 3: Curricula */}
-          {activeTab === "curricula" && (
+          {/* Section 3: Curricula */}
+          {activeSection === "curricula" && (
+            <section style={{ marginBottom: "2rem" }}>
             <div>
               <h3 style={{ color: "var(--primary-dark)", fontSize: "1.35rem", marginBottom: "0.5rem", fontWeight: 800 }}>
                 Course Curricula & Academic Regulations
@@ -681,22 +917,77 @@ export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps
                 Industry-aligned 4-Year B.Tech curriculum designed in accordance with AICTE model framework, Bloom’s Taxonomy, and National Education Policy (NEP 2020).
               </p>
 
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1rem", marginBottom: "2rem" }}>
-                <div style={{ background: "#f8fafc", padding: "1.25rem", borderRadius: "8px", borderLeft: "4px solid var(--primary-maroon)" }}>
-                  <h4 style={{ margin: "0 0 0.25rem 0", color: "var(--primary-maroon)", fontSize: "1rem" }}>Engineering Year 1 (E1)</h4>
-                  <p style={{ fontSize: "0.85rem", color: "#475569", margin: 0 }}>Foundations in Mathematics, Programming, Engineering Physics & Basic Sciences.</p>
+              <div className="curricula-years-grid">
+                <div
+                  style={{
+                    background: "#ffffff",
+                    padding: "1.35rem 1.5rem",
+                    borderRadius: "8px",
+                    border: "1px solid #f2cfd5",
+                    borderLeft: "5px solid var(--primary-maroon)",
+                    boxShadow: "0 2px 6px rgba(122, 0, 25, 0.04)"
+                  }}
+                >
+                  <h4 style={{ margin: "0 0 0.35rem 0", color: "var(--primary-maroon)", fontSize: "1.05rem", fontWeight: 700 }}>
+                    Engineering Year 1 (E1)
+                  </h4>
+                  <p style={{ fontSize: "0.88rem", color: "#475569", margin: 0, lineHeight: 1.5 }}>
+                    Foundations in Mathematics, Programming, Engineering Physics &amp; Basic Sciences.
+                  </p>
                 </div>
-                <div style={{ background: "#f8fafc", padding: "1.25rem", borderRadius: "8px", borderLeft: "4px solid #0284c7" }}>
-                  <h4 style={{ margin: "0 0 0.25rem 0", color: "#0284c7", fontSize: "1rem" }}>Engineering Year 2 (E2)</h4>
-                  <p style={{ fontSize: "0.85rem", color: "#475569", margin: 0 }}>Core departmental theory, algorithm analysis, circuit design & laboratory practicums.</p>
+
+                <div
+                  style={{
+                    background: "#ffffff",
+                    padding: "1.35rem 1.5rem",
+                    borderRadius: "8px",
+                    border: "1px solid #fef08a",
+                    borderLeft: "5px solid #d97706",
+                    boxShadow: "0 2px 6px rgba(217, 119, 6, 0.04)"
+                  }}
+                >
+                  <h4 style={{ margin: "0 0 0.35rem 0", color: "#b45309", fontSize: "1.05rem", fontWeight: 700 }}>
+                    Engineering Year 2 (E2)
+                  </h4>
+                  <p style={{ fontSize: "0.88rem", color: "#475569", margin: 0, lineHeight: 1.5 }}>
+                    Core departmental theory, algorithm analysis, circuit design &amp; laboratory practicums.
+                  </p>
                 </div>
-                <div style={{ background: "#f8fafc", padding: "1.25rem", borderRadius: "8px", borderLeft: "4px solid #eab308" }}>
-                  <h4 style={{ margin: "0 0 0.25rem 0", color: "#b45309", fontSize: "1rem" }}>Engineering Year 3 (E3)</h4>
-                  <p style={{ fontSize: "0.85rem", color: "#475569", margin: 0 }}>Professional electives, summer internships, mini-project, and specialized domain labs.</p>
+
+                <div
+                  style={{
+                    background: "#ffffff",
+                    padding: "1.35rem 1.5rem",
+                    borderRadius: "8px",
+                    border: "1px solid #f2cfd5",
+                    borderLeft: "5px solid var(--primary-maroon)",
+                    boxShadow: "0 2px 6px rgba(122, 0, 25, 0.04)"
+                  }}
+                >
+                  <h4 style={{ margin: "0 0 0.35rem 0", color: "var(--primary-maroon)", fontSize: "1.05rem", fontWeight: 700 }}>
+                    Engineering Year 3 (E3)
+                  </h4>
+                  <p style={{ fontSize: "0.88rem", color: "#475569", margin: 0, lineHeight: 1.5 }}>
+                    Professional electives, summer internships, mini-project, and specialized domain labs.
+                  </p>
                 </div>
-                <div style={{ background: "#f8fafc", padding: "1.25rem", borderRadius: "8px", borderLeft: "4px solid #10b981" }}>
-                  <h4 style={{ margin: "0 0 0.25rem 0", color: "#047857", fontSize: "1rem" }}>Engineering Year 4 (E4)</h4>
-                  <p style={{ fontSize: "0.85rem", color: "#475569", margin: 0 }}>Capstone major project, open interdisciplinary electives & industry placement semesters.</p>
+
+                <div
+                  style={{
+                    background: "#ffffff",
+                    padding: "1.35rem 1.5rem",
+                    borderRadius: "8px",
+                    border: "1px solid #fef08a",
+                    borderLeft: "5px solid #d97706",
+                    boxShadow: "0 2px 6px rgba(217, 119, 6, 0.04)"
+                  }}
+                >
+                  <h4 style={{ margin: "0 0 0.35rem 0", color: "#b45309", fontSize: "1.05rem", fontWeight: 700 }}>
+                    Engineering Year 4 (E4)
+                  </h4>
+                  <p style={{ fontSize: "0.88rem", color: "#475569", margin: 0, lineHeight: 1.5 }}>
+                    Capstone major project, open interdisciplinary electives &amp; industry placement semesters.
+                  </p>
                 </div>
               </div>
 
@@ -725,10 +1016,12 @@ export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps
                 </div>
               </div>
             </div>
+            </section>
           )}
 
-          {/* Tab 4: Board of Studies (BoS) */}
-          {activeTab === "bos" && (
+          {/* Section 4: Board of Studies (BoS) */}
+          {activeSection === "bos" && (
+            <section style={{ marginBottom: "2rem" }}>
             <div>
               <h3 style={{ color: "var(--primary-dark)", fontSize: "1.35rem", marginBottom: "0.5rem", fontWeight: 800 }}>
                 Board of Studies (BoS)
@@ -782,10 +1075,12 @@ export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps
                 </ul>
               </div>
             </div>
+            </section>
           )}
 
-          {/* Tab 5: Lab Facilities */}
-          {activeTab === "labs" && (
+          {/* Section 5: Lab Facilities */}
+          {activeSection === "labs" && (
+            <section style={{ marginBottom: "2rem" }}>
             <div>
               <h3 style={{ color: "var(--primary-dark)", fontSize: "1.35rem", marginBottom: "0.5rem", fontWeight: 800 }}>
                 Laboratories & Experimental Studios
@@ -829,10 +1124,12 @@ export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps
                 </p>
               </div>
             </div>
+            </section>
           )}
 
-          {/* Tab 6: Contact */}
-          {activeTab === "contact" && (
+          {/* Section 6: Contact */}
+          {activeSection === "contact" && (
+            <section style={{ marginBottom: "2rem" }}>
             <div>
               <h3 style={{ color: "var(--primary-dark)", fontSize: "1.35rem", marginBottom: "0.5rem", fontWeight: 800 }}>
                 Department Office & Contact Information
@@ -864,46 +1161,7 @@ export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps
                 </div>
               </div>
             </div>
-          )}
-
-          {/* Tab 7: Student Recreation Centre */}
-          {activeTab === "recreation" && (
-            <div>
-              <h3 style={{ color: "var(--primary-dark)", fontSize: "1.35rem", marginBottom: "0.5rem", fontWeight: 800 }}>
-                Student Recreation & Technical Hub
-              </h3>
-              <p style={{ fontSize: "0.92rem", color: "#64748b", marginBottom: "1.5rem" }}>
-                Fostering holistic growth, technical innovation, student chapters, leadership clubs, and peer learning communities.
-              </p>
-
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.25rem", marginBottom: "2rem" }}>
-                <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", padding: "1.25rem", borderRadius: "8px" }}>
-                  <h4 style={{ margin: "0 0 0.5rem 0", color: "var(--primary-maroon)", fontSize: "1rem" }}>Technical Chapters & Clubs</h4>
-                  <p style={{ fontSize: "0.85rem", color: "#475569", margin: 0 }}>
-                    Active student branch chapters organized under national/international bodies (ACM, IEEE, CSI, SAE, IIChE) hosting weekly code sprints, circuit-building hackathons, and tech seminars.
-                  </p>
-                </div>
-                <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", padding: "1.25rem", borderRadius: "8px" }}>
-                  <h4 style={{ margin: "0 0 0.5rem 0", color: "var(--primary-maroon)", fontSize: "1rem" }}>Annual Department Symposium</h4>
-                  <p style={{ fontSize: "0.85rem", color: "#475569", margin: 0 }}>
-                    Grand inter-college technical symposium featuring project exhibitions, paper presentations, robotic wars, coding hackathons, and guest lectures from industry luminaries.
-                  </p>
-                </div>
-                <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", padding: "1.25rem", borderRadius: "8px" }}>
-                  <h4 style={{ margin: "0 0 0.5rem 0", color: "var(--primary-maroon)", fontSize: "1rem" }}>Department Library & Discussion Room</h4>
-                  <p style={{ fontSize: "0.85rem", color: "#475569", margin: 0 }}>
-                    Quiet peer study lounges, digital library kiosks, IEEE Xplore access terminals, and brainstorming whiteboard rooms for hackathon squads.
-                  </p>
-                </div>
-              </div>
-
-              <div style={{ background: "linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)", border: "1px solid #bbf7d0", padding: "1.25rem", borderRadius: "8px" }}>
-                <h4 style={{ margin: "0 0 0.5rem 0", color: "#166534", fontSize: "0.95rem" }}>Indoor Recreation & Sports Corner</h4>
-                <p style={{ fontSize: "0.85rem", color: "#15803d", margin: 0 }}>
-                  Recreational chess tables, table tennis boards, and relaxing open air balconies within the academic block to unwind between intensive lab sessions.
-                </p>
-              </div>
-            </div>
+            </section>
           )}
         </article>
       </div>
@@ -982,7 +1240,7 @@ export default function DepartmentDetailView({ dept }: DepartmentDetailViewProps
                 style={{
                   width: "78px",
                   height: "78px",
-                  borderRadius: "50%",
+                  borderRadius: "14px",
                   border: "3px solid var(--accent-gold)",
                   background: "#ffffff",
                   color: "var(--primary-maroon)",

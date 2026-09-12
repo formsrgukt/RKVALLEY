@@ -16,7 +16,8 @@ export default function AcademicsPage() {
             <h4 className="sidebar-menu-title">Explore Section</h4>
             <ul className="sidebar-nav-list">
               <li><Link href="/academics" className="sidebar-link active">6-Year B.Tech Overview</Link></li>
-              <li><Link href="/departments" className="sidebar-link">Departments & Syllabus</Link></li>
+              <li><Link href="/curriculum" className="sidebar-link">Curriculum & Syllabus</Link></li>
+              <li><Link href="/departments" className="sidebar-link">All Departments</Link></li>
               <li><Link href="/examinations" className="sidebar-link">Grading & Exam Regulations</Link></li>
               <li><Link href="/admissions" className="sidebar-link">Admissions Guidelines</Link></li>
             </ul>
@@ -107,6 +108,10 @@ export default function AcademicsPage() {
                   >
                     Foundational curriculum in Mathematics-I, Physics-I, Chemistry-I, English Communication, and Information Technology with hands-on laboratory practice.
                   </p>
+                  <div style={{ marginTop: "0.6rem", fontSize: "0.74rem", fontWeight: 600, color: "var(--accent-royal)", background: "#fdf2f4", border: "1px solid #fecdd3", padding: "0.25rem 0.55rem", borderRadius: "5px", display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
+                    <span>📋</span>
+                    <span>Single Semester • <strong>6 Mids</strong> &amp; only <strong>EST</strong> at end</span>
+                  </div>
                 </div>
 
                 <div
@@ -171,6 +176,10 @@ export default function AcademicsPage() {
                   >
                     Advanced preparatory curriculum in Mathematics-II, Physics-II, Chemistry-II, Computer Programming, and Environmental Studies qualifying for B.Tech engineering stream allocation.
                   </p>
+                  <div style={{ marginTop: "0.6rem", fontSize: "0.74rem", fontWeight: 600, color: "#92400e", background: "#fef3c7", border: "1px solid #fde68a", padding: "0.25rem 0.55rem", borderRadius: "5px", display: "inline-flex", alignItems: "center", gap: "0.35rem" }}>
+                    <span>📋</span>
+                    <span>Single Semester • <strong>6 Mids</strong> &amp; only <strong>EST</strong> at end</span>
+                  </div>
                 </div>
               </div>
             </div>

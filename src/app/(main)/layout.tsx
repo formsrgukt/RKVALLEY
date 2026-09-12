@@ -14,11 +14,6 @@ export default function MainLayout({
 }>) {
   return (
     <>
-      {/* Skip link */}
-      <a href="#main-content" className="skip-to-content">
-        Skip to Main Content
-      </a>
-
       {/* Header Layout */}
       <MainHeader />
       <StickyNavbar />

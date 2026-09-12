@@ -31,6 +31,27 @@ export default function ExaminationsPage() {
               The Examination Cell at RGUKT RK Valley is responsible for conducting mid-term and end-semester examinations, evaluation, grade sheet generation, and convocation degree issuance.
             </p>
 
+            {/* Academic Evaluation Scheme Comparison */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem", marginBottom: "1.5rem" }}>
+              <div style={{ background: "#ffffff", border: "1px solid #fecdd3", borderLeft: "4px solid var(--accent-royal)", borderRadius: "8px", padding: "1rem" }}>
+                <h5 style={{ color: "var(--accent-royal)", margin: "0 0 0.35rem 0", fontWeight: 700, fontSize: "0.95rem" }}>
+                  Pre-University Course (PUC I &amp; PUC II)
+                </h5>
+                <p style={{ margin: 0, fontSize: "0.82rem", color: "#475569", lineHeight: 1.5 }}>
+                  <strong>Single Continuous Semester:</strong> Evaluated through <strong>6 Mid Examinations</strong> across the year with continuous assessment, culminating in only the <strong>End Semester Test (EST)</strong> conducted at the end of the academic year.
+                </p>
+              </div>
+
+              <div style={{ background: "#ffffff", border: "1px solid #fde68a", borderLeft: "4px solid var(--accent-gold)", borderRadius: "8px", padding: "1rem" }}>
+                <h5 style={{ color: "var(--accent-gold-dark)", margin: "0 0 0.35rem 0", fontWeight: 700, fontSize: "0.95rem" }}>
+                  Engineering Program (E1 to E4)
+                </h5>
+                <p style={{ margin: 0, fontSize: "0.82rem", color: "#475569", lineHeight: 1.5 }}>
+                  <strong>Two Semesters Per Year:</strong> Semester-I and Semester-II each have Mid-term examinations (Mid-1, Mid-2, Mid-3) followed by End Semester Theory &amp; Practical Examinations (EST).
+                </p>
+              </div>
+            </div>
+
             <div style={{ background: "#f1f5f9", borderRadius: "12px", padding: "1.5rem", marginBottom: "2rem" }}>
               <h4 style={{ color: "var(--primary-dark)", marginBottom: "0.75rem" }}>RGUKT 10-Point Grading Scale</h4>
               <div style={{ overflowX: "auto" }}>

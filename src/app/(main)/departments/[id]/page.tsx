@@ -1,6 +1,5 @@
 import React from "react";
 import { notFound } from "next/navigation";
-import Breadcrumb from "@/components/Common/Breadcrumb";
 import { RGUKT_DATA } from "@/data/rguktData";
 import DepartmentDetailView from "@/components/Departments/DepartmentDetailView";
 
@@ -40,8 +39,7 @@ export default async function DepartmentDetailPage({
 
   return (
     <div className="page-view-container">
-      <Breadcrumb title={`${dept.name} (${dept.code})`} category="Department" />
-      <DepartmentDetailView dept={dept} />
+      <DepartmentDetailView dept={dept} activeSection="faculty" />
     </div>
   );
 }

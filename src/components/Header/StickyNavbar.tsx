@@ -118,7 +118,7 @@ export default function StickyNavbar() {
                         RGUKT CGPA / SGPA Calculator
                       </button>
                     </li>
-                    <li><Link href="/departments" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Curricula & Syllabus</Link></li>
+                    <li><Link href="/curriculum" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Curricula & Syllabus</Link></li>
                   </ul>
                 </div>
               </div>

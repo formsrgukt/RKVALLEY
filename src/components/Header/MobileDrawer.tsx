@@ -79,7 +79,7 @@ export default function MobileDrawer() {
               </button>
               <ul className={`drawer-submenu ${openAccordions["acad"] ? "open" : ""}`}>
                 <li><Link href="/academics" className="drawer-sublink" onClick={closeMobileDrawer}>6-Year B.Tech Program</Link></li>
-                <li><Link href="/departments" className="drawer-sublink" onClick={closeMobileDrawer}>Departments & Syllabus</Link></li>
+                <li><Link href="/curriculum" className="drawer-sublink" onClick={closeMobileDrawer}>Curriculum & Syllabus</Link></li>
                 <li><Link href="/examinations" className="drawer-sublink" onClick={closeMobileDrawer}>Examinations & Grading</Link></li>
                 <li>
                   <button
