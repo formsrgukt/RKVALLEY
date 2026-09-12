@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -28,7 +28,7 @@ export default function AdminSidebar() {
             <Link 
               key={item.name} 
               href={item.path}
-              className={px-4 py-3 rounded-lg text-sm transition-all font-medium }
+              className={`px-4 py-3 rounded-lg text-sm transition-all font-medium ${isActive ? "bg-white/10 text-white font-semibold" : "text-slate-300 hover:bg-white/5"}`}
             >
               {item.name}
             </Link>

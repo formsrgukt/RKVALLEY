@@ -1,4 +1,4 @@
-﻿export default function AdminDashboard() {
+export default function AdminDashboard() {
   return (
     <div>
       <h1 className="text-3xl font-bold text-slate-900 mb-2">
@@ -17,7 +17,7 @@
         ].map(stat => (
           <div key={stat.title} className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
             <h3 className="text-sm text-slate-500 font-semibold mb-2">{stat.title}</h3>
-            <div className={	ext-3xl font-bold }>{stat.value}</div>
+            <div className={`text-3xl font-bold ${stat.color}`}>{stat.value}</div>
           </div>
         ))}
       </div>
