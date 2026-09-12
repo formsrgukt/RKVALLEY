@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
@@ -7,6 +7,26 @@ import { useApp } from "@/context/AppContext";
 export default function HeroSection() {
   const { openGpaModal } = useApp();
   const [counts, setCounts] = useState({ students: 0, acres: 0, placement: 0, faculty: 0 });
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const slides = [
+    {
+      image: "slide-1",
+      badge: "Premier Technological University of Andhra Pradesh",
+      title: <>Nurturing <span>Rural Intellect</span> Into World-Class Engineers & Innovators</>,
+      subtitle: "Rajiv Gandhi University of Knowledge Technologies (RGUKT) RK Valley provides an immersive 6-year integrated B.Tech residential education empowering gifted rural youth with cutting-edge ICT and technological mastery.",
+      action: "Explore RK Valley Campus",
+      link: "/about"
+    },
+    {
+      image: "slide-2",
+      badge: "A Tradition of Academic Excellence",
+      title: <>About the <span>Ceremony</span></>,
+      subtitle: "The RGUKT Convocation is more than a ceremony; it is a celebration of the relentless pursuit of knowledge and the transformation of rural talent into global professionals. Each year, we honor the resilience of our students who have excelled in a unique educational ecosystem.\n\nJoin us as we confer degrees upon the graduating batch, marking the culmination of years of hard work, innovation, and dedication to the vision of Rajiv Gandhi University of Knowledge Technologies.",
+      action: "Read More",
+      link: "/about"
+    }
+  ];
 
   useEffect(() => {
     let currentStep = 0;
@@ -24,35 +44,68 @@ export default function HeroSection() {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    const slideTimer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(slideTimer);
+  }, [slides.length]);
+
   return (
     <section className="hero-section" aria-label="University Hero Overview">
       <div className="hero-bg-slider">
-        <div className="hero-bg-slide slide-1"></div>
-        <div className="hero-bg-slide slide-2"></div>
+        {slides.map((slide, idx) => (
+          <div 
+            key={idx}
+            className={hero-bg-slide  }
+            style={{
+              opacity: activeSlide === idx ? 1 : 0,
+              transform: activeSlide === idx ? 'scale(1)' : 'scale(1.05)',
+              transition: 'opacity 1.5s ease-in-out, transform 6s linear',
+              animation: 'none'
+            }}
+          ></div>
+        ))}
       </div>
       <div className="hero-overlay"></div>
       
       <div className="container" style={{ position: "relative", zIndex: 10 }}>
         <div className="hero-content">
-          <div className="hero-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-            Premier Technological University of Andhra Pradesh
-          </div>
+          <div style={{ position: 'relative', minHeight: '320px' }}>
+            {slides.map((slide, idx) => (
+              <div 
+                key={idx}
+                style={{
+                  position: activeSlide === idx ? 'relative' : 'absolute',
+                  top: 0, left: 0, right: 0,
+                  opacity: activeSlide === idx ? 1 : 0,
+                  visibility: activeSlide === idx ? 'visible' : 'hidden',
+                  transition: 'opacity 1s ease-in-out',
+                  pointerEvents: activeSlide === idx ? 'auto' : 'none'
+                }}
+              >
+                <div className="hero-badge">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                  {slide.badge}
+                </div>
 
-          <h2 className="hero-title">
-            Nurturing <span>Rural Intellect</span> Into World-Class Engineers & Innovators
-          </h2>
+                <h2 className="hero-title">
+                  {slide.title}
+                </h2>
 
-          <p className="hero-subtitle">
-            Rajiv Gandhi University of Knowledge Technologies (RGUKT) RK Valley provides an immersive 6-year integrated B.Tech residential education empowering gifted rural youth with cutting-edge ICT and technological mastery.
-          </p>
+                <p className="hero-subtitle" style={{ whiteSpace: 'pre-line' }}>
+                  {slide.subtitle}
+                </p>
 
-          <div className="hero-actions">
-            <Link href="/about" className="btn btn-primary">
-              Explore RK Valley Campus
-            </Link>
+                <div className="hero-actions">
+                  <Link href={slide.link} className="btn btn-primary">
+                    {slide.action}
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Hero Live Stats */}

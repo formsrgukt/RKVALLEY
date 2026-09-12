@@ -810,27 +810,16 @@ button {
 .hero-bg-slide {
   position: absolute;
   inset: 0;
-  background-size: contain;
-  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
-  opacity: 0;
-  animation: heroFadeInOut 12s infinite ease-in-out;
 }
 
 .hero-bg-slide.slide-1 {
   background-image: url('/images/campus_image.png');
-  animation-delay: 0s;
 }
 
 .hero-bg-slide.slide-2 {
   background-image: url('/images/convocation.png');
-  animation-delay: 6s;
-}
-
-@keyframes heroFadeInOut {
-  0%, 10% { opacity: 0; transform: scale(1.05); }
-  20%, 50% { opacity: 1; transform: scale(1); }
-  60%, 100% { opacity: 0; transform: scale(1.05); }
 }
 
 .hero-overlay {
