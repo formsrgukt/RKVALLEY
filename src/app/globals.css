@@ -131,6 +131,7 @@ html {
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
+  touch-action: manipulation;
 }
 
 body {
@@ -2363,6 +2364,11 @@ button {
   }
   .gpa-row {
     grid-template-columns: 1fr 1fr;
+  }
+  
+  /* Prevent iOS Safari Auto-Zoom on inputs by forcing 16px min size */
+  input, select, textarea, .gpa-row input, .gpa-row select, .search-input {
+    font-size: 1rem !important;
   }
 }
 
