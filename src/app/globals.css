@@ -2255,8 +2255,8 @@ button {
   position: fixed;
   bottom: 2.5rem;
   right: 2.5rem;
+  width: 48px;
   height: 48px;
-  padding: 0 14px;
   border-radius: 24px;
   background: rgba(122, 0, 25, 0.9);
   backdrop-filter: blur(8px);
@@ -2264,12 +2264,12 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0;
   box-shadow: 0 8px 24px rgba(122, 0, 25, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 999;
   opacity: 0;
   visibility: hidden;
+  transform: translateY(20px);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   overflow: hidden;
   cursor: pointer;
@@ -2278,38 +2278,51 @@ button {
 .btn-back-to-top.visible {
   opacity: 1;
   visibility: visible;
+  transform: translateY(0);
 }
 
 .btt-text {
-  max-width: 0;
+  position: absolute;
+  right: 18px;
   opacity: 0;
   font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 1px;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   white-space: nowrap;
-}
-
-.btn-back-to-top:hover {
-  background: var(--primary-maroon);
-  transform: translateY(-5px);
-  padding: 0 20px;
-  gap: 6px;
-  box-shadow: 0 12px 28px rgba(122, 0, 25, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.25);
-}
-
-.btn-back-to-top:hover .btt-text {
-  max-width: 40px;
-  opacity: 1;
+  pointer-events: none;
+  transform: translateX(10px);
 }
 
 .btt-icon {
-  transition: transform 0.4s ease;
-  flex-shrink: 0;
+  position: absolute;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-back-to-top.visible .btt-icon {
+  animation: btt-bounce 2s infinite ease-in-out;
+}
+
+@keyframes btt-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.btn-back-to-top:hover {
+  width: 105px;
+  background: var(--primary-maroon);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(122, 0, 25, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.25);
 }
 
 .btn-back-to-top:hover .btt-icon {
-  transform: translateY(-2px);
+  animation: none;
+  transform: translateX(-24px) translateY(0);
+}
+
+.btn-back-to-top:hover .btt-text {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* RESPONSIVE */
