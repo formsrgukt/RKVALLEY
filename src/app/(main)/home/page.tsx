@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -256,8 +256,8 @@ export default function HomePage() {
         <div className="container">
           <div className="section-header" style={{ textAlign: "center", justifyContent: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
             <div style={{ maxWidth: "800px" }}>
-              <span className="section-tag" style={{ justifyContent: "center" }}>Connect With Us</span>
-              <h3 className="section-title">Follow RGUKT RK Valley</h3>
+                <span className="section-tag" style={{ justifyContent: "center" }}>Social Networks</span>
+                <h3 className="section-title">Join Our Digital Community</h3>
               <p className="section-subtitle" style={{ margin: "0 auto" }}>
                 Stay updated with the latest news, events, and student activities across our official social media channels.
               </p>
