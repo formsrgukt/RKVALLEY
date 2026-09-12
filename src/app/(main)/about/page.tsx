@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function AboutPage() {
   const sectionStyle = {
@@ -55,6 +56,15 @@ export default function AboutPage() {
           {/* Main Content */}
           <article className="page-main-body" style={{ margin: "0 auto", width: "100%" }}>
             <h2 style={{ color: "var(--primary-dark)", marginBottom: "1.5rem", fontSize: "1.8rem", fontWeight: 800 }}>About RGUKT</h2>
+            
+            <Image 
+              src="/images/campus-image.png" 
+              alt="RGUKT Campus" 
+              width={1200} 
+              height={500} 
+              style={{ width: "100%", height: "auto", borderRadius: "12px", marginBottom: "2rem", boxShadow: "0 8px 24px rgba(0,0,0,0.08)", objectFit: "cover" }} 
+              priority
+            />
             
             <div style={sectionStyle} id="founding">
               <h3 style={headingStyle}>Founding of RGUKT</h3>
