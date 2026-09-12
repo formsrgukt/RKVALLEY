@@ -228,11 +228,27 @@ export default function StickyNavbar() {
         <div className="nav-actions-right">
           <InlineSearch />
 
-          <button onClick={toggleLang} className="btn-mobile-lang" aria-label="Toggle Language">
+          <button 
+            onClick={toggleLang} 
+            className="lang-btn-mobile" 
+            aria-label="Toggle Language"
+            title="Switch Language"
+            style={{ 
+              background: 'transparent', 
+              border: '1.5px solid var(--primary-maroon)', 
+              color: 'var(--primary-maroon)', 
+              borderRadius: 'var(--radius-md)', 
+              padding: '0.4rem 0.75rem', 
+              fontWeight: 700, 
+              fontSize: '0.85rem',
+              marginLeft: '0.5rem',
+              cursor: 'pointer'
+            }}
+          >
             {lang === "en" ? "తెలుగు" : "EN"}
           </button>
 
-          <button onClick={openMobileDrawer} className="btn-mobile-toggle" aria-label="Open Mobile Menu">
+          <button onClick={openMobileDrawer} className="btn-mobile-toggle" aria-label="Open Mobile Menu" style={{ marginLeft: '0.5rem' }}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="6" x2="21" y2="6"></line>

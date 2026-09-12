@@ -2304,10 +2304,6 @@ button {
   }
 }
 
-.btn-mobile-lang {
-  display: none;
-}
-
 @media (max-width: 768px) {
   .university-logo-container {
     width: 52px;
@@ -2338,19 +2334,6 @@ button {
   }
   .btn-mobile-toggle {
     display: block;
-  }
-  .btn-mobile-lang {
-    display: block;
-    background: transparent;
-    color: var(--primary-maroon);
-    border: 1.5px solid var(--primary-maroon);
-    border-radius: var(--radius-sm);
-    padding: 0.2rem 0.5rem;
-    font-size: 0.8rem;
-    font-weight: 700;
-    cursor: pointer;
-    margin-right: 0.5rem;
-    line-height: 1.2;
   }
   .hero-title {
     font-size: 2rem;
@@ -2506,4 +2489,7 @@ button {
 .skiptranslate iframe, .VIpgJd-ZVi9od-ORHb-OEVmcd, .goog-te-banner-frame { display: none !important; }
 body { top: 0 !important; }
 .goog-te-combo { display: none !important; }
+
+
+@media (min-width: 769px) { .lang-btn-mobile { display: none !important; } }
 
