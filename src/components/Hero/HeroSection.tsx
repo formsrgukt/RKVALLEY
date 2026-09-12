@@ -25,6 +25,14 @@ export default function HeroSection() {
       subtitle: "The RGUKT Convocation is more than a ceremony; it is a celebration of the relentless pursuit of knowledge and the transformation of rural talent into global professionals. Each year, we honor the resilience of our students who have excelled in a unique educational ecosystem.\n\nJoin us as we confer degrees upon the graduating batch, marking the culmination of years of hard work, innovation, and dedication to the vision of Rajiv Gandhi University of Knowledge Technologies.",
       action: "Read More",
       link: "/about"
+    },
+    {
+      image: "slide-3",
+      badge: "Founding Leadership",
+      title: <>Prof D Raj Reddy as its <span>founding Chancellor</span></>,
+      subtitle: "Rajiv Gandhi University of Knowledge Technologies is privileged to have Prof D Raj Reddy, an internationally acclaimed computer scientist and Turing Award winner, guiding our institution's vision and academic excellence.",
+      action: "Learn More",
+      link: "/about"
     }
   ];
 
