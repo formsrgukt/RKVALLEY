@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -107,7 +107,7 @@ export default function HomePage() {
                 Take a glimpse into the vibrant academic environment, world-class infrastructure, and lush green campus.
               </p>
               
-              <div style={{ width: "100%", borderRadius: "16px", overflow: "hidden", boxShadow: "var(--shadow-xl)", aspectRatio: "16/9", background: "#000" }}>
+              <div style={{ width: "100%", maxWidth: "480px", margin: "0 auto", borderRadius: "16px", overflow: "hidden", boxShadow: "var(--shadow-xl)", aspectRatio: "16/9", background: "#000" }}>
                 <iframe 
                   width="100%" 
                   height="100%" 
