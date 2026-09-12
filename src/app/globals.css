@@ -2253,21 +2253,26 @@ button {
 /* BACK TO TOP */
 .btn-back-to-top {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  background: var(--primary-maroon);
+  bottom: 2.5rem;
+  right: 2.5rem;
+  height: 48px;
+  padding: 0 14px;
+  border-radius: 24px;
+  background: rgba(122, 0, 25, 0.9);
+  backdrop-filter: blur(8px);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 16px rgba(122, 0, 25, 0.35);
+  gap: 0;
+  box-shadow: 0 8px 24px rgba(122, 0, 25, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 999;
   opacity: 0;
   visibility: hidden;
-  transition: all var(--transition-normal);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .btn-back-to-top.visible {
@@ -2275,9 +2280,36 @@ button {
   visibility: visible;
 }
 
+.btt-text {
+  max-width: 0;
+  opacity: 0;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  white-space: nowrap;
+}
+
 .btn-back-to-top:hover {
-  background: var(--primary-dark);
-  transform: translateY(-4px);
+  background: var(--primary-maroon);
+  transform: translateY(-5px);
+  padding: 0 20px;
+  gap: 6px;
+  box-shadow: 0 12px 28px rgba(122, 0, 25, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+}
+
+.btn-back-to-top:hover .btt-text {
+  max-width: 40px;
+  opacity: 1;
+}
+
+.btt-icon {
+  transition: transform 0.4s ease;
+  flex-shrink: 0;
+}
+
+.btn-back-to-top:hover .btt-icon {
+  transform: translateY(-2px);
 }
 
 /* RESPONSIVE */
