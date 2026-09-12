@@ -76,7 +76,7 @@
   --radius-xl: 24px;
   --radius-full: 9999px;
   
-  --container-max: 1920px;
+  --container-max: 90rem;
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -2502,13 +2502,17 @@ body { top: 0 !important; }
   .lang-btn-mobile { display: block !important; }
 }
 
+/* Fluid root typography to auto-scale website proportionally on desktops */
+html { font-size: 16px !important; }
 
-/* Fluid root typography to auto-scale website perfectly from 1024px to 1920px */
-html { font-size: clamp(10px, 0.67vw + 3.16px, 16px) !important; }
+@media (min-width: 1024px) {
+  html {
+    font-size: clamp(11px, 1.1vw, 22px) !important;
+  }
+}
 
 
-/* Correct fluid root typography */
-html { font-size: clamp(13px, 0.4vw + 11px, 16px) !important; }
+
 
 
 .inline-search-dropdown-menu { position: absolute; top: calc(100% + 0.5rem); right: 0; width: 90vw; max-width: 400px; max-height: 450px; background: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; overflow-y: auto; z-index: 1000; }
