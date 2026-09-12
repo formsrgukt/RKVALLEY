@@ -40,15 +40,15 @@ export default function AboutPage() {
       <div style={{ padding: "0 2rem", width: "100%", maxWidth: "1600px", margin: "0 auto" }}>
         <div className="page-content-layout">
           {/* Index Sidebar */}
-          <aside style={{ position: "sticky", top: "100px", height: "fit-content", background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "1.5rem", boxShadow: "0 2px 8px rgba(0,0,0,0.03)" }}>
-            <h4 style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--primary-maroon)", marginBottom: "1rem", borderBottom: "1px solid #f1f5f9", paddingBottom: "0.5rem" }}>On this page</h4>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0, fontSize: "0.95rem", lineHeight: 2.2 }}>
-              <li><a href="#founding" style={{ color: "var(--primary-dark)", textDecoration: "none" }}>Founding of RGUKT</a></li>
-              <li><a href="#why-rgukt" style={{ color: "var(--primary-dark)", textDecoration: "none" }}>Why RGUKT?</a></li>
-              <li><a href="#educational-objectives" style={{ color: "var(--primary-dark)", textDecoration: "none" }}>Educational Objectives</a></li>
-              <li><a href="#university-objectives" style={{ color: "var(--primary-dark)", textDecoration: "none" }}>Objectives of the University</a></li>
-              <li><a href="#leadership" style={{ color: "var(--primary-dark)", textDecoration: "none" }}>Present Leadership</a></li>
-              <li><a href="#management" style={{ color: "var(--primary-dark)", textDecoration: "none" }}>Management</a></li>
+          <aside style={{ position: "sticky", top: "100px", height: "fit-content", background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "12px", padding: "1.5rem", boxShadow: "0 4px 15px rgba(0,0,0,0.02)" }}>
+            <h4 style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--primary-dark)", marginBottom: "1rem", borderBottom: "2px solid #f1f5f9", paddingBottom: "0.75rem" }}>On this page</h4>
+            <ul className="about-sidebar-nav">
+              <li><a href="#founding" className="about-sidebar-link">Founding of RGUKT</a></li>
+              <li><a href="#why-rgukt" className="about-sidebar-link">Why RGUKT?</a></li>
+              <li><a href="#educational-objectives" className="about-sidebar-link">Educational Objectives</a></li>
+              <li><a href="#university-objectives" className="about-sidebar-link">Objectives of the University</a></li>
+              <li><a href="#leadership" className="about-sidebar-link">Present Leadership</a></li>
+              <li><a href="#management" className="about-sidebar-link">Management</a></li>
             </ul>
           </aside>
 

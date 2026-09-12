@@ -2524,3 +2524,17 @@ html { font-size: 16px !important; }
 /* Hide all extra Google Translate popups, frames, and icons */
 .goog-te-gadget-icon, .goog-te-menu-value, .goog-te-menu2, .goog-te-menu-frame, #goog-gt-vt, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf-ti6hGc { display: none !important; }
 
+
+/* INDEX SIDEBAR */
+.index-sidebar { position: sticky; top: 100px; height: fit-content; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04); }
+.index-sidebar-title { font-size: 1.15rem; font-weight: 700; color: var(--primary-maroon); margin-bottom: 1.25rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.75rem; }
+.index-sidebar-list { list-style: none; padding: 0; margin: 0; }
+.index-sidebar-link { display: block; padding: 0.6rem 0.8rem; margin-bottom: 0.25rem; font-size: 0.95rem; font-weight: 500; color: #475569; text-decoration: none; border-radius: 6px; transition: all var(--transition-fast); border-left: 3px solid transparent; }
+.index-sidebar-link:hover { background: #f8fafc; color: var(--primary-maroon); border-left-color: var(--primary-maroon); transform: translateX(2px); }
+
+
+/* About Page Sidebar */
+.about-sidebar-nav { list-style: none; padding: 0; margin: 0; }
+.about-sidebar-link { display: block; padding: 0.6rem 1rem; color: #475569; text-decoration: none; font-size: 0.95rem; font-weight: 500; border-radius: 6px; transition: all 0.2s ease; margin-bottom: 0.25rem; }
+.about-sidebar-link:hover { background: #f8fafc; color: var(--primary-maroon); transform: translateX(4px); }
+
