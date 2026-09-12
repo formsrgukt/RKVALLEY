@@ -79,9 +79,10 @@ export default function HeroSection() {
                   position: 'absolute',
                   top: 0, left: 0, right: 0,
                   opacity: activeSlide === idx ? 1 : 0,
-                  transform: activeSlide === idx ? 'translateY(0)' : 'translateY(20px)',
+                  transform: activeSlide === idx ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.97)',
+                  filter: activeSlide === idx ? 'blur(0px)' : 'blur(10px)',
                   visibility: activeSlide === idx ? 'visible' : 'hidden',
-                  transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+                  transition: 'all 1.2s cubic-bezier(0.16, 1, 0.3, 1)',
                   pointerEvents: activeSlide === idx ? 'auto' : 'none'
                 }}
               >
