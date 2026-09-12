@@ -2263,7 +2263,6 @@ button {
   color: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: center;
   box-shadow: 0 8px 24px rgba(122, 0, 25, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 999;
@@ -2283,7 +2282,7 @@ button {
 
 .btt-text {
   position: absolute;
-  right: 18px;
+  left: 42px; /* Starts right after the icon */
   opacity: 0;
   font-weight: 700;
   font-size: 0.85rem;
@@ -2291,11 +2290,12 @@ button {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   white-space: nowrap;
   pointer-events: none;
-  transform: translateX(10px);
+  transform: translateX(-10px);
 }
 
 .btt-icon {
   position: absolute;
+  left: 14px; /* Perfectly centered in a 48px circle (20px icon) */
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -2309,7 +2309,7 @@ button {
 }
 
 .btn-back-to-top:hover {
-  width: 105px;
+  width: 95px;
   background: var(--primary-maroon);
   transform: translateY(-5px);
   box-shadow: 0 12px 28px rgba(122, 0, 25, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.25);
@@ -2317,7 +2317,7 @@ button {
 
 .btn-back-to-top:hover .btt-icon {
   animation: none;
-  transform: translateX(-24px) translateY(0);
+  transform: translateY(0);
 }
 
 .btn-back-to-top:hover .btt-text {
