@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -15,10 +15,10 @@ export default function AdminSidebar() {
   ];
 
   return (
-    <aside className="w-64 h-screen bg-slate-900 text-white fixed top-0 left-0 flex flex-col py-8 px-4">
+    <aside className="w-64 h-screen bg-white text-slate-700 fixed top-0 left-0 flex flex-col py-8 px-4 border-r border-slate-200 shadow-sm z-50">
       <div className="mb-8 px-4">
-        <h2 className="text-xl font-bold m-0">RGUKT Admin</h2>
-        <p className="text-sm text-slate-400 m-0">Portal Management</p>
+        <h2 className="text-xl font-bold text-red-800 m-0">RGUKT Admin</h2>
+        <p className="text-sm text-slate-500 m-0">Portal Management</p>
       </div>
 
       <nav className="flex flex-col gap-2">
@@ -28,7 +28,7 @@ export default function AdminSidebar() {
             <Link 
               key={item.name} 
               href={item.path}
-              className={`px-4 py-3 rounded-lg text-sm transition-all font-medium ${isActive ? "bg-white/10 text-white font-semibold" : "text-slate-300 hover:bg-white/5"}`}
+              className={px-4 py-3 rounded-lg text-sm transition-all font-medium }
             >
               {item.name}
             </Link>
@@ -37,7 +37,7 @@ export default function AdminSidebar() {
       </nav>
       
       <div className="mt-auto">
-        <a href="http://localhost:3000" className="px-4 py-3 block text-slate-400 hover:text-white text-sm transition-colors">
+        <a href="http://localhost:3000" className="px-4 py-3 block text-slate-500 hover:text-red-700 text-sm transition-colors font-medium">
           &larr; Back to Main Site
         </a>
       </div>
