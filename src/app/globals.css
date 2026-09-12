@@ -564,6 +564,7 @@ button {
 
 .mega-menu {
   width: 680px;
+  max-width: calc(100vw - 2rem);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
@@ -2359,6 +2360,9 @@ button {
   }
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+  .gpa-row {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
