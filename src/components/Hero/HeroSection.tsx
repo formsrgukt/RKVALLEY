@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
@@ -68,7 +68,7 @@ export default function HeroSection() {
         {slides.map((slide, idx) => (
           <div 
             key={idx}
-            className={hero-bg-slide  }
+            className={`hero-bg-slide ${slide.image} ${activeSlide === idx ? 'active' : ''}`}
             style={{
               opacity: activeSlide === idx ? 1 : 0,
               transform: activeSlide === idx ? 'scale(1)' : 'scale(1.05)',
