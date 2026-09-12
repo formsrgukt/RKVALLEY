@@ -71,16 +71,17 @@ export default function HeroSection() {
       
       <div className="container" style={{ position: "relative", zIndex: 10 }}>
         <div className="hero-content">
-          <div style={{ position: 'relative', minHeight: '320px' }}>
+          <div style={{ position: 'relative', minHeight: '380px' }}>
             {slides.map((slide, idx) => (
               <div 
                 key={idx}
                 style={{
-                  position: activeSlide === idx ? 'relative' : 'absolute',
+                  position: 'absolute',
                   top: 0, left: 0, right: 0,
                   opacity: activeSlide === idx ? 1 : 0,
+                  transform: activeSlide === idx ? 'translateY(0)' : 'translateY(20px)',
                   visibility: activeSlide === idx ? 'visible' : 'hidden',
-                  transition: 'opacity 1s ease-in-out',
+                  transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
                   pointerEvents: activeSlide === idx ? 'auto' : 'none'
                 }}
               >
