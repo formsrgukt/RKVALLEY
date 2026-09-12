@@ -57,15 +57,6 @@ export default function AboutPage() {
           <article className="page-main-body" style={{ margin: "0 auto", width: "100%" }}>
             <h2 style={{ color: "var(--primary-dark)", marginBottom: "1.5rem", fontSize: "1.8rem", fontWeight: 800 }}>About RGUKT</h2>
             
-            <Image 
-              src="/images/campus-image.png" 
-              alt="RGUKT Campus" 
-              width={1200} 
-              height={500} 
-              style={{ width: "100%", height: "auto", borderRadius: "12px", marginBottom: "2rem", boxShadow: "0 8px 24px rgba(0,0,0,0.08)", objectFit: "cover" }} 
-              priority
-            />
-            
             <div style={sectionStyle} id="founding">
               <h3 style={headingStyle}>Founding of RGUKT</h3>
               <p style={textStyle}>
@@ -109,6 +100,14 @@ export default function AboutPage() {
                 Education at RGUKT is based on the intensive use of Information Technology. Every student has access to a laptop and education uses the latest advances in Learning Sciences such as Learning by Example, Learning by Doing and Problem-based Learning. Online lectures are provided and lectures are followed by problem solving sessions that reinforce what has been covered in each lecture.
               </p>
             </div>
+
+            <Image 
+              src="/images/campus-image.png" 
+              alt="RGUKT Campus" 
+              width={1200} 
+              height={500} 
+              style={{ width: "100%", height: "auto", borderRadius: "12px", marginBottom: "2rem", boxShadow: "0 8px 24px rgba(0,0,0,0.08)", objectFit: "cover" }} 
+            />
 
             <div style={sectionStyle} id="educational-objectives">
               <h3 style={headingStyle}>RGUKT Educational Objectives</h3>
