@@ -148,20 +148,7 @@ export default function InlineSearch() {
       </div>
 
       {isOpen && (
-        <div className="inline-search-dropdown" style={{
-          position: "absolute",
-          top: "calc(100% + 0.5rem)",
-          right: 0,
-          width: "400px",
-          maxWidth: "90vw",
-          maxHeight: "450px",
-          background: "#ffffff",
-          borderRadius: "12px",
-          boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
-          border: "1px solid #e2e8f0",
-          overflowY: "auto",
-          zIndex: 1000
-        }}>
+        <div className="inline-search-dropdown-menu">
           {matches.length === 0 ? (
             <div style={{ padding: "1.5rem", textAlign: "center", color: "#94a3b8", fontSize: "0.9rem" }}>
               No matching results found for &ldquo;{query}&rdquo;
