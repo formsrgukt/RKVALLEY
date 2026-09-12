@@ -1,16 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Breadcrumb from "@/components/Common/Breadcrumb";
-import { RGUKT_DATA, Tender } from "@/data/rguktData";
+import { Tender } from "@/data/rguktData";
+import { fetchTenders } from "@/lib/db/tenders";
 import { useApp } from "@/context/AppContext";
 
 export default function TendersPage() {
   const { openDocModal } = useApp();
   const [search, setSearch] = useState("");
+  const [tendersData, setTendersData] = useState<Tender[]>([]);
 
-  const filtered = RGUKT_DATA.tenders.filter(
+  useEffect(() => {
+    fetchTenders().then(setTendersData).catch(console.error);
+  }, []);
+
+  const filtered = tendersData.filter(
     (t) =>
       t.title.toLowerCase().includes(search.toLowerCase()) ||
       t.refNo.toLowerCase().includes(search.toLowerCase()) ||

@@ -1,12 +1,39 @@
-﻿"use client";
+"use client";
 
-import React from "react";
-import { RGUKT_DATA } from "@/data/rguktData";
+import React, { useState, useEffect } from "react";
+import { Notice } from "@/data/rguktData";
+import { fetchNotices } from "@/lib/db/notices";
 import { useApp } from "@/context/AppContext";
 
 export default function ImportantNews() {
   const { openDocModal } = useApp();
-  const newsItems = RGUKT_DATA.notices.filter(n => n.urgent).slice(0, 3);
+  const [newsItems, setNewsItems] = useState<Notice[]>([]);
+
+  useEffect(() => {
+    fetchNotices()
+      .then(data => {
+        let urgentNotices = data.filter(n => n.category === "News");
+        
+        urgentNotices.sort((a, b) => {
+          const aDate = new Date(a.date).getTime();
+          const bDate = new Date(b.date).getTime();
+          const now = Date.now();
+          const aNew = !isNaN(aDate) && aDate > now - 3 * 24 * 60 * 60 * 1000;
+          const bNew = !isNaN(bDate) && bDate > now - 3 * 24 * 60 * 60 * 1000;
+          
+          if (aNew && !bNew) return -1;
+          if (!aNew && bNew) return 1;
+          
+          if (!isNaN(aDate) && !isNaN(bDate)) {
+            return bDate - aDate;
+          }
+          return 0;
+        });
+
+        setNewsItems(urgentNotices.slice(0, 3));
+      })
+      .catch(console.error);
+  }, []);
   
   if (newsItems.length === 0) return null;
 
@@ -36,24 +63,41 @@ export default function ImportantNews() {
         </div>
 
         <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: "1rem"
+          display: "flex",
+          gap: "1rem",
+          overflowX: "auto",
+          paddingTop: "1.5rem",
+          paddingLeft: "1.5rem",
+          marginTop: "-1.5rem",
+          marginLeft: "-1.5rem",
+          paddingBottom: "1.5rem",
+          scrollSnapType: "x mandatory",
+          scrollbarWidth: "none"
         }}>
-          {newsItems.map((news) => (
-            <div key={news.id} style={{
-              background: "#ffffff",
-              borderRadius: "8px",
-              padding: "1rem 1.25rem",
-              boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
-              borderLeft: "3px solid var(--primary-maroon)",
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.5rem"
-            }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <span style={{ fontSize: "0.75rem", fontWeight: 600, color: "#64748b" }}>{news.date}</span>
-              </div>
+          {newsItems.map((news) => {
+            const newsDate = new Date(news.date).getTime();
+            const isNew = !isNaN(newsDate) && newsDate > Date.now() - 3 * 24 * 60 * 60 * 1000;
+
+            return (
+              <div key={news.id} style={{
+                position: "relative",
+                flex: "0 0 300px",
+                scrollSnapAlign: "start",
+                background: "#ffffff",
+                borderRadius: "8px",
+                padding: "1rem 1.25rem",
+                boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+                borderLeft: "3px solid var(--primary-maroon)",
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.5rem"
+              }}>
+                {isNew && <span className="badge-new">New</span>}
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                    <span style={{ fontSize: "0.75rem", fontWeight: 600, color: "#64748b" }}>{news.date}</span>
+                  </div>
+                </div>
               
               <h5 style={{ margin: 0, fontSize: "0.95rem", fontWeight: 600, lineHeight: 1.3, color: "#0f172a" }}>
                 {news.title}
@@ -84,7 +128,8 @@ export default function ImportantNews() {
                 </button>
               )}
             </div>
-          ))}
+          );
+          })}
         </div>
       </div>
     </section>

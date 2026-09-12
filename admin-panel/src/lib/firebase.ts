@@ -1,6 +1,6 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAnalytics, isSupported } from "firebase/analytics";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, initializeFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -14,10 +14,17 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase securely (avoiding double initialization)
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+let app;
+let db;
 
-// Initialize Firestore
-const db = getFirestore(app);
+if (!getApps().length) {
+  app = initializeApp(firebaseConfig);
+  // Initialize Firestore with long polling to prevent Next.js SSR/Edge network drops
+  db = initializeFirestore(app, { experimentalForceLongPolling: true });
+} else {
+  app = getApp();
+  db = getFirestore(app);
+}
 
 // Initialize Analytics only on the client side
 let analytics;

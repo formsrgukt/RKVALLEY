@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import HeroSection from "@/components/Hero/HeroSection";
 import QuickAccessGrid from "@/components/Hero/QuickAccessGrid";
@@ -10,11 +10,17 @@ import ImportantNews from "@/components/Notices/ImportantNews";
 import DepartmentGrid from "@/components/Departments/DepartmentGrid";
 import PlacementSection from "@/components/Placements/PlacementSection";
 import CampusGallery from "@/components/Gallery/CampusGallery";
-import { RGUKT_DATA, Tender } from "@/data/rguktData";
+import { Tender } from "@/data/rguktData";
+import { fetchTenders } from "@/lib/db/tenders";
 import { useApp } from "@/context/AppContext";
 
 export default function HomePage() {
   const { openDocModal } = useApp();
+  const [tendersData, setTendersData] = useState<Tender[]>([]);
+
+  useEffect(() => {
+    fetchTenders().then(setTendersData).catch(console.error);
+  }, []);
 
   return (
     <>
@@ -203,7 +209,7 @@ export default function HomePage() {
           </div>
 
                     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            {RGUKT_DATA.tenders.slice(0,3).map((tender: Tender, idx) => (
+            {tendersData.slice(0,3).map((tender: Tender, idx) => (
               <div key={tender.id} style={{
                 background: "#ffffff",
                 border: "1px solid #e2e8f0",

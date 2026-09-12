@@ -54,7 +54,7 @@ export interface Department {
 export interface Notice {
   id: string;
   title: string;
-  category: "Admissions" | "Academic" | "Examinations" | "Recruitment" | "Tenders" | "Events";
+  category: "Admissions" | "Academic" | "Examinations" | "Recruitment" | "Tenders" | "Events" | "News";
   date: string;
   urgent: boolean;
   tag: string;
