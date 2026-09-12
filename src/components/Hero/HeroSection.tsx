@@ -26,7 +26,13 @@ export default function HeroSection() {
 
   return (
     <section className="hero-section" aria-label="University Hero Overview">
-      <div className="container">
+      <div className="hero-bg-slider">
+        <div className="hero-bg-slide slide-1"></div>
+        <div className="hero-bg-slide slide-2"></div>
+      </div>
+      <div className="hero-overlay"></div>
+      
+      <div className="container" style={{ position: "relative", zIndex: 10 }}>
         <div className="hero-content">
           <div className="hero-badge">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
