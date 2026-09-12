@@ -198,54 +198,75 @@ export default function HomePage() {
               </p>
             </div>
             <Link href="/tenders" className="btn btn-outline" style={{ fontSize: "0.85rem" }}>
-              View All Tenders â†’
+              View All Tenders &rarr;
             </Link>
           </div>
 
-          <div style={{ background: "#ffffff", borderRadius: "12px", boxShadow: "var(--shadow-sm)", overflow: "hidden" }}>
-            <div style={{ overflowX: "auto" }}>
-              <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "600px" }}>
-                <thead>
-                  <tr style={{ background: "var(--surface-card)", borderBottom: "2px solid #e2e8f0" }}>
-                    <th style={{ padding: "1rem", textAlign: "left", fontSize: "0.85rem", color: "#64748b", fontWeight: 600 }}>Tender ID</th>
-                    <th style={{ padding: "1rem", textAlign: "left", fontSize: "0.85rem", color: "#64748b", fontWeight: 600 }}>Description</th>
-                    <th style={{ padding: "1rem", textAlign: "left", fontSize: "0.85rem", color: "#64748b", fontWeight: 600 }}>Last Date</th>
-                    <th style={{ padding: "1rem", textAlign: "right", fontSize: "0.85rem", color: "#64748b", fontWeight: 600 }}>Document</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {RGUKT_DATA.tenders.slice(0,3).map((tender: Tender, idx) => (
-                    <tr key={tender.id} style={{ borderBottom: "1px solid #e2e8f0", background: idx % 2 === 0 ? "#ffffff" : "#f8fafc" }}>
-                      <td style={{ padding: "1rem", fontSize: "0.9rem", fontWeight: 600, color: "var(--primary-maroon)" }}>{tender.id}</td>
-                      <td style={{ padding: "1rem", fontSize: "0.9rem", color: "#334155" }}>{tender.title}</td>
-                      <td style={{ padding: "1rem", fontSize: "0.9rem", color: "#64748b" }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                          {tender.lastDate}
-                        </div>
-                      </td>
-                      <td style={{ padding: "1rem", textAlign: "right" }}>
-                        <button onClick={() => openDocModal(tender.link, tender.title)} style={{
-                          background: "transparent",
-                          border: "1px solid var(--primary-maroon)",
-                          color: "var(--primary-maroon)",
-                          padding: "0.35rem 0.75rem",
-                          borderRadius: "4px",
-                          fontSize: "0.8rem",
-                          cursor: "pointer",
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: "0.4rem"
-                        }}>
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                          PDF
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            {RGUKT_DATA.tenders.slice(0,3).map((tender: Tender, idx) => (
+              <div key={tender.id} style={{
+                background: "#ffffff",
+                border: "1px solid #e2e8f0",
+                borderRadius: "12px",
+                padding: "1.5rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: "2rem",
+                boxShadow: "var(--shadow-sm)",
+                transition: "all 0.3s ease"
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.borderColor = "var(--primary-maroon)";
+                e.currentTarget.style.boxShadow = "var(--shadow-md)";
+                e.currentTarget.style.transform = "translateY(-2px)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.borderColor = "#e2e8f0";
+                e.currentTarget.style.boxShadow = "var(--shadow-sm)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+              >
+                <div style={{ flex: 1 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.75rem" }}>
+                    <span style={{ background: "rgba(128,0,0,0.05)", color: "var(--primary-maroon)", padding: "0.25rem 0.75rem", borderRadius: "100px", fontSize: "0.8rem", fontWeight: 700 }}>
+                      {tender.id}
+                    </span>
+                    <span style={{ fontSize: "0.85rem", color: "#64748b", display: "flex", alignItems: "center", gap: "0.35rem" }}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                      Closes: {tender.closingDate}
+                    </span>
+                  </div>
+                  <h4 style={{ margin: 0, fontSize: "1.1rem", color: "#1e293b", fontWeight: 600, lineHeight: 1.4 }}>
+                    {tender.title}
+                  </h4>
+                </div>
+                
+                <div>
+                  <button onClick={() => openDocModal(tender.link || tender.docUrl || "", tender.title)} style={{
+                    background: "var(--primary-maroon)",
+                    color: "white",
+                    border: "none",
+                    padding: "0.6rem 1.25rem",
+                    borderRadius: "8px",
+                    fontSize: "0.9rem",
+                    fontWeight: 600,
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    whiteSpace: "nowrap",
+                    transition: "opacity 0.2s"
+                  }}
+                  onMouseOver={(e) => e.currentTarget.style.opacity = "0.9"}
+                  onMouseOut={(e) => e.currentTarget.style.opacity = "1"}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download PDF
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -421,5 +442,7 @@ export default function HomePage() {
     </>
   );
 }
+
+
 
 
