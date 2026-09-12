@@ -596,7 +596,6 @@ button {
   align-items: center;
   justify-content: flex-end;
   gap: 1rem;
-  margin-left: auto;
 }
 
 .btn-nav-search {
