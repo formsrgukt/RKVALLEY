@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -26,18 +26,12 @@ export default function HomePage() {
       {/* 3. Live Notice Board & Urgent Updates */}
       <NoticeBoard />
 
-      {/* 4. About RGUKT & 6-Year Paradigm */}
-      <section className="section-padding about-section" aria-label="About Institute">
+      {/* 4. About & Video (Merged Side-by-Side) */}
+      <section className="section-padding about-section" aria-label="About Institute & Campus Video">
         <div className="container">
           <div className="about-grid">
-            <div className="about-image-wrapper">
-              <img src="/images/campus_image.png" alt="Aerial view of RGUKT RK Valley" className="about-main-img" />
-              <div className="about-floating-card">
-                <span className="floating-card-number">18,000+</span>
-                <span className="floating-card-text">Alumni Engineers & Global Leaders Graduated</span>
-              </div>
-            </div>
-
+            
+            {/* Left Column: Text Content */}
             <div>
               <span className="section-tag">Institutional Heritage</span>
               <h3 className="section-title" style={{ marginBottom: "1rem" }}>
@@ -100,23 +94,32 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <Link href="/about" className="btn btn-primary">
-                Learn More About RGUKT Paradigm â†’
+              <Link href="/about" className="btn btn-primary" style={{ marginTop: "1rem" }}>
+                Learn More About RGUKT Paradigm →
               </Link>
             </div>
-          </div>
 
-          {/* 5. Campus Video Tour (Merged) */}
-          <div style={{ maxWidth: "960px", margin: "4rem auto 0", borderRadius: "16px", overflow: "hidden", boxShadow: "var(--shadow-xl)", aspectRatio: "16/9", background: "#000" }}>
-            <iframe 
-              width="100%" 
-              height="100%" 
-              src="https://www.youtube.com/embed/FjK9tdeIFiM?rel=0" 
-              title="RGUKT RK Valley Campus Tour" 
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowFullScreen
-            ></iframe>
+            {/* Right Column: Video */}
+            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+              <span className="section-tag" style={{ marginBottom: "0.5rem" }}>Campus Life</span>
+              <h3 className="section-title" style={{ marginBottom: "1rem" }}>Experience RGUKT RK Valley</h3>
+              <p className="section-subtitle" style={{ marginBottom: "2rem" }}>
+                Take a glimpse into the vibrant academic environment, world-class infrastructure, and lush green campus.
+              </p>
+              
+              <div style={{ width: "100%", borderRadius: "16px", overflow: "hidden", boxShadow: "var(--shadow-xl)", aspectRatio: "16/9", background: "#000" }}>
+                <iframe 
+                  width="100%" 
+                  height="100%" 
+                  src="https://www.youtube.com/embed/FjK9tdeIFiM?rel=0" 
+                  title="RGUKT RK Valley Campus Tour" 
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -136,7 +139,7 @@ export default function HomePage() {
               </p>
             </div>
             <Link href="/students" className="btn btn-primary" style={{ fontSize: "0.85rem" }}>
-              Explore Campus Life â†’
+              Explore Campus Life →
             </Link>
           </div>
 
@@ -162,89 +165,97 @@ export default function HomePage() {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
               </div>
               <h4 className="service-title">Sports Stadium & SAC</h4>
-              <p className="service-desc">400m running track, tennis, basketball, multi-gymnasium, cricket ground, and vibrant student clubs.</p>
+              <p className="service-desc">Athletic tracks, indoor basketball/badminton courts, and a robust Student Activity Center.</p>
             </div>
 
             <div className="service-card">
               <div className="service-icon-wrap">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
               </div>
-              <h4 className="service-title">24x7 Campus Hospital</h4>
-              <p className="service-desc">30-bed health center with resident medical officers, emergency ambulance, and full pharmacy.</p>
+              <h4 className="service-title">Campus Hospital</h4>
+              <p className="service-desc">30-bed hospital with resident medical officers, emergency ambulance service, and pharmacy.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 8. Placement Metrics & Recruiters */}
+      {/* 8. Placements & Corporate Relations */}
       <PlacementSection />
 
-      {/* 9. Campus Infrastructure Gallery */}
-      <CampusGallery />
-
-      {/* 10. Tenders Summary */}
-      <section className="section-padding" style={{ background: "#ffffff" }} aria-label="E-Tenders & Procurement">
+      {/* 9. Live Tenders & Procurement */}
+      <section className="section-padding" style={{ background: "var(--surface-bg, #f8fafc)" }} aria-label="Tenders and Procurement">
         <div className="container">
           <div className="section-header">
             <div>
-              <span className="section-tag">Procurement & Bidding</span>
-              <h3 className="section-title">Active E-Tenders</h3>
+              <span className="section-tag">Official Procurement</span>
+              <h3 className="section-title">Active Tenders</h3>
               <p className="section-subtitle">
-                Official university tenders for equipment, civil works, lab supplies, and annual maintenance.
+                Latest procurement notices and e-tenders published by RGUKT RK Valley administration.
               </p>
             </div>
-            <Link href="/tenders" className="btn btn-primary" style={{ fontSize: "0.85rem" }}>
-              View All Tenders Portal â†’
+            <Link href="/tenders" className="btn btn-outline" style={{ fontSize: "0.85rem" }}>
+              View All Tenders →
             </Link>
           </div>
 
-          <div className="tenders-table-container">
+          <div style={{ background: "#ffffff", borderRadius: "12px", boxShadow: "var(--shadow-sm)", overflow: "hidden" }}>
             <div style={{ overflowX: "auto" }}>
-              <div className="table-responsive"><table className="gov-table">
+              <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "600px" }}>
                 <thead>
-                  <tr>
-                    <th>Tender Ref No</th>
-                    <th>Description of Work / Item</th>
-                    <th>Publish Date</th>
-                    <th>Closing Date</th>
-                    <th>Status</th>
-                    <th>Document</th>
+                  <tr style={{ background: "var(--surface-card)", borderBottom: "2px solid #e2e8f0" }}>
+                    <th style={{ padding: "1rem", textAlign: "left", fontSize: "0.85rem", color: "#64748b", fontWeight: 600 }}>Tender ID</th>
+                    <th style={{ padding: "1rem", textAlign: "left", fontSize: "0.85rem", color: "#64748b", fontWeight: 600 }}>Description</th>
+                    <th style={{ padding: "1rem", textAlign: "left", fontSize: "0.85rem", color: "#64748b", fontWeight: 600 }}>Last Date</th>
+                    <th style={{ padding: "1rem", textAlign: "right", fontSize: "0.85rem", color: "#64748b", fontWeight: 600 }}>Document</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {RGUKT_DATA.tenders.slice(0, 4).map((t: Tender) => (
-                    <tr key={t.id}>
-                      <td><strong>{t.refNo}</strong></td>
-                      <td>{t.title}</td>
-                      <td>{t.publishDate}</td>
-                      <td><strong style={{ color: "var(--status-crimson)" }}>{t.closingDate}</strong></td>
-                      <td><span className="table-badge-active">{t.status}</span></td>
-                      <td>
-                        <button
-                          type="button"
-                          className="btn btn-primary"
-                          style={{ padding: "0.3rem 0.65rem", fontSize: "0.75rem" }}
-                          onClick={() => openDocModal(t.title, t.docUrl)}
-                        >
+                  {RGUKT_DATA.tenders.slice(0,3).map((tender: Tender, idx) => (
+                    <tr key={tender.id} style={{ borderBottom: "1px solid #e2e8f0", background: idx % 2 === 0 ? "#ffffff" : "#f8fafc" }}>
+                      <td style={{ padding: "1rem", fontSize: "0.9rem", fontWeight: 600, color: "var(--primary-maroon)" }}>{tender.id}</td>
+                      <td style={{ padding: "1rem", fontSize: "0.9rem", color: "#334155" }}>{tender.title}</td>
+                      <td style={{ padding: "1rem", fontSize: "0.9rem", color: "#64748b" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                          {tender.lastDate}
+                        </div>
+                      </td>
+                      <td style={{ padding: "1rem", textAlign: "right" }}>
+                        <button onClick={() => openDocModal(tender.link, tender.title)} style={{
+                          background: "transparent",
+                          border: "1px solid var(--primary-maroon)",
+                          color: "var(--primary-maroon)",
+                          padding: "0.35rem 0.75rem",
+                          borderRadius: "4px",
+                          fontSize: "0.8rem",
+                          cursor: "pointer",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "0.4rem"
+                        }}>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                           PDF
                         </button>
                       </td>
                     </tr>
                   ))}
                 </tbody>
-              </table></div>
+              </table>
             </div>
           </div>
         </div>
       </section>
+
+      {/* 10. Campus Gallery */}
+      <CampusGallery />
 
       {/* 11. Social Media Connect */}
       <section className="section-padding" style={{ background: "var(--surface-bg, #f8fafc)" }} aria-label="Social Media">
         <div className="container">
           <div className="section-header" style={{ textAlign: "center", justifyContent: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
             <div style={{ maxWidth: "800px" }}>
-                <span className="section-tag" style={{ justifyContent: "center" }}>Social Networks</span>
-                <h3 className="section-title">Join Our Digital Community</h3>
+              <span className="section-tag" style={{ justifyContent: "center" }}>Social Networks</span>
+              <h3 className="section-title">Join Our Digital Community</h3>
               <p className="section-subtitle" style={{ margin: "0 auto" }}>
                 Stay updated with the latest news, events, and student activities across our official social media channels.
               </p>
@@ -258,7 +269,7 @@ export default function HomePage() {
             marginTop: "2.5rem"
           }}>
             {/* Facebook Card */}
-              <a href="https://www.facebook.com/share/19PbLCmiBr/" target="_blank" rel="noopener noreferrer" style={{
+            <a href="https://www.facebook.com/share/19PbLCmiBr/" target="_blank" rel="noopener noreferrer" style={{
               background: "#ffffff",
               borderRadius: "16px",
               padding: "2rem",
@@ -284,7 +295,7 @@ export default function HomePage() {
             </a>
 
             {/* Twitter Card */}
-              <a href="https://x.com/RGUKTRKVOFFI" target="_blank" rel="noopener noreferrer" style={{
+            <a href="https://x.com/RGUKTRKVOFFI" target="_blank" rel="noopener noreferrer" style={{
               background: "#ffffff",
               borderRadius: "16px",
               padding: "2rem",
@@ -310,7 +321,7 @@ export default function HomePage() {
             </a>
 
             {/* LinkedIn Card */}
-              <a href="https://www.linkedin.com/school/rgukt-rkv/" target="_blank" rel="noopener noreferrer" style={{
+            <a href="https://www.linkedin.com/school/rgukt-rkv/" target="_blank" rel="noopener noreferrer" style={{
               background: "#ffffff",
               borderRadius: "16px",
               padding: "2rem",
@@ -335,34 +346,34 @@ export default function HomePage() {
               <span style={{ color: "#64748b", fontSize: "0.9rem" }}>RGUKT RK Valley</span>
             </a>
 
-                          {/* Youtube Card */}
-              <a href="https://youtube.com/@adminsocialnetwork?si=mQhKRFaoIE_YA-y6" target="_blank" rel="noopener noreferrer" style={{
-                background: "#ffffff",
-                borderRadius: "16px",
-                padding: "2rem",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "1rem",
-                textDecoration: "none",
-                color: "inherit",
-                boxShadow: "var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1))",
-                transition: "transform 0.3s, box-shadow 0.3s",
-              }}
-              onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "var(--shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1))"; }}
-              onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1))"; }}
-              >
-                <div style={{ color: "#FF0000" }}>
-                  <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                  </svg>
-                </div>
-                <h4 style={{ margin: 0, fontSize: "1.1rem", fontWeight: 600 }}>YouTube</h4>
-                <span style={{ color: "#64748b", fontSize: "0.9rem" }}>@adminsocialnetwork</span>
-              </a>
+            {/* Youtube Card */}
+            <a href="https://youtube.com/@adminsocialnetwork?si=mQhKRFaoIE_YA-y6" target="_blank" rel="noopener noreferrer" style={{
+              background: "#ffffff",
+              borderRadius: "16px",
+              padding: "2rem",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "1rem",
+              textDecoration: "none",
+              color: "inherit",
+              boxShadow: "var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1))",
+              transition: "transform 0.3s, box-shadow 0.3s",
+            }}
+            onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "var(--shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1))"; }}
+            onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1))"; }}
+            >
+              <div style={{ color: "#FF0000" }}>
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </div>
+              <h4 style={{ margin: 0, fontSize: "1.1rem", fontWeight: 600 }}>YouTube</h4>
+              <span style={{ color: "#64748b", fontSize: "0.9rem" }}>@adminsocialnetwork</span>
+            </a>
 
-              {/* Instagram Card */}
-              <a href="https://www.instagram.com/rguktrkv_official?utm_source=qr&igsh=NXVrNmlpcjY2ZmM0" target="_blank" rel="noopener noreferrer" style={{
+            {/* Instagram Card */}
+            <a href="https://www.instagram.com/rguktrkv_official?utm_source=qr&igsh=NXVrNmlpcjY2ZmM0" target="_blank" rel="noopener noreferrer" style={{
               background: "#ffffff",
               borderRadius: "16px",
               padding: "2rem",
@@ -406,5 +417,3 @@ export default function HomePage() {
     </>
   );
 }
-
-
