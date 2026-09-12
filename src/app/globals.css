@@ -2493,14 +2493,12 @@ body { top: 0 !important; }
 .goog-te-combo { display: none !important; }
 
 
-@media (min-width: 769px) { .lang-btn-mobile { display: none !important; } }
 
 
 /* Fix layout overflow on laptops */
 @media (max-width: 1024px) {
   .nav-links-desktop { display: none !important; }
   .btn-mobile-toggle { display: block !important; }
-  .lang-btn-mobile { display: block !important; }
 }
 
 /* Fluid root typography to auto-scale website proportionally on desktops */

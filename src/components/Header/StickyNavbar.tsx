@@ -230,19 +230,28 @@ export default function StickyNavbar() {
 
           <button 
             onClick={toggleLang} 
-            className="lang-btn-mobile" 
+            className="lang-btn-global" 
             aria-label="Toggle Language"
             title="Switch Language"
             style={{ 
               background: 'transparent', 
-              border: '1.5px solid var(--primary-maroon)', 
-              color: 'var(--primary-maroon)', 
-              borderRadius: 'var(--radius-md)', 
-              padding: '0.4rem 0.75rem', 
-              fontWeight: 700, 
+              border: '1px solid rgba(255, 255, 255, 0.4)', 
+              color: 'rgba(255, 255, 255, 0.9)', 
+              borderRadius: '99px', 
+              padding: '0.4rem 0.8rem', 
+              fontWeight: 600, 
               fontSize: '0.85rem',
               marginLeft: '0.5rem',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              transition: 'all var(--transition-fast)'
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.6)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
             }}
           >
             {lang === "en" ? "తెలుగు" : "EN"}
