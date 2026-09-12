@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -243,7 +243,7 @@ export default function HomePage() {
                 </div>
                 
                 <div>
-                  <button onClick={() => openDocModal(tender.link || tender.docUrl || "", tender.title)} style={{
+                  <button onClick={() => openDocModal(tender.docUrl || "", tender.title)} style={{
                     background: "var(--primary-maroon)",
                     color: "white",
                     border: "none",
