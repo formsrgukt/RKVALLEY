@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -64,7 +64,7 @@ export default function DepartmentGrid() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={dept-filter-btn \}
+              className={`dept-filter-btn ${selectedCategory === cat ? "active" : ""}`}
             >
               {cat === "All" ? "All Departments" : cat === "Engineering" ? "Engineering Streams" : cat === "Sciences" ? "Basic Sciences" : "Humanities & Management"}
             </button>
@@ -72,7 +72,7 @@ export default function DepartmentGrid() {
         </div>
 
         <div className="departments-marquee-wrapper">
-          <div className="departments-marquee-track" style={{ animationDuration: \s }}>
+          <div className="departments-marquee-track" style={{ animationDuration: `${animationDuration}s` }}>
             {copies.map(c => (
               <div key={c} className="marquee-content" aria-hidden={c > 0}>
                 {renderCards()}
