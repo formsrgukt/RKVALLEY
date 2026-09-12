@@ -153,6 +153,7 @@ export default function InlineSearch() {
           top: "calc(100% + 0.5rem)",
           right: 0,
           width: "400px",
+          maxWidth: "90vw",
           maxHeight: "450px",
           background: "#ffffff",
           borderRadius: "12px",

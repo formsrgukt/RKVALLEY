@@ -2493,3 +2493,19 @@ body { top: 0 !important; }
 
 @media (min-width: 769px) { .lang-btn-mobile { display: none !important; } }
 
+
+/* Fix layout overflow on laptops */
+@media (max-width: 1320px) {
+  .nav-links-desktop { display: none !important; }
+  .btn-mobile-toggle { display: block !important; }
+  .lang-btn-mobile { display: block !important; }
+}
+
+
+/* Fluid root typography to auto-scale website */
+html { font-size: clamp(13px, 1.1vw + 9px, 16px) !important; }
+
+
+/* Correct fluid root typography */
+html { font-size: clamp(13px, 0.4vw + 11px, 16px) !important; }
+
