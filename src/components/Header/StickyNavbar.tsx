@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useApp } from "@/context/AppContext";
@@ -11,7 +12,13 @@ export default function StickyNavbar() {
   const { openSearch, openMobileDrawer, openGpaModal, lang, toggleLang } = useApp();
   const [pinnedDropdown, setPinnedDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
   const navRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -77,13 +84,32 @@ export default function StickyNavbar() {
                   <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
               </Link>
-              <div className="dropdown-menu">
-                <Link href="/about" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>About RGUKT RK Valley</Link>
-                <Link href="/about" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Vision & Institutional Mission</Link>
-                <Link href="/about" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Act 18 of 2008 / History</Link>
-                <Link href="/administration" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Governing Council & Leadership</Link>
-                <Link href="/about" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Campus Infrastructure</Link>
-                <Link href="/contact" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>How to Reach Idupulapaya</Link>
+              <div className="dropdown-menu mega-menu" style={{ width: "600px" }}>
+                <div>
+                  <div className="mega-column-title">About & Administration</div>
+                  <ul className="mega-menu-list">
+                    <li><a href="#" className="dropdown-link" onClick={(e) => { e.preventDefault(); setToastMessage("This page will be updated shortly!"); setTimeout(() => setToastMessage(null), 3500); setPinnedDropdown(null); }}>About RGUKT</a></li>
+                    <li><Link href="/institute/vision-mission" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Vision and Mission</Link></li>
+                    <li><Link href="/institute/best-practices" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Best Practices</Link></li>
+                    <li><Link href="/institute/organization-chart" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Organization Chart</Link></li>
+                    <li><Link href="/institute/strategy-document" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Strategy Document</Link></li>
+                    <li><Link href="/institute/governing-council" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Governing Council</Link></li>
+                    <li><a href="https://www.rguktrkv.ac.in/pdfdoc/AnnualReport.pdf" className="dropdown-link" onClick={(e) => { e.preventDefault(); window.open("https://www.rguktrkv.ac.in/pdfdoc/AnnualReport.pdf", "AnnualReport", "width=900,height=800"); setPinnedDropdown(null); }}>Annual Report</a></li>
+                    <li><a href="https://convo6.rgukt.in/" target="_blank" rel="noopener noreferrer" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Convocation</a></li>
+                    <li><a href="#" className="dropdown-link" onClick={(e) => { e.preventDefault(); setToastMessage("This page will be updated shortly!"); setTimeout(() => setToastMessage(null), 3500); setPinnedDropdown(null); }}>Ombudsperson</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <div className="mega-column-title">Accreditations & Disclosures</div>
+                  <ul className="mega-menu-list">
+                    <li><a href="#" className="dropdown-link" onClick={(e) => { e.preventDefault(); setToastMessage("This page will be updated shortly!"); setTimeout(() => setToastMessage(null), 3500); setPinnedDropdown(null); }}>NAAC Certificate</a></li>
+                    <li><Link href="/institute/nirf" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>NIRF</Link></li>
+                    <li><a href="https://www.rguktrkv.ac.in/pdfdoc/UGC12BStatus.jpg" className="dropdown-link" onClick={(e) => { e.preventDefault(); window.open("https://www.rguktrkv.ac.in/pdfdoc/UGC12BStatus.jpg", "UGC12B", "width=900,height=800"); setPinnedDropdown(null); }}>UGC Status (12B)</a></li>
+                    <li><a href="https://www.rguktrkv.ac.in/pdfdoc/UGC2FStatus.pdf" className="dropdown-link" onClick={(e) => { e.preventDefault(); window.open("https://www.rguktrkv.ac.in/pdfdoc/UGC2FStatus.pdf", "UGC2F", "width=900,height=800"); setPinnedDropdown(null); }}>UGC Status (2F)</a></li>
+                    <li><a href="https://www.rguktrkv.ac.in/pdfdoc/NAD_ABCCell.pdf" className="dropdown-link" onClick={(e) => { e.preventDefault(); window.open("https://www.rguktrkv.ac.in/pdfdoc/NAD_ABCCell.pdf", "NADABCCell", "width=900,height=800"); setPinnedDropdown(null); }}>UGC-NAD/ABC Cell</a></li>
+                    <li><Link href="/institute/aicte" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>AICTE Mandatory Disclosure</Link></li>
+                  </ul>
+                </div>
               </div>
             </li>
 
@@ -302,6 +328,37 @@ export default function StickyNavbar() {
           </button>
         </div>
       </div>
+
+      {/* Custom Toast Notification */}
+      {mounted && typeof document !== "undefined" && createPortal(
+        <div style={{
+          position: "fixed",
+          bottom: "2rem",
+          right: "2rem",
+          background: "var(--primary-dark)",
+          color: "#ffffff",
+          padding: "1rem 1.5rem",
+          borderRadius: "8px",
+          boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
+          display: "flex",
+          alignItems: "center",
+          gap: "0.75rem",
+          zIndex: 999999,
+          fontWeight: 500,
+          opacity: toastMessage ? 1 : 0,
+          transform: toastMessage ? "translateY(0)" : "translateY(150%)",
+          transition: "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease-out",
+          pointerEvents: toastMessage ? "auto" : "none"
+        }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          {toastMessage}
+        </div>,
+        document.body
+      )}
     </div>
   );
 }

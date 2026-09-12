@@ -540,6 +540,7 @@ button {
   font-weight: 600;
   border-radius: var(--radius-md);
   transition: all var(--transition-fast);
+  white-space: nowrap;
 }
 
 .dropdown-link:hover {
@@ -549,7 +550,7 @@ button {
 }
 
 .mega-menu {
-  width: 680px;
+  width: 780px;
   max-width: calc(100vw - 2rem);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -585,7 +586,8 @@ button {
 .btn-nav-search {
   display: flex;
   align-items: center;
-  width: 115px;
+  justify-content: center;
+  width: 130px;
   height: 34px;
   background: rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.85);

@@ -7,26 +7,7 @@ import { Department } from "@/data/rguktData";
 import { useApp } from "@/context/AppContext";
 import { DEPARTMENT_SECTIONS } from "@/data/departmentSections";
 
-interface FacultyProfile {
-  id: string;
-  name: string;
-  designation: string;
-  qualification: string;
-  almaMater: string;
-  specialization: string;
-  email: string;
-  phone: string;
-  cabin: string;
-  experience: string;
-  publicationsCount: number;
-  patentsCount: number;
-  researchAreas: string[];
-  coursesTaught: string[];
-  officeHours: string;
-  bio: string;
-  gender: "m" | "f";
-  isHod?: boolean;
-}
+import { FacultyProfile, getDepartmentFaculty } from "@/data/facultyData";
 
 interface DepartmentDetailViewProps {
   dept: Department;
@@ -68,158 +49,7 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
     }
   };
 
-  // Generate rich faculty directory for this department
-  const getDepartmentFaculty = (): FacultyProfile[] => {
-    const list: FacultyProfile[] = [
-      {
-        id: "fac-hod",
-        name: dept.hod,
-        designation: "Head of the Department & Associate Professor",
-        qualification: "Ph.D. in " + dept.name,
-        almaMater: "Indian Institute of Technology (IIT) Madras",
-        specialization: dept.highlights[0] || "Advanced Research & Engineering Systems",
-        email: dept.hodEmail,
-        phone: "+91 8560 287834 (Ext. HOD)",
-        cabin: "Cabin HOD-01, Academic Block-I (First Floor)",
-        experience: "16+ Years Academic & Research Experience",
-        publicationsCount: 34,
-        patentsCount: 3,
-        researchAreas: [
-          dept.highlights[0] || "Advanced Systems",
-          "Applied Computational Modeling",
-          "Interdisciplinary Technology Solutions",
-          "Laboratory Instrumentation"
-        ],
-        coursesTaught: [
-          `Advanced ${dept.code} Principles`,
-          "Research Methodologies & Design Thinking",
-          "Capstone Project Guidance"
-        ],
-        officeHours: "Mon, Wed & Fri: 3:00 PM – 5:00 PM",
-        bio: `${dept.hod} has been spearheading the Department of ${dept.name} with an emphasis on research-driven education, industry collaborations, and modern student laboratory learning.`,
-        gender: "m",
-        isHod: true
-      },
-      {
-        id: "fac-2",
-        name: "Dr. K. V. Subba Rao",
-        designation: "Associate Professor",
-        qualification: "Ph.D., M.Tech (Gold Medalist)",
-        almaMater: "National Institute of Technology (NIT) Warangal",
-        specialization: `Advanced ${dept.code} Systems & Architecture`,
-        email: `kv.subbarao@rguktrkv.ac.in`,
-        phone: "+91 8560 287834 (Ext. 204)",
-        cabin: "Room 204, Academic Block-I",
-        experience: "12+ Years Teaching & Industry R&D",
-        publicationsCount: 22,
-        patentsCount: 2,
-        researchAreas: [
-          "Applied System Algorithms",
-          "High Performance Computing",
-          "Embedded Sensing & Diagnostics"
-        ],
-        coursesTaught: ["Core Engineering Analysis", "Advanced Laboratory Practicums", "Elective Specialization I"],
-        officeHours: "Tue & Thu: 2:00 PM – 4:00 PM",
-        bio: "Dr. Subba Rao specializes in high-efficiency engineering systems and has mentored over 40+ undergraduate research projects and published in premier IEEE/Elsevier journals.",
-        gender: "m"
-      },
-      {
-        id: "fac-3",
-        name: "Dr. P. Swathi",
-        designation: "Assistant Professor",
-        qualification: "Ph.D., M.Tech",
-        almaMater: "Indian Institute of Science (IISc) Bangalore",
-        specialization: "Data Modeling, Optimization & Smart Networks",
-        email: `p.swathi@rguktrkv.ac.in`,
-        phone: "+91 8560 287834 (Ext. 206)",
-        cabin: "Room 206, Academic Block-I",
-        experience: "9+ Years Teaching & Post-Doctoral Research",
-        publicationsCount: 18,
-        patentsCount: 1,
-        researchAreas: [
-          "Predictive Machine Intelligence",
-          "Signal & Data Analytics",
-          "Renewable & Sustainable Protocols"
-        ],
-        coursesTaught: ["Mathematical Modeling", "Advanced Data Systems", "Undergraduate Seminar"],
-        officeHours: "Mon & Thu: 10:30 AM – 12:30 PM",
-        bio: "Dr. Swathi holds a Ph.D. from IISc Bangalore with research focused on data-driven physical modeling and sustainable computational optimization.",
-        gender: "f"
-      },
-      {
-        id: "fac-4",
-        name: "Dr. M. Sreenivasulu",
-        designation: "Assistant Professor",
-        qualification: "Ph.D., M.Tech",
-        almaMater: "IIT Kharagpur",
-        specialization: "Digital Automation, Testing & Experimental Prototyping",
-        email: `m.sreenivasulu@rguktrkv.ac.in`,
-        phone: "+91 8560 287834 (Ext. 208)",
-        cabin: "Room 208, Academic Block-I",
-        experience: "8+ Years Teaching",
-        publicationsCount: 15,
-        patentsCount: 1,
-        researchAreas: [
-          "Hardware-in-the-Loop Simulation",
-          "Smart Prototyping",
-          "Industrial Automation Standards"
-        ],
-        coursesTaught: ["Hardware & Systems Lab", "Engineering Measurements", "Department Core II"],
-        officeHours: "Wed & Fri: 11:00 AM – 1:00 PM",
-        bio: "Dr. Sreenivasulu leads several sponsored student innovation challenges and oversees departmental laboratory modernization and test setups.",
-        gender: "m"
-      },
-      {
-        id: "fac-5",
-        name: "Dr. Y. Radhika",
-        designation: "Assistant Professor",
-        qualification: "Ph.D., Post-Doc (Europe)",
-        almaMater: "IIT Hyderabad",
-        specialization: "Applied Intelligence, Sensor Fusion & IoT",
-        email: `y.radhika@rguktrkv.ac.in`,
-        phone: "+91 8560 287834 (Ext. 210)",
-        cabin: "Room 210, Academic Block-I",
-        experience: "7+ Years Academic Research",
-        publicationsCount: 14,
-        patentsCount: 1,
-        researchAreas: [
-          "Edge Analytics",
-          "Next-Gen Cyber-Physical Systems",
-          "Autonomous Sensor Arrays"
-        ],
-        coursesTaught: ["Embedded Design Lab", "IoT Applications", "Foundation Engineering"],
-        officeHours: "Tue & Fri: 3:30 PM – 5:00 PM",
-        bio: "Dr. Radhika completed post-doctoral training in sensor technologies and serves as the mentor for student hackathon cohorts.",
-        gender: "f"
-      },
-      {
-        id: "fac-6",
-        name: "Mr. B. Rajesh Kumar",
-        designation: "Mentor & Lecturer",
-        qualification: "M.Tech (First Class with Distinction)",
-        almaMater: "JNTU Hyderabad",
-        specialization: "Applied Engineering Practicums & Student Mentorship",
-        email: `b.rajesh@rguktrkv.ac.in`,
-        phone: "+91 8560 287834 (Ext. 212)",
-        cabin: "Faculty Lounge 2B, Academic Block-I",
-        experience: "6+ Years Teaching & Industry Support",
-        publicationsCount: 8,
-        patentsCount: 0,
-        researchAreas: [
-          "Experimental Engineering",
-          "Student Peer Learning Methodologies",
-          "Industry Capstone Support"
-        ],
-        coursesTaught: ["Laboratory Practicum I & II", "Technical Workshop Practicums", "Engineering Graphics/Code"],
-        officeHours: "Mon to Fri: 4:00 PM – 5:30 PM",
-        bio: "Mr. Rajesh Kumar guides first- and second-year undergraduate students during intensive laboratory problem-solving and software tool sessions.",
-        gender: "m"
-      }
-    ];
-    return list;
-  };
-
-  const facultyList = getDepartmentFaculty();
+  const facultyList = getDepartmentFaculty(dept);
   const hodFaculty = facultyList.find((f) => f.isHod) || facultyList[0];
   const filteredFaculty = facultyList
     .filter((f) => !f.isHod)
@@ -454,21 +284,6 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
             })}
           </ul>
 
-          <div style={{ marginTop: "1.25rem", paddingTop: "0.75rem", borderTop: "1px solid #e2e8f0" }}>
-            <button
-              type="button"
-              onClick={handleBack}
-              className="btn btn-primary"
-              style={{
-                width: "100%",
-                padding: "0.55rem 0.85rem",
-                fontSize: "0.85rem",
-                textAlign: "center"
-              }}
-            >
-              Back to Previous Page
-            </button>
-          </div>
         </aside>
 
         {/* Main Body with Tab Views */}
@@ -568,10 +383,10 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                   <div
                     style={{
                       width: "88px",
-                      height: "88px",
+                      height: "110px",
                       borderRadius: "12px",
-                      border: "3px solid var(--accent-gold)",
-                      background: "linear-gradient(135deg, #7a0019 0%, #4a000e 100%)",
+                      border: "2px solid var(--accent-gold)",
+                      background: hodFaculty.image ? `url(${hodFaculty.image}) center top / cover no-repeat` : "linear-gradient(135deg, #7a0019 0%, #4a000e 100%)",
                       color: "#ffffff",
                       display: "flex",
                       flexDirection: "column",
@@ -581,10 +396,12 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                       boxShadow: "0 4px 10px rgba(0,0,0,0.15)"
                     }}
                   >
-                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                      <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
+                    {!hodFaculty.image && (
+                      <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                      </svg>
+                    )}
                   </div>
 
                   <div style={{ flex: 1, minWidth: "260px" }}>
@@ -630,7 +447,7 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
 
                   <button
                     type="button"
-                    onClick={() => setSelectedFaculty(hodFaculty)}
+                    onClick={() => router.push(`/departments/${dept.id}/faculty/${hodFaculty.id}`)}
                     className="btn btn-primary"
                     style={{
                       fontSize: "0.75rem",
@@ -672,7 +489,7 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                         shadow: "0 2px 8px rgba(217, 119, 6, 0.06)",
                         hoverShadow: "0 5px 14px rgba(217, 119, 6, 0.15)",
                         avatarBg: "linear-gradient(135deg, #d97706 0%, #92400e 100%)",
-                        avatarBorder: "3px solid #fbbf24",
+                        avatarBorder: "2px solid #fbbf24",
                         avatarShadow: "0 4px 10px rgba(180, 83, 9, 0.2)",
                         badgeBg: "#fef3c7",
                         badgeBorder: "1px solid #fde68a",
@@ -690,7 +507,7 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                         shadow: "0 2px 8px rgba(122, 0, 25, 0.04)",
                         hoverShadow: "0 5px 14px rgba(122, 0, 25, 0.1)",
                         avatarBg: "linear-gradient(135deg, #7a0019 0%, #4a000e 100%)",
-                        avatarBorder: "3px solid var(--accent-gold)",
+                        avatarBorder: "2px solid var(--accent-gold)",
                         avatarShadow: "0 4px 10px rgba(0,0,0,0.16)",
                         badgeBg: fac.isHod ? "var(--primary-maroon)" : "#fdf2f4",
                         badgeBorder: "1px solid #f9d5dc",
@@ -734,10 +551,10 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                         <div
                           style={{
                             width: "98px",
-                            height: "98px",
+                            height: "125px",
                             borderRadius: "14px",
                             border: theme.avatarBorder,
-                            background: theme.avatarBg,
+                            background: fac.image ? `url(${fac.image}) center top / cover no-repeat` : theme.avatarBg,
                             color: "#ffffff",
                             display: "flex",
                             flexDirection: "column",
@@ -747,14 +564,20 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                             boxShadow: theme.avatarShadow
                           }}
                         >
-                          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                          </svg>
+                          {!fac.image && (
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                              <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                          )}
                         </div>
 
                         <div style={{ flex: 1, minWidth: "240px" }}>
-                          <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", marginBottom: "0.15rem", flexWrap: "wrap" }}>
+                          <h4 style={{ margin: "0 0 0.25rem 0", fontSize: "1.15rem", color: "var(--primary-dark)", fontWeight: 800 }}>
+                            {fac.name}
+                          </h4>
+
+                          <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", marginBottom: "0.35rem", flexWrap: "wrap" }}>
                             <span
                               style={{
                                 fontSize: "0.68rem",
@@ -772,28 +595,12 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                             <span style={{ fontSize: "0.74rem", color: "#64748b" }}>• {fac.experience.split(" ")[0]} Years Exp</span>
                           </div>
 
-                          <h4 style={{ margin: "0.1rem 0 0.2rem 0", fontSize: "1.04rem", color: theme.textColor, fontWeight: 800 }}>
-                            {fac.name}
-                          </h4>
-
-                          <div style={{ fontSize: "0.82rem", color: "#475569", marginBottom: "0.2rem", lineHeight: 1.35 }}>
-                            <strong style={{ color: "#334155" }}>Qualification:</strong> {fac.qualification} • <span style={{ fontStyle: "italic" }}>{fac.almaMater}</span>
+                          <div style={{ fontSize: "0.85rem", color: "#475569", marginBottom: "0.25rem", lineHeight: 1.35 }}>
+                            <strong style={{ color: "#334155" }}>Qualification:</strong> {fac.qualification}
                           </div>
 
-                          <div style={{ fontSize: "0.82rem", color: "#334155", lineHeight: 1.35, marginBottom: "0.2rem" }}>
-                            <strong style={{ color: "#64748b" }}>Specialization:</strong> {fac.specialization}
-                          </div>
-
-                          <div style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap", fontSize: "0.8rem", color: "#334155" }}>
-                            <div>
-                              <strong>Email:</strong>{" "}
-                              <a href={`mailto:${fac.email}`} style={{ color: theme.textColor, textDecoration: "none", fontWeight: 600 }}>
-                                {fac.email}
-                              </a>
-                            </div>
-                            <div>
-                              <strong>Cabin:</strong> {fac.cabin}
-                            </div>
+                          <div style={{ fontSize: "0.85rem", color: "#475569", lineHeight: 1.35 }}>
+                            <strong style={{ color: "#334155" }}>Specialization:</strong> {fac.specialization}
                           </div>
                         </div>
                       </div>
@@ -802,7 +609,7 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                       <div style={{ flexShrink: 0 }}>
                         <button
                           type="button"
-                          onClick={() => setSelectedFaculty(fac)}
+                          onClick={() => router.push(`/departments/${dept.id}/faculty/${fac.id}`)}
                           className="btn"
                           style={{
                             background: theme.btnBg,
@@ -906,7 +713,7 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                         shadow: "0 2px 8px rgba(217, 119, 6, 0.06)",
                         hoverShadow: "0 5px 14px rgba(217, 119, 6, 0.15)",
                         avatarBg: "linear-gradient(135deg, #d97706 0%, #92400e 100%)",
-                        avatarBorder: "3px solid #fbbf24",
+                        avatarBorder: "2px solid #fbbf24",
                         avatarShadow: "0 4px 10px rgba(180, 83, 9, 0.2)",
                         badgeBg: "#fef3c7",
                         badgeBorder: "1px solid #fde68a",
@@ -924,7 +731,7 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                         shadow: "0 2px 8px rgba(122, 0, 25, 0.04)",
                         hoverShadow: "0 5px 14px rgba(122, 0, 25, 0.1)",
                         avatarBg: "linear-gradient(135deg, #7a0019 0%, #4a000e 100%)",
-                        avatarBorder: "3px solid var(--accent-gold)",
+                        avatarBorder: "2px solid var(--accent-gold)",
                         avatarShadow: "0 4px 10px rgba(0,0,0,0.16)",
                         badgeBg: "#fdf2f4",
                         badgeBorder: "1px solid #f9d5dc",
@@ -988,7 +795,11 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                         </div>
 
                         <div style={{ flex: 1, minWidth: "240px" }}>
-                          <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", marginBottom: "0.15rem", flexWrap: "wrap" }}>
+                          <h4 style={{ margin: "0 0 0.25rem 0", fontSize: "1.15rem", color: "var(--primary-dark)", fontWeight: 800 }}>
+                            {staff.name}
+                          </h4>
+
+                          <div style={{ display: "flex", alignItems: "center", gap: "0.45rem", marginBottom: "0.35rem", flexWrap: "wrap" }}>
                             <span
                               style={{
                                 fontSize: "0.68rem",
@@ -1006,36 +817,21 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                             <span style={{ fontSize: "0.74rem", color: "#64748b" }}>• {staff.experience} Experience</span>
                           </div>
 
-                          <h4 style={{ margin: "0.1rem 0 0.2rem 0", fontSize: "1.04rem", color: theme.textColor, fontWeight: 800 }}>
-                            {staff.name}
-                          </h4>
-
-                          <div style={{ fontSize: "0.82rem", color: "#475569", marginBottom: "0.2rem" }}>
+                          <div style={{ fontSize: "0.85rem", color: "#475569", marginBottom: "0.25rem", lineHeight: 1.35 }}>
                             <strong style={{ color: "#334155" }}>Qualification:</strong> {staff.qualification}
                           </div>
 
-                          <div style={{ fontSize: "0.82rem", color: "#334155", lineHeight: 1.35, marginBottom: "0.2rem" }}>
-                            <strong style={{ color: "#64748b" }}>Key Responsibilities:</strong> {staff.responsibilities}
-                          </div>
-
-                          <div style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap", fontSize: "0.8rem", color: "#334155" }}>
-                            <div>
-                              <strong>Email:</strong>{" "}
-                              <a href={`mailto:${staff.email}`} style={{ color: theme.textColor, textDecoration: "none", fontWeight: 600 }}>
-                                {staff.email}
-                              </a>
-                            </div>
-                            <div>
-                              <strong>Location:</strong> {staff.location}
-                            </div>
+                          <div style={{ fontSize: "0.85rem", color: "#475569", lineHeight: 1.35 }}>
+                            <strong style={{ color: "#334155" }}>Key Responsibilities:</strong> {staff.responsibilities}
                           </div>
                         </div>
                       </div>
 
                       {/* Right Side: Send Email Button */}
                       <div style={{ flexShrink: 0 }}>
-                        <a
-                          href={`mailto:${staff.email}`}
+                        <button
+                          type="button"
+                          onClick={() => router.push(`/departments/${dept.id}/staff/${staff.id}`)}
                           className="btn"
                           style={{
                             background: theme.btnBg,
@@ -1049,12 +845,12 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
                             alignItems: "center",
                             gap: "0.25rem",
                             whiteSpace: "nowrap",
-                            textDecoration: "none",
-                            boxShadow: theme.btnShadow
+                            boxShadow: theme.btnShadow,
+                            cursor: "pointer"
                           }}
                         >
-                          Send Email →
-                        </a>
+                          View Profile →
+                        </button>
                       </div>
                     </div>
                   );
@@ -1341,215 +1137,6 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
         </article>
       </div>
 
-      {/* Comprehensive Faculty Profile Modal */}
-      {selectedFaculty && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setSelectedFaculty(null)}
-          style={{
-            position: "fixed",
-            inset: 0,
-            background: "rgba(15, 23, 42, 0.65)",
-            backdropFilter: "blur(4px)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 9999,
-            padding: "1rem"
-          }}
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              background: "#ffffff",
-              borderRadius: "12px",
-              maxWidth: "680px",
-              width: "100%",
-              maxHeight: "90vh",
-              overflowY: "auto",
-              boxShadow: "0 20px 40px rgba(0, 0, 0, 0.25)",
-              border: "1px solid #e2e8f0",
-              position: "relative"
-            }}
-          >
-            {/* Modal Header */}
-            <div
-              style={{
-                background: "linear-gradient(135deg, #7a0019 0%, #4a000e 100%)",
-                color: "#ffffff",
-                padding: "1.75rem",
-                borderRadius: "12px 12px 0 0",
-                position: "relative",
-                display: "flex",
-                alignItems: "center",
-                gap: "1.25rem"
-              }}
-            >
-              <button
-                type="button"
-                onClick={() => setSelectedFaculty(null)}
-                style={{
-                  position: "absolute",
-                  top: "1rem",
-                  right: "1rem",
-                  background: "rgba(255, 255, 255, 0.2)",
-                  border: "none",
-                  color: "#ffffff",
-                  width: "32px",
-                  height: "32px",
-                  borderRadius: "50%",
-                  fontSize: "1.1rem",
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}
-                aria-label="Close Modal"
-              >
-                ✕
-              </button>
-
-              {/* Modal Avatar */}
-              <div
-                style={{
-                  width: "78px",
-                  height: "78px",
-                  borderRadius: "14px",
-                  border: "3px solid var(--accent-gold)",
-                  background: "#ffffff",
-                  color: "var(--primary-maroon)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "2rem",
-                  flexShrink: 0
-                }}
-              >
-                <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-              </div>
-
-              <div>
-                <span
-                  style={{
-                    background: "var(--accent-gold)",
-                    color: "var(--primary-dark)",
-                    fontSize: "0.72rem",
-                    fontWeight: 800,
-                    padding: "0.2rem 0.5rem",
-                    borderRadius: "4px",
-                    textTransform: "uppercase"
-                  }}
-                >
-                  {selectedFaculty.isHod ? "Head of the Department" : selectedFaculty.designation}
-                </span>
-                <h3 style={{ margin: "0.35rem 0 0.15rem 0", fontSize: "1.45rem", fontWeight: 800 }}>
-                  {selectedFaculty.name}
-                </h3>
-                <p style={{ margin: 0, fontSize: "0.85rem", opacity: 0.9 }}>
-                  {selectedFaculty.qualification} • {selectedFaculty.almaMater}
-                </p>
-              </div>
-            </div>
-
-            {/* Modal Body Content */}
-            <div style={{ padding: "1.75rem" }}>
-              {/* Bio */}
-              <div style={{ marginBottom: "1.5rem" }}>
-                <h4 style={{ color: "var(--primary-dark)", fontSize: "1rem", marginBottom: "0.4rem" }}>
-                  Academic Biography
-                </h4>
-                <p style={{ fontSize: "0.9rem", color: "#475569", lineHeight: 1.6, margin: 0 }}>
-                  {selectedFaculty.bio}
-                </p>
-              </div>
-
-              {/* Research Areas */}
-              <div style={{ marginBottom: "1.5rem" }}>
-                <h4 style={{ color: "var(--primary-dark)", fontSize: "1rem", marginBottom: "0.5rem" }}>
-                  Specialization & Research Domains
-                </h4>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
-                  {selectedFaculty.researchAreas.map((area, idx) => (
-                    <span
-                      key={idx}
-                      style={{
-                        background: "#f1f5f9",
-                        color: "#334155",
-                        fontSize: "0.82rem",
-                        padding: "0.3rem 0.65rem",
-                        borderRadius: "4px",
-                        fontWeight: 600,
-                        border: "1px solid #e2e8f0"
-                      }}
-                    >
-                      {area}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Quick Details Table */}
-              <div style={{ background: "#f8fafc", padding: "1rem", borderRadius: "8px", border: "1px solid #e2e8f0", marginBottom: "1.5rem", fontSize: "0.86rem" }}>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "0.75rem" }}>
-                  <div>
-                    <strong style={{ color: "#0f172a" }}>Official Email:</strong><br />
-                    <a href={`mailto:${selectedFaculty.email}`} style={{ color: "var(--primary-maroon)" }}>
-                      {selectedFaculty.email}
-                    </a>
-                  </div>
-                  <div>
-                    <strong style={{ color: "#0f172a" }}>Office / Cabin:</strong><br />
-                    <span>{selectedFaculty.cabin}</span>
-                  </div>
-                  <div>
-                    <strong style={{ color: "#0f172a" }}>Research Publications:</strong><br />
-                    <span>{selectedFaculty.publicationsCount}+ Scopus / SCI Papers</span>
-                  </div>
-                  <div>
-                    <strong style={{ color: "#0f172a" }}>Office Consultation Hours:</strong><br />
-                    <span>{selectedFaculty.officeHours}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Teaching Courses */}
-              <div style={{ marginBottom: "1.5rem" }}>
-                <h4 style={{ color: "var(--primary-dark)", fontSize: "1rem", marginBottom: "0.5rem" }}>
-                  Courses Instructed in B.Tech
-                </h4>
-                <ul style={{ paddingLeft: "1.25rem", margin: 0, fontSize: "0.88rem", color: "#475569", display: "flex", flexDirection: "column", gap: "0.3rem" }}>
-                  {selectedFaculty.coursesTaught.map((c, i) => (
-                    <li key={i}>{c}</li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Modal Footer */}
-              <div style={{ display: "flex", justifyContent: "flex-end", gap: "0.75rem", borderTop: "1px solid #e2e8f0", paddingTop: "1.25rem" }}>
-                <button
-                  type="button"
-                  onClick={() => setSelectedFaculty(null)}
-                  className="btn btn-secondary"
-                  style={{ fontSize: "0.85rem", padding: "0.5rem 1rem" }}
-                >
-                  Close
-                </button>
-                <a
-                  href={`mailto:${selectedFaculty.email}?subject=Inquiry from RGUKT RK Valley Portal`}
-                  className="btn btn-primary"
-                  style={{ fontSize: "0.85rem", padding: "0.5rem 1rem", textDecoration: "none" }}
-                >
-                  Send Email to Faculty →
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

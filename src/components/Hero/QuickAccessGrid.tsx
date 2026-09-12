@@ -10,15 +10,17 @@ export default function QuickAccessGrid() {
   return (
     <section className="quick-access-section container" aria-label="Quick Access Services">
       <div className="quick-access-grid">
-        <Link href="/admissions" className="quick-card">
+        <a href="https://cmsrkv.rgukt.in/" target="_blank" rel="noopener noreferrer" className="quick-card">
           <div className="quick-icon-box">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
             </svg>
           </div>
-          <span className="quick-card-title">Admissions 2026</span>
-          <span className="quick-card-desc">6-Yr B.Tech Entry</span>
-        </Link>
+          <span className="quick-card-title">CMS PORTAL</span>
+          <span className="quick-card-desc">Student Portal</span>
+        </a>
 
         <Link href="/examinations" className="quick-card">
           <div className="quick-icon-box">
