@@ -477,7 +477,7 @@ button {
 .nav-links-desktop {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   list-style: none;
   gap: clamp(0.1rem, 0.5vw, 0.5rem);
 }
@@ -488,9 +488,9 @@ button {
 
 .nav-link {
   color: rgba(255, 255, 255, 0.85);
-  font-size: 0.85rem;
+  font-size: clamp(0.75rem, 0.8vw, 0.85rem);
   font-weight: 600;
-  padding: 0.6rem 0.65rem;
+  padding: clamp(0.4rem, 0.5vw, 0.6rem) clamp(0.2rem, 0.4vw, 0.65rem);
   display: flex;
   align-items: center;
   gap: 0.3rem;
