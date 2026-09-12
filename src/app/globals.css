@@ -604,9 +604,11 @@ button {
   align-items: center;
   justify-content: flex-start;
   width: 108px;
+  height: 38px;
+  box-sizing: border-box;
   background: rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.85);
-  padding: 0.55rem 1.1rem;
+  padding: 0 1.1rem;
   border-radius: 99px;
   font-size: 0.9rem;
   font-weight: 500;
