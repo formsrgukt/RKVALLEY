@@ -31,27 +31,82 @@ export default function DepartmentsPage() {
               Discover our 13 specialized departments equipped with state-of-the-art laboratories, experienced faculty, and industry-aligned curricula.
             </p>
 
-            <div className="departments-grid">
+            <div className="academic-two-col-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, minmax(0, 1fr))", gap: "1.25rem", marginBottom: "2rem" }}>
               {RGUKT_DATA.departments.map((d) => (
-                <div key={d.id} className="department-card">
-                  <div className="dept-header">
-                    <span className="dept-code-badge">{d.code}</span>
-                    <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--accent-royal)" }}>{d.category}</span>
+                <div
+                  key={d.id}
+                  style={{
+                    background: "#ffffff",
+                    borderTop: "1px solid #e2e8f0",
+                    borderRight: "1px solid #e2e8f0",
+                    borderBottom: "1px solid #e2e8f0",
+                    borderLeft: "4px solid var(--accent-royal)",
+                    padding: "1.25rem",
+                    borderRadius: "8px",
+                    boxShadow: "0 1px 4px rgba(0, 0, 0, 0.05)",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    transition: "all 0.2s ease"
+                  }}
+                >
+                  <div>
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "0.5rem", marginBottom: "0.35rem" }}>
+                      <h5 style={{ color: "var(--accent-royal)", fontWeight: 700, fontSize: "1.02rem", margin: 0 }}>
+                        {d.name}
+                      </h5>
+                      <span
+                        style={{
+                          fontSize: "0.72rem",
+                          fontWeight: 800,
+                          color: "var(--accent-royal)",
+                          background: "#fdf2f4",
+                          padding: "0.15rem 0.5rem",
+                          borderRadius: "4px",
+                          flexShrink: 0
+                        }}
+                      >
+                        {d.code}
+                      </span>
+                    </div>
+                    <p
+                      style={{
+                        fontSize: "0.85rem",
+                        color: "#475569",
+                        margin: "0 0 0.85rem 0",
+                        lineHeight: 1.45,
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden"
+                      }}
+                    >
+                      {d.overview}
+                    </p>
+                    <div style={{ display: "flex", gap: "0.75rem", fontSize: "0.78rem", color: "#64748b", marginBottom: "0.85rem", flexWrap: "wrap" }}>
+                      <span><strong>{d.facultyCount}</strong> Faculty</span> • 
+                      <span><strong>{d.labsCount}</strong> Labs</span> • 
+                      <span><strong>{d.studentCount}</strong> Students</span>
+                    </div>
                   </div>
-                  <h4 className="dept-title">{d.name}</h4>
-                  <p className="dept-overview">{d.overview}</p>
-                  <div className="dept-meta-pills">
-                    <span><strong>{d.facultyCount}</strong> Faculty</span> • 
-                    <span><strong>{d.labsCount}</strong> Labs</span> • 
-                    <span><strong>{d.studentCount}</strong> Students</span>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "auto", paddingTop: "0.5rem", borderTop: "1px dashed #f1f5f9" }}>
+                    <span style={{ fontSize: "0.78rem", color: "#64748b" }}>
+                      <strong>HOD:</strong> {d.hod.split(",")[0]}
+                    </span>
+                    <Link
+                      href={`/departments/${d.id}`}
+                      className="btn btn-primary"
+                      style={{
+                        padding: "0.3rem 0.75rem",
+                        fontSize: "0.75rem",
+                        fontWeight: 600,
+                        borderRadius: "5px",
+                        boxShadow: "0 2px 6px rgba(122, 0, 25, 0.25)"
+                      }}
+                    >
+                      View Department →
+                    </Link>
                   </div>
-                  <div style={{ background: "#f8fafc", padding: "0.75rem", borderRadius: "6px", marginBottom: "1rem", fontSize: "0.8rem", color: "#475569" }}>
-                    <strong>HOD:</strong> {d.hod}<br />
-                    <strong>Email:</strong> {d.hodEmail}
-                  </div>
-                  <Link href={`/departments/${d.id}`} className="btn btn-primary" style={{ padding: "0.45rem 1rem", fontSize: "0.82rem" }}>
-                    View Syllabus & Labs →
-                  </Link>
                 </div>
               ))}
             </div>
