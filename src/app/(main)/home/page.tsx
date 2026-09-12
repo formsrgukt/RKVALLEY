@@ -213,7 +213,7 @@ export default function HomePage() {
 
           <div className="tenders-table-container">
             <div style={{ overflowX: "auto" }}>
-              <table className="gov-table">
+              <div className="table-responsive"><table className="gov-table">
                 <thead>
                   <tr>
                     <th>Tender Ref No</th>
@@ -245,7 +245,7 @@ export default function HomePage() {
                     </tr>
                   ))}
                 </tbody>
-              </table>
+              </table></div>
             </div>
           </div>
         </div>
@@ -393,3 +393,4 @@ export default function HomePage() {
     </>
   );
 }
+

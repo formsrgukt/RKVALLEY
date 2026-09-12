@@ -34,7 +34,7 @@ export default function ExaminationsPage() {
             <div style={{ background: "#f1f5f9", borderRadius: "12px", padding: "1.5rem", marginBottom: "2rem" }}>
               <h4 style={{ color: "var(--primary-dark)", marginBottom: "0.75rem" }}>RGUKT 10-Point Grading Scale</h4>
               <div style={{ overflowX: "auto" }}>
-                <table className="gov-table" style={{ background: "#fff" }}>
+                <div className="table-responsive"><table className="gov-table" style={{ background: "#fff" }}>
                   <thead>
                     <tr>
                       <th>Grade</th>
@@ -53,7 +53,7 @@ export default function ExaminationsPage() {
                       </tr>
                     ))}
                   </tbody>
-                </table>
+                </table></div>
               </div>
             </div>
 
@@ -75,3 +75,4 @@ export default function ExaminationsPage() {
     </div>
   );
 }
+

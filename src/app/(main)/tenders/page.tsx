@@ -53,7 +53,7 @@ export default function TendersPage() {
             </div>
 
             <div style={{ overflowX: "auto" }}>
-              <table className="gov-table">
+              <div className="table-responsive"><table className="gov-table">
                 <thead>
                   <tr>
                     <th>Tender Ref No</th>
@@ -97,7 +97,7 @@ export default function TendersPage() {
                     ))
                   )}
                 </tbody>
-              </table>
+              </table></div>
             </div>
           </article>
         </div>
@@ -105,3 +105,4 @@ export default function TendersPage() {
     </div>
   );
 }
+

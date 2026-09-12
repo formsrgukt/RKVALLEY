@@ -86,7 +86,7 @@ export default function AdministrationPage() {
 
             <h4 style={{ marginBottom: "1rem", color: "var(--primary-dark)" }}>Campus Officers & Deans Directory</h4>
             <div style={{ overflowX: "auto" }}>
-              <table className="gov-table">
+              <div className="table-responsive"><table className="gov-table">
                 <thead>
                   <tr>
                     <th>Designation / Role</th>
@@ -105,7 +105,7 @@ export default function AdministrationPage() {
                     </tr>
                   ))}
                 </tbody>
-              </table>
+              </table></div>
             </div>
           </article>
         </div>
@@ -113,3 +113,4 @@ export default function AdministrationPage() {
     </div>
   );
 }
+
