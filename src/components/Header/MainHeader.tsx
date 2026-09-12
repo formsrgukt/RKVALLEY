@@ -27,14 +27,9 @@ export default function MainHeader() {
           <div className="brand-text">
             <h1 className="brand-main-title">
               {lang === "te"
-                ? "రాజీవ్ గాంధీ వైజ్ఞానిక సాంకేతిక విశ్వవిద్యాలయం"
-                : "RAJIV GANDHI UNIVERSITY OF KNOWLEDGE TECHNOLOGIES"}
+                ? "రాజీవ్ గాంధీ వైజ్ఞానిక సాంకేతిక విశ్వవిద్యాలయం, ఆర్కే వ్యాలీ"
+                : "RAJIV GANDHI UNIVERSITY OF KNOWLEDGE TECHNOLOGIES, RKVALLEY"}
             </h1>
-            <h2 className="brand-secondary-title">
-              {lang === "te"
-                ? "ఆర్కే వ్యాలీ"
-                : "RKVALLEY"}
-            </h2>
             <p className="brand-sub-act">
               {lang === "te"
                 ? "(ఆంధ్రప్రదేశ్ ప్రభుత్వం చట్టం 18, 2008 ద్వారా ఏర్పడినది)"
