@@ -116,12 +116,6 @@ export default function HeroSection() {
                 <p className="hero-subtitle" style={{ whiteSpace: 'pre-line' }}>
                   {slide.subtitle}
                 </p>
-
-                <div className="hero-actions">
-                  <Link href={slide.link} className="btn btn-primary">
-                    {slide.action}
-                  </Link>
-                </div>
               </div>
             ))}
           </div>
