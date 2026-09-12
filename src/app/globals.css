@@ -479,7 +479,7 @@ button {
   align-items: center;
   flex-wrap: nowrap;
   list-style: none;
-  gap: clamp(0.1rem, 0.5vw, 0.5rem);
+  gap: 0.15rem;
 }
 
 .nav-item {
@@ -490,10 +490,10 @@ button {
   color: rgba(255, 255, 255, 0.85);
   font-size: clamp(0.75rem, 0.8vw, 0.85rem);
   font-weight: 600;
-  padding: clamp(0.4rem, 0.5vw, 0.6rem) clamp(0.2rem, 0.4vw, 0.65rem);
+  padding: 0.35rem 0.55rem;
   display: flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.25rem;
   border-radius: 99px; /* Pill shape */
   background: transparent;
   transition: all var(--transition-fast);
@@ -794,9 +794,6 @@ button {
   position: relative;
   min-height: 560px;
   background-color: #0f172a;
-  background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.65) 0%, rgba(15, 23, 42, 0.85) 100%), url('/images/campus_image.png');
-  background-size: cover;
-  background-position: center;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -804,26 +801,61 @@ button {
   overflow: hidden;
 }
 
+.hero-bg-slider {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-bg-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-bg-slide.slide-1 {
+  background-image: url('/images/campus_image.png');
+}
+
+.hero-bg-slide.slide-2 {
+  background-image: url('/images/convocation.png');
+}
+
+.hero-bg-slide.slide-3 {
+  background-image: url('/images/raja.png');
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image: linear-gradient(180deg, rgba(15, 23, 42, 0.65) 0%, rgba(15, 23, 42, 0.85) 100%);
+}
+
 .hero-content {
-  max-width: 820px;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(205, 163, 79, 0.2);
-  border: 1px solid rgba(205, 163, 79, 0.5);
-  color: var(--accent-gold);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
   font-size: 0.82rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.8px;
-  padding: 0.35rem 0.9rem;
-  border-radius: var(--radius-full);
-  margin-bottom: 1.25rem;
+  letter-spacing: 1px;
+  padding: 0.45rem 1rem;
+  border-radius: 99px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .hero-title {
@@ -837,7 +869,7 @@ button {
 }
 
 .hero-title span {
-  color: var(--accent-gold);
+  color: #e63946; /* Vibrant reddish maroon for dark backgrounds */
 }
 
 .hero-subtitle {
@@ -911,6 +943,7 @@ button {
 }
 
 .hero-stats-ticker {
+  max-width: 820px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
@@ -926,7 +959,7 @@ button {
 .stat-number {
   font-size: 1.75rem;
   font-weight: 800;
-  color: var(--accent-gold);
+  color: #e63946;
   line-height: 1.1;
   font-family: var(--font-heading);
 }

@@ -156,15 +156,7 @@ export default function InlineSearch() {
           ) : (
             <ul style={{ listStyle: "none", margin: 0, padding: "0.5rem" }}>
               {matches.slice(0, 8).map((m, idx) => (
-                <li key={idx} onClick={() => handleSelect(m)} style={{
-                  padding: "0.75rem 1rem",
-                  cursor: "pointer",
-                  borderRadius: "8px",
-                  transition: "background 0.2s"
-                }}
-                onMouseOver={(e) => e.currentTarget.style.background = "#f8fafc"}
-                onMouseOut={(e) => e.currentTarget.style.background = "transparent"}
-                >
+                <li key={idx} onClick={() => handleSelect(m)} className="search-result-item">
                   <div style={{ fontSize: "0.65rem", fontWeight: 700, color: "var(--accent-royal)", textTransform: "uppercase", marginBottom: "0.2rem" }}>
                     {m.type}
                   </div>
