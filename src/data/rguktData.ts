@@ -24,6 +24,7 @@ export interface LeadershipMember {
       role: string;
       email: string;
       image?: string;
+      profileLink?: string;
     }>;
     address?: string;
   };
@@ -362,7 +363,7 @@ export const RGUKT_DATA = {
       name: "Establishment Section",
       qualifications: "Central Administration",
       designation: "Establishment Section",
-      image: "/images/campus_hero.jpg",
+      image: "/images/campus-image.png",
       message: "The Establishment Section of RK Valley Institute, Rajiv Gandhi University of Knowledge Technologies, plays a pivotal role in managing and administering all service-related matters of employees.",
       profile: `<p>The Establishment Section of RK Valley Institute, Rajiv Gandhi University of Knowledge Technologies, plays a pivotal role in managing and administering all service-related matters of employees. The section ensures smooth functioning of personnel administration in accordance with Government rules and University policies.</p>
 <h4 style="color: var(--primary-dark); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Functions &amp; Responsibilities</h4>
@@ -387,7 +388,29 @@ export const RGUKT_DATA = {
   <li>Redressal of Employee Grievances related to service matters</li>
 </ul>`,
       extendedProfile: {
-        contact: {}
+        contact: {},
+        peshi: [
+          {
+            name: "Dr. A. Job Roger Binny",
+            role: "Coordinator, Mentor Department of Biology (Phone: 08588-283687)",
+            email: "ebs@rguktrkv.ac.in",
+            image: "/images/Dr_A_Job_Roger_Binny.jpg",
+            profileLink: "/departments/bio/faculty/fac-dr-roger-binny"
+          },
+          {
+            name: "Mr. A. V. Durga Kishore Reddy",
+            role: "Additional Coordinator, Mentor Department of Chemistry (Phone: 08588-283687)",
+            email: "ebs@rguktrkv.ac.in",
+            image: "/images/Mr_A_V_Durga_Kishore_Reddy.jpg",
+            profileLink: "/departments/civil/faculty/fac-durga-kishore"
+          },
+          {
+            name: "Mr. K Ravidranatha Reddy",
+            role: "Assistant Coordinator, Mentor Department of IT (Phone: 08588-283687)",
+            email: "ebsoffice@rguktrkv.ac.in",
+            image: "/images/Mr_K_Ravidranatha_Reddy.jpg"
+          }
+        ]
       }
     }
   ] as LeadershipMember[],

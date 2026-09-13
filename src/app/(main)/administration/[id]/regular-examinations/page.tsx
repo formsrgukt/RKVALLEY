@@ -22,7 +22,6 @@ export default async function RegularExaminationsPage({ params }: { params: Prom
     <main>
       <Breadcrumb
         title="Academic Regulations - 2017-18"
-        subtitle="Policies and rules governing regular examinations and grading procedures."
         links={[
           { label: "Home", href: "/" },
           { label: "Administration", href: "/administration/director" },

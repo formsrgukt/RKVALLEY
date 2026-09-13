@@ -1,19 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function AdminSidebar() {
   const pathname = usePathname();
+  const router = useRouter();
+  const { role, logout } = useAuth();
 
-  const links = [
-    { name: "Dashboard", href: "/" },
-    { name: "Manage Notices", href: "/notices" },
-    { name: "Manage News", href: "/news" },
-    { name: "Manage Tenders", href: "/tenders" },
-    { name: "Settings", href: "#" },
-  ];
+  const links = [];
+  if (role === "admin") {
+    links.push(
+      { name: "Dashboard", href: "/" },
+      { name: "Manage Notices", href: "/notices" },
+      { name: "Manage News", href: "/news" },
+      { name: "Manage Tenders", href: "/tenders" },
+      { name: "Faculty Profiles", href: "/faculty-profile" }, // Admin can see this too
+      { name: "Settings", href: "#" }
+    );
+  } else if (role === "faculty") {
+    links.push({ name: "My Profile", href: "/faculty-profile" });
+  }
+
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <aside className="w-64 fixed inset-y-0 left-0 bg-slate-900 border-r border-slate-800 z-50 flex flex-col">
@@ -48,10 +60,7 @@ export default function AdminSidebar() {
 
       <div className="p-4 border-t border-slate-800">
         <button 
-          onClick={() => {
-            // TODO: Implement actual logout logic
-            window.location.href = '/login';
-          }}
+          onClick={handleLogout}
           className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg w-full transition-colors"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

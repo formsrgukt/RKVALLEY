@@ -4,6 +4,7 @@ import Link from "next/link";
 import { RGUKT_DATA } from "@/data/rguktData";
 import { getDepartmentFaculty } from "@/data/facultyData";
 import { DEPARTMENT_SECTIONS } from "@/data/departmentSections";
+import FacultyProfileClient from "./FacultyProfileClient";
 interface FacultyProfilePageProps {
   params: Promise<{ id: string; facId: string }>;
 }
@@ -107,41 +108,6 @@ export default async function FacultyProfilePage({ params }: FacultyProfilePageP
 
           {/* Body Section */}
           <div style={{ padding: "2rem" }}>
-            {/* Bio */}
-            <div style={{ marginBottom: "2rem" }}>
-              <h4 style={{ color: "var(--primary-dark)", fontSize: "1.2rem", marginBottom: "0.75rem" }}>
-                Academic Biography
-              </h4>
-              <p style={{ fontSize: "1rem", color: "#475569", lineHeight: 1.6, margin: 0 }}>
-                {faculty.bio}
-              </p>
-            </div>
-
-            {/* Research Areas */}
-            <div style={{ marginBottom: "2rem" }}>
-              <h4 style={{ color: "var(--primary-dark)", fontSize: "1.2rem", marginBottom: "0.75rem" }}>
-                Specialization & Research Domains
-              </h4>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-                {faculty.researchAreas.map((area, idx) => (
-                  <span
-                    key={idx}
-                    style={{
-                      background: "#f1f5f9",
-                      color: "#334155",
-                      fontSize: "0.9rem",
-                      padding: "0.4rem 0.8rem",
-                      borderRadius: "6px",
-                      fontWeight: 600,
-                      border: "1px solid #e2e8f0"
-                    }}
-                  >
-                    {area}
-                  </span>
-                ))}
-              </div>
-            </div>
-
             {/* Quick Details Grid */}
             <div style={{ background: "#f8fafc", padding: "1.5rem", borderRadius: "8px", border: "1px solid #e2e8f0", marginBottom: "2rem" }}>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.25rem" }}>
@@ -165,18 +131,9 @@ export default async function FacultyProfilePage({ params }: FacultyProfilePageP
                 </div>
               </div>
             </div>
-
-            {/* Teaching Courses */}
-            <div style={{ marginBottom: "2rem" }}>
-              <h4 style={{ color: "var(--primary-dark)", fontSize: "1.2rem", marginBottom: "0.75rem" }}>
-                Courses Instructed in B.Tech
-              </h4>
-              <ul style={{ paddingLeft: "1.5rem", margin: 0, fontSize: "1rem", color: "#475569", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                {faculty.coursesTaught.map((c, i) => (
-                  <li key={i}>{c}</li>
-                ))}
-              </ul>
-            </div>
+            
+            {/* Dynamic Detailed Profile Rendered on Client */}
+            <FacultyProfileClient initialFaculty={faculty} />
 
             {/* Actions */}
             <div style={{ display: "flex", justifyContent: "flex-end", gap: "1rem", borderTop: "1px solid #e2e8f0", paddingTop: "1.5rem" }}>

@@ -297,15 +297,23 @@ export default async function AdministrationSectionPage({ params }: { params: Pr
                       {/* Director's Peshi */}
                       {leader.extendedProfile.peshi && leader.extendedProfile.peshi.length > 0 && (
                         <div style={{ marginBottom: "3rem" }}>
-                          <h3 style={{ color: "var(--primary-dark)", marginBottom: "1.5rem", fontSize: "1.5rem", fontWeight: 700 }}>
-                            {leader.title}&apos;s Peshi
-                          </h3>
-                          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
+                          {leader.id !== 'establishment' && (
+                            <h3 style={{ color: "var(--primary-dark)", marginBottom: "1.5rem", fontSize: "1.5rem", fontWeight: 700 }}>
+                              {leader.title}&apos;s Peshi
+                            </h3>
+                          )}
+                          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))", gap: "1.5rem" }}>
                             {leader.extendedProfile.peshi.map((person, idx) => (
                               <div key={idx} style={{ background: "#fff", borderRadius: "12px", border: "1px solid #e2e8f0", boxShadow: "0 4px 6px -1px rgba(0,0,0,0.05)", padding: "1.25rem", display: "flex", gap: "1.25rem", alignItems: "center" }}>
                                 {person.image ? (
                                   <div style={{ flexShrink: 0, width: "100px", height: "120px", borderRadius: "8px", overflow: "hidden", border: "1px solid #e2e8f0" }}>
-                                    <img src={person.image} alt={person.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                                    {person.profileLink ? (
+                                      <Link href={person.profileLink}>
+                                        <img src={person.image} alt={person.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                                      </Link>
+                                    ) : (
+                                      <img src={person.image} alt={person.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                                    )}
                                   </div>
                                 ) : (
                                   <div style={{ flexShrink: 0, width: "60px", height: "60px", borderRadius: "50%", background: "var(--primary-maroon)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.5rem", fontWeight: 800 }}>
@@ -313,7 +321,17 @@ export default async function AdministrationSectionPage({ params }: { params: Pr
                                   </div>
                                 )}
                                 <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
-                                  <h4 style={{ color: "var(--primary-dark)", fontSize: "1.1rem", fontWeight: 700, marginBottom: "0.25rem" }}>{person.name}</h4>
+                                  {person.profileLink ? (
+                                    <Link href={person.profileLink} style={{ textDecoration: 'none' }}>
+                                      <h4 style={{ color: "var(--primary-dark)", fontSize: "1.1rem", fontWeight: 700, marginBottom: "0.25rem" }}>
+                                        {person.name}
+                                      </h4>
+                                    </Link>
+                                  ) : (
+                                    <h4 style={{ color: "var(--primary-dark)", fontSize: "1.1rem", fontWeight: 700, marginBottom: "0.25rem" }}>
+                                      {person.name}
+                                    </h4>
+                                  )}
                                   <div style={{ color: "var(--primary-maroon)", fontSize: "0.9rem", fontWeight: 600, marginBottom: "0.25rem" }}>{person.role.split(',')[0]}</div>
                                   {person.role.includes(',') && (
                                     <div style={{ color: "#475569", fontSize: "0.85rem", marginBottom: "0.5rem" }}>

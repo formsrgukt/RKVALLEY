@@ -8,6 +8,9 @@ import { useApp } from "@/context/AppContext";
 import { DEPARTMENT_SECTIONS } from "@/data/departmentSections";
 
 import { FacultyProfile, getDepartmentFaculty } from "@/data/facultyData";
+import { db } from "@/lib/firebase";
+import { doc, getDoc } from "firebase/firestore";
+
 
 interface DepartmentDetailViewProps {
   dept: Department;
@@ -49,9 +52,31 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
     }
   };
 
+    const [liveFacultyList, setLiveFacultyList] = useState<FacultyProfile[]>([]);
   const facultyList = getDepartmentFaculty(dept);
-  const hodFaculty = facultyList.find((f) => f.isHod) || facultyList[0];
-  const filteredFaculty = facultyList
+
+  useEffect(() => {
+    let isMounted = true;
+    const fetchLive = async () => {
+      const merged = [...facultyList];
+      for (let i = 0; i < merged.length; i++) {
+        if (merged[i].email) {
+          try {
+            const snap = await getDoc(doc(db, "facultyProfiles", merged[i].email.toLowerCase()));
+            if (snap.exists()) {
+              merged[i] = { ...merged[i], ...snap.data() } as FacultyProfile;
+            }
+          } catch (e) {}
+        }
+      }
+      if (isMounted) setLiveFacultyList(merged);
+    };
+    fetchLive();
+    return () => { isMounted = false; };
+  }, [dept.id]);
+
+  const hodFaculty = liveFacultyList.find((f) => f.isHod) || liveFacultyList[0] || facultyList[0];
+  const filteredFaculty = liveFacultyList.length > 0 ? liveFacultyList
     .filter((f) => !f.isHod)
     .filter((f) => {
       if (!searchQuery.trim()) return true;
@@ -62,7 +87,8 @@ export default function DepartmentDetailView({ dept, activeSection = "faculty" }
         f.specialization.toLowerCase().includes(q) ||
         f.qualification.toLowerCase().includes(q)
       );
-    });
+    }) : [];
+
 
   const staffMembers = [
     {
