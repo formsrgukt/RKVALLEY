@@ -23,6 +23,7 @@ export interface LeadershipMember {
       name: string;
       role: string;
       email: string;
+      image?: string;
     }>;
     address?: string;
   };
@@ -167,6 +168,175 @@ export const RGUKT_DATA = {
           }
         ],
         address: "The Director,\nRGUKT-RK Valley, RGUKT-AP,\nAdministrative Block (Oppsite to Dept. of MME),\nIdupulapaya (Vill), Vempally (Mdl),\nYSR Kadapa District,\nAndhra Pradesh - 516 330."
+      }
+    },
+    {
+      id: "ao",
+      title: "Administrative Officer",
+      name: "Dr. Penugonda Ravi Kumar",
+      qualifications: "Administrative Officer(I/c), Assistant Professor in Department of CSE Engg",
+      designation: "Administrative Officer(I/c)",
+      image: "/images/governing-council/Dr_Penugonda_Ravi_Kumar.jpg",
+      message: "Dr. Penugonda Ravi Kumar brings a strong blend of academic excellence in CSE and robust administrative capability to the institution.",
+      profile: `<p>I currently hold the position of Assistant Professor in the Computer Science and Engineering department at Rajiv Gandhi University of Knowledge Technologies (also known as IIIT – RK Valley), in Andhra Pradesh, India, on a regular basis. My academic journey has been diverse and enriching. I earned my Ph.D. in Computer Science and Engineering from The University of AIZU, situated in Aizu-Wakamatsu, Fukushima, Japan. Prior to that, I achieved my Master of Engineering degree in Computer Science from the prestigious Indian Institute of Science in Bangalore, Karnataka, India. My foundational education in Computer Science and Engineering took place at Sri Venkateswara University College of Engineering, where I earned my bachelor's degree.</p>
+<p style="margin-top: 1rem;">My research interests span various domains within computer science, with a focus on cutting-edge areas such as data mining, air pollution data analytics, traffic congestion data analytics, recommender systems, and time series classification. I am dedicated to exploring innovative solutions to real-world problems through my research endeavors.</p>
+<p style="margin-top: 1rem;">Over the course of my academic career, I have contributed significantly to the scholarly community. My research findings have been disseminated through publications in esteemed journals like IEEE Access, Applied Intelligence, and Electronics. Additionally, I have presented my work at prominent international conferences, including IEEE International Conference on Fuzzy Systems (FUZZ-IEEE), IEEE International Conference on Big Data (IEEE BigData), IEEE International Conference on Data Science and Advanced Analytics (DSAA), Asian Conference on Intelligent Information and Database Systems (ACIIDS), IEEE Symposium on Computational Intelligence and Data Mining (CIDM), International Conference on Industrial, Engineering and Other Applications of Applied Intelligent Systems (IEA/AIE), International Conference on Database and Expert Systems Applications (DEXA), International Conference on Soft Computing and Machine Intelligence (ISCMI), and Big Data Analytics (BDA).</p>
+<p style="margin-top: 1rem;">My commitment to advancing knowledge and contributing to the academic community remains steadfast, and I look forward to furthering my research and educational endeavors.</p>
+
+<h4 style="color: var(--primary-dark); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Education</h4>
+<table style="width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.8rem;">
+  <thead style="background: #f8fafc; text-align: left;">
+    <tr>
+      <th style="width: 30%; padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0;">Course</th>
+      <th style="width: 55%; padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0;">College/University</th>
+      <th style="width: 15%; padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0;">Year of Passing</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; vertical-align: top;">PhD (Computer Science and Engineering)</td>
+      <td style="padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; vertical-align: top;">The University of AIZU, Aizu-wakamatsu, Japan.</td>
+      <td style="padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; vertical-align: top;">2020-2023</td>
+    </tr>
+    <tr>
+      <td style="padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; vertical-align: top;">M.E (Computer Science and Automation)</td>
+      <td style="padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; vertical-align: top;">Indian Institute of Science, Bangalore. (Top most university in India. QS World Ranking # 184)</td>
+      <td style="padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; vertical-align: top;">2011-2013</td>
+    </tr>
+    <tr>
+      <td style="padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; vertical-align: top;">B. Tech (Computer Science and Engineering)</td>
+      <td style="padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; vertical-align: top;">S.V. University College of Engineering, Tirupati.</td>
+      <td style="padding: 0.5rem 0.75rem; border-bottom: 1px solid #e2e8f0; vertical-align: top;">2006-2010</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 style="color: var(--primary-dark); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Research Interest</h4>
+<ul style="list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.5rem;">
+  <li>Big Data Analysis</li>
+  <li>Data Mining</li>
+  <li>Machine Learning</li>
+  <li>Classification of Time Series Data</li>
+  <li>Association Rule Mining</li>
+</ul>
+
+<h4 style="color: var(--primary-dark); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Journal Publications</h4>
+<ul style="list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.5rem;">
+  <li style="margin-bottom: 0.5rem;">P. Likhitha, P. Ravikumar, D. Saxena, R. U. Kiran and Y. Watanobe, "k-PFPMiner: Top-k Periodic Frequent Patterns in Big Temporal Databases," in IEEE Access, vol. 11, pp. 119033-119044, 2023, doi: 10.1109/ACCESS.2023.3325839.</li>
+  <li style="margin-bottom: 0.5rem;">Pamalla, V., Rage, U.K., Penugonda, R. et al. A fundamental approach to discover closed periodic-frequent patterns in very large temporal databases. Appl Intell 53, 27344–27373 (2023).</li>
+  <li style="margin-bottom: 0.5rem;">Uday Kiran, R., Veena, P., Ravikumar, P. et al. HDSHUI-miner: a novel algorithm for discovering spatial high-utility itemsets in high-dimensional spatiotemporal databases. Appl Intell 53, 8536–8561 (2023).</li>
+  <li style="margin-bottom: 0.5rem;">H. N. Dao, P. Ravikumar, P. Likhitha, U. K. Rage, Y. Watanobe and I. Paik, "Finding Stable Periodic-Frequent Itemsets in Big Columnar Databases," in IEEE Access, vol. 11, pp. 12504-12524, 2023, doi: 10.1109/ACCESS.2023.3241313.</li>
+  <li style="margin-bottom: 0.5rem;">Kiran RU, Veena P, Ravikumar P, Saideep C, Zettsu K, Shang H, Toyoda M, Kitsuregawa M, Reddy PK. Efficient Discovery of Partial Periodic Patterns in Large Temporal Databases. Electronics. 2022; 11(10):1523.</li>
+  <li style="margin-bottom: 0.5rem;">Watanobe, Y., Rahman, M.M., Matsumoto, T., Rage, U.K., Ravikumar, P.: Online judge system: Requirements, architecture, and experiences. International Journal of Software Engineering and Knowledge Engineering 32(06), 917–946 (2022)</li>
+  <li style="margin-bottom: 0.5rem;">Ravikumar P, Likhitha P, Venus Vikranth Raj B, Uday Kiran R, Watanobe Y, Zettsu K. Efficient Discovery of Periodic-Frequent Patterns in Columnar Temporal Databases. Electronics. 2021; 10(12):1478.</li>
+  <li style="margin-bottom: 0.5rem;">Veena Pamalla, Uday Kiran Rage, Ravikumar Penugonda, Likhitha Palla, Yutaka Watanobe, Sadanori Ito, Koji Zettsu, Masashi Toyoda, and Venus vikranth raj Bathala. "3P-ECLAT: Mining partial periodic patterns in columnar temporal databases." Appllied Intelligence (Accepted and waiting for publishing)</li>
+</ul>
+
+<h4 style="color: var(--primary-dark); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Conference Publications</h4>
+<ul style="list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.5rem;">
+  <li style="margin-bottom: 0.5rem;">Palla Likhitha, Penugonda Ravikumar, Rage Uday Kiran, and Yutaka Watanobe. 2023. Discovering Top-k Periodic-Frequent Patterns in Very Large Temporal Databases. In Big Data Analytics: 10th International Conference, BDA 2022.</li>
+  <li style="margin-bottom: 0.5rem;">Ravikumar, P. et al. (2022). Towards Efficient Discovery of Partial Periodic Patterns in Columnar Temporal Databases. In: Intelligent Information and Database Systems. ACIIDS 2022.</li>
+  <li style="margin-bottom: 0.5rem;">P. Ravikumar, R. U. Kiran, P. Likhitha, T. Chandrasekhar, Y. Watanobe and K. Zettsu, "Discovering Geo-referenced Periodic-Frequent Patterns in Geo-referenced Time Series Databases," 2022 IEEE 9th International Conference on Data Science and Advanced Analytics (DSAA), Shenzhen, China, 2022, pp. 1-10.</li>
+  <li style="margin-bottom: 0.5rem;">Hong N. Dao, Penugonda Ravikumar, P. Likitha, Bathala Venus Vikranth Raj, R. Uday Kiran, Yutaka Watanobe & Incheon Paik, Towards Efficient Discovery of Stable Periodic Patterns in Big Columnar Temporal Databases. IEA/AIE 2022.</li>
+  <li style="margin-bottom: 0.5rem;">Veena, Pamalla and Ravikumar, Penugonda and Kwangwari, Kundai and Kiran, R. Uday and Goda, Kazuo and Watanobe, Yutaka and Zettsu, Koji, "Discovering Fuzzy Geo-referenced Periodic-Frequent Patterns in Geo-referenced Time Series Databases," 2022 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE), Padua, Italy, 2022, pp. 1-8.</li>
+  <li style="margin-bottom: 0.5rem;">P. Ravikumar et al., "A Novel Parameter-Free Energy Efficient Fuzzy Nearest Neighbor Classifier for Time Series Data," 2021 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE), Luxembourg, Luxembourg, 2021, pp. 1-6.</li>
+  <li style="margin-bottom: 0.5rem;">Penugonda Ravikumar, Palla, L., Rage, U.K., Watanobe, Y., Zettsu, K. (2021). Towards Efficient Discovery of Periodic-Frequent Patterns in Columnar Temporal Databases. IEA/AIE 2021.</li>
+  <li style="margin-bottom: 0.5rem;">Bommisetty, S.C., Penugonda, R., Rage, U.K., Dao, M.S., Zettsu, K. (2021). Discovering Spatial High Utility Itemsets in High-Dimensional Spatiotemporal Databases. IEA/AIE 2021.</li>
+  <li style="margin-bottom: 0.5rem;">Watanobe, Y., Rahman, M.M., Rage, U.K., Penugonda, R. (2021). Online Automatic Assessment System for Program Code: Architecture and Experiences. IEA/AIE 2021.</li>
+  <li style="margin-bottom: 0.5rem;">Dao, H. N., Ravikumar, P., Likitha, P., Raj, B. V. V., Kiran, R. U., Watanobe, Y., & Paik, I. (2022). Towards efficient discovery of stable periodic patterns in big columnar temporal databases. International Conference on Industrial, Engineering and Other Applications of Applied Intelligent Systems, 831–843.</li>
+  <li style="margin-bottom: 0.5rem;">So Nakamura, R. Uday Kiran, P. Likhitha, P. Ravikumar, Yutaka Watanobe, Minh Son Dao, Koji Zettsu & Masashi Toyoda. Efficient Discovery of Partial Periodic-Frequent Patterns in Temporal Databases. DEXA 2021.</li>
+  <li style="margin-bottom: 0.5rem;">Likhitha, P. and Ravikumar, P. and Uday Kiran, R. and Hayamizu, Yuto and Goda, Kazuo and Toyoda, Masashi and Zettsu, Koji and Shrivastava, Sourabh, "Discovering Closed Periodic-Frequent Patterns in Very Large Temporal Databases," 2020 IEEE International Conference on Big Data (Big Data), Atlanta, GA, USA, 2020, pp. 4700-4709.</li>
+  <li style="margin-bottom: 0.5rem;">Kiran, R. Uday and Saideep, C. and Ravikumar, Penugonda and Zettsu, Koji and Toyoda, Masashi and Kitsuregawa, Masaru and Reddy, P. Krishna, "Discovering Fuzzy Periodic-Frequent Patterns in Quantitative Temporal Databases," 2020 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE), Glasgow, UK, 2020, pp. 1-8.</li>
+  <li style="margin-bottom: 0.5rem;">P. Ravikumar and V. S. Devi, "Weighted feature-based classification of time series data," 2014 IEEE Symposium on Computational Intelligence and Data Mining (CIDM), Orlando, FL, USA, 2014, pp. 222-228.</li>
+  <li style="margin-bottom: 0.5rem;">P. Ravikumar and V. S. Devi, "Fast Classification of Time Series Data," 2014 International Conference on Soft Computing and Machine Intelligence, New Delhi, India, 2014, pp. 42-45.</li>
+  <li style="margin-bottom: 0.5rem;">P. Ravikumar and V. Susheela Devi, "Fuzzy classification of time series data," 2013 IEEE International Conference on Fuzzy Systems (FUZZ-IEEE), Hyderabad, India, 2013, pp. 1-6.</li>
+</ul>
+
+<h4 style="color: var(--primary-dark); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">List of Books Published</h4>
+<p style="margin-bottom: 1.5rem;">Machine Learning and Artificial Intelligence Application - Dr. G. Preethi, Mr. Monelli Ayyavaraiah, Dr. Penugonda Ravi Kumar</p>
+
+<h4 style="color: var(--primary-dark); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">List of Book Chapters Published</h4>
+<p style="margin-bottom: 1.5rem;">Veena, P., Uday Kiran, R., Ravikumar, P., Aggrawal, S. (2021). Discovering Fuzzy Periodic Patterns in Quantitative Temporal Databases. In: Kiran, R.U., Fournier-Viger, P., Luna, J.M., Lin, J.CW., Mondal, A. (eds) Periodic Pattern Mining. Springer, Singapore.</p>
+
+<h4 style="color: var(--primary-dark); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">List of Patents Applied</h4>
+<ul style="list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.5rem;">
+  <li style="margin-bottom: 0.5rem;">I have applied for a patent with Application No.202241076114 A and title of the invention is "ENSEMBLE CLASSIFICATION BASED COVID-19 DIAGNOSIS FROM CHEST X-RAYS AND CT IMAGES" and this application is published at The Patent Office Journal No. 02/2023 dated 13/01/2023, India.</li>
+  <li style="margin-bottom: 0.5rem;">I have applied for a patent during my studies at the University of AIZU and title of the invention is "TIME SERIES CLASSIFYING DEVICE, TIME SERIES CLASSIFYING PROGRAM, AND TIME SERIES CLASSIFYING METHOD".</li>
+</ul>
+
+<h4 style="color: var(--primary-dark); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Teaching Experience</h4>
+<ul style="list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.5rem;">
+  <li style="margin-bottom: 0.5rem;">Assistant Professor (regular basis) in RGUKT- RK Valley campus since 28th January 2017 to till date, Courses covered includes Data Mining, Formal Languages and Automata Theory, and Compiler Design.</li>
+  <li style="margin-bottom: 0.5rem;">Worked as a Lecturer (contractual basis) in RGUKT- RK Valley campus from 3rdJuly, 2013 to 27th January, 2017. Courses covered: Formal Languages and Automata Theory, Pattern Recognition and its applications, Database systems, Data Mining and Compiler Design.</li>
+</ul>
+
+<h4 style="color: var(--primary-dark); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Professional Development Activities</h4>
+<ul style="list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.5rem;">
+  <li style="margin-bottom: 0.5rem;"><strong>2017-18 ::</strong> Attended Faculty Development Programme (FDP) on Hadoop Big Data Analytics ASSAGOA, One day National Conference on Remote Sensing Application, Orientation Programme in JNTU HRDC - Hyderabad, and Refresher course on Entrepreneurship in SVUHRDC -Tirupati</li>
+  <li style="margin-bottom: 0.5rem;"><strong>2016-17 ::</strong> Attended Faculty Development Programme (FDP) on AWS in JNTU pulivendula, and IBM Business Analytics FDP SRKR Bhimvaram.</li>
+  <li style="margin-bottom: 0.5rem;"><strong>2015-16 ::</strong> Presented several papers in international Conference Emerging Trends on Engineering, SVUCE, Tirupathi.</li>
+  <li style="margin-bottom: 0.5rem;"><strong>2014-15 ::</strong> Presented two papers in IEEE Symposium Series on Computational Intelligence and Data Mining(SSCI-CIDM 2014), and International Conference on Soft Computing & Machine Intelligence(ISCMI-2014)</li>
+  <li style="margin-bottom: 0.5rem;"><strong>2013-14 ::</strong> Presented a paper in IEEE International Conference on Fuzzy systems (FUZZ-IEEE2013)</li>
+</ul>
+
+<h4 style="color: var(--primary-dark); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Administrative Responsibilities</h4>
+<p style="margin-bottom: 0.5rem;">As a faculty at RGUKT- RK Valley, I have carried out several additional administrative responsibilities along with teaching. My past and current responsibilities at RGUKT RK valley are listed below:</p>
+<ul style="list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.5rem;">
+  <li>IT Infrastructure in-charge from 01-10-2015 to 01-07-2016</li>
+  <li>Associate IT Infrastructure Coordinator from 20-07-2016 to 27-01-2017</li>
+  <li>Branch Examination Coordinator from 03-07-2013 to 22-07-2014</li>
+  <li>M. Tech Central Coordinator from 23-06-2014 to 22-06-2016</li>
+  <li>Department of Disciplinary committee from 2013 to till date.</li>
+  <li>Associate IT Infrastructure Coordinator from 28-01-2017 to 30-06-2018.</li>
+  <li>IT Infrastructure Coordinator from 01-07-2018 to 16-09-2020.</li>
+  <li>IT Infrastructure Coordinator from 14-09-2023 to till date.</li>
+</ul>`,
+      extendedProfile: {
+        link: "https://www.rguktrkv.ac.in/pdfdoc/RAVIP_Profile.pdf",
+        contact: {
+          phone: "08588-283687",
+          email: "ao@rguktrkv.ac.in"
+        },
+        peshi: [
+          {
+            name: "Mr. Subbanarasaiah",
+            role: "Assistant Coordinator, Mentor in IT (Phone: 08588-283687)",
+            email: "patoao@rguktrkv.ac.in"
+          }
+        ],
+        address: "The Administrative Officer,\nIIIT-RK Valley, RGUKT-AP,\nAcademic Block - 2, Ground Floor,\nIdupulapaya (Vill), Vempally (Mdl),\nYSR Kadapa District,\nAndhra Pradesh - 516 330."
+      }
+    },
+    {
+      id: "coe",
+      title: "Controller of Examinations",
+      name: "Dr. Y Arun Kumar Reddy",
+      qualifications: "Assistant Professor in dept.of Electronics and Communication Engg",
+      designation: "Controller of Examinations",
+      image: "/images/arun_kumar.jpg",
+      message: "",
+      profile: "",
+      extendedProfile: {
+        link: "",
+        contact: {
+          phone: "08588-283682",
+          fax: "",
+          email: "coe@rguktrkv.ac.in"
+        },
+        peshi: [
+          {
+            name: "Mr. H Seshagiri Rao",
+            role: "Associate Controller of Examinations, Assistant Professor in the dept.of Chemistry",
+            email: "ace@rguktrkv.ac.in",
+            image: "/images/seshagiri_rao.jpg"
+          },
+          {
+            name: "Mr. J. Bhanumurthy",
+            role: "Associate Controller of Examinations, Mentor in Matematics",
+            email: "acoe@rguktrkv.ac.in",
+            image: "/images/bhanumurthy.jpg"
+          }
+        ]
       }
     }
   ] as LeadershipMember[],

@@ -129,7 +129,6 @@ body.font-size-lg { font-size: 18px; }
 html {
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
-  overflow-x: clip;
   touch-action: manipulation;
 }
 
@@ -140,7 +139,6 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: clip;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -448,6 +446,11 @@ button {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   transition: all var(--transition-normal);
+}
+
+.sticky-nav-container.scrolled {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .navbar {

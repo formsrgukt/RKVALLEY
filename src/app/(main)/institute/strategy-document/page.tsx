@@ -3,19 +3,18 @@
 import React from "react";
 
 export default function StrategyDocumentPage() {
-  const handlePdfClick = () => {
-    window.open("https://www.rguktrkv.ac.in/pdfdoc/StrategyDocument1005.pdf", "_blank", "width=900,height=800");
-  };
-
   return (
     <div className="container" style={{ padding: "4rem 1rem", width: "100%", margin: "0 auto" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem", flexWrap: "wrap", gap: "1rem" }}>
         <h1 style={{ color: "var(--primary-dark)", fontSize: "2.2rem", fontWeight: 800, margin: 0 }}>
-          Strategic Plan of RGUKT for the Period 2021-30
+          Strategy Document
         </h1>
-        <button 
-          onClick={handlePdfClick}
-          className="btn"
+        <a 
+          href="https://www.rguktrkv.ac.in/pdfdoc/StrategyDocument1005.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-pdf-title="Strategy Document"
+          className="btn btn-primary"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -38,8 +37,8 @@ export default function StrategyDocumentPage() {
             <line x1="16" y1="17" x2="8" y2="17"></line>
             <polyline points="10 9 9 9 8 9"></polyline>
           </svg>
-          View PDF
-        </button>
+          <span>View Strategic Plan Document</span>
+        </a>
       </div>
 
       <div style={{ background: "#ffffff", padding: "3rem", borderRadius: "12px", boxShadow: "0 4px 15px rgba(0,0,0,0.05)", lineHeight: 1.75, color: "#334155", fontSize: "1.05rem" }}>

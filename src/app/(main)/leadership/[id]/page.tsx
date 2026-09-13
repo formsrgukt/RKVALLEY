@@ -1,7 +1,8 @@
 import React from "react";
-import { notFound } from "next/navigation";
-import { RGUKT_DATA } from "@/data/rguktData";
+import Image from "next/image";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import { RGUKT_DATA } from "@/data/rguktData";
+import { notFound } from "next/navigation";
 import Link from "next/link";
 
 export function generateStaticParams() {
@@ -59,15 +60,18 @@ export default async function LeadershipProfilePage({ params }: { params: Promis
                   alt={leader.name}
                   style={{ width: "100%", height: "auto", borderRadius: "12px", objectFit: "cover", boxShadow: "0 4px 15px rgba(0,0,0,0.1)", marginBottom: "1rem" }}
                 />
-                {leader.extendedProfile?.link && (
-                  <a href={leader.extendedProfile.link} target="_blank" rel="noreferrer" style={{ color: "var(--accent-royal)", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none" }}>
+                {leader.extendedProfile?.link && leader.extendedProfile.link.endsWith('.pdf') && (
+                  <a href={leader.extendedProfile.link} data-pdf-title={`${leader.name} - Profile Document`} target="_blank" rel="noreferrer" style={{ color: "var(--accent-royal)", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", marginTop: "0.5rem" }}>
+                    Click here to know more
+                  </a>
+                )}
+                {leader.extendedProfile?.link && !leader.extendedProfile.link.endsWith('.pdf') && (
+                  <a href={leader.extendedProfile.link} target="_blank" rel="noreferrer" style={{ color: "var(--accent-royal)", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", marginTop: "0.5rem" }}>
                     Click here to know more
                   </a>
                 )}
               </div>
-              <p style={{ color: "#334155", lineHeight: 1.8, fontSize: "0.95rem", textAlign: "justify" }}>
-                {leader.profile}
-              </p>
+              <div style={{ color: "#334155", lineHeight: 1.8, fontSize: "0.95rem", textAlign: "justify" }} dangerouslySetInnerHTML={{ __html: leader.profile }} />
             </div>
             <div style={{ clear: "both" }}></div>
           </div>

@@ -88,13 +88,13 @@ export default function StickyNavbar() {
                 <div>
                   <div className="mega-column-title">About & Administration</div>
                   <ul className="mega-menu-list">
-                    <li><a href="#" className="dropdown-link" onClick={(e) => { e.preventDefault(); setToastMessage("This page will be updated shortly!"); setTimeout(() => setToastMessage(null), 3500); setPinnedDropdown(null); }}>About RGUKT</a></li>
+                    <li><Link href="/about" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>About RGUKT</Link></li>
                     <li><Link href="/institute/vision-mission" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Vision and Mission</Link></li>
                     <li><Link href="/institute/best-practices" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Best Practices</Link></li>
                     <li><Link href="/institute/organization-chart" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Organization Chart</Link></li>
                     <li><Link href="/institute/strategy-document" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Strategy Document</Link></li>
                     <li><Link href="/institute/governing-council" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Governing Council</Link></li>
-                    <li><a href="https://www.rguktrkv.ac.in/pdfdoc/AnnualReport.pdf" className="dropdown-link" onClick={(e) => { e.preventDefault(); window.open("https://www.rguktrkv.ac.in/pdfdoc/AnnualReport.pdf", "AnnualReport", "width=900,height=800"); setPinnedDropdown(null); }}>Annual Report</a></li>
+                    <li><a href="https://www.rguktrkv.ac.in/pdfdoc/AnnualReport.pdf" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Annual Report</a></li>
                     <li><a href="https://convo6.rgukt.in/" target="_blank" rel="noopener noreferrer" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Convocation</a></li>
                     <li><a href="#" className="dropdown-link" onClick={(e) => { e.preventDefault(); setToastMessage("This page will be updated shortly!"); setTimeout(() => setToastMessage(null), 3500); setPinnedDropdown(null); }}>Ombudsperson</a></li>
                   </ul>
@@ -104,9 +104,9 @@ export default function StickyNavbar() {
                   <ul className="mega-menu-list">
                     <li><a href="#" className="dropdown-link" onClick={(e) => { e.preventDefault(); setToastMessage("This page will be updated shortly!"); setTimeout(() => setToastMessage(null), 3500); setPinnedDropdown(null); }}>NAAC Certificate</a></li>
                     <li><Link href="/institute/nirf" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>NIRF</Link></li>
-                    <li><a href="https://www.rguktrkv.ac.in/pdfdoc/UGC12BStatus.jpg" className="dropdown-link" onClick={(e) => { e.preventDefault(); window.open("https://www.rguktrkv.ac.in/pdfdoc/UGC12BStatus.jpg", "UGC12B", "width=900,height=800"); setPinnedDropdown(null); }}>UGC Status (12B)</a></li>
-                    <li><a href="https://www.rguktrkv.ac.in/pdfdoc/UGC2FStatus.pdf" className="dropdown-link" onClick={(e) => { e.preventDefault(); window.open("https://www.rguktrkv.ac.in/pdfdoc/UGC2FStatus.pdf", "UGC2F", "width=900,height=800"); setPinnedDropdown(null); }}>UGC Status (2F)</a></li>
-                    <li><a href="https://www.rguktrkv.ac.in/pdfdoc/NAD_ABCCell.pdf" className="dropdown-link" onClick={(e) => { e.preventDefault(); window.open("https://www.rguktrkv.ac.in/pdfdoc/NAD_ABCCell.pdf", "NADABCCell", "width=900,height=800"); setPinnedDropdown(null); }}>UGC-NAD/ABC Cell</a></li>
+                    <li><a href="https://www.rguktrkv.ac.in/pdfdoc/UGC12BStatus.jpg" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>UGC Status (12B)</a></li>
+                    <li><a href="https://www.rguktrkv.ac.in/pdfdoc/UGC2FStatus.pdf" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>UGC Status (2F)</a></li>
+                    <li><a href="https://www.rguktrkv.ac.in/pdfdoc/NAD_ABCCell.pdf" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>UGC-NAD/ABC Cell</a></li>
                     <li><Link href="/institute/aicte" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>AICTE Mandatory Disclosure</Link></li>
                   </ul>
                 </div>
@@ -173,11 +173,11 @@ export default function StickyNavbar() {
                 </svg>
               </Link>
               <div className="dropdown-menu">
-                <Link href="/administration" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Chancellor's Desk</Link>
-                <Link href="/administration" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Vice-Chancellor's Secretariat</Link>
-                <Link href="/administration" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Campus Director's Office</Link>
-                <Link href="/administration" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Administrative Officer (AO)</Link>
-                <Link href="/administration" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Deaneries Directory</Link>
+                <Link href="/administration" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Central Administration</Link>
+                <Link href="/administration" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Administration</Link>
+                <Link href="/administration/coe" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Controller of Examinations</Link>
+                <Link href="/administration" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Sports Board</Link>
+                <Link href="/administration" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Communication Directory</Link>
               </div>
             </li>
 

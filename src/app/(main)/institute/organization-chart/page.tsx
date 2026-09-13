@@ -3,11 +3,6 @@
 import React from "react";
 
 export default function OrganizationChartPage() {
-  const handlePdfClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    window.open("https://www.rguktrkv.ac.in/pdfdoc/OrganizationChart.pdf", "PDFPopup", "width=900,height=800,scrollbars=yes,resizable=yes");
-  };
-
   const OrgBox = ({ children, style }: { children: React.ReactNode, style?: React.CSSProperties }) => {
     const [isHovered, setIsHovered] = React.useState(false);
     return (
@@ -130,8 +125,11 @@ export default function OrganizationChartPage() {
         <h1 style={{ color: "var(--primary-dark)", fontSize: "2.2rem", fontWeight: 800, margin: 0 }}>
           Organizational Chart
         </h1>
-        <button 
-          onClick={handlePdfClick}
+        <a 
+          href="https://www.rguktrkv.ac.in/pdfdoc/OrganizationChart.pdf"
+          data-pdf-title="Organization Chart"
+          target="_blank"
+          rel="noopener noreferrer"
           className="btn"
           style={{
             display: "inline-flex",
@@ -156,7 +154,7 @@ export default function OrganizationChartPage() {
             <polyline points="10 9 9 9 8 9"></polyline>
           </svg>
           View PDF
-        </button>
+        </a>
       </div>
 
       <div style={{ 

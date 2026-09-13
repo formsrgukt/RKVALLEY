@@ -39,11 +39,9 @@ export default function AICTEPage() {
                   e.preventDefault();
                   setShowToast(doc.year);
                   setTimeout(() => setShowToast(null), 3500);
-                } else {
-                  e.preventDefault();
-                  window.open(doc.url, `EOA_${doc.year}`, "width=900,height=800");
                 }
               }}
+              data-pdf-title={`AICTE EOA ${doc.year}`}
               style={{
                 display: "flex",
                 flexDirection: "column",

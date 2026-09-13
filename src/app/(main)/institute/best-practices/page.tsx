@@ -3,19 +3,15 @@
 import React from "react";
 
 export default function BestPracticesPage() {
-  const handlePdfClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    window.open("https://www.rguktrkv.ac.in/pdfdoc/BESTPRACTICES1.pdf", "PDFPopup", "width=900,height=800,scrollbars=yes,resizable=yes");
-  };
-
   return (
     <div className="container" style={{ padding: "4rem 1rem", width: "100%", margin: "0 auto" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem", flexWrap: "wrap", gap: "1rem" }}>
         <h1 style={{ color: "var(--primary-dark)", fontSize: "2.2rem", fontWeight: 800, margin: 0 }}>
           Best Practices
         </h1>
-        <button 
-          onClick={handlePdfClick}
+        <a 
+          href="https://www.rguktrkv.ac.in/pdfdoc/BESTPRACTICES1.pdf"
+          data-pdf-title="Best Practices"
           className="btn"
           style={{
             display: "inline-flex",
@@ -39,8 +35,8 @@ export default function BestPracticesPage() {
             <line x1="16" y1="17" x2="8" y2="17"></line>
             <polyline points="10 9 9 9 8 9"></polyline>
           </svg>
-          View PDF
-        </button>
+          <span>View Full PDF</span>
+        </a>
       </div>
 
       <div style={{ background: "#ffffff", padding: "3rem", borderRadius: "12px", boxShadow: "0 4px 15px rgba(0,0,0,0.05)", lineHeight: 1.75, color: "#334155", fontSize: "1.05rem", marginBottom: "2rem" }}>

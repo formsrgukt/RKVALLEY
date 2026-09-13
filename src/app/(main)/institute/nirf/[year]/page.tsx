@@ -59,10 +59,7 @@ export default function NIRFYearPage({ params }: { params: Promise<{ year: strin
                   <a 
                     key={idx}
                     href={doc.url}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.open(doc.url, `NIRFPDF_${idx}`, "width=900,height=800");
-                    }}
+                    data-pdf-title={`NIRF Document - ${doc.title}`}
                     style={{
                       display: "flex",
                       alignItems: "center",
