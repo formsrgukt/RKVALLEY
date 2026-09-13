@@ -39,6 +39,8 @@ export default function InlineSearch() {
     { title: "Academic Regulations (UG)", link: "/academics/academic-regulations", desc: "6-Year Integrated B.Tech Academic Rules & Regulations (AY 2022-23 Onwards)" },
     { title: "Departments Directory", link: "/departments", desc: "AI&ML, Chemical, Civil, CSE, EEE, ECE, Mechanical, MME, Sciences" },
     { title: "Admissions 2026-27", link: "/admissions", desc: "Eligibility, Deprivation points, Application instructions" },
+    { title: "Academic Calendar", link: "/academics/academic-calendar", desc: "Official Academic Calendars & Schedules for PUC & B.Tech" },
+    { title: "Examinations & Evaluation System", link: "/academics/examinations", desc: "10-Point Grading Scale, Exam Regulations, SGPA/CGPA & Malpractice Code" },
     { title: "Examinations Cell", link: "/examinations", desc: "10-Point Grading Scale, Timetables & Results" },
     { title: "Placements Cell (CDPC)", link: "/placements", desc: "Highest CTC, Top Recruiters & Training Roadmap" },
     { title: "Central Digital Library", link: "/library", desc: "Digital Library, E-Journals & OPAC" },
@@ -97,7 +99,7 @@ export default function InlineSearch() {
 
   RGUKT_DATA.campusFacilities.forEach((f) => {
     if (q && (f.title.toLowerCase().includes(q) || f.description.toLowerCase().includes(q))) {
-      matches.push({ type: "Facility", title: f.title, link: "/students", info: f.category });
+      matches.push({ type: "Facility", title: f.title, link: "/students/facilities", info: f.category });
     }
   });
 

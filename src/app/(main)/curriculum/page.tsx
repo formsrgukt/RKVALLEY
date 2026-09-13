@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Breadcrumb from "@/components/Common/Breadcrumb";
-import ExploreSidebar from "@/components/Common/ExploreSidebar";
 import { RGUKT_DATA } from "@/data/rguktData";
 import { useApp } from "@/context/AppContext";
 
@@ -114,46 +113,76 @@ export default function CurriculumPage() {
   };
 
   return (
-    <div className="page-view-container">
-      <Breadcrumb title="Curriculum & Academic Syllabus" category="Academics" />
+    <div className="page-view-container" style={{ width: "100%", minHeight: "100vh" }}>
+      <Breadcrumb title="Academic Curricula & Comprehensive Syllabi" category="Academics" />
 
-      <div className="container">
-        <div className="page-content-layout">
-          {/* Sidebar with interactive mouseover flyout */}
-          <ExploreSidebar activeSection="curriculum" />
+      <div className="container" style={{ padding: "2.5rem 1rem 4rem 1rem", maxWidth: "1280px", margin: "0 auto", width: "100%" }}>
+        {/* HERO INTRO CARD */}
+        <div
+          style={{
+            background: "#ffffff",
+            borderRadius: "12px",
+            border: "1px solid #e2e8f0",
+            padding: "2.25rem",
+            marginBottom: "2rem",
+            boxShadow: "0 4px 15px rgba(0,0,0,0.04)"
+          }}
+        >
+          <span
+            style={{
+              fontSize: "0.8rem",
+              fontWeight: 700,
+              color: "#800517",
+              textTransform: "uppercase",
+              letterSpacing: "0.05em",
+              display: "inline-block",
+              marginBottom: "0.4rem"
+            }}
+          >
+            Academic Framework • 6-Year Integrated B.Tech
+          </span>
+          <h1
+            style={{
+              color: "var(--primary-dark)",
+              fontSize: "2rem",
+              fontWeight: 800,
+              margin: "0 0 0.75rem 0",
+              lineHeight: 1.2
+            }}
+          >
+            Academic Curricula &amp; Comprehensive Syllabi
+          </h1>
+          <p style={{ fontSize: "1.05rem", color: "#475569", lineHeight: 1.6, margin: 0, maxWidth: "950px" }}>
+            Explore official course curricula, credit frameworks, and academic syllabi for the 6-Year Integrated B.Tech program across Pre-University Courses (PUC I &amp; PUC II with single-semester 6-Mid &amp; EST evaluation) and 8 Core Engineering disciplines at RGUKT RK Valley.
+          </p>
+        </div>
 
-          {/* Main Content */}
-          <article className="page-main-body">
-            <h3>Academic Curricula & Comprehensive Syllabi</h3>
-            <p style={{ fontSize: "1rem", color: "#334155", marginBottom: "1.5rem" }}>
-              Explore official course curricula, credit frameworks, and academic syllabi for the 6-Year Integrated B.Tech program across Pre-University Courses (PUC I &amp; PUC II with single-semester 6-Mid &amp; EST evaluation) and 8 Core Engineering disciplines at RGUKT RK Valley.
-            </p>
+        {/* Quick Filter Navigation */}
+        <div style={{ display: "flex", gap: "0.6rem", flexWrap: "wrap", marginBottom: "2.25rem", background: "#f8fafc", padding: "0.75rem", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
+          {(["All", "PUC", "Engineering", "Sciences"] as const).map((filter) => (
+            <button
+              key={filter}
+              type="button"
+              onClick={() => setActiveFilter(filter)}
+              style={{
+                padding: "0.6rem 1.25rem",
+                borderRadius: "8px",
+                fontSize: "0.88rem",
+                fontWeight: 700,
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+                border: activeFilter === filter ? "1px solid var(--accent-royal)" : "1px solid #cbd5e1",
+                background: activeFilter === filter ? "var(--accent-royal)" : "#ffffff",
+                color: activeFilter === filter ? "#ffffff" : "#475569",
+                boxShadow: activeFilter === filter ? "0 2px 6px rgba(128,5,23,0.2)" : "none"
+              }}
+            >
+              {filter === "All" ? "All Programs" : filter === "PUC" ? "PUC (Years 1–2)" : filter === "Engineering" ? "Engineering (E1–E4)" : "Sciences & Humanities"}
+            </button>
+          ))}
+        </div>
 
-            {/* Quick Filter Navigation */}
-            <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginBottom: "2rem" }}>
-              {(["All", "PUC", "Engineering", "Sciences"] as const).map((filter) => (
-                <button
-                  key={filter}
-                  type="button"
-                  onClick={() => setActiveFilter(filter)}
-                  style={{
-                    padding: "0.5rem 1.1rem",
-                    borderRadius: "6px",
-                    fontSize: "0.85rem",
-                    fontWeight: 700,
-                    cursor: "pointer",
-                    transition: "all 0.2s ease",
-                    border: activeFilter === filter ? "1px solid var(--accent-royal)" : "1px solid #cbd5e1",
-                    background: activeFilter === filter ? "var(--accent-royal)" : "#ffffff",
-                    color: activeFilter === filter ? "#ffffff" : "#475569"
-                  }}
-                >
-                  {filter === "All" ? "All Programs" : filter === "PUC" ? "PUC (Years 1–2)" : filter === "Engineering" ? "Engineering (E1–E4)" : "Sciences & Humanities"}
-                </button>
-              ))}
-            </div>
-
-            {/* SECTION 1: PUC SYLLABUS */}
+        {/* SECTION 1: PUC SYLLABUS */}
             {(activeFilter === "All" || activeFilter === "PUC") && (
               <div id="puc" style={{ marginBottom: "2.5rem", scrollMarginTop: "110px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem", flexWrap: "wrap", gap: "0.5rem" }}>
@@ -453,9 +482,7 @@ export default function CurriculumPage() {
                 </button>
               </div>
             </div>
-          </article>
+          </div>
         </div>
-      </div>
-    </div>
-  );
+      );
 }

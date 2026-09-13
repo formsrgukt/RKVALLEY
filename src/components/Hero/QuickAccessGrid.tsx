@@ -71,7 +71,7 @@ export default function QuickAccessGrid() {
           <span className="quick-card-desc">75,000+ Volumes</span>
         </Link>
 
-        <Link href="/academics" className="quick-card">
+        <Link href="/academics/academic-calendar" className="quick-card">
           <div className="quick-icon-box">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -81,7 +81,7 @@ export default function QuickAccessGrid() {
             </svg>
           </div>
           <span className="quick-card-title">Academic Calendar</span>
-          <span className="quick-card-desc">AY 2026-27 Schedule</span>
+          <span className="quick-card-desc">AY 2024-25 & Archive</span>
         </Link>
 
         <Link href="/departments" className="quick-card">

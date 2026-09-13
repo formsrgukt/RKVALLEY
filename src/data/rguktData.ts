@@ -419,7 +419,7 @@ export const RGUKT_DATA = {
       facultyCount: 18,
       studentCount: 360,
       labsCount: 5,
-      overview: "The Department of Artificial Intelligence and Machine Learning imparts comprehensive education in Deep Learning, Generative AI, Computer Vision, Natural Language Processing, Autonomous Systems, and Applied Data Science, equipped with high-performance GPU computing clusters.",
+      overview: "Specializing in Deep Learning, Generative AI, Computer Vision, and autonomous computing systems.",
       labs: [
         "Advanced Deep Learning & Neural Computing Lab",
         "Generative AI & Large Language Models (LLM) Studio",
@@ -444,7 +444,7 @@ export const RGUKT_DATA = {
       facultyCount: 16,
       studentCount: 380,
       labsCount: 5,
-      overview: "Specializing in Process Engineering, Nanotechnology, Reaction Kinetics, Bioprocess Engineering, Membrane Separation, and Industrial Pollution Abatement.",
+      overview: "Specializing in Process Engineering, Nanotechnology, Reaction Kinetics, and Industrial Separation.",
       labs: [
         "Chemical Reaction Engineering (CRE) Lab",
         "Mass Transfer Operations (MTO) Lab",
@@ -465,7 +465,7 @@ export const RGUKT_DATA = {
       facultyCount: 22,
       studentCount: 600,
       labsCount: 6,
-      overview: "Focusing on Structural Design, Geotechnical Engineering, GIS & Remote Sensing, Environmental Water Treatment, and Sustainable Smart Infrastructure Development.",
+      overview: "Focusing on Structural Design, Geotechnical Engineering, GIS Surveying, and Smart Infrastructure.",
       labs: [
         "Structural Engineering & Concrete Technology Lab",
         "Geotechnical & Soil Mechanics Testing Center",
@@ -487,7 +487,7 @@ export const RGUKT_DATA = {
       facultyCount: 38,
       studentCount: 960,
       labsCount: 8,
-      overview: "The Department of Computer Science & Engineering imparts state-of-the-art education in Artificial Intelligence, Machine Learning, Cloud Computing, Cyber Security, and Software Engineering. Equipped with 8 advanced computing labs and high-speed GPU clusters.",
+      overview: "Imparting cutting-edge education in AI/ML, Cloud Computing, Cyber Security, and Software Systems.",
       labs: [
         "Advanced AI & Deep Learning Laboratory",
         "Data Analytics & Cloud Infrastructure Lab",
@@ -511,7 +511,7 @@ export const RGUKT_DATA = {
       facultyCount: 24,
       studentCount: 640,
       labsCount: 6,
-      overview: "Leading sustainable electrical engineering with dedicated research in Smart Power Grids, Renewable Energy Systems, Electric Vehicles (EV) Powertrain, and Power Electronics.",
+      overview: "Dedicated to Smart Grids, Renewable Energy, Electric Vehicles, and Power Electronics.",
       labs: [
         "Electric Vehicles & Battery Management Lab",
         "Smart Grid & Renewable Energy Center",
@@ -533,7 +533,7 @@ export const RGUKT_DATA = {
       facultyCount: 34,
       studentCount: 920,
       labsCount: 7,
-      overview: "The ECE Department focuses on VLSI Circuit Design, Embedded Systems, Signal & Image Processing, Wireless Communications, 5G/6G Networks, and Microwave Engineering.",
+      overview: "Specializing in VLSI Design, Embedded Systems, 5G/6G Networks, and Digital Signal Processing.",
       labs: [
         "Cadence & Synopsys VLSI Design Center",
         "Embedded Systems & Robotics Studio",
@@ -556,7 +556,7 @@ export const RGUKT_DATA = {
       facultyCount: 26,
       studentCount: 720,
       labsCount: 8,
-      overview: "Providing comprehensive engineering foundations in Thermal Systems, CAD/CAM/CAE, Robotics, Advanced Materials, CNC Machining, and Additive Manufacturing (3D Printing).",
+      overview: "Covering Thermal Systems, CAD/CAM Design, Robotics, and Advanced CNC Manufacturing.",
       labs: [
         "Advanced CAD/CAM & 3D Additive Printing Studio",
         "CNC Machining & Precision Metrology Lab",
@@ -580,7 +580,7 @@ export const RGUKT_DATA = {
       facultyCount: 14,
       studentCount: 320,
       labsCount: 5,
-      overview: "Advancing characterization of advanced alloys, ceramic matrix composites, extractive metallurgy, non-destructive testing (NDT), and corrosion science.",
+      overview: "Advancing Advanced Alloys, Ceramic Composites, Extractive Metallurgy, and Corrosion Science.",
       labs: [
         "Scanning Electron Microscopy (SEM) & Characterization Lab",
         "Heat Treatment & Metallography Laboratory",
@@ -601,7 +601,7 @@ export const RGUKT_DATA = {
       facultyCount: 20,
       studentCount: 1200,
       labsCount: 2,
-      overview: "Providing deep mathematical grounding across Linear Algebra, Differential Equations, Numerical Analysis, Cryptography, Probability & Stochastic Processes for engineering streams.",
+      overview: "Foundational instruction in Linear Algebra, Calculus, Numerical Methods, and Cryptography.",
       labs: ["Computational Mathematics & Python/R Lab", "Statistical Modeling & Mathematica Studio"],
       highlights: ["Core faculty supporting AI & Data Science foundations", "National Mathematics Day symposium host"]
     },
@@ -616,7 +616,7 @@ export const RGUKT_DATA = {
       facultyCount: 18,
       studentCount: 1200,
       labsCount: 3,
-      overview: "Engaging students with Applied Optics, Quantum Mechanics, Solid State Physics, Semiconductor Device Physics, and Fiber Optics.",
+      overview: "Covering Applied Optics, Semiconductor Physics, Quantum Mechanics, and Nanomaterials.",
       labs: ["Engineering Optics & Laser Lab", "Solid State & Condensed Matter Physics Lab", "Modern Physics & Nanomaterials Synthesis Lab"],
       highlights: ["DST-FIST funded research instrumentation", "High-impact nanomaterial publications"]
     },
@@ -631,7 +631,7 @@ export const RGUKT_DATA = {
       facultyCount: 16,
       studentCount: 1200,
       labsCount: 3,
-      overview: "Delivering foundational and advanced instruction in Organic Synthesis, Analytical Chemistry, Electrochemistry, Polymer Science, and Green Chemistry.",
+      overview: "Instruction in Organic Synthesis, Analytical Chemistry, Electrochemistry, and Polymers.",
       labs: ["Instrumental Analytical Chemistry Lab (HPLC/UV-Vis)", "Physical & Electrochemistry Lab", "Organic Synthesis & Polymer Characterization Lab"],
       highlights: ["Patented water purification formulations", "Active industry-sponsored projects"]
     },
@@ -646,7 +646,7 @@ export const RGUKT_DATA = {
       facultyCount: 10,
       studentCount: 400,
       labsCount: 2,
-      overview: "Imparting fundamental concepts of Molecular Biology, Genetics, Bioinformatics, Computational Genomics, and Environmental Biotechnology for PUC & Engineering electives.",
+      overview: "Fundamental concepts of Molecular Biology, Bioinformatics, and Computational Genomics.",
       labs: ["Molecular Biology & Cell Culture Lab", "Bioinformatics & Computational Biology Terminal"],
       highlights: ["Collaborative research with agricultural research stations", "Student projects on endemic herbal flora of Kadapa"]
     },
@@ -661,7 +661,7 @@ export const RGUKT_DATA = {
       facultyCount: 15,
       studentCount: 1200,
       labsCount: 2,
-      overview: "Fostering professional communication, soft skills, managerial economics, intellectual property rights (IPR), professional ethics, and universal human values.",
+      overview: "Fostering professional communication skills, managerial economics, ethics, and soft skills.",
       labs: ["Interactive English Language & Multimedia Phonetics Lab", "Corporate Soft Skills & Mock Interview Suite"],
       highlights: ["Extensive BEC (Business English Certificate) training", "Model United Nations & Debate Society Mentors"]
     }

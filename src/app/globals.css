@@ -7,6 +7,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 /* Hide scrollbar everywhere */
+html {
+  scroll-behavior: smooth;
+}
 * {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -2200,6 +2203,59 @@ button {
   }
 }
 
+.facilities-split-row {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .facilities-split-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.facility-float-image {
+  float: right;
+  width: 330px;
+  max-width: 44%;
+  margin: 0.25rem 0 1.25rem 1.75rem;
+}
+
+@media (max-width: 768px) {
+  .facility-float-image {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 1.25rem 0;
+  }
+}
+
+.smart-classes-media-col {
+  float: right;
+  width: 230px;
+  max-width: 36%;
+  margin: 0.25rem 0 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+@media (max-width: 768px) {
+  .smart-classes-media-col {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 1.5rem 0;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .smart-classes-media-col > div {
+    flex: 1;
+  }
+}
+
 .page-sidebar {
   background: #ffffff;
   border: 1px solid #e2e8f0;
@@ -2267,6 +2323,38 @@ button.sidebar-link {
   border-left: 3px solid var(--primary-maroon);
   box-shadow: 0 2px 4px rgba(0,0,0,0.02);
   transform: translateX(4px);
+}
+
+.sidebar-sublink {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border-top: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-left: 3px solid transparent;
+  cursor: pointer;
+  font-size: 0.83rem;
+  color: var(--primary-maroon);
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  font-weight: 500;
+  line-height: 1.35;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-sublink:hover,
+.sidebar-sublink.active {
+  background: #ffffff !important;
+  color: var(--primary-maroon) !important;
+  border-top: 1px solid #e2e8f0 !important;
+  border-right: 1px solid #e2e8f0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  border-left: 3px solid var(--primary-maroon) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+  transform: translateX(4px) !important;
+  font-weight: 700;
 }
 
 /* EXPLORE SIDEBAR FLYOUT ITEM LINK */

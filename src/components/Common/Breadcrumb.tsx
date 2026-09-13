@@ -4,6 +4,8 @@ import Link from "next/link";
 interface BreadcrumbProps {
   title: string;
   category?: string;
+  subtitle?: string;
+  links?: { label: string; href: string }[];
 }
 
 export default function Breadcrumb({ title, category = "Section" }: BreadcrumbProps) {

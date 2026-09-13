@@ -28,7 +28,7 @@ export default function GrievancePage() {
           </aside>
 
           <article className="page-main-body">
-            <div style={{ background: "var(--status-crimson-bg)", borderLeft: "4px solid var(--status-crimson)", padding: "1.25rem", borderRadius: "8px", marginBottom: "2rem" }}>
+            <div id="antiragging" style={{ background: "var(--status-crimson-bg)", borderLeft: "4px solid var(--status-crimson)", padding: "1.25rem", borderRadius: "8px", marginBottom: "2rem" }}>
               <h4 style={{ color: "var(--status-crimson)", fontWeight: 800 }}>Zero Tolerance Towards Ragging</h4>
               <p style={{ fontSize: "0.88rem", color: "#7f1d1d", marginTop: "0.25rem" }}>
                 Ragging in any form is strictly prohibited inside and outside the campus. Severe disciplinary and legal actions under the AP Prohibition of Ragging Act will be initiated against violators.
@@ -42,6 +42,16 @@ export default function GrievancePage() {
               <li><strong>Chief Warden (Boys):</strong> +91 85602 87848</li>
               <li><strong>Chief Warden (Girls):</strong> +91 85602 87849</li>
             </ul>
+
+            <div id="womens-cell" style={{ background: "#fdf2f8", borderLeft: "4px solid #db2777", padding: "1.25rem", borderRadius: "8px", marginBottom: "2rem" }}>
+              <h4 style={{ color: "#9d174d", fontWeight: 800 }}>Women&apos;s Development Cell &amp; Internal Complaints Committee (ICC)</h4>
+              <p style={{ fontSize: "0.88rem", color: "#831843", marginTop: "0.25rem", lineHeight: 1.6 }}>
+                The Women&apos;s Cell and ICC ensure gender equity, safety, and a dignified working and learning environment for female students and staff across the campus. For confidential assistance or complaints, contact the ICC convener or submit an online request below selecting the <em>Internal Complaints Committee (ICC)</em> category.
+              </p>
+              <div style={{ marginTop: "0.75rem", fontSize: "0.85rem", color: "#9d174d" }}>
+                <strong>Helpline / Contact:</strong> <a href="mailto:icc@rguktrkv.ac.in" style={{ color: "#be185d", textDecoration: "underline" }}>icc@rguktrkv.ac.in</a> | +91 85602 87850
+              </div>
+            </div>
 
             <h4 style={{ marginBottom: "1rem", color: "var(--primary-dark)" }}>Online Grievance Submission Portal</h4>
             {submitted ? (

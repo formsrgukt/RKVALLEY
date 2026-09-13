@@ -84,11 +84,10 @@ export default function MobileDrawer() {
                 <li><Link href="/academics/faculty-ethics" className="drawer-sublink" onClick={closeMobileDrawer}>Faculty Ethics</Link></li>
                 <li><Link href="/academics/academic-programmes" className="drawer-sublink" onClick={closeMobileDrawer}>Academic Programmes</Link></li>
                 <li><Link href="/academics/academic-regulations" className="drawer-sublink" onClick={closeMobileDrawer}>Academic Regulations</Link></li>
-                <li><Link href="/academics#calendar" className="drawer-sublink" onClick={closeMobileDrawer}>Academic Calendar</Link></li>
+                <li><Link href="/academics/academic-calendar" className="drawer-sublink" onClick={closeMobileDrawer}>Academic Calendar</Link></li>
                 <li><Link href="/curriculum" className="drawer-sublink" onClick={closeMobileDrawer}>Curricula</Link></li>
-                <li><Link href="/departments" className="drawer-sublink" onClick={closeMobileDrawer}>Departments</Link></li>
-                <li><Link href="/examinations#timetable" className="drawer-sublink" onClick={closeMobileDrawer}>Time Table</Link></li>
-                <li><Link href="/examinations" className="drawer-sublink" onClick={closeMobileDrawer}>Examinations</Link></li>
+                <li><Link href="/academics/departments" className="drawer-sublink" onClick={closeMobileDrawer}>Departments</Link></li>
+                <li><Link href="/academics/examinations" className="drawer-sublink" onClick={closeMobileDrawer}>Examinations</Link></li>
               </ul>
             </li>
 
@@ -99,7 +98,21 @@ export default function MobileDrawer() {
               <Link href="/admissions" className="drawer-link" onClick={closeMobileDrawer}>Admissions 2026</Link>
             </li>
             <li className="drawer-item">
-              <Link href="/students" className="drawer-link" onClick={closeMobileDrawer}>Student Life & Welfare</Link>
+              <button onClick={() => toggleAccordion("students")} className="drawer-link" style={{ width: "100%" }}>
+                <span>Students</span>
+                <span>{openAccordions["students"] ? "−" : "+"}</span>
+              </button>
+              <ul className={`drawer-submenu ${openAccordions["students"] ? "open" : ""}`}>
+                <li><Link href="/students/education" className="drawer-sublink" onClick={closeMobileDrawer}>Education at RGUKT</Link></li>
+                <li><Link href="/placements" className="drawer-sublink" onClick={closeMobileDrawer}>Career Development Cell</Link></li>
+                <li><Link href="/students#incubation" className="drawer-sublink" onClick={closeMobileDrawer}>Incubation Cell</Link></li>
+                <li><Link href="/students#international-desk" className="drawer-sublink" onClick={closeMobileDrawer}>International Desk</Link></li>
+                <li><Link href="/students/antiragging" className="drawer-sublink" onClick={closeMobileDrawer}>Anti Ragging</Link></li>
+                <li><Link href="/grievance#womens-cell" className="drawer-sublink" onClick={closeMobileDrawer}>Women&apos;s Cell</Link></li>
+                <li><Link href="/students#welfare-office" className="drawer-sublink" onClick={closeMobileDrawer}>Students' Welfare Office</Link></li>
+                <li><Link href="/students#alumni-association" className="drawer-sublink" onClick={closeMobileDrawer}>Alumni Association</Link></li>
+                <li><a href="http://alumni.rguktrkv.ac.in/" target="_blank" rel="noopener noreferrer" className="drawer-sublink" onClick={closeMobileDrawer}>Alumni Portal</a></li>
+              </ul>
             </li>
             <li className="drawer-item">
               <Link href="/examinations" className="drawer-link" onClick={closeMobileDrawer}>Examinations</Link>
