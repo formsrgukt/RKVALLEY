@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import { RGUKT_DATA } from "@/data/rguktData";
 import { useApp } from "@/context/AppContext";
@@ -29,25 +28,6 @@ export default function PlacementsPage() {
           {/* Section Navigation Sidebar */}
           <aside className="page-sidebar" aria-label="Section Navigation" style={{ position: "sticky", top: "90px" }}>
             <h4 className="sidebar-menu-title">Index</h4>
-
-            {/* Visual Index Image Asset */}
-            <div
-              style={{
-                marginBottom: "1rem",
-                borderRadius: "6px",
-                overflow: "hidden",
-                border: "1px solid #e2e8f0",
-                boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
-              }}
-            >
-              <Image
-                src="/images/cdpc-index.png"
-                alt="Career Development Cell Index"
-                width={575}
-                height={101}
-                style={{ width: "100%", height: "auto", display: "block" }}
-              />
-            </div>
 
             <ul className="sidebar-nav-list">
               <li>
