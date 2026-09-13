@@ -418,93 +418,133 @@ export default function PlacementsPage() {
 
                 {/* Part 1: Student Registration For Placements - Master Registration Data */}
                 <div id="srp" style={{ scrollMarginTop: "100px", marginBottom: "2.5rem", borderTop: "2px solid #f1f5f9", paddingTop: "1.5rem" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+                    <span style={{ background: "rgba(122, 0, 25, 0.08)", color: "var(--primary-maroon)", padding: "0.2rem 0.6rem", borderRadius: "4px", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase" }}>
+                      Phase 1
+                    </span>
+                  </div>
+                  <h5 style={{ color: "var(--primary-dark)", fontSize: "1.25rem", fontWeight: 800, marginBottom: "0.75rem" }}>
+                    Student Registration for Placements – Master Registration Data
+                  </h5>
+
+                  <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.25rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.55 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        All the Undergraduate students who are interested in campus placements should register for participating in campus recruitment drives as per CDPC notificationat the end of third year of engineering (E3-S2) whereas M.Tech (Post Graduate) students need to register at the end of 2nd semester (usually in the month of April of every Academic Year). It is referred as master placement registration data.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.55 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        <strong>Each student must register for placement before leaving the campus for summer internship.</strong>
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.55 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Use Mozilla Firefox web browser for online registration.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.55 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        The students can register with Career Development &amp; Placement Cell (CDPC) for campus placements in online mode through student login at the link provided.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.55 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        To Login, Student may use same username/Login ID and Password that is given for other purposes.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.55 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Marks/grades secured should be entered correctly to the second decimal point (e.g: Marks: 75.74 not as 76.0 it should be 75.74 ; Grade: 7.36 not as 7.4, it should be 7.36).
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.55 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        <strong>Issue of grade sheet, announcement of results of remedial/ other exams, verification of academic credentials etc are not the responsibilities of campus CDPC. Students have to approach exam cell/ any other relevant authority for these.</strong>
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.55 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Number of backlogs, as on date, should be mentioned correctly.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.55 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Students should fill up all data carefully and verify the entered data before final submission.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.55 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Any false information furnished will lead to disciplinary action.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.55 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        After successful submission of information, students have to take print out of the registration form, sign it and submit to campus CDPC.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.55 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Students must also submit the documental proof (from exam cell) on B. Tech grade entered in the online registration along with hard copy of the registration form.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.55 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        <strong>Without the submission of hard copy of registration form and documental proof on B.Tech grade to campus CDPC, registration is considered to be incomplete and such students will not be considered for placement process.</strong>
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.55 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Once online registration &amp; hardcopy submission is done, it will not possible for resubmission or modification of the data. However, if any student wants to modify the data at later stage in view of improvement in CGPA, clearing off backlogs,incorrect details submitted, they should submit hard copy application along with proof of documents.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.55 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        For any queries, students should send mail only to{" "}
+                        <a href="mailto:cdpcsupport@rguktrkv.ac.in" style={{ color: "#0052a9", fontWeight: 700, textDecoration: "underline" }}>
+                          cdpcsupport@rguktrkv.ac.in
+                        </a>
+                        ; but not to any other email id.
+                      </span>
+                    </li>
+                  </ul>
+
                   <div
                     style={{
+                      background: "#f8fafc",
                       border: "1px solid #e2e8f0",
-                      borderRadius: "4px",
-                      padding: "1.25rem 1.5rem",
-                      background: "#ffffff",
+                      borderLeft: "4px solid var(--primary-maroon)",
+                      borderRadius: "8px",
+                      padding: "1rem 1.25rem",
+                      marginTop: "1.25rem",
                     }}
                   >
-                    <div style={{ borderLeft: "4px solid #5cb85c", paddingLeft: "1.25rem" }}>
-                      <h4 style={{ color: "#5cb85c", fontSize: "1.28rem", fontWeight: 600, margin: "0 0 1rem 0" }}>
-                        Student Registration For Placements - Master Registration Data
-                      </h4>
-
-                      <ul style={{ paddingLeft: "1.25rem", margin: "0 0 1.25rem 0", display: "flex", flexDirection: "column", gap: "0.55rem", listStyleType: "disc" }}>
-                        <li style={{ fontSize: "0.92rem", color: "#212529", lineHeight: 1.55 }}>
-                          All the Undergraduate students who are interested in campus placements should register for participating in campus recruitment drives as per CDPC notificationat the end of third year of engineering (E3-S2) whereas M.Tech (Post Graduate) students need to register at the end of 2nd semester (usually in the month of April of every Academic Year). It is referred as master placement registration data.
-                        </li>
-                        <li style={{ fontSize: "0.92rem", color: "#212529", lineHeight: 1.55 }}>
-                          <strong>Each student must register for placement before leaving the campus for summer internship.</strong>
-                        </li>
-                        <li style={{ fontSize: "0.92rem", color: "#212529", lineHeight: 1.55 }}>
-                          Use Mozilla Firefox web browser for online registration.
-                        </li>
-                        <li style={{ fontSize: "0.92rem", color: "#212529", lineHeight: 1.55 }}>
-                          The students can register with Career Development &amp; Placement Cell (CDPC) for campus placements in online mode through student login at the link provided.
-                        </li>
-                        <li style={{ fontSize: "0.92rem", color: "#212529", lineHeight: 1.55 }}>
-                          To Login, Student may use same username/Login ID and Password that is given for other purposes.
-                        </li>
-                        <li style={{ fontSize: "0.92rem", color: "#212529", lineHeight: 1.55 }}>
-                          Marks/grades secured should be entered correctly to the second decimal point (e.g: Marks: 75.74 not as 76.0 it should be 75.74 ; Grade: 7.36 not as 7.4, it should be 7.36).
-                        </li>
-                        <li style={{ fontSize: "0.92rem", color: "#212529", lineHeight: 1.55 }}>
-                          <strong>Issue of grade sheet, announcement of results of remedial/ other exams, verification of academic credentials etc are not the responsibilities of campus CDPC. Students have to approach exam cell/ any other relevant authority for these.</strong>
-                        </li>
-                        <li style={{ fontSize: "0.92rem", color: "#212529", lineHeight: 1.55 }}>
-                          Number of backlogs, as on date, should be mentioned correctly.
-                        </li>
-                        <li style={{ fontSize: "0.92rem", color: "#212529", lineHeight: 1.55 }}>
-                          Students should fill up all data carefully and verify the entered data before final submission.
-                        </li>
-                        <li style={{ fontSize: "0.92rem", color: "#212529", lineHeight: 1.55 }}>
-                          Any false information furnished will lead to disciplinary action.
-                        </li>
-                        <li style={{ fontSize: "0.92rem", color: "#212529", lineHeight: 1.55 }}>
-                          After successful submission of information, students have to take print out of the registration form, sign it and submit to campus CDPC.
-                        </li>
-                        <li style={{ fontSize: "0.92rem", color: "#212529", lineHeight: 1.55 }}>
-                          Students must also submit the documental proof (from exam cell) on B. Tech grade entered in the online registration along with hard copy of the registration form.
-                        </li>
-                        <li style={{ fontSize: "0.92rem", color: "#212529", lineHeight: 1.55 }}>
-                          <strong>Without the submission of hard copy of registration form and documental proof on B.Tech grade to campus CDPC, registration is considered to be incomplete and such students will not be considered for placement process.</strong>
-                        </li>
-                        <li style={{ fontSize: "0.92rem", color: "#212529", lineHeight: 1.55 }}>
-                          Once online registration &amp; hardcopy submission is done, it will not possible for resubmission or modification of the data. However, if any student wants to modify the data at later stage in view of improvement in CGPA, clearing off backlogs,incorrect details submitted, they should submit hard copy application along with proof of documents.
-                        </li>
-                        <li style={{ fontSize: "0.92rem", color: "#212529", lineHeight: 1.55 }}>
-                          For any queries, students should send mail only to{" "}
-                          <a href="mailto:cdpcsupport@rguktrkv.ac.in" style={{ color: "#0052a9", fontWeight: 700, textDecoration: "underline" }}>
-                            cdpcsupport@rguktrkv.ac.in
-                          </a>
-                          ; but not to any other email id.
-                        </li>
-                      </ul>
-
-                      <div
-                        style={{
-                          border: "2px solid #ffd427",
-                          borderRadius: "14px",
-                          padding: "0.85rem 1.25rem",
-                          background: "#ffffff",
-                          marginTop: "1.25rem",
-                        }}
-                      >
-                        <p
-                          style={{
-                            margin: 0,
-                            color: "#0052a9",
-                            fontWeight: 700,
-                            fontSize: "0.92rem",
-                            lineHeight: 1.5,
-                          }}
-                        >
-                          Only those students who have registered with the Campus Career Development &amp; Placement Cell (CDPC), RGUKT-RK Valley within the stipulated time are only eligible to participate in the placement process.
-                        </p>
-                      </div>
-                    </div>
+                    <p
+                      style={{
+                        margin: 0,
+                        color: "var(--primary-dark)",
+                        fontWeight: 700,
+                        fontSize: "0.92rem",
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      Only those students who have registered with the Campus Career Development &amp; Placement Cell (CDPC), RGUKT-RK Valley within the stipulated time are only eligible to participate in the placement process.
+                    </p>
                   </div>
                 </div>
 
