@@ -218,40 +218,6 @@ export default function PlacementsPage() {
                 </ul>
               </div>
 
-              {/* Statistics Grid */}
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-                  gap: "1.25rem",
-                  marginBottom: "2rem",
-                }}
-              >
-                <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", padding: "1.25rem", borderRadius: "10px", textAlign: "center" }}>
-                  <span style={{ fontSize: "2rem", fontWeight: 800, color: "var(--accent-gold)", display: "block" }}>
-                    {RGUKT_DATA.placements.stats.highestPackage}
-                  </span>
-                  <span style={{ fontSize: "0.85rem", color: "#64748b", fontWeight: 600 }}>Highest CTC Package</span>
-                </div>
-                <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", padding: "1.25rem", borderRadius: "10px", textAlign: "center" }}>
-                  <span style={{ fontSize: "2rem", fontWeight: 800, color: "var(--accent-royal)", display: "block" }}>
-                    {RGUKT_DATA.placements.stats.averagePackage}
-                  </span>
-                  <span style={{ fontSize: "0.85rem", color: "#64748b", fontWeight: 600 }}>Average CTC Package</span>
-                </div>
-                <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", padding: "1.25rem", borderRadius: "10px", textAlign: "center" }}>
-                  <span style={{ fontSize: "2rem", fontWeight: 800, color: "var(--status-emerald)", display: "block" }}>
-                    {RGUKT_DATA.placements.stats.offersCount}
-                  </span>
-                  <span style={{ fontSize: "0.85rem", color: "#64748b", fontWeight: 600 }}>Offers Generated</span>
-                </div>
-                <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", padding: "1.25rem", borderRadius: "10px", textAlign: "center" }}>
-                  <span style={{ fontSize: "2rem", fontWeight: 800, color: "var(--primary-dark)", display: "block" }}>
-                    {RGUKT_DATA.placements.stats.companiesVisited}
-                  </span>
-                  <span style={{ fontSize: "0.85rem", color: "#64748b", fontWeight: 600 }}>Recruiting Partners</span>
-                </div>
-              </div>
             </section>
 
             {/* Section 2: Students */}
