@@ -418,11 +418,6 @@ export default function PlacementsPage() {
 
                 {/* Part 1: Student Registration For Placements - Master Registration Data */}
                 <div id="srp" style={{ scrollMarginTop: "100px", marginBottom: "2.5rem", borderTop: "2px solid #f1f5f9", paddingTop: "1.5rem" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
-                    <span style={{ background: "rgba(122, 0, 25, 0.08)", color: "var(--primary-maroon)", padding: "0.2rem 0.6rem", borderRadius: "4px", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase" }}>
-                      Phase 1
-                    </span>
-                  </div>
                   <h5 style={{ color: "var(--primary-dark)", fontSize: "1.25rem", fontWeight: 800, marginBottom: "0.75rem" }}>
                     Student Registration for Placements – Master Registration Data
                   </h5>
@@ -550,11 +545,6 @@ export default function PlacementsPage() {
 
                 {/* Part 2: Student Registration for a Particular Company Placement Process */}
                 <div id="rpcp" style={{ scrollMarginTop: "100px", marginBottom: "2.5rem", borderTop: "2px solid #f1f5f9", paddingTop: "1.5rem" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
-                    <span style={{ background: "rgba(122, 0, 25, 0.08)", color: "var(--primary-maroon)", padding: "0.2rem 0.6rem", borderRadius: "4px", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase" }}>
-                      Phase 2
-                    </span>
-                  </div>
                   <h5 style={{ color: "var(--primary-dark)", fontSize: "1.25rem", fontWeight: 800, marginBottom: "0.75rem" }}>
                     Student Registration for a Particular Company Placement Process
                   </h5>
@@ -604,11 +594,6 @@ export default function PlacementsPage() {
 
                 {/* Part 3: Placement Selection Process */}
                 <div id="psp" style={{ scrollMarginTop: "100px", borderTop: "2px solid #f1f5f9", paddingTop: "1.5rem" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
-                    <span style={{ background: "rgba(122, 0, 25, 0.08)", color: "var(--primary-maroon)", padding: "0.2rem 0.6rem", borderRadius: "4px", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase" }}>
-                      Phase 3
-                    </span>
-                  </div>
                   <h5 style={{ color: "var(--primary-dark)", fontSize: "1.35rem", fontWeight: 800, marginBottom: "1rem" }}>
                     Placement Selection Process
                   </h5>
