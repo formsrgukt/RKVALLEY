@@ -1320,56 +1320,6 @@ export default function PlacementsPage() {
                 </div>
               </div>
 
-              <h4 style={{ color: "var(--primary-dark)", fontSize: "1.15rem", fontWeight: 800, marginBottom: "1rem" }}>
-                Prominent Recruiting Partners
-              </h4>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-                  gap: "1rem",
-                  marginBottom: "2rem",
-                }}
-              >
-                {RGUKT_DATA.placements.topRecruiters.map((r, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      background: "#f8fafc",
-                      border: "1px solid #e2e8f0",
-                      borderRadius: "8px",
-                      padding: "1rem 1.25rem",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <div>
-                      <div style={{ fontSize: "1rem", fontWeight: 700, color: "var(--primary-dark)" }}>
-                        {r.name}
-                      </div>
-                      <div style={{ fontSize: "0.82rem", color: "#64748b", marginTop: "0.25rem" }}>
-                        Role: {r.roles}
-                      </div>
-                    </div>
-                    <div style={{ marginTop: "0.75rem" }}>
-                      <span
-                        style={{
-                          fontSize: "0.72rem",
-                          fontWeight: 700,
-                          textTransform: "uppercase",
-                          padding: "0.2rem 0.55rem",
-                          borderRadius: "4px",
-                          background: r.tier === "Super Dream" ? "#fee2e2" : r.tier === "Dream" ? "#fef3c7" : "#e0f2fe",
-                          color: r.tier === "Super Dream" ? "#991b1b" : r.tier === "Dream" ? "#92400e" : "#0369a1",
-                        }}
-                      >
-                        {r.tier}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </section>
 
             {/* Section 4: Contact Us */}
