@@ -9,7 +9,7 @@ import { useApp } from "@/context/AppContext";
 export default function PlacementsPage() {
   const { openDocModal } = useApp();
   const [activeSection, setActiveSection] = useState("overview");
-  const [studentsOpen, setStudentsOpen] = useState(false);
+  const [isStudentsHovered, setIsStudentsHovered] = useState(false);
   const [campusPlacementsOpen, setCampusPlacementsOpen] = useState(false);
 
   const scrollTo = (id: string) => {
@@ -70,10 +70,7 @@ export default function PlacementsPage() {
               setActiveSection(id);
             }
             if (id === "campus-placements" || id === "srp" || id === "rpcp" || id === "psp") {
-              setStudentsOpen(true);
               setCampusPlacementsOpen(true);
-            } else if (id === "summer-internship" || id === "students") {
-              setStudentsOpen(true);
             }
             break;
           }
@@ -132,18 +129,18 @@ export default function PlacementsPage() {
                   Home
                 </button>
               </li>
-              <li>
+              <li
+                style={{ position: "relative" }}
+                onMouseEnter={() => setIsStudentsHovered(true)}
+                onMouseLeave={() => setIsStudentsHovered(false)}
+              >
                 <button
                   type="button"
-                  onClick={() => {
-                    setStudentsOpen((prev) => !prev);
-                    scrollTo("students");
-                  }}
                   className={`sidebar-link ${isStudentsActive ? "active" : ""}`}
                   style={{
                     width: "100%",
                     textAlign: "left",
-                    cursor: "pointer",
+                    cursor: "default",
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
@@ -154,30 +151,48 @@ export default function PlacementsPage() {
                     borderRadius: "6px",
                     transition: "all 0.2s ease",
                   }}
-                  aria-expanded={studentsOpen}
+                  aria-expanded={isStudentsHovered}
                 >
                   <span>Students</span>
                   <span
                     style={{
-                      fontSize: "0.65rem",
-                      display: "inline-block",
-                      transform: studentsOpen ? "rotate(180deg)" : "rotate(0deg)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      transform: isStudentsHovered ? "translateX(3px)" : "translateX(0px)",
                       transition: "transform 0.2s",
                       color: "var(--primary-maroon)",
                     }}
                   >
-                    ▼
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
                   </span>
                 </button>
-                {studentsOpen && (
-                  <ul style={{ listStyle: "none", paddingLeft: "1rem", margin: "0.25rem 0", display: "flex", flexDirection: "column", gap: "0.25rem" }}>
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "100%",
+                    top: "0",
+                    marginLeft: "0.5rem",
+                    zIndex: 50,
+                    backgroundColor: "#ffffff",
+                    borderRadius: "8px",
+                    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
+                    border: "1px solid #e2e8f0",
+                    width: "250px",
+                    visibility: isStudentsHovered ? "visible" : "hidden",
+                    opacity: isStudentsHovered ? 1 : 0,
+                    transform: isStudentsHovered ? "translateX(0)" : "translateX(-10px)",
+                    transition: "all 0.3s ease-in-out",
+                    pointerEvents: isStudentsHovered ? "auto" : "none",
+                  }}
+                >
+                  <ul style={{ listStyle: "none", padding: "0.5rem", display: "flex", flexDirection: "column", gap: "0.25rem", margin: 0 }}>
                     <li>
                       <button
                         type="button"
-                        onClick={() => {
-                          setCampusPlacementsOpen((prev) => !prev);
-                          scrollTo("campus-placements");
-                        }}
+                        onClick={() => scrollTo("campus-placements")}
                         className={`sidebar-link ${isCampusPlacementsActive ? "active" : ""}`}
                         style={{
                           width: "100%",
@@ -187,57 +202,12 @@ export default function PlacementsPage() {
                           fontSize: "0.85rem",
                           padding: "0.4rem 0.6rem",
                           borderRadius: "6px",
-                          fontWeight: isCampusPlacementsActive ? 700 : 600,
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
+                          fontWeight: isCampusPlacementsActive ? 700 : 500,
                           transition: "all 0.2s ease",
                         }}
-                        aria-expanded={campusPlacementsOpen}
                       >
-                        <span>Campus Placements</span>
-                        <span
-                          style={{
-                            fontSize: "0.6rem",
-                            color: "var(--primary-maroon)",
-                            transform: campusPlacementsOpen ? "rotate(180deg)" : "rotate(0deg)",
-                            transition: "transform 0.2s",
-                          }}
-                        >
-                          ▼
-                        </span>
+                        Campus Placements
                       </button>
-                      {campusPlacementsOpen && (
-                        <ul style={{ listStyle: "none", paddingLeft: "0.75rem", margin: "0.35rem 0 0.5rem", display: "flex", flexDirection: "column", gap: "0.35rem", borderLeft: "2px solid #e2e8f0" }}>
-                          <li>
-                            <button
-                              type="button"
-                              onClick={() => scrollTo("srp")}
-                              className={`sidebar-sublink ${activeSection === "srp" ? "active" : ""}`}
-                            >
-                              Registration For Placements
-                            </button>
-                          </li>
-                          <li>
-                            <button
-                              type="button"
-                              onClick={() => scrollTo("rpcp")}
-                              className={`sidebar-sublink ${activeSection === "rpcp" ? "active" : ""}`}
-                            >
-                              Registration for a Particular Company Placement Process
-                            </button>
-                          </li>
-                          <li>
-                            <button
-                              type="button"
-                              onClick={() => scrollTo("psp")}
-                              className={`sidebar-sublink ${activeSection === "psp" ? "active" : ""}`}
-                            >
-                              Placement Selection Process
-                            </button>
-                          </li>
-                        </ul>
-                      )}
                     </li>
                     <li>
                       <button
@@ -260,7 +230,7 @@ export default function PlacementsPage() {
                       </button>
                     </li>
                   </ul>
-                )}
+                </div>
               </li>
               <li>
                 <button
@@ -294,45 +264,7 @@ export default function PlacementsPage() {
                   Contact Us
                 </button>
               </li>
-              <li>
-                <Link href="/" className="sidebar-link">
-                  RK Valley Home →
-                </Link>
-              </li>
             </ul>
-
-            <div
-              style={{
-                marginTop: "1.5rem",
-                padding: "1rem",
-                background: "#f8fafc",
-                borderRadius: "8px",
-                border: "1px solid #e2e8f0",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: "0.8rem",
-                  fontWeight: 700,
-                  color: "var(--primary-maroon)",
-                  textTransform: "uppercase",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                Quick Links
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.45rem", fontSize: "0.85rem" }}>
-                <Link href="/departments" style={{ color: "var(--primary-dark)", textDecoration: "none", fontWeight: 600 }}>
-                  Department Statistics →
-                </Link>
-                <Link href="/careers" style={{ color: "var(--primary-dark)", textDecoration: "none", fontWeight: 600 }}>
-                  Recruitment Drives →
-                </Link>
-                <Link href="/curriculum" style={{ color: "var(--primary-dark)", textDecoration: "none", fontWeight: 600 }}>
-                  Academic Curriculum →
-                </Link>
-              </div>
-            </div>
           </aside>
 
           {/* Main Body Content */}
