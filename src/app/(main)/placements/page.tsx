@@ -840,19 +840,19 @@ export default function PlacementsPage() {
                         </span>
                         <ul style={{ listStyle: "none", paddingLeft: "1.25rem", marginTop: "0.5rem", display: "flex", flexDirection: "column", gap: "0.35rem" }}>
                           <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
-                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>1.</span>
                             <span>Duration of summer internship</span>
                           </li>
                           <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
-                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>2.</span>
                             <span>Purpose of internship</span>
                           </li>
                           <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
-                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>3.</span>
                             <span>Type of organizations to be considered for summer internships</span>
                           </li>
                           <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
-                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>4.</span>
                             <span>Other relevant information that helps in choosing proper summer internship topic and organization.</span>
                           </li>
                         </ul>
@@ -1050,15 +1050,15 @@ export default function PlacementsPage() {
                         <span>While reporting to the organization, student should carry:</span>
                         <ul style={{ listStyle: "none", paddingLeft: "1.25rem", marginTop: "0.5rem", display: "flex", flexDirection: "column", gap: "0.35rem" }}>
                           <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
-                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>1.</span>
                             <span>College Identity card</span>
                           </li>
                           <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
-                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>2.</span>
                             <span>Internship allotment letter (if available)</span>
                           </li>
                           <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
-                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>3.</span>
                             <span>Any other documents as informed by the organization.</span>
                           </li>
                         </ul>
@@ -1122,15 +1122,15 @@ export default function PlacementsPage() {
                         <span>During 08 week of summer internship, students are expected to undergo the following:</span>
                         <ul style={{ listStyle: "none", paddingLeft: "1.25rem", marginTop: "0.5rem", display: "flex", flexDirection: "column", gap: "0.35rem" }}>
                           <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
-                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>1.</span>
                             <span>Brief training / some introduction/ training of software etc related to the topic that is assigned.</span>
                           </li>
                           <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
-                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>2.</span>
                             <span>Problem solving (request for a problem from supervisor and solve it, else student should choose a proper problem with the help of faculty / others and solve it).</span>
                           </li>
                           <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
-                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>3.</span>
                             <span>Prepare a report (as per B Tech project thesis) on the work done at the last part of summer internship. Report should contain: (i) introduction to the problem, (ii) objectives of the work, (iii) literature, (iv) data, (v) analysis and (vi) discussions and conclusions.</span>
                           </li>
                         </ul>
