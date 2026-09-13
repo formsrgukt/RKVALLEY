@@ -18,8 +18,6 @@ const DEFAULT_INDEX_ITEMS: SidebarIndexItem[] = [
   { id: "achievements", label: "Achivements", sectionId: "achievements", href: "/students/education#achievements" },
   { id: "events", label: "Events", sectionId: "events", href: "/students/education#events" },
   { id: "antiragging", label: "AntiRagging", sectionId: "antiragging", href: "/students/antiragging" },
-  { id: "campus-placements", label: "Campus Placements", href: "/placements#campus-placements" },
-  { id: "summer-internship", label: "Summer Internship", href: "/placements#summer-internship" },
 ];
 
 interface Props {

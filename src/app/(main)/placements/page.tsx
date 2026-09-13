@@ -9,6 +9,7 @@ import { useApp } from "@/context/AppContext";
 export default function PlacementsPage() {
   const { openDocModal } = useApp();
   const [activeSection, setActiveSection] = useState("overview");
+  const [studentsOpen, setStudentsOpen] = useState(false);
 
   const scrollTo = (id: string) => {
     setActiveSection(id);
@@ -22,6 +23,9 @@ export default function PlacementsPage() {
   React.useEffect(() => {
     if (typeof window !== "undefined" && window.location.hash) {
       const hash = window.location.hash.replace("#", "");
+      if (hash === "campus-placements" || hash === "summer-internship") {
+        setStudentsOpen(true);
+      }
       if (hash) {
         setTimeout(() => {
           scrollTo(hash);
@@ -54,55 +58,63 @@ export default function PlacementsPage() {
               <li>
                 <button
                   type="button"
-                  onClick={() => scrollTo("students")}
+                  onClick={() => {
+                    setStudentsOpen((prev) => !prev);
+                    scrollTo("students");
+                  }}
                   className={`sidebar-link ${activeSection === "students" || activeSection === "campus-placements" || activeSection === "summer-internship" ? "active" : ""}`}
                   style={{ width: "100%", textAlign: "left", background: "none", border: "none", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }}
+                  aria-expanded={studentsOpen}
                 >
                   <span>Students</span>
-                  <span style={{ fontSize: "0.75rem", opacity: 0.7 }}>▾</span>
+                  <span style={{ fontSize: "0.65rem", display: "inline-block", transform: studentsOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }}>
+                    ▼
+                  </span>
                 </button>
-                <ul style={{ listStyle: "none", paddingLeft: "1rem", margin: "0.25rem 0", display: "flex", flexDirection: "column", gap: "0.25rem" }}>
-                  <li>
-                    <button
-                      type="button"
-                      onClick={() => scrollTo("campus-placements")}
-                      className={`sidebar-link ${activeSection === "campus-placements" ? "active" : ""}`}
-                      style={{
-                        width: "100%",
-                        textAlign: "left",
-                        background: "none",
-                        border: "none",
-                        cursor: "pointer",
-                        fontSize: "0.85rem",
-                        padding: "0.35rem 0.6rem",
-                        borderRadius: "4px",
-                        fontWeight: activeSection === "campus-placements" ? 700 : 500,
-                      }}
-                    >
-                      Campus Placements
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      type="button"
-                      onClick={() => scrollTo("summer-internship")}
-                      className={`sidebar-link ${activeSection === "summer-internship" ? "active" : ""}`}
-                      style={{
-                        width: "100%",
-                        textAlign: "left",
-                        background: "none",
-                        border: "none",
-                        cursor: "pointer",
-                        fontSize: "0.85rem",
-                        padding: "0.35rem 0.6rem",
-                        borderRadius: "4px",
-                        fontWeight: activeSection === "summer-internship" ? 700 : 500,
-                      }}
-                    >
-                      Summer Internship
-                    </button>
-                  </li>
-                </ul>
+                {studentsOpen && (
+                  <ul style={{ listStyle: "none", paddingLeft: "1rem", margin: "0.25rem 0", display: "flex", flexDirection: "column", gap: "0.25rem" }}>
+                    <li>
+                      <button
+                        type="button"
+                        onClick={() => scrollTo("campus-placements")}
+                        className={`sidebar-link ${activeSection === "campus-placements" ? "active" : ""}`}
+                        style={{
+                          width: "100%",
+                          textAlign: "left",
+                          background: "none",
+                          border: "none",
+                          cursor: "pointer",
+                          fontSize: "0.85rem",
+                          padding: "0.35rem 0.6rem",
+                          borderRadius: "4px",
+                          fontWeight: activeSection === "campus-placements" ? 700 : 500,
+                        }}
+                      >
+                        Campus Placements
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        type="button"
+                        onClick={() => scrollTo("summer-internship")}
+                        className={`sidebar-link ${activeSection === "summer-internship" ? "active" : ""}`}
+                        style={{
+                          width: "100%",
+                          textAlign: "left",
+                          background: "none",
+                          border: "none",
+                          cursor: "pointer",
+                          fontSize: "0.85rem",
+                          padding: "0.35rem 0.6rem",
+                          borderRadius: "4px",
+                          fontWeight: activeSection === "summer-internship" ? 700 : 500,
+                        }}
+                      >
+                        Summer Internship
+                      </button>
+                    </li>
+                  </ul>
+                )}
               </li>
               <li>
                 <button
