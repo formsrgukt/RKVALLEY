@@ -1203,21 +1203,6 @@ export default function PlacementsPage() {
 
             {/* Section 3: Recruiters */}
             <section id="recruiters" style={{ scrollMarginTop: "100px", marginBottom: "3.5rem" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
-                <span
-                  style={{
-                    background: "#fef3c7",
-                    color: "#92400e",
-                    padding: "0.25rem 0.75rem",
-                    borderRadius: "999px",
-                    fontSize: "0.75rem",
-                    fontWeight: 700,
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Industry Partnerships
-                </span>
-              </div>
               <h3 style={{ color: "var(--primary-dark)", fontSize: "1.5rem", fontWeight: 800, marginBottom: "0.75rem" }}>
                 Recruiters &amp; Companies
               </h3>
