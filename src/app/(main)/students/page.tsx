@@ -22,7 +22,7 @@ export default function StudentsPage() {
               <li><Link href="/placements" className="sidebar-link">Career Development Cell (CDPC)</Link></li>
               <li><a href="#incubation" className="sidebar-link">Incubation Cell</a></li>
               <li><a href="#international-desk" className="sidebar-link">International Desk</a></li>
-              <li><Link href="/grievance#antiragging" className="sidebar-link">Anti Ragging</Link></li>
+              <li><Link href="/students/antiragging" className="sidebar-link">Anti Ragging</Link></li>
               <li><Link href="/grievance#womens-cell" className="sidebar-link">Women&apos;s Cell (ICC)</Link></li>
               <li><a href="#welfare-office" className="sidebar-link">Students&apos; Welfare Office</a></li>
               <li><a href="#alumni-association" className="sidebar-link">Alumni Association</a></li>
@@ -164,8 +164,8 @@ export default function StudentsPage() {
                   <p style={{ fontSize: "0.85rem", color: "#7f1d1d", marginBottom: "0.75rem", lineHeight: 1.5 }}>
                     Zero-tolerance campus policy with 24x7 flying squads and active anti-ragging committees.
                   </p>
-                  <Link href="/grievance#antiragging" style={{ color: "var(--status-crimson)", fontSize: "0.85rem", fontWeight: 700, textDecoration: "underline" }}>
-                    View Squads &amp; Helplines →
+                  <Link href="/students/antiragging" style={{ color: "var(--status-crimson)", fontSize: "0.85rem", fontWeight: 700, textDecoration: "underline" }}>
+                    View Committees &amp; Helplines →
                   </Link>
                 </div>
                 <div style={{ background: "#fdf2f8", borderLeft: "4px solid #db2777", padding: "1.25rem", borderRadius: "8px" }}>

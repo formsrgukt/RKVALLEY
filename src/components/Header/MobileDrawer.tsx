@@ -108,8 +108,8 @@ export default function MobileDrawer() {
                 <li><Link href="/placements" className="drawer-sublink" onClick={closeMobileDrawer}>Career Development Cell</Link></li>
                 <li><Link href="/students#incubation" className="drawer-sublink" onClick={closeMobileDrawer}>Incubation Cell</Link></li>
                 <li><Link href="/students#international-desk" className="drawer-sublink" onClick={closeMobileDrawer}>International Desk</Link></li>
-                <li><Link href="/grievance#antiragging" className="drawer-sublink" onClick={closeMobileDrawer}>Anti Ragging</Link></li>
-                <li><Link href="/grievance#womens-cell" className="drawer-sublink" onClick={closeMobileDrawer}>Women's Cell</Link></li>
+                <li><Link href="/students/antiragging" className="drawer-sublink" onClick={closeMobileDrawer}>Anti Ragging</Link></li>
+                <li><Link href="/grievance#womens-cell" className="drawer-sublink" onClick={closeMobileDrawer}>Women&apos;s Cell</Link></li>
                 <li><Link href="/students#welfare-office" className="drawer-sublink" onClick={closeMobileDrawer}>Students' Welfare Office</Link></li>
                 <li><Link href="/students#alumni-association" className="drawer-sublink" onClick={closeMobileDrawer}>Alumni Association</Link></li>
                 <li><a href="http://alumni.rguktrkv.ac.in/" target="_blank" rel="noopener noreferrer" className="drawer-sublink" onClick={closeMobileDrawer}>Alumni Portal</a></li>

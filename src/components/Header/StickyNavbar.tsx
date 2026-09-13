@@ -244,7 +244,7 @@ export default function StickyNavbar() {
                 <Link href="/placements" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Career Development Cell</Link>
                 <Link href="/students#incubation" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Incubation Cell</Link>
                 <Link href="/students#international-desk" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>International Desk</Link>
-                <Link href="/grievance#antiragging" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Anti Ragging</Link>
+                <Link href="/students/antiragging" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Anti Ragging</Link>
                 <Link href="/grievance#womens-cell" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Women's Cell</Link>
                 <Link href="/students#welfare-office" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Students' Welfare Office</Link>
                 <Link href="/students#alumni-association" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Alumni Association</Link>

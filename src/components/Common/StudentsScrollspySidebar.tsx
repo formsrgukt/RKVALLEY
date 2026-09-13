@@ -17,7 +17,7 @@ const DEFAULT_INDEX_ITEMS: SidebarIndexItem[] = [
   { id: "smartclasses", label: "Smart Classes", sectionId: "smartclasses", href: "/students/smartclasses" },
   { id: "achievements", label: "Achivements", sectionId: "achievements", href: "/students/education#achievements" },
   { id: "events", label: "Events", sectionId: "events", href: "/students/education#events" },
-  { id: "antiragging", label: "AntiRagging", href: "/grievance#antiragging" },
+  { id: "antiragging", label: "AntiRagging", sectionId: "antiragging", href: "/students/antiragging" },
 ];
 
 interface Props {
@@ -35,6 +35,7 @@ export default function StudentsScrollspySidebar({
   const [activeId, setActiveId] = useState<string>(() => {
     if (pathname === "/students/facilities") return "facilities";
     if (pathname === "/students/smartclasses") return "smartclasses";
+    if (pathname === "/students/antiragging") return "antiragging";
     return "education";
   });
 
@@ -42,6 +43,7 @@ export default function StudentsScrollspySidebar({
     if (!isEducationPage) {
       if (pathname === "/students/facilities") setActiveId("facilities");
       else if (pathname === "/students/smartclasses") setActiveId("smartclasses");
+      else if (pathname === "/students/antiragging") setActiveId("antiragging");
       else setActiveId("education");
       return;
     }
@@ -52,6 +54,7 @@ export default function StudentsScrollspySidebar({
       { id: "smartclasses", elementId: "smartclasses" },
       { id: "achievements", elementId: "achievements" },
       { id: "events", elementId: "events" },
+      { id: "antiragging", elementId: "antiragging" },
     ];
 
     // Check if initial hash matches a tracked section on load
@@ -79,7 +82,7 @@ export default function StudentsScrollspySidebar({
           const isBottom =
             window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 70;
           if (isBottom) {
-            setActiveId("events");
+            setActiveId("antiragging");
             ticking = false;
             return;
           }
