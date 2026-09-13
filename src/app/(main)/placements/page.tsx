@@ -1527,51 +1527,27 @@ export default function PlacementsPage() {
                       borderRadius: "10px",
                       padding: "1.35rem 1.5rem",
                       boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
                     }}
                   >
-                    <div>
-                      <h4
-                        style={{
-                          color: "var(--primary-maroon)",
-                          fontSize: "1.15rem",
-                          fontWeight: 700,
-                          marginBottom: "0.85rem",
-                          borderBottom: "2px solid #f1f5f9",
-                          paddingBottom: "0.5rem",
-                        }}
-                      >
-                        Contact Address
-                      </h4>
-                      <p style={{ fontSize: "0.95rem", color: "#334155", lineHeight: 1.75, margin: "0 0 1.25rem 0" }}>
-                        <strong style={{ color: "var(--primary-dark)" }}>Career Development &amp; Placement Cell (CDPC),</strong><br />
-                        MME Department Building,<br />
-                        RGUKT, RK Valley Campus (Idupulapaya),<br />
-                        Vempalli(M), Kadapa (Dist),<br />
-                        Andhra Pradesh - 516329
-                      </p>
-                    </div>
-
-                    <div style={{ paddingTop: "0.85rem", borderTop: "1px solid #f1f5f9" }}>
-                      <a
-                        href="http://www.map-generator.org/d9d32fbd-1e24-43b0-a98e-b10f29ce4d4f/large-map.aspx"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: "0.35rem",
-                          color: "#0052a9",
-                          fontWeight: 700,
-                          fontSize: "0.92rem",
-                          textDecoration: "underline",
-                        }}
-                      >
-                        Location Map for RGUKT RK Valley Campus &rarr;
-                      </a>
-                    </div>
+                    <h4
+                      style={{
+                        color: "var(--primary-maroon)",
+                        fontSize: "1.15rem",
+                        fontWeight: 700,
+                        marginBottom: "0.85rem",
+                        borderBottom: "2px solid #f1f5f9",
+                        paddingBottom: "0.5rem",
+                      }}
+                    >
+                      Contact Address
+                    </h4>
+                    <p style={{ fontSize: "0.95rem", color: "#334155", lineHeight: 1.75, margin: 0 }}>
+                      <strong style={{ color: "var(--primary-dark)" }}>Career Development &amp; Placement Cell (CDPC),</strong><br />
+                      MME Department Building,<br />
+                      RGUKT, RK Valley Campus (Idupulapaya),<br />
+                      Vempalli(M), Kadapa (Dist),<br />
+                      Andhra Pradesh - 516329
+                    </p>
                   </div>
 
                   {/* Directions to Reach Us */}
