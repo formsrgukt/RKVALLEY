@@ -338,6 +338,57 @@ export const RGUKT_DATA = {
           }
         ]
       }
+    },
+    {
+      id: "fo",
+      title: "Finance Officer (i/c)",
+      name: "Dr. G. Ramesh",
+      qualifications: "Assistant Professor in Metallurgical and Materials Engg",
+      designation: "Finance Officer (i/c)",
+      image: "/images/Dr_G_Ramesh.jpg",
+      message: "",
+      profile: "Update Soon.....",
+      extendedProfile: {
+        contact: {
+          phone: "08588-283681",
+          email: "fo@rguktrkv.ac.in"
+        },
+        address: "The Finance Officer,\nIIIT-RK Valley, RGUKT-AP\nAcademic Block - 1, Ground Floor,\nIdupulapaya (Vill), Vempally (Mdl),\nYSR Kadapa District,\nAndhra Pradesh -516 330."
+      }
+    },
+    {
+      id: "establishment",
+      title: "Establishment Section",
+      name: "Establishment Section",
+      qualifications: "Central Administration",
+      designation: "Establishment Section",
+      image: "/images/campus_hero.jpg",
+      message: "The Establishment Section of RK Valley Institute, Rajiv Gandhi University of Knowledge Technologies, plays a pivotal role in managing and administering all service-related matters of employees.",
+      profile: `<p>The Establishment Section of RK Valley Institute, Rajiv Gandhi University of Knowledge Technologies, plays a pivotal role in managing and administering all service-related matters of employees. The section ensures smooth functioning of personnel administration in accordance with Government rules and University policies.</p>
+<h4 style="color: var(--primary-dark); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Functions &amp; Responsibilities</h4>
+<p style="margin-bottom: 0.5rem;">The Establishment Section is responsible for:</p>
+<ul style="list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.5rem;">
+  <li>Maintenance of service records of all Regular and Contract Employees</li>
+  <li>Processing of appointments, joining reports, and probation declarations</li>
+  <li>Handling promotions, transfers, and deputations</li>
+  <li>Processing leave records and maintaining attendance systems</li>
+  <li>Preparation and verification of pay fixation, increments, and service benefits</li>
+  <li>Implementation of Government Orders (GOs) and University regulations</li>
+  <li>Processing of retirement benefits, resignations, and relieving formalities</li>
+  <li>Coordination with Finance, Academic, and Administrative Sections</li>
+</ul>
+<h4 style="color: var(--primary-dark); margin-top: 2rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Key Services</h4>
+<ul style="list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.5rem;">
+  <li><strong>e-Samarth (Employee Leave Management System)</strong>: Leave Application &amp; Approval, Employee Data &amp; Profile Management, Biometric Attendance Integration, and Online Approval Workflow (HOD / Administration)</li>
+  <li>Employee Data Management</li>
+  <li>Leave Management &amp; Attendance Monitoring</li>
+  <li>Service Register Maintenance</li>
+  <li>Issue of No-Due Certificates &amp; Service Certificates</li>
+  <li>Redressal of Employee Grievances related to service matters</li>
+</ul>`,
+      extendedProfile: {
+        contact: {}
+      }
     }
   ] as LeadershipMember[],
 
@@ -347,7 +398,7 @@ export const RGUKT_DATA = {
     { role: "Dean of Academics", name: "Dr. S. Mallikarjuna Rao", email: "dean.academics@rguktrkv.ac.in", phone: "08560-287841" },
     { role: "Dean of Student Welfare (DSW)", name: "Dr. V. Rajesh", email: "dsw@rguktrkv.ac.in", phone: "08560-287842" },
     { role: "Dean of Research & Development", name: "Dr. K. Ramanjaneyulu", email: "dean.rnd@rguktrkv.ac.in", phone: "08560-287843" },
-    { role: "Finance Officer (FO)", name: "Sri K. Narasimha Rao", email: "fo@rguktrkv.ac.in", phone: "08560-287844" },
+    { role: "Finance Officer (i/c)", name: "Dr. G. Ramesh", email: "fo@rguktrkv.ac.in", phone: "08588-283681" },
     { role: "Controller of Examinations (COE)", name: "Dr. P. Chandra Sekhar", email: "coe@rguktrkv.ac.in", phone: "08560-287845" },
     { role: "Career Development & Placement Officer", name: "Dr. T. Suresh Kumar", email: "cdpc@rguktrkv.ac.in", phone: "08560-287846" },
     { role: "Coordinator, IQAC", name: "Dr. N. Siva Prasad", email: "iqac@rguktrkv.ac.in", phone: "08560-287847" },

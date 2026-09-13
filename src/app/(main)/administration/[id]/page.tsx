@@ -220,9 +220,11 @@ export default async function AdministrationSectionPage({ params }: { params: Pr
                         <div style={{ color: "var(--primary-maroon)", fontSize: "0.95rem", fontWeight: 700, marginBottom: "0.15rem", textTransform: "uppercase", letterSpacing: "0.5px" }}>
                           {leader.title}
                       </div>
-                      <div style={{ color: "#475569", fontSize: "0.85rem" }}>
-                        {leader.message.split(".")[0] + "."}
-                      </div>
+                      {leader.message && (
+                        <div style={{ color: "#475569", fontSize: "0.85rem" }}>
+                          {leader.message}
+                        </div>
+                      )}
                     </div>
 
                     <hr style={{ border: "none", borderTop: "1px solid #e2e8f0", marginTop: "2rem" }} />
