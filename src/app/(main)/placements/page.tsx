@@ -107,10 +107,8 @@ export default function PlacementsPage() {
                   style={{
                     width: "100%",
                     textAlign: "left",
-                    background: "none",
-                    border: "none",
                     cursor: "pointer",
-                    color: activeSection === "overview" ? "var(--primary-maroon)" : "#475569",
+                    color: "var(--primary-maroon)",
                     fontWeight: activeSection === "overview" ? 700 : 500,
                   }}
                 >
@@ -128,14 +126,16 @@ export default function PlacementsPage() {
                   style={{
                     width: "100%",
                     textAlign: "left",
-                    background: "none",
-                    border: "none",
                     cursor: "pointer",
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
-                    color: isStudentsActive ? "var(--primary-maroon)" : "#475569",
-                    fontWeight: isStudentsActive ? 700 : 500,
+                    color: "var(--primary-maroon)",
+                    fontWeight: isStudentsActive ? 700 : 600,
+                    fontSize: "0.9rem",
+                    padding: "0.5rem 0.75rem",
+                    borderRadius: "6px",
+                    transition: "all 0.2s ease",
                   }}
                   aria-expanded={studentsOpen}
                 >
@@ -146,7 +146,7 @@ export default function PlacementsPage() {
                       display: "inline-block",
                       transform: studentsOpen ? "rotate(180deg)" : "rotate(0deg)",
                       transition: "transform 0.2s",
-                      color: isStudentsActive ? "var(--primary-maroon)" : "#64748b",
+                      color: "var(--primary-maroon)",
                     }}
                   >
                     ▼
@@ -165,14 +165,12 @@ export default function PlacementsPage() {
                         style={{
                           width: "100%",
                           textAlign: "left",
-                          background: "none",
-                          color: isCampusPlacementsActive ? "var(--primary-maroon)" : "#475569",
-                          border: "none",
+                          color: "var(--primary-maroon)",
                           cursor: "pointer",
                           fontSize: "0.85rem",
-                          padding: "0.35rem 0.6rem",
-                          borderRadius: "4px",
-                          fontWeight: isCampusPlacementsActive ? 700 : 500,
+                          padding: "0.4rem 0.6rem",
+                          borderRadius: "6px",
+                          fontWeight: isCampusPlacementsActive ? 700 : 600,
                           display: "flex",
                           justifyContent: "space-between",
                           alignItems: "center",
@@ -184,8 +182,7 @@ export default function PlacementsPage() {
                         <span
                           style={{
                             fontSize: "0.6rem",
-                            color: isCampusPlacementsActive ? "var(--primary-maroon)" : "#64748b",
-                            opacity: isCampusPlacementsActive ? 1 : 0.8,
+                            color: "var(--primary-maroon)",
                             transform: campusPlacementsOpen ? "rotate(180deg)" : "rotate(0deg)",
                             transition: "transform 0.2s",
                           }}
@@ -200,20 +197,6 @@ export default function PlacementsPage() {
                               type="button"
                               onClick={() => scrollTo("srp")}
                               className={`sidebar-sublink ${activeSection === "srp" ? "active" : ""}`}
-                              style={{
-                                width: "100%",
-                                textAlign: "left",
-                                background: "none",
-                                border: "none",
-                                cursor: "pointer",
-                                fontSize: "0.82rem",
-                                color: activeSection === "srp" ? "var(--primary-maroon)" : "#475569",
-                                padding: "0.2rem 0.4rem",
-                                borderRadius: "4px",
-                                fontWeight: activeSection === "srp" ? 700 : 500,
-                                lineHeight: 1.35,
-                                transition: "all 0.2s ease",
-                              }}
                             >
                               Registration For Placements
                             </button>
@@ -223,20 +206,6 @@ export default function PlacementsPage() {
                               type="button"
                               onClick={() => scrollTo("rpcp")}
                               className={`sidebar-sublink ${activeSection === "rpcp" ? "active" : ""}`}
-                              style={{
-                                width: "100%",
-                                textAlign: "left",
-                                background: "none",
-                                border: "none",
-                                cursor: "pointer",
-                                fontSize: "0.82rem",
-                                color: activeSection === "rpcp" ? "var(--primary-maroon)" : "#475569",
-                                padding: "0.2rem 0.4rem",
-                                borderRadius: "4px",
-                                fontWeight: activeSection === "rpcp" ? 700 : 500,
-                                lineHeight: 1.35,
-                                transition: "all 0.2s ease",
-                              }}
                             >
                               Registration for a Particular Company Placement Process
                             </button>
@@ -246,20 +215,6 @@ export default function PlacementsPage() {
                               type="button"
                               onClick={() => scrollTo("psp")}
                               className={`sidebar-sublink ${activeSection === "psp" ? "active" : ""}`}
-                              style={{
-                                width: "100%",
-                                textAlign: "left",
-                                background: "none",
-                                border: "none",
-                                cursor: "pointer",
-                                fontSize: "0.82rem",
-                                color: activeSection === "psp" ? "var(--primary-maroon)" : "#475569",
-                                padding: "0.2rem 0.4rem",
-                                borderRadius: "4px",
-                                fontWeight: activeSection === "psp" ? 700 : 500,
-                                lineHeight: 1.35,
-                                transition: "all 0.2s ease",
-                              }}
                             >
                               Placement Selection Process
                             </button>
@@ -275,14 +230,13 @@ export default function PlacementsPage() {
                         style={{
                           width: "100%",
                           textAlign: "left",
-                          background: "none",
-                          border: "none",
                           cursor: "pointer",
                           fontSize: "0.85rem",
-                          padding: "0.35rem 0.6rem",
-                          borderRadius: "4px",
-                          color: activeSection === "summer-internship" ? "var(--primary-maroon)" : "#475569",
+                          padding: "0.4rem 0.6rem",
+                          borderRadius: "6px",
+                          color: "var(--primary-maroon)",
                           fontWeight: activeSection === "summer-internship" ? 700 : 500,
+                          transition: "all 0.2s ease",
                         }}
                       >
                         Summer Internship
@@ -299,10 +253,8 @@ export default function PlacementsPage() {
                   style={{
                     width: "100%",
                     textAlign: "left",
-                    background: "none",
-                    border: "none",
                     cursor: "pointer",
-                    color: activeSection === "recruiters" ? "var(--primary-maroon)" : "#475569",
+                    color: "var(--primary-maroon)",
                     fontWeight: activeSection === "recruiters" ? 700 : 500,
                   }}
                 >
@@ -317,10 +269,8 @@ export default function PlacementsPage() {
                   style={{
                     width: "100%",
                     textAlign: "left",
-                    background: "none",
-                    border: "none",
                     cursor: "pointer",
-                    color: activeSection === "contact" ? "var(--primary-maroon)" : "#475569",
+                    color: "var(--primary-maroon)",
                     fontWeight: activeSection === "contact" ? 700 : 500,
                   }}
                 >
