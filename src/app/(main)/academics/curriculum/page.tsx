@@ -1,1 +1,5 @@
-export { default } from "@/app/(main)/curriculum/page";
+import CurriculumPage from "@/app/(main)/curriculum/page";
+
+export default function AcademicCurriculumPage() {
+  return <CurriculumPage />;
+}

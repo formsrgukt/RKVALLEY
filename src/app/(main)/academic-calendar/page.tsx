@@ -1,1 +1,5 @@
-export { default } from "@/app/(main)/academics/academic-calendar/page";
+import AcademicCalendarView from "@/components/Academics/AcademicCalendarView";
+
+export default function AcademicCalendarPage() {
+  return <AcademicCalendarView />;
+}
