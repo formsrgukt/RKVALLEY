@@ -14,8 +14,12 @@ export default function SearchModal() {
 
   const pages = [
     { title: "About RGUKT RK Valley", link: "/about", desc: "Vision, History, Act 18 of 2008 & 330-Acre Campus" },
-    { title: "University Administration", link: "/administration", desc: "Chancellor, Vice Chancellor, Director & Deans" },
-    { title: "Academic Programs", link: "/academics", desc: "6-Year Integrated B.Tech Structure & Curricula" },
+    { title: "6-Year Integrated B.Tech", link: "/academics", desc: "Overview of 6-Year Integrated B.Tech Programme" },
+    { title: "Academic Programmes", link: "/academics/academic-programmes", desc: "UG-Programme, PG-Programme & SummerPrograms" },
+    { title: "Academic Audit Reports", link: "/academics/academic-audit-reports", desc: "Official Academic Audit Reports 2020-21 & 2021-22" },
+    { title: "Minutes of Academic Council Meetings", link: "/academics/academic-council-minutes", desc: "Official Minutes of Academic Council Meetings (09.01.2018, 28.05.2019, 20.09.2020)" },
+    { title: "Faculty Professional Ethics", link: "/academics/faculty-ethics", desc: "Code of Professional Ethics for Faculty approved by Governing Council (29-11-2019)" },
+    { title: "Academic Regulations (UG)", link: "/academics/academic-regulations", desc: "6-Year Integrated B.Tech Academic Rules & Regulations (AY 2022-23 Onwards)" },
     { title: "Departments Directory", link: "/departments", desc: "AI&ML, Chemical, Civil, CSE, EEE, ECE, Mechanical, MME, Sciences" },
     { title: "Admissions 2026-27", link: "/admissions", desc: "Eligibility, Deprivation points, Application instructions" },
     { title: "Examinations Cell", link: "/examinations", desc: "10-Point Grading Scale, Timetables & Results" },

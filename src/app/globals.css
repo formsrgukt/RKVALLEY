@@ -3124,3 +3124,44 @@ html { font-size: 16px !important; }
     opacity: 0;
   }
 }
+
+/* Academic Audit Reports Component */
+.audit-layout-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+@media (max-width: 768px) {
+  .audit-layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .audit-layout-grid > div:first-child {
+    border-right: none !important;
+    border-bottom: 1px solid #e2e8f0;
+    padding-right: 0 !important;
+    padding-bottom: 1rem !important;
+  }
+  .audit-layout-grid > div:last-child {
+    padding-left: 0 !important;
+  }
+}
+
+/* Committee Members 2-column layout with generous spacing on both sides */
+.committee-grid-2col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 4rem;
+  row-gap: 1.75rem;
+}
+
+@media (max-width: 680px) {
+  .committee-grid-2col {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 1.25rem;
+  }
+}
+

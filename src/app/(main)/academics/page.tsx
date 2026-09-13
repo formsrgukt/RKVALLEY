@@ -193,17 +193,26 @@ export default function AcademicsPage() {
             </div>
 
             {/* Quick Actions & Official Downloads */}
-            <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginTop: "1rem" }}>
+            <div id="programs" style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginTop: "1.5rem" }}>
+              <Link
+                href="/academics/academic-programmes"
+                className="btn btn-primary"
+                style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}
+              >
+                <span>Explore Academic Programmes (UG, PG & Summer)</span>
+                <span>→</span>
+              </Link>
               <button
                 type="button"
-                className="btn btn-primary"
-                onClick={() => openDocModal("Official Academic Regulations & Syllabus", "Academic_Regulations_RGUKT_2026.pdf")}
+                className="btn btn-gold"
+                onClick={() => openDocModal("Official Academic Regulations & Syllabus", "AcademicRulesRegulations071022.pdf")}
               >
                 Download Academic Regulations (PDF)
               </button>
               <button
                 type="button"
-                className="btn btn-gold"
+                className="btn"
+                style={{ background: "#f1f5f9", color: "#003366", border: "1px solid #cbd5e1" }}
                 onClick={openGpaModal}
               >
                 RGUKT CGPA Calculator Tool

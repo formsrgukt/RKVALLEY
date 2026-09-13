@@ -131,19 +131,19 @@ export default function StickyNavbar() {
                 <Link href="/academics" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
                   6-Year Integrated B.Tech
                 </Link>
-                <Link href="/academics#audit" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                <Link href="/academics/academic-audit-reports" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
                   Academic Audit Reports
                 </Link>
-                <Link href="/academics#council" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                <Link href="/academics/academic-council-minutes" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
                   Minutes of Academic Council Meetings
                 </Link>
-                <Link href="/academics#ethics" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                <Link href="/academics/faculty-ethics" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
                   Faculty Ethics
                 </Link>
-                <Link href="/academics#programs" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                <Link href="/academics/academic-programmes" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
                   Academic Programmes
                 </Link>
-                <Link href="/academics#regulations" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                <Link href="/academics/academic-regulations" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
                   Academic Regulations
                 </Link>
                 <Link href="/academics#calendar" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
