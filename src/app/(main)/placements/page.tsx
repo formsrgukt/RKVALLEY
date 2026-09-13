@@ -1504,18 +1504,10 @@ export default function PlacementsPage() {
 
               {/* Contact Address & Directions to Reach Us */}
               <div style={{ marginTop: "2rem" }}>
-                <style>{`
-                  @media (max-width: 768px) {
-                    .cdpc-placement-address-grid {
-                      grid-template-columns: 1fr !important;
-                    }
-                  }
-                `}</style>
                 <div
-                  className="cdpc-placement-address-grid"
                   style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
+                    display: "flex",
+                    flexDirection: "column",
                     gap: "1.25rem",
                   }}
                 >

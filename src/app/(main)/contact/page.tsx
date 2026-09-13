@@ -267,18 +267,10 @@ export default function ContactPage() {
 
             {/* CDPC Contact Address & Directions to Reach Us */}
             <div style={{ marginTop: "2rem", marginBottom: "2.5rem" }}>
-              <style>{`
-                @media (max-width: 768px) {
-                  .cdpc-address-directions-grid {
-                    grid-template-columns: 1fr !important;
-                  }
-                }
-              `}</style>
               <div
-                className="cdpc-address-directions-grid"
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
+                  display: "flex",
+                  flexDirection: "column",
                   gap: "1.5rem",
                 }}
               >
