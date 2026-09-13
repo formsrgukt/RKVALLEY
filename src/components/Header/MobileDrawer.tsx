@@ -84,11 +84,10 @@ export default function MobileDrawer() {
                 <li><Link href="/academics/faculty-ethics" className="drawer-sublink" onClick={closeMobileDrawer}>Faculty Ethics</Link></li>
                 <li><Link href="/academics/academic-programmes" className="drawer-sublink" onClick={closeMobileDrawer}>Academic Programmes</Link></li>
                 <li><Link href="/academics/academic-regulations" className="drawer-sublink" onClick={closeMobileDrawer}>Academic Regulations</Link></li>
-                <li><Link href="/academics#calendar" className="drawer-sublink" onClick={closeMobileDrawer}>Academic Calendar</Link></li>
+                <li><Link href="/academics/academic-calendar" className="drawer-sublink" onClick={closeMobileDrawer}>Academic Calendar</Link></li>
                 <li><Link href="/curriculum" className="drawer-sublink" onClick={closeMobileDrawer}>Curricula</Link></li>
-                <li><Link href="/departments" className="drawer-sublink" onClick={closeMobileDrawer}>Departments</Link></li>
-                <li><Link href="/examinations#timetable" className="drawer-sublink" onClick={closeMobileDrawer}>Time Table</Link></li>
-                <li><Link href="/examinations" className="drawer-sublink" onClick={closeMobileDrawer}>Examinations</Link></li>
+                <li><Link href="/academics/departments" className="drawer-sublink" onClick={closeMobileDrawer}>Departments</Link></li>
+                <li><Link href="/academics/examinations" className="drawer-sublink" onClick={closeMobileDrawer}>Examinations</Link></li>
               </ul>
             </li>
 

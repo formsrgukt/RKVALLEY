@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ACADEMIC_AUDIT_DATA } from "@/data/academicAuditData";
 
 export interface AcademicAuditReportsProps {
@@ -12,8 +12,46 @@ export default function AcademicAuditReports({
   id = "audit",
   className = ""
 }: AcademicAuditReportsProps) {
-  const [selectedYear, setSelectedYear] = useState<string>("2021-22");
-  const report = ACADEMIC_AUDIT_DATA[selectedYear] || ACADEMIC_AUDIT_DATA["2021-22"];
+  const [selectedYear, setSelectedYear] = useState<string>("2020-21");
+  const report = ACADEMIC_AUDIT_DATA[selectedYear] || ACADEMIC_AUDIT_DATA["2020-21"];
+
+  const handleYearClick = (yr: string) => {
+    setSelectedYear(yr);
+    if (typeof window !== "undefined") {
+      history.replaceState(null, "", `#${yr}`);
+    }
+    // Smoothly scroll / move to the audit report result card
+    setTimeout(() => {
+      const targetElement = document.getElementById("audit-report-result");
+      if (targetElement) {
+        const topOffset = 85; // offset for sticky navbar
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - topOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    }, 50);
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash.replace("#", "");
+      if (hash === "2020-21" || hash === "2021-22") {
+        setSelectedYear(hash);
+        setTimeout(() => {
+          const target = document.getElementById("audit-report-result");
+          if (target) {
+            const topOffset = 85;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - topOffset;
+            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+          }
+        }, 150);
+      }
+    }
+  }, []);
 
   return (
     <div id={id} className={`academic-audit-reports-content ${className}`} style={{ width: "100%" }}>
@@ -52,7 +90,7 @@ export default function AcademicAuditReports({
         <div>
           <button
             type="button"
-            onClick={() => setSelectedYear("2020-21")}
+            onClick={() => handleYearClick("2020-21")}
             style={{
               background: "none",
               border: "none",
@@ -83,7 +121,7 @@ export default function AcademicAuditReports({
         <div>
           <button
             type="button"
-            onClick={() => setSelectedYear("2021-22")}
+            onClick={() => handleYearClick("2021-22")}
             style={{
               background: "none",
               border: "none",
@@ -113,15 +151,43 @@ export default function AcademicAuditReports({
 
       {/* EXTRACTED TEXT SECTION (Full-Width Native Text with Website CSS, NO PDF format) */}
       <article
+        id="audit-report-result"
         style={{
           background: "#fafbfc",
           border: "1px solid #e2e8f0",
           borderRadius: "10px",
           padding: "2.5rem",
           marginTop: "1.5rem",
-          width: "100%"
+          width: "100%",
+          scrollMarginTop: "90px",
+          transition: "all 0.3s ease"
         }}
       >
+        {/* Active Selection Banner */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: "0.5rem",
+            background: "#fdf2f4",
+            border: "1px solid #fecdd3",
+            borderRadius: "6px",
+            padding: "0.55rem 1rem",
+            marginBottom: "1.5rem"
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <span style={{ fontSize: "0.95rem" }}>📋</span>
+            <span style={{ fontSize: "0.85rem", color: "#800517", fontWeight: 700 }}>
+              Viewing Results for Academic Audit Report {selectedYear}
+            </span>
+          </div>
+          <span style={{ fontSize: "0.78rem", color: "#64748b" }}>
+            Official External Committee Audit
+          </span>
+        </div>
         {/* Report Header Bar */}
         <div
           style={{

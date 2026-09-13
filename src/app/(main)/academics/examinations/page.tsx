@@ -1,10 +1,10 @@
 import AcademicExaminationsView from "@/components/Academics/AcademicExaminationsView";
 
 export const metadata = {
-  title: "Examinations Cell & Evaluation System | RGUKT RK Valley",
+  title: "Examinations & Evaluation System | Academics | RGUKT RK Valley",
   description: "Official Examination Policies, Evaluation Metrics, 10-Point Grading Scale, Malpractice Code, SGPA/CGPA formulas, and Controller of Examinations (COE) Cell at RGUKT RK Valley."
 };
 
-export default function ExaminationsPage() {
+export default function AcademicExaminationsPage() {
   return <AcademicExaminationsView />;
 }

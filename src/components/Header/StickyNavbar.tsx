@@ -146,19 +146,16 @@ export default function StickyNavbar() {
                 <Link href="/academics/academic-regulations" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
                   Academic Regulations
                 </Link>
-                <Link href="/academics#calendar" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                <Link href="/academics/academic-calendar" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
                   Academic Calendar
                 </Link>
                 <Link href="/curriculum" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
                   Curricula
                 </Link>
-                <Link href="/departments" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                <Link href="/academics/departments" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
                   Departments
                 </Link>
-                <Link href="/examinations#timetable" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
-                  Time Table
-                </Link>
-                <Link href="/examinations" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                <Link href="/academics/examinations" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
                   Examinations
                 </Link>
               </div>
