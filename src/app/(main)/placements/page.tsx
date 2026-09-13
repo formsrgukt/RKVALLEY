@@ -1455,41 +1455,6 @@ export default function PlacementsPage() {
                     </a>
                   </div>
                 </div>
-
-                {/* 4. Cell Office Location */}
-                <div
-                  style={{
-                    background: "#ffffff",
-                    border: "1px solid #e2e8f0",
-                    borderRadius: "10px",
-                    padding: "1.35rem 1.5rem",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <div>
-                    <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--primary-maroon)", marginBottom: "0.4rem" }}>
-                      Cell Office Location
-                    </div>
-                    <div style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--primary-dark)", marginBottom: "0.35rem" }}>
-                      CDPC Placement Office
-                    </div>
-                    <div style={{ fontSize: "0.88rem", fontWeight: 600, color: "#334155", lineHeight: 1.45 }}>
-                      Career Development &amp; Placement Cell (CDPC)
-                    </div>
-                    <div style={{ fontSize: "0.84rem", color: "#64748b", marginTop: "0.35rem", lineHeight: 1.4 }}>
-                      MME Department Building, RGUKT RK Valley, Idupulapaya, Kadapa - 516330
-                    </div>
-                  </div>
-                  <div style={{ marginTop: "1.25rem", paddingTop: "0.85rem", borderTop: "1px solid #f1f5f9", fontSize: "0.9rem" }}>
-                    <span style={{ color: "#64748b", marginRight: "0.35rem" }}>Email:</span>
-                    <a href="mailto:cdpc@rguktrkv.ac.in" style={{ color: "#0052a9", fontWeight: 700, textDecoration: "underline" }}>
-                      cdpc@rguktrkv.ac.in
-                    </a>
-                  </div>
-                </div>
               </div>
             </section>
           </article>
