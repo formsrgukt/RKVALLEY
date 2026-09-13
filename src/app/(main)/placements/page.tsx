@@ -10,6 +10,7 @@ export default function PlacementsPage() {
   const { openDocModal } = useApp();
   const [activeSection, setActiveSection] = useState("overview");
   const [studentsOpen, setStudentsOpen] = useState(false);
+  const [campusPlacementsOpen, setCampusPlacementsOpen] = useState(false);
 
   const scrollTo = (id: string) => {
     setActiveSection(id);
@@ -23,8 +24,11 @@ export default function PlacementsPage() {
   React.useEffect(() => {
     if (typeof window !== "undefined" && window.location.hash) {
       const hash = window.location.hash.replace("#", "");
-      if (hash === "campus-placements" || hash === "summer-internship") {
+      if (hash === "campus-placements" || hash === "summer-internship" || hash === "srp" || hash === "rpcp" || hash === "psp") {
         setStudentsOpen(true);
+      }
+      if (hash === "campus-placements" || hash === "srp" || hash === "rpcp" || hash === "psp") {
+        setCampusPlacementsOpen(true);
       }
       if (hash) {
         setTimeout(() => {
@@ -62,7 +66,7 @@ export default function PlacementsPage() {
                     setStudentsOpen((prev) => !prev);
                     scrollTo("students");
                   }}
-                  className={`sidebar-link ${activeSection === "students" || activeSection === "campus-placements" || activeSection === "summer-internship" ? "active" : ""}`}
+                  className={`sidebar-link ${activeSection === "students" || activeSection === "campus-placements" || activeSection === "summer-internship" || activeSection === "srp" || activeSection === "rpcp" || activeSection === "psp" ? "active" : ""}`}
                   style={{ width: "100%", textAlign: "left", background: "none", border: "none", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }}
                   aria-expanded={studentsOpen}
                 >
@@ -76,22 +80,101 @@ export default function PlacementsPage() {
                     <li>
                       <button
                         type="button"
-                        onClick={() => scrollTo("campus-placements")}
-                        className={`sidebar-link ${activeSection === "campus-placements" ? "active" : ""}`}
+                        onClick={() => {
+                          setCampusPlacementsOpen((prev) => !prev);
+                          scrollTo("campus-placements");
+                        }}
+                        className={`sidebar-link ${activeSection === "campus-placements" || activeSection === "srp" || activeSection === "rpcp" || activeSection === "psp" ? "active" : ""}`}
                         style={{
                           width: "100%",
                           textAlign: "left",
-                          background: "none",
+                          background: campusPlacementsOpen ? "#0088cc" : "none",
+                          color: campusPlacementsOpen ? "#ffffff" : undefined,
                           border: "none",
                           cursor: "pointer",
                           fontSize: "0.85rem",
-                          padding: "0.35rem 0.6rem",
+                          padding: "0.4rem 0.6rem",
                           borderRadius: "4px",
-                          fontWeight: activeSection === "campus-placements" ? 700 : 500,
+                          fontWeight: activeSection === "campus-placements" || campusPlacementsOpen ? 700 : 500,
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          transition: "all 0.2s ease",
                         }}
+                        aria-expanded={campusPlacementsOpen}
                       >
-                        Campus Placements
+                        <span>Campus Placements</span>
+                        <span style={{ fontSize: "0.6rem", opacity: 0.8, transform: campusPlacementsOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }}>
+                          ▼
+                        </span>
                       </button>
+                      {campusPlacementsOpen && (
+                        <ul style={{ listStyle: "none", paddingLeft: "0.75rem", margin: "0.35rem 0 0.5rem", display: "flex", flexDirection: "column", gap: "0.35rem", borderLeft: "2px solid #e2e8f0" }}>
+                          <li>
+                            <button
+                              type="button"
+                              onClick={() => scrollTo("srp")}
+                              style={{
+                                width: "100%",
+                                textAlign: "left",
+                                background: "none",
+                                border: "none",
+                                cursor: "pointer",
+                                fontSize: "0.82rem",
+                                color: activeSection === "srp" ? "var(--primary-maroon)" : "#0284c7",
+                                padding: "0.2rem 0.4rem",
+                                borderRadius: "4px",
+                                fontWeight: activeSection === "srp" ? 700 : 500,
+                                lineHeight: 1.35,
+                              }}
+                            >
+                              Registration For Placements
+                            </button>
+                          </li>
+                          <li>
+                            <button
+                              type="button"
+                              onClick={() => scrollTo("rpcp")}
+                              style={{
+                                width: "100%",
+                                textAlign: "left",
+                                background: "none",
+                                border: "none",
+                                cursor: "pointer",
+                                fontSize: "0.82rem",
+                                color: activeSection === "rpcp" ? "var(--primary-maroon)" : "#0284c7",
+                                padding: "0.2rem 0.4rem",
+                                borderRadius: "4px",
+                                fontWeight: activeSection === "rpcp" ? 700 : 500,
+                                lineHeight: 1.35,
+                              }}
+                            >
+                              Registration for a Particular Company Placement Process
+                            </button>
+                          </li>
+                          <li>
+                            <button
+                              type="button"
+                              onClick={() => scrollTo("psp")}
+                              style={{
+                                width: "100%",
+                                textAlign: "left",
+                                background: "none",
+                                border: "none",
+                                cursor: "pointer",
+                                fontSize: "0.82rem",
+                                color: activeSection === "psp" ? "var(--primary-maroon)" : "#0284c7",
+                                padding: "0.2rem 0.4rem",
+                                borderRadius: "4px",
+                                fontWeight: activeSection === "psp" ? 700 : 500,
+                                lineHeight: 1.35,
+                              }}
+                            >
+                              Placement Selection Process
+                            </button>
+                          </li>
+                        </ul>
+                      )}
                     </li>
                     <li>
                       <button
