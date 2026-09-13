@@ -265,6 +265,144 @@ export default function ContactPage() {
               </div>
             </div>
 
+            {/* CDPC Contact Address & Directions to Reach Us */}
+            <div style={{ marginTop: "2rem", marginBottom: "2.5rem" }}>
+              <style>{`
+                @media (max-width: 768px) {
+                  .cdpc-address-directions-grid {
+                    grid-template-columns: 1fr !important;
+                  }
+                }
+              `}</style>
+              <div
+                className="cdpc-address-directions-grid"
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "1.5rem",
+                }}
+              >
+                {/* Contact Address */}
+                <div
+                  style={{
+                    background: "#ffffff",
+                    border: "1px solid #e2e8f0",
+                    borderRadius: "8px",
+                    padding: "1.5rem",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <div>
+                    <h4
+                      style={{
+                        color: "var(--primary-maroon)",
+                        fontSize: "1.15rem",
+                        fontWeight: 700,
+                        marginBottom: "0.85rem",
+                        borderBottom: "2px solid #f1f5f9",
+                        paddingBottom: "0.5rem",
+                      }}
+                    >
+                      Contact Address
+                    </h4>
+                    <p style={{ fontSize: "0.95rem", color: "#334155", lineHeight: 1.75, margin: "0 0 1.25rem 0" }}>
+                      <strong style={{ color: "var(--primary-dark)" }}>Career Development &amp; Placement Cell (CDPC),</strong><br />
+                      MME Department Building,<br />
+                      RGUKT, RK Valley Campus (Idupulapaya),<br />
+                      Vempalli(M), Kadapa (Dist),<br />
+                      Andhra Pradesh - 516329
+                    </p>
+                  </div>
+
+                  <div style={{ paddingTop: "0.85rem", borderTop: "1px solid #f1f5f9" }}>
+                    <a
+                      href="http://www.map-generator.org/d9d32fbd-1e24-43b0-a98e-b10f29ce4d4f/large-map.aspx"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "0.35rem",
+                        color: "var(--accent-royal)",
+                        fontWeight: 700,
+                        fontSize: "0.92rem",
+                        textDecoration: "underline",
+                      }}
+                    >
+                      Location Map for RGUKT RK Valley Campus &rarr;
+                    </a>
+                  </div>
+                </div>
+
+                {/* Directions to Reach Us */}
+                <div
+                  style={{
+                    background: "#ffffff",
+                    border: "1px solid #e2e8f0",
+                    borderRadius: "8px",
+                    padding: "1.5rem",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
+                  }}
+                >
+                  <h4
+                    style={{
+                      color: "var(--primary-maroon)",
+                      fontSize: "1.15rem",
+                      fontWeight: 700,
+                      marginBottom: "0.85rem",
+                      borderBottom: "2px solid #f1f5f9",
+                      paddingBottom: "0.5rem",
+                    }}
+                  >
+                    <a
+                      href="https://www.rguktrkv.ac.in/tnp-reachus.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "var(--primary-maroon)", textDecoration: "none" }}
+                    >
+                      Directions to Reach Us &rarr;
+                    </a>
+                  </h4>
+
+                  <div style={{ fontSize: "0.9rem", color: "#334155", lineHeight: 1.65 }}>
+                    <div style={{ marginBottom: "0.75rem" }}>
+                      <strong style={{ color: "var(--primary-dark)" }}>From Hyderabad &amp; Chennai:</strong>
+                      <ul style={{ margin: "0.35rem 0 0.5rem 1.25rem", padding: 0 }}>
+                        <li>There are Flights and Trains available every day from Hyderabad and Chennai to Kadapa.</li>
+                        <li>Transportation will be facilitated for pickup and drop at Kadapa.</li>
+                      </ul>
+                    </div>
+
+                    <div style={{ marginBottom: "0.75rem" }}>
+                      <strong style={{ color: "var(--primary-dark)" }}>From Bangalore:</strong> Can reach our campus/Kadapa through Roadways with approximate distance of 250 KM from Bangalore to RGUKT, R.K.Valley Campus.
+                    </div>
+
+                    <div style={{ marginBottom: "0.75rem" }}>
+                      <strong style={{ color: "var(--primary-dark)" }}>From the other Metro Cities:</strong> Can reach the nearest airports like Bangalore or Tirupati; transportation will be facilitated for pickup and drop.
+                    </div>
+
+                    <div
+                      style={{
+                        background: "#f8fafc",
+                        padding: "0.75rem 1rem",
+                        borderRadius: "6px",
+                        borderLeft: "3px solid var(--primary-maroon)",
+                        marginTop: "0.85rem",
+                        fontSize: "0.86rem",
+                        color: "#475569",
+                        lineHeight: 1.5,
+                      }}
+                    >
+                      <strong>Note:</strong> RGUKT, R.K.Valley is 170 KM far from Tirupati Airport and 220 KM far from Bangalore Airport.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div style={{ marginTop: "2rem", padding: "1.5rem", background: "#f8fafc", border: "1px dashed #cbd5e1", borderRadius: "8px", textAlign: "center" }}>
               <a href="https://www.rguktrkv.ac.in/Institute.php?view=CD" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", padding: "0.75rem 1.5rem", background: "var(--primary-maroon)", color: "#fff", fontWeight: 600, borderRadius: "6px", textDecoration: "none" }}>
                 View Full Communication Directory
