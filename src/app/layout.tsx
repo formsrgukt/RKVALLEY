@@ -48,6 +48,7 @@ export const metadata: Metadata = {
 import OfflineDetector from "@/components/Common/OfflineDetector";
 import SplashScreen from "@/components/Common/SplashScreen";
 import GlobalPdfViewer from "@/components/Common/GlobalPdfViewer";
+import GlobalToast from "@/components/Common/GlobalToast";
 
 export default function RootLayout({
   children
@@ -81,6 +82,7 @@ export default function RootLayout({
         <OfflineDetector />
         <AppProvider>
           <GlobalPdfViewer />
+          <GlobalToast />
           {children}
         </AppProvider>
       </body>

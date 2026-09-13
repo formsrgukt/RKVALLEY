@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import PlaceholderLink from "@/components/Common/PlaceholderLink";
 import { RGUKT_DATA } from "@/data/rguktData";
 
 export function generateStaticParams() {
@@ -120,14 +121,14 @@ export default async function AdministrationSectionPage({ params }: { params: Pr
                     <h3 style={{ color: "var(--primary-maroon)", fontSize: "1.35rem", fontWeight: 700, marginBottom: "1.25rem", borderBottom: "none" }}>For Students</h3>
                     <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
                       {[
-                        { title: "Fee Structure of Certificates", link: "#" },
+                        { title: "Fee Structure of Certificates", link: "https://www.rguktrkv.ac.in/pdfdoc/EC-FeeStructureofCertificates.pdf" },
                         { title: "Guidelines for Exams", link: "#" },
                         { title: "Exam Time Tables", link: "#" },
                         { title: "Results", link: "#" }
                       ].map((item, idx) => (
                         <li key={idx} style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem" }}>
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-maroon)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: "0.2rem", flexShrink: 0 }}><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-                          <a href={item.link} style={{ color: "var(--primary-dark)", textDecoration: "none", fontSize: "0.95rem", fontWeight: 600 }}>{item.title}</a>
+                          <PlaceholderLink href={item.link} title={item.title} style={{ color: "var(--primary-dark)", textDecoration: "none", fontSize: "0.95rem", fontWeight: 600 }} />
                         </li>
                       ))}
                     </ul>
@@ -138,19 +139,67 @@ export default async function AdministrationSectionPage({ params }: { params: Pr
                     <h3 style={{ color: "var(--primary-maroon)", fontSize: "1.35rem", fontWeight: 700, marginBottom: "1.25rem", borderBottom: "none" }}>Other Useful Information</h3>
                     <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
                       {[
-                        { title: "PUC Equivalent to Intermediate Certificate", link: "#" },
-                        { title: "Conversation of CGPA into Percentage", link: "#" },
+                        { title: "PUC Equivalent to Intermediate Certificate", link: "https://www.rguktrkv.ac.in/pdfdoc/PUC-EquivalentCerificate.pdf" },
+                        { title: "Conversation of CGPA into Percentage", link: "https://www.rguktrkv.ac.in/pdfdoc/ConversationCGPA.pdf" },
                         { title: "Invigilation Duties", link: "#" },
-                        { title: "Fomat for Paper Setting", link: "#" }
+                        { title: "Format for Paper Setting", link: "#" }
                       ].map((item, idx) => (
                         <li key={idx} style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem" }}>
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-maroon)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: "0.2rem", flexShrink: 0 }}><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-                          <a href={item.link} style={{ color: "var(--primary-dark)", textDecoration: "none", fontSize: "0.95rem", fontWeight: 600 }}>{item.title}</a>
+                          <PlaceholderLink href={item.link} title={item.title} style={{ color: "var(--primary-dark)", textDecoration: "none", fontSize: "0.95rem", fontWeight: 600 }} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Policies and Regulations Card */}
+                  <div style={{ background: "#fff", borderRadius: "4px", border: "1px solid #e2e8f0", borderLeft: "4px solid var(--primary-maroon)", padding: "1.5rem", boxShadow: "0 2px 4px rgba(0,0,0,0.02)" }}>
+                    <h3 style={{ color: "var(--primary-maroon)", fontSize: "1.35rem", fontWeight: 700, marginBottom: "1.25rem", borderBottom: "none" }}>Policies and Regulations</h3>
+                    <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+                      {[
+                        { title: "Regular Examinations", link: `/administration/${id}/regular-examinations` },
+                        { title: "Remedial/ Grade Improvement Examinations", link: "#" },
+                        { title: "Results Committee", link: "#" },
+                        { title: "Examination Pattern", link: "#" },
+                        { title: "Grading Procedure", link: "#" },
+                        { title: "SGPA and CGPA calculations", link: "#" },
+                        { title: "Reduction in pass marks for PH students (G.O Ms. No. 183)", link: "#" },
+                        { title: "Recounting process", link: "#" },
+                        { title: "Examination Malpractice Rules", link: "#" }
+                      ].map((item, idx) => (
+                        <li key={idx} style={{ display: "flex", alignItems: "flex-start", gap: "0.5rem" }}>
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-maroon)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginTop: "0.2rem", flexShrink: 0 }}><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                          <PlaceholderLink href={item.link} title={item.title} style={{ color: "var(--primary-dark)", textDecoration: "none", fontSize: "0.95rem", fontWeight: 600 }} />
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
+                
+                {/* Who to Contact Section */}
+                <div style={{ marginTop: "3rem", background: "#f8fafc", borderRadius: "8px", border: "1px solid #e2e8f0", padding: "2rem" }}>
+                  <h3 style={{ color: "var(--primary-dark)", fontSize: "1.35rem", fontWeight: 700, marginBottom: "1rem" }}>Who to Contact</h3>
+                  <div style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
+                    <div style={{ color: "var(--primary-maroon)", marginTop: "0.25rem" }}>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 style={{ color: "#334155", fontSize: "1.05rem", fontWeight: 700, marginBottom: "0.5rem" }}>Address</h4>
+                      <div style={{ color: "#475569", fontSize: "0.95rem", lineHeight: 1.6 }}>
+                        The Controller of Examination,<br />
+                        IIIT-RK Valley (Idupulapaya), RGUKT-AP,<br />
+                        Academic Block - 1, Third Floor,<br />
+                        Idupulapaya (Vill), Vempally (Mdl),<br />
+                        YSR Kadapa District,<br />
+                        Andhra Pradesh - 516 330.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             ) : leader ? (
               <>
