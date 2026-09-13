@@ -402,7 +402,7 @@ export const RGUKT_DATA = {
             role: "Additional Coordinator, Mentor Department of Chemistry (Phone: 08588-283687)",
             email: "ebs@rguktrkv.ac.in",
             image: "/images/Mr_A_V_Durga_Kishore_Reddy.jpg",
-            profileLink: "/departments/civil/faculty/fac-durga-kishore"
+            profileLink: "/departments/ce/faculty/fac-durga-kishore"
           },
           {
             name: "Mr. K Ravidranatha Reddy",
