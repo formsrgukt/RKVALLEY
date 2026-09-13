@@ -923,27 +923,10 @@ export default function PlacementsPage() {
                   marginBottom: "2.5rem",
                 }}
               >
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "2px solid #f1f5f9", paddingBottom: "0.75rem", marginBottom: "1.5rem", flexWrap: "wrap", gap: "0.75rem" }}>
+                <div style={{ borderBottom: "2px solid #f1f5f9", paddingBottom: "0.75rem", marginBottom: "1.5rem" }}>
                   <h4 style={{ margin: 0, color: "var(--primary-dark)", fontSize: "1.3rem", fontWeight: 800 }}>
                     For Companies
                   </h4>
-                  <div style={{ display: "flex", gap: "0.75rem", alignItems: "center", flexWrap: "wrap" }}>
-                    <a
-                      href="#students-profile"
-                      onClick={(e) => { e.preventDefault(); scrollTo("students-profile"); }}
-                      style={{ fontSize: "0.85rem", color: "#0052a9", textDecoration: "underline", fontWeight: 600, cursor: "pointer" }}
-                    >
-                      Students Profile
-                    </a>
-                    <span style={{ color: "#cbd5e1" }}>•</span>
-                    <a
-                      href="#registration-process"
-                      onClick={(e) => { e.preventDefault(); scrollTo("registration-process"); }}
-                      style={{ fontSize: "0.85rem", color: "#0052a9", textDecoration: "underline", fontWeight: 600, cursor: "pointer" }}
-                    >
-                      Registration Process for Campus Placements
-                    </a>
-                  </div>
                 </div>
 
                 {/* 1. Students of RGUKT R.K.Valley */}
