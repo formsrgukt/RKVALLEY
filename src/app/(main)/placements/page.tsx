@@ -13,7 +13,11 @@ export default function PlacementsPage() {
   const [campusPlacementsOpen, setCampusPlacementsOpen] = useState(false);
 
   const scrollTo = (id: string) => {
-    setActiveSection(id);
+    if (id === "for-companies" || id === "students-profile" || id === "registration-process") {
+      setActiveSection("recruiters");
+    } else {
+      setActiveSection(id);
+    }
     const el = document.getElementById(id);
     if (el) {
       const y = el.getBoundingClientRect().top + window.scrollY - 90;
@@ -46,6 +50,9 @@ export default function PlacementsPage() {
       "psp",
       "summer-internship",
       "recruiters",
+      "for-companies",
+      "students-profile",
+      "registration-process",
       "contact"
     ];
 
@@ -57,7 +64,11 @@ export default function PlacementsPage() {
         if (el) {
           const top = el.getBoundingClientRect().top + window.scrollY;
           if (scrollPos >= top) {
-            setActiveSection(id);
+            if (id === "for-companies" || id === "students-profile" || id === "registration-process") {
+              setActiveSection("recruiters");
+            } else {
+              setActiveSection(id);
+            }
             if (id === "campus-placements" || id === "srp" || id === "rpcp" || id === "psp") {
               setStudentsOpen(true);
               setCampusPlacementsOpen(true);
@@ -87,6 +98,12 @@ export default function PlacementsPage() {
     activeSection === "srp" ||
     activeSection === "rpcp" ||
     activeSection === "psp";
+
+  const isRecruitersActive =
+    activeSection === "recruiters" ||
+    activeSection === "for-companies" ||
+    activeSection === "students-profile" ||
+    activeSection === "registration-process";
 
   return (
     <div className="page-view-container">
@@ -249,13 +266,13 @@ export default function PlacementsPage() {
                 <button
                   type="button"
                   onClick={() => scrollTo("recruiters")}
-                  className={`sidebar-link ${activeSection === "recruiters" ? "active" : ""}`}
+                  className={`sidebar-link ${isRecruitersActive ? "active" : ""}`}
                   style={{
                     width: "100%",
                     textAlign: "left",
                     cursor: "pointer",
                     color: "var(--primary-maroon)",
-                    fontWeight: activeSection === "recruiters" ? 700 : 500,
+                    fontWeight: isRecruitersActive ? 700 : 500,
                   }}
                 >
                   Recruiters
@@ -939,7 +956,7 @@ export default function PlacementsPage() {
             </section>
 
             {/* Section 3: Recruiters */}
-            <section id="recruiters" style={{ scrollMarginTop: "100px", marginBottom: "3rem" }}>
+            <section id="recruiters" style={{ scrollMarginTop: "100px", marginBottom: "3.5rem" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
                 <span
                   style={{
@@ -956,13 +973,167 @@ export default function PlacementsPage() {
                 </span>
               </div>
               <h3 style={{ color: "var(--primary-dark)", fontSize: "1.5rem", fontWeight: 800, marginBottom: "0.75rem" }}>
-                Recruiters
+                Recruiters &amp; Companies
               </h3>
               <p style={{ fontSize: "0.98rem", color: "#475569", lineHeight: 1.6, marginBottom: "1.5rem" }}>
                 RGUKT RK Valley welcomes national and international corporations for on-campus, hybrid, and off-campus recruitment drives. Our graduates undergo rigorous 6-year continuous residential training in core engineering, software architecture, and practical laboratory problem-solving.
               </p>
 
-              <h4 style={{ color: "var(--primary-dark)", fontSize: "1.1rem", fontWeight: 700, marginBottom: "1rem" }}>
+              {/* For Companies Section Container */}
+              <div
+                id="for-companies"
+                style={{
+                  background: "#ffffff",
+                  padding: "2rem",
+                  borderRadius: "10px",
+                  border: "1px solid #e2e8f0",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
+                  marginBottom: "2.5rem",
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "2px solid #f1f5f9", paddingBottom: "0.75rem", marginBottom: "1.5rem", flexWrap: "wrap", gap: "0.75rem" }}>
+                  <h4 style={{ margin: 0, color: "var(--primary-dark)", fontSize: "1.3rem", fontWeight: 800 }}>
+                    For Companies
+                  </h4>
+                  <div style={{ display: "flex", gap: "0.75rem", alignItems: "center", flexWrap: "wrap" }}>
+                    <a
+                      href="#students-profile"
+                      onClick={(e) => { e.preventDefault(); scrollTo("students-profile"); }}
+                      style={{ fontSize: "0.85rem", color: "#0052a9", textDecoration: "underline", fontWeight: 600, cursor: "pointer" }}
+                    >
+                      Students Profile
+                    </a>
+                    <span style={{ color: "#cbd5e1" }}>•</span>
+                    <a
+                      href="#registration-process"
+                      onClick={(e) => { e.preventDefault(); scrollTo("registration-process"); }}
+                      style={{ fontSize: "0.85rem", color: "#0052a9", textDecoration: "underline", fontWeight: 600, cursor: "pointer" }}
+                    >
+                      Registration Process for Campus Placements
+                    </a>
+                  </div>
+                </div>
+
+                {/* 1. Students of RGUKT R.K.Valley */}
+                <div id="students-profile" style={{ scrollMarginTop: "100px", marginBottom: "2.5rem" }}>
+                  <h5
+                    style={{
+                      color: "var(--primary-dark)",
+                      fontSize: "1.1rem",
+                      fontWeight: 700,
+                      marginBottom: "1rem",
+                    }}
+                  >
+                    Students of RGUKT R.K.Valley :
+                  </h5>
+
+                  <ul style={{ paddingLeft: "1.35rem", listStyleType: "disc", lineHeight: 1.75, color: "#334155", fontSize: "0.93rem", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+                    <li>
+                      Our students in the streams of <strong>Computer Science</strong>, <strong>Electronics &amp; Communications</strong>, <strong>Mechanical</strong>, <strong>Civil</strong>, <strong>Metallurgical &amp; Materials</strong> and <strong>Chemical Engineering</strong> are the best in technical expertise available in the region.
+                    </li>
+                    <li>
+                      Alumni of our institute have been working at top MNCs like <strong>Amazon, Oracle, Qualcomm, INTEL, ADP, Thought Works, Power Grid, IBM, Infosys, Wipro, Cognizant, Aarvee Associate, BSCPL, Medha Servo, BMM Steels, Hetero Drugs, ITC etc.</strong> and have proven of a great value with their contribution to the respective organizations.
+                    </li>
+                    <li>
+                      Our students constitute the <strong>top 1% meritorious</strong> from the state of Andhra Pradesh admitted at 10 + 2 Level for Six Year Course (2 Years of Pre-University Course and 4 Years of Engineering).
+                    </li>
+                    <li>
+                      Salient Attributes like <strong>Excitement to learn, Hard Working, Adaptability</strong>, of our students makes them a very good fit for any of the organization.
+                    </li>
+                    <li>
+                      The <strong>Long-Term Internship option</strong> in the curriculum enables our students to join the industry by the end of the Pre-Final year.
+                    </li>
+                  </ul>
+                </div>
+
+                {/* 2. Registration Process for Campus Placements */}
+                <div id="registration-process" style={{ scrollMarginTop: "100px", borderTop: "2px solid #f1f5f9", paddingTop: "1.75rem" }}>
+                  <h5
+                    style={{
+                      color: "var(--primary-dark)",
+                      fontSize: "1.1rem",
+                      fontWeight: 700,
+                      marginBottom: "1rem",
+                    }}
+                  >
+                    Registration Process for Campus Placements :
+                  </h5>
+
+                  <ul style={{ paddingLeft: "1.35rem", listStyleType: "disc", lineHeight: 1.75, color: "#334155", fontSize: "0.93rem", display: "flex", flexDirection: "column", gap: "0.85rem", marginBottom: "1.5rem" }}>
+                    <li>
+                      The companies are always invited to recruit the students of the pre-final year or final year engineering students for the Intern positions with potential Pre-Placement offers or Full-Time positions.
+                    </li>
+                    <li>
+                      The campus recruitment for the internships and placements usually commences from the <strong>1st September</strong> of every Academic Year.
+                    </li>
+                    <li>
+                      Any potential company willing to recruit students of our institute can write to CDPC, RGUKT - R.K.Valley for the recruitments ({" "}
+                      <a href="mailto:cpi@rguktrkv.ac.in" style={{ color: "#0052a9", fontWeight: 700, textDecoration: "underline" }}>cpi@rguktrkv.ac.in</a>,{" "}
+                      <a href="mailto:po@rguktrkv.ac.in" style={{ color: "#0052a9", fontWeight: 700, textDecoration: "underline" }}>po@rguktrkv.ac.in</a>,{" "}
+                      <a href="mailto:apo@rguktrkv.ac.in" style={{ color: "#0052a9", fontWeight: 700, textDecoration: "underline" }}>apo@rguktrkv.ac.in</a>{" "}
+                      ) with the filled in Job Notification Form(JNF) available here.
+                    </li>
+                    <li>
+                      The JNF will be notified to the students seeking the registrations from the eligible and interested students as per the eligibility criteria listed in JNF.
+                    </li>
+                    <li>
+                      The registered list of students against the given JNF is shared with the respective company and a mutually convenient date will be finalized.
+                    </li>
+                    <li>
+                      All the necessary arrangements like <strong>Accommodation, Local Transportation, Written Test, and Interview Panel Room arrangements</strong> will be facilitated by the CDPC, RGUKT-R.K.Valley as per the prior information received.
+                    </li>
+                    <li>
+                      The companies are expected to release the results or offers at the earliest possible immediately after the completion of the campus recruitment drive.
+                    </li>
+                  </ul>
+
+                  {/* Action card for JNF download */}
+                  <div
+                    style={{
+                      background: "#f0fdf4",
+                      border: "1px solid #bbf7d0",
+                      borderRadius: "8px",
+                      padding: "1.25rem 1.5rem",
+                      display: "flex",
+                      flexWrap: "wrap",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      gap: "1rem",
+                    }}
+                  >
+                    <div>
+                      <div style={{ fontWeight: 700, color: "#166534", fontSize: "0.98rem" }}>
+                        Corporate Invitation &amp; Job Notification Form (JNF)
+                      </div>
+                      <div style={{ fontSize: "0.85rem", color: "#15803d", marginTop: "0.25rem" }}>
+                        Download the official JNF template, fill in requirements &amp; email to the CDPC placement cell.
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => openDocModal("Job Notification Form (JNF)", "Job_Notification_Form_JNF_RGUKT_RKV.pdf")}
+                      style={{
+                        background: "#16a34a",
+                        color: "#ffffff",
+                        border: "none",
+                        padding: "0.6rem 1.15rem",
+                        borderRadius: "6px",
+                        fontWeight: 700,
+                        fontSize: "0.85rem",
+                        cursor: "pointer",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.4rem",
+                        boxShadow: "0 2px 4px rgba(22, 163, 74, 0.2)",
+                      }}
+                    >
+                      <span>📥 Download JNF Form (PDF)</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <h4 style={{ color: "var(--primary-dark)", fontSize: "1.15rem", fontWeight: 800, marginBottom: "1rem" }}>
                 Prominent Recruiting Partners
               </h4>
               <div
