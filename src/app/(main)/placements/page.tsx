@@ -88,12 +88,12 @@ export default function PlacementsPage() {
                         style={{
                           width: "100%",
                           textAlign: "left",
-                          background: campusPlacementsOpen ? "#0088cc" : "none",
-                          color: campusPlacementsOpen ? "#ffffff" : undefined,
+                          background: "none",
+                          color: "#475569",
                           border: "none",
                           cursor: "pointer",
                           fontSize: "0.85rem",
-                          padding: "0.4rem 0.6rem",
+                          padding: "0.35rem 0.6rem",
                           borderRadius: "4px",
                           fontWeight: activeSection === "campus-placements" || campusPlacementsOpen ? 700 : 500,
                           display: "flex",
@@ -104,7 +104,7 @@ export default function PlacementsPage() {
                         aria-expanded={campusPlacementsOpen}
                       >
                         <span>Campus Placements</span>
-                        <span style={{ fontSize: "0.6rem", opacity: 0.8, transform: campusPlacementsOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }}>
+                        <span style={{ fontSize: "0.6rem", color: "#475569", opacity: 0.8, transform: campusPlacementsOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }}>
                           ▼
                         </span>
                       </button>
@@ -121,7 +121,7 @@ export default function PlacementsPage() {
                                 border: "none",
                                 cursor: "pointer",
                                 fontSize: "0.82rem",
-                                color: activeSection === "srp" ? "var(--primary-maroon)" : "#0284c7",
+                                color: activeSection === "srp" ? "#1e293b" : "#475569",
                                 padding: "0.2rem 0.4rem",
                                 borderRadius: "4px",
                                 fontWeight: activeSection === "srp" ? 700 : 500,
@@ -142,7 +142,7 @@ export default function PlacementsPage() {
                                 border: "none",
                                 cursor: "pointer",
                                 fontSize: "0.82rem",
-                                color: activeSection === "rpcp" ? "var(--primary-maroon)" : "#0284c7",
+                                color: activeSection === "rpcp" ? "#1e293b" : "#475569",
                                 padding: "0.2rem 0.4rem",
                                 borderRadius: "4px",
                                 fontWeight: activeSection === "rpcp" ? 700 : 500,
@@ -163,7 +163,7 @@ export default function PlacementsPage() {
                                 border: "none",
                                 cursor: "pointer",
                                 fontSize: "0.82rem",
-                                color: activeSection === "psp" ? "var(--primary-maroon)" : "#0284c7",
+                                color: activeSection === "psp" ? "#1e293b" : "#475569",
                                 padding: "0.2rem 0.4rem",
                                 borderRadius: "4px",
                                 fontWeight: activeSection === "psp" ? 700 : 500,
