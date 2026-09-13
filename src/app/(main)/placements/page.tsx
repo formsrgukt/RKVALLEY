@@ -1334,10 +1334,19 @@ export default function PlacementsPage() {
                 For recruitment drive schedules, campus visits, corporate MOUs, or student intern hiring, get in touch with the Career Development &amp; Placement Cell officers below:
               </p>
 
+              <style>{`
+                @media (max-width: 640px) {
+                  .cdpc-contacts-2x2-grid {
+                    grid-template-columns: 1fr !important;
+                  }
+                }
+              `}</style>
+
               <div
+                className="cdpc-contacts-2x2-grid"
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                  gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
                   gap: "1.25rem",
                   marginBottom: "1.5rem",
                 }}
@@ -1356,28 +1365,11 @@ export default function PlacementsPage() {
                   }}
                 >
                   <div>
-                    <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1rem" }}>
-                      <img
-                        src="/images/placementcoordinators/2082209.jpg"
-                        alt="Mr. Satyanandaram N"
-                        style={{
-                          width: "72px",
-                          height: "86px",
-                          objectFit: "cover",
-                          borderRadius: "6px",
-                          border: "2px solid #e2e8f0",
-                          boxShadow: "0 2px 4px rgba(0,0,0,0.06)",
-                          flexShrink: 0,
-                        }}
-                      />
-                      <div>
-                        <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--primary-maroon)", marginBottom: "0.25rem" }}>
-                          Faculty Coordinator
-                        </div>
-                        <div style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--primary-dark)", lineHeight: 1.25 }}>
-                          Mr. Satyanandaram N
-                        </div>
-                      </div>
+                    <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--primary-maroon)", marginBottom: "0.4rem" }}>
+                      Faculty Coordinator
+                    </div>
+                    <div style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--primary-dark)", marginBottom: "0.35rem" }}>
+                      Mr. Satyanandaram N
                     </div>
                     <div style={{ fontSize: "0.88rem", fontWeight: 600, color: "#334155", lineHeight: 1.45 }}>
                       Faculty Coordinator, Career Development and Placement Cell (CDPC)
@@ -1408,28 +1400,11 @@ export default function PlacementsPage() {
                   }}
                 >
                   <div>
-                    <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1rem" }}>
-                      <img
-                        src="/images/placementcoordinators/2137601.jpg"
-                        alt="Mr. G S Sundar"
-                        style={{
-                          width: "72px",
-                          height: "86px",
-                          objectFit: "cover",
-                          borderRadius: "6px",
-                          border: "2px solid #e2e8f0",
-                          boxShadow: "0 2px 4px rgba(0,0,0,0.06)",
-                          flexShrink: 0,
-                        }}
-                      />
-                      <div>
-                        <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--primary-maroon)", marginBottom: "0.25rem" }}>
-                          Placement Officer
-                        </div>
-                        <div style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--primary-dark)", lineHeight: 1.25 }}>
-                          Mr. G S Sundar
-                        </div>
-                      </div>
+                    <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--primary-maroon)", marginBottom: "0.4rem" }}>
+                      Placement Officer
+                    </div>
+                    <div style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--primary-dark)", marginBottom: "0.35rem" }}>
+                      Mr. G S Sundar
                     </div>
                     <div style={{ fontSize: "0.88rem", fontWeight: 600, color: "#334155", lineHeight: 1.45 }}>
                       Placement Officer
@@ -1460,28 +1435,11 @@ export default function PlacementsPage() {
                   }}
                 >
                   <div>
-                    <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1rem" }}>
-                      <img
-                        src="/images/placementcoordinators/2098012.jpg"
-                        alt="Mr. G. Ravibabu"
-                        style={{
-                          width: "72px",
-                          height: "86px",
-                          objectFit: "cover",
-                          borderRadius: "6px",
-                          border: "2px solid #e2e8f0",
-                          boxShadow: "0 2px 4px rgba(0,0,0,0.06)",
-                          flexShrink: 0,
-                        }}
-                      />
-                      <div>
-                        <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--primary-maroon)", marginBottom: "0.25rem" }}>
-                          Assistant Coordinator
-                        </div>
-                        <div style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--primary-dark)", lineHeight: 1.25 }}>
-                          Mr. G. Ravibabu
-                        </div>
-                      </div>
+                    <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--primary-maroon)", marginBottom: "0.4rem" }}>
+                      Assistant Coordinator
+                    </div>
+                    <div style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--primary-dark)", marginBottom: "0.35rem" }}>
+                      Mr. G. Ravibabu
                     </div>
                     <div style={{ fontSize: "0.88rem", fontWeight: 600, color: "#334155", lineHeight: 1.45 }}>
                       Assistant Coordinator
@@ -1497,26 +1455,41 @@ export default function PlacementsPage() {
                     </a>
                   </div>
                 </div>
-              </div>
 
-              {/* Cell Office Location */}
-              <div
-                style={{
-                  background: "#f8fafc",
-                  border: "1px solid #e2e8f0",
-                  borderRadius: "10px",
-                  padding: "1.25rem 1.5rem",
-                }}
-              >
-                <div style={{ fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", color: "var(--primary-maroon)", marginBottom: "0.25rem" }}>
-                  Cell Office Location
+                {/* 4. Cell Office Location */}
+                <div
+                  style={{
+                    background: "#ffffff",
+                    border: "1px solid #e2e8f0",
+                    borderRadius: "10px",
+                    padding: "1.35rem 1.5rem",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <div>
+                    <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--primary-maroon)", marginBottom: "0.4rem" }}>
+                      Cell Office Location
+                    </div>
+                    <div style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--primary-dark)", marginBottom: "0.35rem" }}>
+                      CDPC Placement Office
+                    </div>
+                    <div style={{ fontSize: "0.88rem", fontWeight: 600, color: "#334155", lineHeight: 1.45 }}>
+                      Career Development &amp; Placement Cell (CDPC)
+                    </div>
+                    <div style={{ fontSize: "0.84rem", color: "#64748b", marginTop: "0.35rem", lineHeight: 1.4 }}>
+                      MME Department Building, RGUKT RK Valley, Idupulapaya, Kadapa - 516330
+                    </div>
+                  </div>
+                  <div style={{ marginTop: "1.25rem", paddingTop: "0.85rem", borderTop: "1px solid #f1f5f9", fontSize: "0.9rem" }}>
+                    <span style={{ color: "#64748b", marginRight: "0.35rem" }}>Email:</span>
+                    <a href="mailto:cdpc@rguktrkv.ac.in" style={{ color: "#0052a9", fontWeight: 700, textDecoration: "underline" }}>
+                      cdpc@rguktrkv.ac.in
+                    </a>
+                  </div>
                 </div>
-                <div style={{ fontSize: "1.05rem", fontWeight: 700, color: "var(--primary-dark)" }}>
-                  Career Development &amp; Placement Cell (CDPC), MME Department Building
-                </div>
-                <p style={{ fontSize: "0.88rem", color: "#64748b", marginTop: "0.35rem", marginBottom: 0, lineHeight: 1.5 }}>
-                  Rajiv Gandhi University of Knowledge Technologies (RGUKT) RK Valley, Idupulapaya, Vempalli Mandal, Kadapa District, Andhra Pradesh - 516330
-                </p>
               </div>
             </section>
           </article>
