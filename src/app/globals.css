@@ -2325,6 +2325,28 @@ button.sidebar-link {
   transform: translateX(4px);
 }
 
+.sidebar-sublink {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.82rem;
+  color: #475569;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 500;
+  line-height: 1.35;
+  transition: all 0.2s ease;
+}
+
+.sidebar-sublink:hover,
+.sidebar-sublink.active {
+  color: var(--primary-maroon) !important;
+  font-weight: 700;
+}
+
 /* EXPLORE SIDEBAR FLYOUT ITEM LINK */
 .flyout-item-link {
   display: flex;
