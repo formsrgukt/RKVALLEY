@@ -240,13 +240,15 @@ export default function StickyNavbar() {
                 </svg>
               </Link>
               <div className="dropdown-menu">
-                <Link href="/students" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Hostels & Central Dining</Link>
-                <Link href="/library" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Central Digital Library</Link>
-                <Link href="/students" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Student Activity Center (SAC)</Link>
-                <Link href="/students" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Sports Stadium & Complex</Link>
-                <Link href="/students" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>24x7 Campus Health Center</Link>
-                <Link href="/grievance" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Anti-Ragging Squads</Link>
-                <Link href="/grievance" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Women Development Cell (ICC)</Link>
+                <Link href="/students/education" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Education at RGUKT</Link>
+                <Link href="/placements" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Career Development Cell</Link>
+                <Link href="/students#incubation" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Incubation Cell</Link>
+                <Link href="/students#international-desk" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>International Desk</Link>
+                <Link href="/grievance#antiragging" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Anti Ragging</Link>
+                <Link href="/grievance#womens-cell" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Women's Cell</Link>
+                <Link href="/students#welfare-office" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Students' Welfare Office</Link>
+                <Link href="/students#alumni-association" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Alumni Association</Link>
+                <a href="http://alumni.rguktrkv.ac.in/" target="_blank" rel="noopener noreferrer" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Alumni Portal</a>
               </div>
             </li>
 

@@ -97,7 +97,7 @@ export default function InlineSearch() {
 
   RGUKT_DATA.campusFacilities.forEach((f) => {
     if (q && (f.title.toLowerCase().includes(q) || f.description.toLowerCase().includes(q))) {
-      matches.push({ type: "Facility", title: f.title, link: "/students", info: f.category });
+      matches.push({ type: "Facility", title: f.title, link: "/students/facilities", info: f.category });
     }
   });
 

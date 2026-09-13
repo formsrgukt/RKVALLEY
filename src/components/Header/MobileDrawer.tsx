@@ -99,7 +99,21 @@ export default function MobileDrawer() {
               <Link href="/admissions" className="drawer-link" onClick={closeMobileDrawer}>Admissions 2026</Link>
             </li>
             <li className="drawer-item">
-              <Link href="/students" className="drawer-link" onClick={closeMobileDrawer}>Student Life & Welfare</Link>
+              <button onClick={() => toggleAccordion("students")} className="drawer-link" style={{ width: "100%" }}>
+                <span>Students</span>
+                <span>{openAccordions["students"] ? "−" : "+"}</span>
+              </button>
+              <ul className={`drawer-submenu ${openAccordions["students"] ? "open" : ""}`}>
+                <li><Link href="/students/education" className="drawer-sublink" onClick={closeMobileDrawer}>Education at RGUKT</Link></li>
+                <li><Link href="/placements" className="drawer-sublink" onClick={closeMobileDrawer}>Career Development Cell</Link></li>
+                <li><Link href="/students#incubation" className="drawer-sublink" onClick={closeMobileDrawer}>Incubation Cell</Link></li>
+                <li><Link href="/students#international-desk" className="drawer-sublink" onClick={closeMobileDrawer}>International Desk</Link></li>
+                <li><Link href="/grievance#antiragging" className="drawer-sublink" onClick={closeMobileDrawer}>Anti Ragging</Link></li>
+                <li><Link href="/grievance#womens-cell" className="drawer-sublink" onClick={closeMobileDrawer}>Women's Cell</Link></li>
+                <li><Link href="/students#welfare-office" className="drawer-sublink" onClick={closeMobileDrawer}>Students' Welfare Office</Link></li>
+                <li><Link href="/students#alumni-association" className="drawer-sublink" onClick={closeMobileDrawer}>Alumni Association</Link></li>
+                <li><a href="http://alumni.rguktrkv.ac.in/" target="_blank" rel="noopener noreferrer" className="drawer-sublink" onClick={closeMobileDrawer}>Alumni Portal</a></li>
+              </ul>
             </li>
             <li className="drawer-item">
               <Link href="/examinations" className="drawer-link" onClick={closeMobileDrawer}>Examinations</Link>

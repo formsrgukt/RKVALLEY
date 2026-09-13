@@ -7,6 +7,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 /* Hide scrollbar everywhere */
+html {
+  scroll-behavior: smooth;
+}
 * {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -2197,6 +2200,59 @@ button {
 @media (max-width: 680px) {
   .academic-two-col-grid {
     grid-template-columns: 1fr !important;
+  }
+}
+
+.facilities-split-row {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .facilities-split-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.facility-float-image {
+  float: right;
+  width: 330px;
+  max-width: 44%;
+  margin: 0.25rem 0 1.25rem 1.75rem;
+}
+
+@media (max-width: 768px) {
+  .facility-float-image {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 1.25rem 0;
+  }
+}
+
+.smart-classes-media-col {
+  float: right;
+  width: 230px;
+  max-width: 36%;
+  margin: 0.25rem 0 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+@media (max-width: 768px) {
+  .smart-classes-media-col {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 1.5rem 0;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  .smart-classes-media-col > div {
+    flex: 1;
   }
 }
 
