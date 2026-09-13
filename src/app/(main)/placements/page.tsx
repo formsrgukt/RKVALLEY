@@ -1071,7 +1071,24 @@ export default function PlacementsPage() {
                       <a href="mailto:cpi@rguktrkv.ac.in" style={{ color: "#0052a9", fontWeight: 700, textDecoration: "underline" }}>cpi@rguktrkv.ac.in</a>,{" "}
                       <a href="mailto:po@rguktrkv.ac.in" style={{ color: "#0052a9", fontWeight: 700, textDecoration: "underline" }}>po@rguktrkv.ac.in</a>,{" "}
                       <a href="mailto:apo@rguktrkv.ac.in" style={{ color: "#0052a9", fontWeight: 700, textDecoration: "underline" }}>apo@rguktrkv.ac.in</a>{" "}
-                      ) with the filled in Job Notification Form(JNF) available here.
+                      ) with the filled in Job Notification Form(JNF) available{" "}
+                      <button
+                        type="button"
+                        onClick={() => openDocModal("Job Notification Form (JNF)", "Job_Notification_Form_JNF_RGUKT_RKV.pdf")}
+                        style={{
+                          background: "none",
+                          border: "none",
+                          padding: 0,
+                          color: "#0052a9",
+                          fontWeight: 700,
+                          textDecoration: "underline",
+                          cursor: "pointer",
+                          font: "inherit",
+                        }}
+                      >
+                        here
+                      </button>
+                      .
                     </li>
                     <li>
                       The JNF will be notified to the students seeking the registrations from the eligible and interested students as per the eligibility criteria listed in JNF.
@@ -1086,50 +1103,6 @@ export default function PlacementsPage() {
                       The companies are expected to release the results or offers at the earliest possible immediately after the completion of the campus recruitment drive.
                     </li>
                   </ul>
-
-                  {/* Action card for JNF download */}
-                  <div
-                    style={{
-                      background: "#f0fdf4",
-                      border: "1px solid #bbf7d0",
-                      borderRadius: "8px",
-                      padding: "1.25rem 1.5rem",
-                      display: "flex",
-                      flexWrap: "wrap",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      gap: "1rem",
-                    }}
-                  >
-                    <div>
-                      <div style={{ fontWeight: 700, color: "#166534", fontSize: "0.98rem" }}>
-                        Corporate Invitation &amp; Job Notification Form (JNF)
-                      </div>
-                      <div style={{ fontSize: "0.85rem", color: "#15803d", marginTop: "0.25rem" }}>
-                        Download the official JNF template, fill in requirements &amp; email to the CDPC placement cell.
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => openDocModal("Job Notification Form (JNF)", "Job_Notification_Form_JNF_RGUKT_RKV.pdf")}
-                      style={{
-                        background: "#16a34a",
-                        color: "#ffffff",
-                        border: "none",
-                        padding: "0.6rem 1.15rem",
-                        borderRadius: "6px",
-                        fontWeight: 700,
-                        fontSize: "0.85rem",
-                        cursor: "pointer",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "0.4rem",
-                        boxShadow: "0 2px 4px rgba(22, 163, 74, 0.2)",
-                      }}
-                    >
-                      <span>📥 Download JNF Form (PDF)</span>
-                    </button>
-                  </div>
                 </div>
               </div>
 
