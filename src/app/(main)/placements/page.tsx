@@ -311,71 +311,393 @@ export default function PlacementsPage() {
               </p>
 
               {/* Subsection: Campus Placements */}
-              <div id="campus-placements" style={{ scrollMarginTop: "100px", marginBottom: "2.5rem", background: "#f8fafc", padding: "1.75rem", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
+              <div id="campus-placements" style={{ scrollMarginTop: "100px", marginBottom: "2.5rem", background: "#ffffff", padding: "2rem", borderRadius: "10px", border: "1px solid #e2e8f0", boxShadow: "0 2px 8px rgba(0,0,0,0.03)" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
                   <span style={{ background: "#e0f2fe", color: "#0369a1", padding: "0.2rem 0.6rem", borderRadius: "4px", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase" }}>
-                    Placement Activities
+                    Placement Guidelines &amp; Process
                   </span>
                 </div>
-                <h4 style={{ color: "var(--primary-dark)", fontSize: "1.4rem", fontWeight: 800, marginBottom: "0.5rem" }}>
+                <h4 style={{ color: "var(--primary-dark)", fontSize: "1.6rem", fontWeight: 800, marginBottom: "0.5rem" }}>
                   Campus Placements
                 </h4>
                 <p style={{ fontSize: "0.95rem", color: "#475569", lineHeight: 1.6, marginBottom: "1.25rem" }}>
-                  The CDPC actively coordinates with industry leaders and corporations to conduct on-campus and hybrid placement drives. Students are prepared through a comprehensive training roadmap comprising aptitude, domain-specific engineering, competitive coding, and mock interviews.
+                  The Career Development &amp; Placement Cell (CDPC) at RGUKT RK Valley coordinates comprehensive training and on-campus recruitment drives for graduating engineers. Review the master registration process, company-specific application criteria, and placement selection code of conduct below.
                 </p>
 
-                <h5 style={{ color: "var(--primary-maroon)", fontSize: "1.05rem", fontWeight: 700, marginBottom: "0.85rem" }}>
-                  Training Roadmap &amp; Competency Modules
-                </h5>
+                {/* Quick Anchor Navigation */}
                 <div
                   style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-                    gap: "1rem",
-                    marginBottom: "1.5rem",
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: "0.5rem",
+                    padding: "0.85rem 1rem",
+                    background: "#f8fafc",
+                    borderRadius: "8px",
+                    border: "1px solid #e2e8f0",
+                    marginBottom: "2rem",
                   }}
                 >
-                  {RGUKT_DATA.placements.trainingModules.map((t, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        background: "#ffffff",
-                        border: "1px solid #e2e8f0",
-                        borderRadius: "8px",
-                        padding: "1.25rem",
-                        boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
-                      }}
-                    >
-                      <h6 style={{ color: "var(--primary-dark)", fontSize: "0.95rem", fontWeight: 700, marginBottom: "0.35rem" }}>
-                        {t.title}
-                      </h6>
-                      <span style={{ fontSize: "0.78rem", fontWeight: 700, color: "var(--accent-royal)", background: "#eff6ff", padding: "0.2rem 0.5rem", borderRadius: "4px" }}>
-                        {t.duration}
-                      </span>
-                      <p style={{ fontSize: "0.85rem", color: "#64748b", marginTop: "0.5rem", lineHeight: 1.5 }}>
-                        Conducted by: {t.trainer}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+                  <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "var(--primary-maroon)", alignSelf: "center", marginRight: "0.5rem" }}>
+                    Quick Jump:
+                  </span>
                   <button
                     type="button"
-                    className="btn btn-primary"
-                    onClick={() => openDocModal("Placement Brochure 2026", "Placement_Brochure_RGUKT_RKV_2026.pdf")}
+                    onClick={() => scrollTo("srp")}
                     style={{
-                      background: "var(--primary-maroon)",
-                      color: "#ffffff",
-                      border: "none",
-                      padding: "0.65rem 1.25rem",
+                      background: "#ffffff",
+                      border: "1px solid #cbd5e1",
+                      padding: "0.35rem 0.75rem",
                       borderRadius: "6px",
-                      fontWeight: 700,
+                      fontSize: "0.82rem",
+                      fontWeight: 600,
+                      color: "var(--primary-dark)",
                       cursor: "pointer",
                     }}
                   >
-                    Download CDPC Placement Brochure (PDF)
+                    1. Master Registration Data
                   </button>
+                  <button
+                    type="button"
+                    onClick={() => scrollTo("rpcp")}
+                    style={{
+                      background: "#ffffff",
+                      border: "1px solid #cbd5e1",
+                      padding: "0.35rem 0.75rem",
+                      borderRadius: "6px",
+                      fontSize: "0.82rem",
+                      fontWeight: 600,
+                      color: "var(--primary-dark)",
+                      cursor: "pointer",
+                    }}
+                  >
+                    2. Company Placement Process
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => scrollTo("psp")}
+                    style={{
+                      background: "#ffffff",
+                      border: "1px solid #cbd5e1",
+                      padding: "0.35rem 0.75rem",
+                      borderRadius: "6px",
+                      fontSize: "0.82rem",
+                      fontWeight: 600,
+                      color: "var(--primary-dark)",
+                      cursor: "pointer",
+                    }}
+                  >
+                    3. Selection Process &amp; Rules
+                  </button>
+                </div>
+
+                {/* Part 1: Student Registration For Placements - Master Registration Data */}
+                <div id="srp" style={{ scrollMarginTop: "100px", marginBottom: "2.5rem", borderTop: "2px solid #f1f5f9", paddingTop: "1.5rem" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+                    <span style={{ background: "rgba(122, 0, 25, 0.08)", color: "var(--primary-maroon)", padding: "0.2rem 0.6rem", borderRadius: "4px", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase" }}>
+                      Phase 1
+                    </span>
+                  </div>
+                  <h5 style={{ color: "var(--primary-dark)", fontSize: "1.25rem", fontWeight: 800, marginBottom: "0.75rem" }}>
+                    Student Registration For Placements - Master Registration Data
+                  </h5>
+                  <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.25rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+                    {[
+                      "All the Undergraduate students who are interested in campus placements should register for participating in campus recruitment drives as per CDPC notification at the end of third year of engineering (E3-S2) whereas M.Tech (Post Graduate) students need to register at the end of 2nd semester (usually in the month of April of every Academic Year). It is referred as master placement registration data.",
+                      "Each student must register for placement before leaving the campus for summer internship.",
+                      "Use Mozilla Firefox web browser for online registration.",
+                      "The students can register with Career Development & Placement Cell (CDPC) for campus placements in online mode through student login at the link provided.",
+                      "To Login, Student may use same username/Login ID and Password that is given for other purposes.",
+                      "Marks/grades secured should be entered correctly to the second decimal point (e.g: Marks: 75.74 not as 76.0 it should be 75.74 ; Grade: 7.36 not as 7.4, it should be 7.36).",
+                      "Issue of grade sheet, announcement of results of remedial/ other exams, verification of academic credentials etc are not the responsibilities of campus CDPC. Students have to approach exam cell/ any other relevant authority for these.",
+                      "Number of backlogs, as on date, should be mentioned correctly.",
+                      "Students should fill up all data carefully and verify the entered data before final submission.",
+                      "Any false information furnished will lead to disciplinary action.",
+                      "After successful submission of information, students have to take print out of the registration form, sign it and submit to campus CDPC.",
+                      "Students must also submit the documental proof (from exam cell) on B. Tech grade entered in the online registration along with hard copy of the registration form.",
+                      "Without the submission of hard copy of registration form and documental proof on B.Tech grade to campus CDPC, registration is considered to be incomplete and such students will not be considered for placement process.",
+                      "Once online registration & hardcopy submission is done, it will not possible for resubmission or modification of the data. However, if any student wants to modify the data at later stage in view of improvement in CGPA, clearing off backlogs, incorrect details submitted, they should submit hard copy application along with proof of documents.",
+                      "Only those students who have registered with the Campus Career Development & Placement Cell (CDPC), RGUKT-RK Valley within the stipulated time are only eligible to participate in the placement process.",
+                    ].map((item, idx) => (
+                      <li key={idx} style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.55 }}>
+                        <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div style={{ background: "#fffbeb", border: "1px solid #fde68a", padding: "0.85rem 1.15rem", borderRadius: "8px", fontSize: "0.88rem", color: "#92400e" }}>
+                    <strong>Official Query Channel:</strong> For any queries, students should send mail only to{" "}
+                    <a href="mailto:cdpcsupport@rguktrkv.ac.in" style={{ color: "var(--primary-maroon)", fontWeight: 700, textDecoration: "underline" }}>
+                      cdpcsupport@rguktrkv.ac.in
+                    </a>
+                    ; but not to any other email id.
+                  </div>
+                </div>
+
+                {/* Part 2: Student Registration for a Particular Company Placement Process */}
+                <div id="rpcp" style={{ scrollMarginTop: "100px", marginBottom: "2.5rem", borderTop: "2px solid #f1f5f9", paddingTop: "1.5rem" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+                    <span style={{ background: "rgba(122, 0, 25, 0.08)", color: "var(--primary-maroon)", padding: "0.2rem 0.6rem", borderRadius: "4px", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase" }}>
+                      Phase 2
+                    </span>
+                  </div>
+                  <h5 style={{ color: "var(--primary-dark)", fontSize: "1.25rem", fontWeight: 800, marginBottom: "0.75rem" }}>
+                    Student Registration for a Particular Company Placement Process
+                  </h5>
+                  <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.25rem", display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+                    {[
+                      "Job Announcement (JA) will be posted on CDPC Web portal and also on campus CDPC notice board(s) on receiving the information from the company about campus/off campus visit.",
+                      "Students are advised to visit CDPC website and campus CDPC notice boards regularly for job announcements (JA), updates and other information. No other mode of communication will be provided.",
+                      "Students who have registered for placements earlier i.e. end of E3 S2 for B. Tech and 2nd semester for M.Tech should also apply for each company selection process against Job announcement (JA) of any company as notified by CDPC. Before applying, students are advised to go through the job description, company profile and other relevant information.",
+                      "Students must apply within the stipulated time mentioned in the JA. No late submission would be entertained.",
+                      "Students are advised to apply for a job in any organization only if he/she is eligible and interested in taking up a job. No withdrawal of candidature will be permitted.",
+                      "List of students who have applied for a particular company on time in response to Job announcement (JA) will be sent to company for consideration and only short listed students by company and/or CDPC, as the case may be, would be permitted for process.",
+                      "Short listing is generally done based on CGPA of the student considering grade up to E3 S1 or E3 S2 decided by campus CDPC.",
+                    ].map((item, idx) => (
+                      <li key={idx} style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.55 }}>
+                        <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", padding: "1.25rem", borderRadius: "8px", marginTop: "1rem" }}>
+                    <h6 style={{ color: "var(--primary-dark)", fontSize: "0.95rem", fontWeight: 700, marginBottom: "0.5rem" }}>
+                      Shortlisting Committee (Criteria Other than CGPA)
+                    </h6>
+                    <p style={{ fontSize: "0.85rem", color: "#64748b", marginBottom: "0.75rem" }}>
+                      In case of short listing based on criteria other than CGPA, a committee consisting of following members would shortlist the required number of students for the drive:
+                    </p>
+                    <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "0.5rem" }}>
+                      {[
+                        "Campus Placement Incharge (CPI)",
+                        "Additional Campus placement Incharge (ACPI)",
+                        "Placement officer (PO)",
+                        "Head of the department/s of concern students or nominated by HOD of the department",
+                        "Head of the department of English/Management or nominated by HOD of the department",
+                      ].map((member, i) => (
+                        <li key={i} style={{ background: "#ffffff", padding: "0.6rem 0.85rem", borderRadius: "6px", border: "1px solid #e2e8f0", fontSize: "0.85rem", color: "#1e293b", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                          <span style={{ color: "var(--accent-royal)", fontWeight: 700 }}>›</span>
+                          <span>{member}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <p style={{ fontSize: "0.85rem", color: "#475569", marginTop: "0.75rem", fontStyle: "italic" }}>
+                      * The short listing done by the committee is final and binding. Short listed students would be notified and students are advised to prepare for the campus selection process as per schedule given in the JA.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Part 3: Placement Selection Process */}
+                <div id="psp" style={{ scrollMarginTop: "100px", borderTop: "2px solid #f1f5f9", paddingTop: "1.5rem" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+                    <span style={{ background: "rgba(122, 0, 25, 0.08)", color: "var(--primary-maroon)", padding: "0.2rem 0.6rem", borderRadius: "4px", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase" }}>
+                      Phase 3
+                    </span>
+                  </div>
+                  <h5 style={{ color: "var(--primary-dark)", fontSize: "1.35rem", fontWeight: 800, marginBottom: "1rem" }}>
+                    Placement Selection Process
+                  </h5>
+
+                  {/* Pre - Placement Process */}
+                  <div style={{ marginBottom: "1.75rem" }}>
+                    <h6 style={{ color: "var(--primary-maroon)", fontSize: "1.05rem", fontWeight: 700, marginBottom: "0.6rem" }}>
+                      A. Pre - Placement Process
+                    </h6>
+                    <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.55rem" }}>
+                      {[
+                        "List of applications received from student on time and short listed by campus CDPC would be sent to company for consideration.",
+                        "On hearing from the company, the final date of visiting the campus and time of each activity would be notified to the students and short listed candidates should comply with the selection procedure of the company.",
+                        "Students should attend the placement activities as per notified time schedule. No late arrival to any placement activity is permitted.",
+                        "Students must carry their valid identity card with them during entire campus placement selection process i.e. Pre-placement Talk (PPT), written test, group discussion, interviews etc and produce the same whenever demanded by the recruiting members, CDPC or any authorized member of RGUKT.",
+                        "Students are advised to visit company website to know the job requirements. Any queries related to job or other matter must be clarified with the company officials during their visit to campus i.e. PPT. No direct communication with the company officials is permitted.",
+                        "Students are not permitted to interact with the company official directly. Any queries must be clarified during the Pre-Placement Talk (PPT) itself. For any other doubts (if any) after PPT, they should bring it to the notice of the CDPC for necessary action.",
+                        "Student should maintain discipline while attending pre placement talks (PPT), written test and interviews etc.",
+                        "Dress code: Students, who are short listed for interviews (Group discussion/Personal Interview), should attend the process with proper formal dress on time. Boys are advised to wear shoes. If any student doesn't appear in decent formal dress, campus CDPC reserves the right to refuse the permission to attend the campus selection process.",
+                        "Students should keep ready all documents well in advance and they should be in a position to produce on time.",
+                        "Student should carry certificates in a proper file along with two passport size photographs and a copy of their latest resume for the interview process.",
+                        "Students are permitted to clarify any of their doubts at any point of time with campus CDPC.",
+                        "CPI/ACPI reserves the right to refuse any student from placement activity at any point of time if student does not follow any of the above procedures.",
+                        "Disciplinary committee: Student must not involve in malpractice or impersonation in the placement process. If found, such students would have to abide to the decision of campus placement & internship disciplinary committee (CPIDC) that may include debarring from placement activity for entire year etc.",
+                      ].map((item, idx) => (
+                        <li key={idx} style={{ display: "flex", gap: "0.75rem", fontSize: "0.9rem", color: "#334155", lineHeight: 1.55 }}>
+                          <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Post - Placement Process */}
+                  <div style={{ marginBottom: "1.75rem" }}>
+                    <h6 style={{ color: "var(--primary-maroon)", fontSize: "1.05rem", fontWeight: 700, marginBottom: "0.6rem" }}>
+                      B. Post - Placement Process
+                    </h6>
+                    <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.55rem" }}>
+                      {[
+                        "List of selected students obtained from company would be notified to students and also displayed on notice board of CDPC.",
+                        "Companies would send offer letters of the students along with other information to campus CDPC. After receiving the offers letter by the selected candidates, they should follow the instructions given in the offer letter.",
+                        "Any student who has applied or secured a job through off campus is not considered under CDPC placement process. Such students are advised to inform CDPC after their selection and voluntarily withdraw their candidature from placement for the benefit of other students.",
+                        "One student one job offer is strictly followed. Student with job offer through CDPC will not be considered for other companies for placements.",
+                        "If a student is not joining an organization under unavoidable circumstances, then the accepted job offer (original) must be surrendered to the CDPC.",
+                        "If any student fails to comply with any of the above mentioned rules and regulations or found indulging in any act of indiscipline/misbehavior, he/she would be liable for strict disciplinary action, as per the university rules and regulations.",
+                      ].map((item, idx) => (
+                        <li key={idx} style={{ display: "flex", gap: "0.75rem", fontSize: "0.9rem", color: "#334155", lineHeight: 1.55 }}>
+                          <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Procedure to be Followed When a Company Visits Other Campus of RGUKT */}
+                  <div style={{ marginBottom: "1.75rem" }}>
+                    <h6 style={{ color: "var(--primary-maroon)", fontSize: "1.05rem", fontWeight: 700, marginBottom: "0.6rem" }}>
+                      C. Procedure to be Followed When a Company Visits Other Campus of RGUKT For Recruitment / Another Place
+                    </h6>
+                    <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.55rem" }}>
+                      {[
+                        "Based on the request from company or understanding between campus CDPC and other campuses of RGUKT/other institutes, Campus recruitment drives of some of the companies may be conducted at the place where the company is located/other campuses of RGUKT/ other institutes. In such case, interested and short listed students should attend the recruitment drive at the specified location outside the campus.",
+                        "Short listed candidates will have to undertake the journey at their risk to the other campus of RGUKT/ other place for this purpose. Expenses incurred for journey should be borne by the students and should not be claimed from the institute. Student should submit the undertaking form (Format CDPC/ Form IIa-for Individual student) for performing journey. If number of students likely to travel is more, then Format CDPC / Form IIb (for group of students) is to be used.",
+                        "Campus CDPC will send a request to hosting campus CDPC for food and accommodation inside the hosting campus well in advance. It is expected that Hosting campus CDPC of RGUKT considers the request of our campus and make necessary arrangement for the stay (accommodation) of students.",
+                        "In case of off - campus drives at other than RGUKT campus, campus CDPC team along with other faculty and staff members will accompany the students. Campus CDPC will also arrange for accommodation and travel at off campus drives to the possible extent.",
+                        "Students should apply for station leaving/gate pass using Format CDPC/ Form III and they should obtain permission from (a) HOD of concern department (b) CDPC and (c) finally Director/ competent authority. Students should reach the host campus well in advance with minimum days of loss of class work.",
+                        "Before leaving the campus, students should write the departure details in the register kept in campus CDPC. If any student fails to provide details in the register would not be considered for the drive.",
+                        "Students are permitted to leave the campus for attending placement process at other campus only when they fulfill all the specified requirements i.e. eligibility and proper gate pass.",
+                        "Students should report to campus CDPC of the host campus as soon as they arrive. They should fill up arrival details the register/Format CDPC form IV a available in the host campus CDPC.",
+                        "Students must attend the recruitment process without fail.",
+                        "Students should obtain permission to leave the campus after the recruitment process. They should use host station leaving / gate pass (Format CDPC/Form IV b) available in the host campus CDPC for obtaining permission to leave the host campus.",
+                        "Student must return to the respective campus as soon as placement process is completed and furnish the arrival details in the register & Format CDPC Form IIa or Format CDPC Form II b against their name.",
+                        "All the forms mentioned above are available with campus CDPC and Students should use these forms.",
+                        "Violation of above procedure will attract disciplinary action.",
+                      ].map((item, idx) => (
+                        <li key={idx} style={{ display: "flex", gap: "0.75rem", fontSize: "0.9rem", color: "#334155", lineHeight: 1.55 }}>
+                          <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Number of Attempts by Students */}
+                  <div style={{ marginBottom: "1.75rem", background: "#f8fafc", padding: "1.25rem", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
+                    <h6 style={{ color: "var(--primary-dark)", fontSize: "1rem", fontWeight: 700, marginBottom: "0.5rem" }}>
+                      D. Number of Attempts by Students for Placement Process
+                    </h6>
+                    <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                      {[
+                        "For any drive that allows all eligible and interested students, there is no limit on number of attempts for the placement process until he/ she is selected by a particular company.",
+                        "For a campus drive that permits limited number of students (where no. of students permitted to the drive is less than no. of student eligible and interested) it was decided to permit for three (03) companies so that it is possible to provide opportunity to large no. of students.",
+                        "Students who have registered for the limited student company drive and got short listed, but did not attend the drive will be considered as attempted. However, student is permitted to withdraw the registration by submitted application for withdrawal within the stipulated time notified by CDPC and should obtain the permission from CPI/ACPI/placement officer well in advance.",
+                      ].map((item, idx) => (
+                        <li key={idx} style={{ display: "flex", gap: "0.75rem", fontSize: "0.9rem", color: "#334155", lineHeight: 1.55 }}>
+                          <span style={{ color: "var(--accent-royal)", fontWeight: 700, flexShrink: 0 }}>✓</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Off Campus Opportunities & Career Development Activities */}
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem", marginBottom: "1.75rem" }}>
+                    <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", padding: "1.25rem", borderRadius: "8px" }}>
+                      <h6 style={{ color: "var(--primary-dark)", fontSize: "0.95rem", fontWeight: 700, marginBottom: "0.4rem" }}>
+                        E. Off Campus Opportunities
+                      </h6>
+                      <p style={{ fontSize: "0.88rem", color: "#64748b", lineHeight: 1.55, margin: 0 }}>
+                        Job announcements (off campus) will be posted on website (student login) and also on notice boards of CDPC and students are advised to make use of this information. Procedure decided by the campus CDPC should be followed for registration, travel for attending the drive, permission to leave the campus etc.
+                      </p>
+                    </div>
+                    <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", padding: "1.25rem", borderRadius: "8px" }}>
+                      <h6 style={{ color: "var(--primary-dark)", fontSize: "0.95rem", fontWeight: 700, marginBottom: "0.4rem" }}>
+                        F. Career Development Activities
+                      </h6>
+                      <p style={{ fontSize: "0.88rem", color: "#64748b", lineHeight: 1.55, margin: 0 }}>
+                        Information on career development activities will also be posted time to time on website (student login) for the benefit of the students. Students are advised to make use of this facility.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Campus Placement and Internships Disciplinary Committee (CPIDC) */}
+                  <div style={{ background: "#fff5f5", border: "1px solid #fed7d7", padding: "1.25rem", borderRadius: "8px", marginBottom: "2rem" }}>
+                    <h6 style={{ color: "var(--primary-maroon)", fontSize: "1rem", fontWeight: 800, marginBottom: "0.5rem" }}>
+                      Campus Placement and Internships Disciplinary Committee (CPIDC)
+                    </h6>
+                    <p style={{ fontSize: "0.86rem", color: "#742a2a", marginBottom: "0.75rem" }}>
+                      Following are the members of the disciplinary committee for placement and internship activities:
+                    </p>
+                    <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0.4rem" }}>
+                      {[
+                        "Director",
+                        "Administrative officer (AO)",
+                        "Dean, Student affairs",
+                        "Campus Placement Incharge (CPI)",
+                        "Additional Campus Placement Incharge (ACPI)",
+                        "Placement officer (PO)/APO",
+                        "HOD of concern department / representative",
+                      ].map((member, i) => (
+                        <li key={i} style={{ background: "#ffffff", padding: "0.5rem 0.75rem", borderRadius: "6px", border: "1px solid #feb2b2", fontSize: "0.85rem", color: "#2d3748", display: "flex", alignItems: "center", gap: "0.4rem" }}>
+                          <span style={{ color: "var(--primary-maroon)", fontWeight: 700 }}>•</span>
+                          <span>{member}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Training Roadmap & Competency Modules */}
+                  <h5 style={{ color: "var(--primary-maroon)", fontSize: "1.05rem", fontWeight: 700, marginBottom: "0.85rem" }}>
+                    Training Roadmap &amp; Competency Modules
+                  </h5>
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+                      gap: "1rem",
+                      marginBottom: "1.5rem",
+                    }}
+                  >
+                    {RGUKT_DATA.placements.trainingModules.map((t, i) => (
+                      <div
+                        key={i}
+                        style={{
+                          background: "#ffffff",
+                          border: "1px solid #e2e8f0",
+                          borderRadius: "8px",
+                          padding: "1.25rem",
+                          boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
+                        }}
+                      >
+                        <h6 style={{ color: "var(--primary-dark)", fontSize: "0.95rem", fontWeight: 700, marginBottom: "0.35rem" }}>
+                          {t.title}
+                        </h6>
+                        <span style={{ fontSize: "0.78rem", fontWeight: 700, color: "var(--accent-royal)", background: "#eff6ff", padding: "0.2rem 0.5rem", borderRadius: "4px" }}>
+                          {t.duration}
+                        </span>
+                        <p style={{ fontSize: "0.85rem", color: "#64748b", marginTop: "0.5rem", lineHeight: 1.5 }}>
+                          Conducted by: {t.trainer}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={() => openDocModal("Placement Brochure 2026", "Placement_Brochure_RGUKT_RKV_2026.pdf")}
+                      style={{
+                        background: "var(--primary-maroon)",
+                        color: "#ffffff",
+                        border: "none",
+                        padding: "0.65rem 1.25rem",
+                        borderRadius: "6px",
+                        fontWeight: 700,
+                        cursor: "pointer",
+                      }}
+                    >
+                      Download CDPC Placement Brochure (PDF)
+                    </button>
+                  </div>
                 </div>
               </div>
 
