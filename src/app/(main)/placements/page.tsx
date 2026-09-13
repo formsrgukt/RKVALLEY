@@ -19,6 +19,17 @@ export default function PlacementsPage() {
     }
   };
 
+  React.useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const hash = window.location.hash.replace("#", "");
+      if (hash) {
+        setTimeout(() => {
+          scrollTo(hash);
+        }, 150);
+      }
+    }
+  }, []);
+
   return (
     <div className="page-view-container">
       <Breadcrumb title="Career Development & Placement Cell (CDPC)" category="Placements" />
@@ -44,11 +55,54 @@ export default function PlacementsPage() {
                 <button
                   type="button"
                   onClick={() => scrollTo("students")}
-                  className={`sidebar-link ${activeSection === "students" ? "active" : ""}`}
-                  style={{ width: "100%", textAlign: "left", background: "none", border: "none", cursor: "pointer" }}
+                  className={`sidebar-link ${activeSection === "students" || activeSection === "campus-placements" || activeSection === "summer-internship" ? "active" : ""}`}
+                  style={{ width: "100%", textAlign: "left", background: "none", border: "none", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center" }}
                 >
-                  Students
+                  <span>Students</span>
+                  <span style={{ fontSize: "0.75rem", opacity: 0.7 }}>▾</span>
                 </button>
+                <ul style={{ listStyle: "none", paddingLeft: "1rem", margin: "0.25rem 0", display: "flex", flexDirection: "column", gap: "0.25rem" }}>
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => scrollTo("campus-placements")}
+                      className={`sidebar-link ${activeSection === "campus-placements" ? "active" : ""}`}
+                      style={{
+                        width: "100%",
+                        textAlign: "left",
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        fontSize: "0.85rem",
+                        padding: "0.35rem 0.6rem",
+                        borderRadius: "4px",
+                        fontWeight: activeSection === "campus-placements" ? 700 : 500,
+                      }}
+                    >
+                      Campus Placements
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => scrollTo("summer-internship")}
+                      className={`sidebar-link ${activeSection === "summer-internship" ? "active" : ""}`}
+                      style={{
+                        width: "100%",
+                        textAlign: "left",
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                        fontSize: "0.85rem",
+                        padding: "0.35rem 0.6rem",
+                        borderRadius: "4px",
+                        fontWeight: activeSection === "summer-internship" ? 700 : 500,
+                      }}
+                    >
+                      Summer Internship
+                    </button>
+                  </li>
+                </ul>
               </li>
               <li>
                 <button
@@ -221,7 +275,7 @@ export default function PlacementsPage() {
             </section>
 
             {/* Section 2: Students */}
-            <section id="students" style={{ scrollMarginTop: "100px", marginBottom: "3rem" }}>
+            <section id="students" style={{ scrollMarginTop: "100px", marginBottom: "3.5rem" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
                 <span
                   style={{
@@ -234,65 +288,130 @@ export default function PlacementsPage() {
                     textTransform: "uppercase",
                   }}
                 >
-                  Skill Architecture
+                  Students
                 </span>
               </div>
-              <h3 style={{ color: "var(--primary-dark)", fontSize: "1.5rem", fontWeight: 800, marginBottom: "0.75rem" }}>
-                Students &amp; Training Roadmap
+              <h3 style={{ color: "var(--primary-dark)", fontSize: "1.65rem", fontWeight: 800, marginBottom: "0.75rem" }}>
+                Students Career Development
               </h3>
-              <p style={{ fontSize: "0.98rem", color: "#475569", lineHeight: 1.6, marginBottom: "1.25rem" }}>
-                CDPC conducts intensive competency development, live hackathons, technical bootcamps, and mock placement interviews to nurture high-impact engineering graduates.
+              <p style={{ fontSize: "0.98rem", color: "#475569", lineHeight: 1.6, marginBottom: "2rem" }}>
+                CDPC at RGUKT RK Valley equips students through structured programs in campus placements and summer internships, bridging academic excellence with industry requirements.
               </p>
 
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-                  gap: "1rem",
-                  marginBottom: "1.75rem",
-                }}
-              >
-                {RGUKT_DATA.placements.trainingModules.map((t, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      background: "#ffffff",
-                      border: "1px solid #e2e8f0",
-                      borderRadius: "8px",
-                      padding: "1.25rem",
-                      boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
-                    }}
-                  >
-                    <h4 style={{ color: "var(--primary-dark)", fontSize: "1rem", fontWeight: 700, marginBottom: "0.35rem" }}>
-                      {t.title}
-                    </h4>
-                    <span style={{ fontSize: "0.78rem", fontWeight: 700, color: "var(--accent-royal)", background: "#eff6ff", padding: "0.2rem 0.5rem", borderRadius: "4px" }}>
-                      {t.duration}
-                    </span>
-                    <p style={{ fontSize: "0.85rem", color: "#64748b", marginTop: "0.5rem", lineHeight: 1.5 }}>
-                      Conducted by: {t.trainer}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              {/* Subsection: Campus Placements */}
+              <div id="campus-placements" style={{ scrollMarginTop: "100px", marginBottom: "2.5rem", background: "#f8fafc", padding: "1.75rem", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+                  <span style={{ background: "#e0f2fe", color: "#0369a1", padding: "0.2rem 0.6rem", borderRadius: "4px", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase" }}>
+                    Placement Activities
+                  </span>
+                </div>
+                <h4 style={{ color: "var(--primary-dark)", fontSize: "1.4rem", fontWeight: 800, marginBottom: "0.5rem" }}>
+                  Campus Placements
+                </h4>
+                <p style={{ fontSize: "0.95rem", color: "#475569", lineHeight: 1.6, marginBottom: "1.25rem" }}>
+                  The CDPC actively coordinates with industry leaders and corporations to conduct on-campus and hybrid placement drives. Students are prepared through a comprehensive training roadmap comprising aptitude, domain-specific engineering, competitive coding, and mock interviews.
+                </p>
 
-              <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={() => openDocModal("Placement Brochure 2026", "Placement_Brochure_RGUKT_RKV_2026.pdf")}
+                <h5 style={{ color: "var(--primary-maroon)", fontSize: "1.05rem", fontWeight: 700, marginBottom: "0.85rem" }}>
+                  Training Roadmap &amp; Competency Modules
+                </h5>
+                <div
                   style={{
-                    background: "var(--primary-maroon)",
-                    color: "#ffffff",
-                    border: "none",
-                    padding: "0.65rem 1.25rem",
-                    borderRadius: "6px",
-                    fontWeight: 700,
-                    cursor: "pointer",
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+                    gap: "1rem",
+                    marginBottom: "1.5rem",
                   }}
                 >
-                  Download CDPC Placement Brochure (PDF)
-                </button>
+                  {RGUKT_DATA.placements.trainingModules.map((t, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        background: "#ffffff",
+                        border: "1px solid #e2e8f0",
+                        borderRadius: "8px",
+                        padding: "1.25rem",
+                        boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
+                      }}
+                    >
+                      <h6 style={{ color: "var(--primary-dark)", fontSize: "0.95rem", fontWeight: 700, marginBottom: "0.35rem" }}>
+                        {t.title}
+                      </h6>
+                      <span style={{ fontSize: "0.78rem", fontWeight: 700, color: "var(--accent-royal)", background: "#eff6ff", padding: "0.2rem 0.5rem", borderRadius: "4px" }}>
+                        {t.duration}
+                      </span>
+                      <p style={{ fontSize: "0.85rem", color: "#64748b", marginTop: "0.5rem", lineHeight: 1.5 }}>
+                        Conducted by: {t.trainer}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => openDocModal("Placement Brochure 2026", "Placement_Brochure_RGUKT_RKV_2026.pdf")}
+                    style={{
+                      background: "var(--primary-maroon)",
+                      color: "#ffffff",
+                      border: "none",
+                      padding: "0.65rem 1.25rem",
+                      borderRadius: "6px",
+                      fontWeight: 700,
+                      cursor: "pointer",
+                    }}
+                  >
+                    Download CDPC Placement Brochure (PDF)
+                  </button>
+                </div>
+              </div>
+
+              {/* Subsection: Summer Internship */}
+              <div id="summer-internship" style={{ scrollMarginTop: "100px", background: "#f8fafc", padding: "1.75rem", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+                  <span style={{ background: "#fef3c7", color: "#92400e", padding: "0.2rem 0.6rem", borderRadius: "4px", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase" }}>
+                    Internship Programs
+                  </span>
+                </div>
+                <h4 style={{ color: "var(--primary-dark)", fontSize: "1.4rem", fontWeight: 800, marginBottom: "0.5rem" }}>
+                  Summer Internship
+                </h4>
+                <p style={{ fontSize: "0.95rem", color: "#475569", lineHeight: 1.6, marginBottom: "1.25rem" }}>
+                  Practical experience is pivotal to technical education. The CDPC facilitates summer internships (8 to 10 weeks) and semester-long internships for pre-final (E3) and final-year (E4) students in premier multinational enterprises, high-growth startups, and national research labs.
+                </p>
+
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+                    gap: "1rem",
+                    marginBottom: "1.5rem",
+                  }}
+                >
+                  <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", padding: "1.15rem", borderRadius: "8px" }}>
+                    <div style={{ fontWeight: 700, color: "var(--primary-dark)", marginBottom: "0.35rem", fontSize: "0.95rem" }}>Industry Internships</div>
+                    <div style={{ fontSize: "0.85rem", color: "#64748b", lineHeight: 1.5 }}>
+                      Work on real-world industrial projects with mentorship from senior corporate engineers and attractive monthly stipends.
+                    </div>
+                  </div>
+                  <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", padding: "1.15rem", borderRadius: "8px" }}>
+                    <div style={{ fontWeight: 700, color: "var(--primary-dark)", marginBottom: "0.35rem", fontSize: "0.95rem" }}>R&amp;D Fellowships</div>
+                    <div style={{ fontSize: "0.85rem", color: "#64748b", lineHeight: 1.5 }}>
+                      Summer research fellowships at premier national institutions including IITs, IISc Bangalore, CSIR labs, and ISRO centres.
+                    </div>
+                  </div>
+                  <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", padding: "1.15rem", borderRadius: "8px" }}>
+                    <div style={{ fontWeight: 700, color: "var(--primary-dark)", marginBottom: "0.35rem", fontSize: "0.95rem" }}>Academic Credits</div>
+                    <div style={{ fontSize: "0.85rem", color: "#64748b", lineHeight: 1.5 }}>
+                      Formal academic credits awarded following internship report evaluation, seminar presentation, and viva voce examination.
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ fontSize: "0.88rem", color: "#475569", lineHeight: 1.6, background: "#ffffff", padding: "1rem", borderRadius: "6px", borderLeft: "4px solid var(--accent-gold)" }}>
+                  <strong>Guidelines for Students:</strong> Interested students must coordinate with their respective departmental CDPC faculty coordinators and submit an official No Objection Certificate (NOC) request prior to commencement of off-campus internships.
+                </div>
               </div>
             </section>
 

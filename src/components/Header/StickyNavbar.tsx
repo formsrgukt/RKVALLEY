@@ -242,6 +242,8 @@ export default function StickyNavbar() {
               <div className="dropdown-menu">
                 <Link href="/students/education" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Education at RGUKT</Link>
                 <Link href="/placements" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Career Development Cell</Link>
+                <Link href="/placements#campus-placements" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Campus Placements</Link>
+                <Link href="/placements#summer-internship" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Summer Internship</Link>
                 <Link href="/students#incubation" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Incubation Cell</Link>
                 <Link href="/students#international-desk" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>International Desk</Link>
                 <Link href="/students/antiragging" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Anti Ragging</Link>

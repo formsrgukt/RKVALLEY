@@ -106,6 +106,8 @@ export default function MobileDrawer() {
               <ul className={`drawer-submenu ${openAccordions["students"] ? "open" : ""}`}>
                 <li><Link href="/students/education" className="drawer-sublink" onClick={closeMobileDrawer}>Education at RGUKT</Link></li>
                 <li><Link href="/placements" className="drawer-sublink" onClick={closeMobileDrawer}>Career Development Cell</Link></li>
+                <li><Link href="/placements#campus-placements" className="drawer-sublink" onClick={closeMobileDrawer}>Campus Placements</Link></li>
+                <li><Link href="/placements#summer-internship" className="drawer-sublink" onClick={closeMobileDrawer}>Summer Internship</Link></li>
                 <li><Link href="/students#incubation" className="drawer-sublink" onClick={closeMobileDrawer}>Incubation Cell</Link></li>
                 <li><Link href="/students#international-desk" className="drawer-sublink" onClick={closeMobileDrawer}>International Desk</Link></li>
                 <li><Link href="/students/antiragging" className="drawer-sublink" onClick={closeMobileDrawer}>Anti Ragging</Link></li>
