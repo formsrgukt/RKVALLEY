@@ -16,7 +16,8 @@ export default async function FacultyProfilePage({ params }: FacultyProfilePageP
   if (!dept) return notFound();
 
   const facultyList = getDepartmentFaculty(dept);
-  const faculty = facultyList.find((f) => f.id === facId);
+  const normalizedFacId = decodeURIComponent(facId).replace(/\s+/g, '-');
+  const faculty = facultyList.find((f) => f.id === facId || f.id === normalizedFacId);
   
   if (!faculty) return notFound();
 
