@@ -414,71 +414,7 @@ export default function PlacementsPage() {
                   The Career Development &amp; Placement Cell (CDPC) at RGUKT RK Valley coordinates comprehensive training and on-campus recruitment drives for graduating engineers. Review the master registration process, company-specific application criteria, and placement selection code of conduct below.
                 </p>
 
-                {/* Quick Anchor Navigation */}
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "0.5rem",
-                    padding: "0.85rem 1rem",
-                    background: "#f8fafc",
-                    borderRadius: "8px",
-                    border: "1px solid #e2e8f0",
-                    marginBottom: "2rem",
-                  }}
-                >
-                  <span style={{ fontSize: "0.85rem", fontWeight: 700, color: "var(--primary-maroon)", alignSelf: "center", marginRight: "0.5rem" }}>
-                    Quick Jump:
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => scrollTo("srp")}
-                    style={{
-                      background: "#ffffff",
-                      border: "1px solid #cbd5e1",
-                      padding: "0.35rem 0.75rem",
-                      borderRadius: "6px",
-                      fontSize: "0.82rem",
-                      fontWeight: 600,
-                      color: "var(--primary-dark)",
-                      cursor: "pointer",
-                    }}
-                  >
-                    1. Master Registration Data
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => scrollTo("rpcp")}
-                    style={{
-                      background: "#ffffff",
-                      border: "1px solid #cbd5e1",
-                      padding: "0.35rem 0.75rem",
-                      borderRadius: "6px",
-                      fontSize: "0.82rem",
-                      fontWeight: 600,
-                      color: "var(--primary-dark)",
-                      cursor: "pointer",
-                    }}
-                  >
-                    2. Company Placement Process
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => scrollTo("psp")}
-                    style={{
-                      background: "#ffffff",
-                      border: "1px solid #cbd5e1",
-                      padding: "0.35rem 0.75rem",
-                      borderRadius: "6px",
-                      fontSize: "0.82rem",
-                      fontWeight: 600,
-                      color: "var(--primary-dark)",
-                      cursor: "pointer",
-                    }}
-                  >
-                    3. Selection Process &amp; Rules
-                  </button>
-                </div>
+
 
                 {/* Part 1: Student Registration For Placements - Master Registration Data */}
                 <div id="srp" style={{ scrollMarginTop: "100px", marginBottom: "2.5rem", borderTop: "2px solid #f1f5f9", paddingTop: "1.5rem" }}>
