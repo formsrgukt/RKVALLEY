@@ -801,49 +801,402 @@ export default function PlacementsPage() {
               </div>
 
               {/* Subsection: Summer Internship */}
-              <div id="summer-internship" style={{ scrollMarginTop: "100px", background: "#f8fafc", padding: "1.75rem", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
-                  <span style={{ background: "#fef3c7", color: "#92400e", padding: "0.2rem 0.6rem", borderRadius: "4px", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase" }}>
-                    Internship Programs
-                  </span>
-                </div>
-                <h4 style={{ color: "var(--primary-dark)", fontSize: "1.4rem", fontWeight: 800, marginBottom: "0.5rem" }}>
-                  Summer Internship
+              <div
+                id="summer-internship"
+                style={{
+                  scrollMarginTop: "100px",
+                  borderTop: "3px solid #e2e8f0",
+                  paddingTop: "2rem",
+                  marginBottom: "3rem",
+                }}
+              >
+                <h4 style={{ color: "var(--primary-dark)", fontSize: "1.45rem", fontWeight: 800, marginBottom: "1.25rem" }}>
+                  Summer Internship Program
                 </h4>
-                <p style={{ fontSize: "0.95rem", color: "#475569", lineHeight: 1.6, marginBottom: "1.25rem" }}>
-                  Practical experience is pivotal to technical education. The CDPC facilitates summer internships (8 to 10 weeks) and semester-long internships for pre-final (E3) and final-year (E4) students in premier multinational enterprises, high-growth startups, and national research labs.
-                </p>
 
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-                    gap: "1rem",
-                    marginBottom: "1.5rem",
-                  }}
-                >
-                  <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", padding: "1.15rem", borderRadius: "8px" }}>
-                    <div style={{ fontWeight: 700, color: "var(--primary-dark)", marginBottom: "0.35rem", fontSize: "0.95rem" }}>Industry Internships</div>
-                    <div style={{ fontSize: "0.85rem", color: "#64748b", lineHeight: 1.5 }}>
-                      Work on real-world industrial projects with mentorship from senior corporate engineers and attractive monthly stipends.
-                    </div>
-                  </div>
-                  <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", padding: "1.15rem", borderRadius: "8px" }}>
-                    <div style={{ fontWeight: 700, color: "var(--primary-dark)", marginBottom: "0.35rem", fontSize: "0.95rem" }}>R&amp;D Fellowships</div>
-                    <div style={{ fontSize: "0.85rem", color: "#64748b", lineHeight: 1.5 }}>
-                      Summer research fellowships at premier national institutions including IITs, IISc Bangalore, CSIR labs, and ISRO centres.
-                    </div>
-                  </div>
-                  <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", padding: "1.15rem", borderRadius: "8px" }}>
-                    <div style={{ fontWeight: 700, color: "var(--primary-dark)", marginBottom: "0.35rem", fontSize: "0.95rem" }}>Academic Credits</div>
-                    <div style={{ fontSize: "0.85rem", color: "#64748b", lineHeight: 1.5 }}>
-                      Formal academic credits awarded following internship report evaluation, seminar presentation, and viva voce examination.
-                    </div>
-                  </div>
+                {/* 1. Student Registration for Summer Internship Programme */}
+                <div style={{ marginBottom: "2rem" }}>
+                  <h5 style={{ color: "var(--primary-dark)", fontSize: "1.15rem", fontWeight: 800, marginBottom: "0.85rem" }}>
+                    Student Registration for Summer Internship Programme
+                  </h5>
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.65rem" }}>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        As per RGUKT, RK Valley curricula, all E3 (third year) students should undergo summer internship for the duration of <strong>08 weeks</strong> immediately after E3 S2 exams.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Campus CDPC will inform students about the actual date of commencement of summer internships well in advance (Usually, in the month of January in every Academic Year).
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <div style={{ flex: 1 }}>
+                        <span>
+                          Campus CDPC will conduct a brief introductory session to all E3 students along with department faculty &amp; HOD in the month of January and will inform students about:
+                        </span>
+                        <ul style={{ listStyle: "none", paddingLeft: "1.25rem", marginTop: "0.5rem", display: "flex", flexDirection: "column", gap: "0.35rem" }}>
+                          <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span>Duration of summer internship</span>
+                          </li>
+                          <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span>Purpose of internship</span>
+                          </li>
+                          <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span>Type of organizations to be considered for summer internships</span>
+                          </li>
+                          <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span>Other relevant information that helps in choosing proper summer internship topic and organization.</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        It is to be noted that mere undergoing a training programme/ course in a particular organization is not considered as summer internship. The summer internship should be problem solving type.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        All E3 students should register for summer internships by either online or hardcopy as informed by campus CDPC at the beginning of the E3 S2 course i.e. in January.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Students are encouraged to apply for the summer internship. Before applying they are advised to take the help of faculty members of the department. They can also consult campus CDPC.
+                      </span>
+                    </li>
+                  </ul>
                 </div>
 
-                <div style={{ fontSize: "0.88rem", color: "#475569", lineHeight: 1.6, background: "#ffffff", padding: "1rem", borderRadius: "6px", borderLeft: "4px solid var(--accent-gold)" }}>
-                  <strong>Guidelines for Students:</strong> Interested students must coordinate with their respective departmental CDPC faculty coordinators and submit an official No Objection Certificate (NOC) request prior to commencement of off-campus internships.
+                {/* 2. Guidelines for Selection of Summer Internship Programme */}
+                <div style={{ borderTop: "2px solid #f1f5f9", paddingTop: "1.5rem", marginBottom: "2rem" }}>
+                  <h5 style={{ color: "var(--primary-dark)", fontSize: "1.15rem", fontWeight: 800, marginBottom: "0.85rem" }}>
+                    Guidelines for Selection of Summer Internship Programme
+                  </h5>
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.65rem" }}>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Students should opt for a summer internship that would provide them to gain ample field knowledge in the relevant field of engineering such that theoretical knowledge gained the class can be applied to solve the practical/ field problem i.e. it should be problem solving summer internship.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Undergoing a training programme / Course at a particular organization for specified duration is <strong>NOT</strong> considered as summer internship. If any student undergoes such trainings during summer internships, those would be rejected. In such cases students have to repeat the internship for the specified duration as inform by the concern HOD.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        However student can learn new tools for short duration that would help for solving the problem undertaken in the summer internship.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Students should take a challenging task, may be small portion, and apply the knowledge gained to solve it.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Summer internship can also involve data collection from different sources including generating experimental data, collection of data from field etc. Later on and analyzing the data to arrive at proper and meaningful conclusions.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Summer internship should be aimed at solving some of the problems of the society/ local region that should have practical applications and benefit the society.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Students should devote full <strong>08 weeks</strong> for summer internship. If any student undergoes internship duration is less than 08 weeks, such interns will not be considered.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Different central and state government organizations, CSIR labs, premier institutions like IITs and IIMs, DRDO, public sector undertaking organizations, top IT companies can be considered for summer internships.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Students of RGUKT are not permitted to undertake internships in RGUKT campuses. In house (RGUKT campuses) internships are not permitted.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        While selecting such a topic, students are advised to consult faculty members of RGUKT.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* 3. Involvement of Dept in the Summer Internship Programme */}
+                <div style={{ borderTop: "2px solid #f1f5f9", paddingTop: "1.5rem", marginBottom: "2rem" }}>
+                  <h5 style={{ color: "var(--primary-dark)", fontSize: "1.15rem", fontWeight: 800, marginBottom: "0.85rem" }}>
+                    Involvement of Dept in the Summer Internship Programme
+                  </h5>
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.65rem" }}>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Head of the department will allocate faculty members as advisors for all E3 students at the beginning of E3 S2 semester (January) for advising the students in selecting proper summer internship. List of students and concern faculty advisor for summer internship will be sent to campus CDPC at the end of January.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Campus CDPC and head of the department willfinalize the internship organizations to each of the registered students.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Faculty members will visit some of the organizations where students are undergoing summer internship and meet students and supervisors and discuss about the internship topic and help the students.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        HOD will constitute Summer internship evaluation boards consisting of department faculty members that includes one faculty from other department. The evaluation board will involve in the evaluation process. Board can take decision to reject the student summer internship if it doesn&apos;t meet the requirements of summer internships. Such students have to repeat the summer internship.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        HOD will send the student summer internship details in tabular form (CDPC/ Annexure -II) to campus CDPC as soon as the evaluation process is completed.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        List of students who should repeat the summer internships will be informed to exam cell as well as to campus CDPC.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* 4. Arrangement of Summer Internships by CDPC */}
+                <div style={{ borderTop: "2px solid #f1f5f9", paddingTop: "1.5rem", marginBottom: "2rem" }}>
+                  <h5 style={{ color: "var(--primary-dark)", fontSize: "1.15rem", fontWeight: 800, marginBottom: "0.85rem" }}>
+                    Arrangement of Summer Internships by CDPC
+                  </h5>
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.65rem" }}>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Based on the student registration for summer internship and requirement, campus CDPC would approach different organizations for summer internship and inform the students for registration.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        A student who opts for summer internship through campus CDPC should take up the internship and report to assigned organization on the specified date.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* 5. Reporting Procedure for Summer Internship Programme */}
+                <div style={{ borderTop: "2px solid #f1f5f9", paddingTop: "1.5rem", marginBottom: "2rem" }}>
+                  <h5 style={{ color: "var(--primary-dark)", fontSize: "1.15rem", fontWeight: 800, marginBottom: "0.85rem" }}>
+                    Reporting Procedure for Summer Internship Programme
+                  </h5>
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.65rem" }}>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Based on the student registration for summer internship and requirement, campus CDPC would approach different organizations for summer internship and inform the students for registration.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        A student who opts for summer internship through campus CDPC should take up the internship and report to assigned organization on the specified date.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Students should submit the details such as name, ID No, branch, email ID, mobile no, organization where he/she would undergo training, date of commencement of summer internship and date of completion, name of the supervisor (if already assigned) and contact details to campus CDPC before leaving the campus after E3 S2 exams.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Students, who got internships through either CDPC or other sources, should report to the respective organization on the date given to them. No late reporting is permitted.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <div style={{ flex: 1 }}>
+                        <span>While reporting to the organization, student should carry:</span>
+                        <ul style={{ listStyle: "none", paddingLeft: "1.25rem", marginTop: "0.5rem", display: "flex", flexDirection: "column", gap: "0.35rem" }}>
+                          <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span>College Identity card</span>
+                          </li>
+                          <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span>Internship allotment letter (if available)</span>
+                          </li>
+                          <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span>Any other documents as informed by the organization.</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* 6. After Reporting to Organization for Summer Internship */}
+                <div style={{ borderTop: "2px solid #f1f5f9", paddingTop: "1.5rem", marginBottom: "2rem" }}>
+                  <h5 style={{ color: "var(--primary-dark)", fontSize: "1.15rem", fontWeight: 800, marginBottom: "0.85rem" }}>
+                    After Reporting to Organization for Summer Internship
+                  </h5>
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.65rem" }}>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        As soon student reports to the organization, every individual should get a supervisor/Guide/advisor for guiding the summer internship.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Each student should register for summer internship reporting details through online at the link provided by the CDPC (Name, ID No, branch, mobile no, email ID, place of internship, location, date of reporting to internship, title of the internship, supervisor name, contact number etc).
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        After certain period i.e. 08 weeks before college reopens for E4 S1, the link will be deactivated. Late registration is <strong>NOT PERMITTED</strong>.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        If any student fails to register within the date mentioned, he/she will not be considered for evaluation of internship.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        In case of any problem while registering through online link/ accessing the link / any other problem, you should contact campus CDPC through email ({" "}
+                        <a href="mailto:cdpcsupport@rguktrkv.ac.in" style={{ color: "#0052a9", fontWeight: 700, textDecoration: "underline" }}>
+                          cdpcsupport@rguktrkv.ac.in
+                        </a>{" "}
+                        ).
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* 7. During Summer Internship Programme */}
+                <div style={{ borderTop: "2px solid #f1f5f9", paddingTop: "1.5rem" }}>
+                  <h5 style={{ color: "var(--primary-dark)", fontSize: "1.15rem", fontWeight: 800, marginBottom: "0.85rem" }}>
+                    During Summer Internship Programme
+                  </h5>
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.65rem" }}>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <div style={{ flex: 1 }}>
+                        <span>During 08 week of summer internship, students are expected to undergo the following:</span>
+                        <ul style={{ listStyle: "none", paddingLeft: "1.25rem", marginTop: "0.5rem", display: "flex", flexDirection: "column", gap: "0.35rem" }}>
+                          <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span>Brief training / some introduction/ training of software etc related to the topic that is assigned.</span>
+                          </li>
+                          <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span>Problem solving (request for a problem from supervisor and solve it, else student should choose a proper problem with the help of faculty / others and solve it).</span>
+                          </li>
+                          <li style={{ display: "flex", gap: "0.5rem", fontSize: "0.9rem", color: "#475569", lineHeight: 1.5 }}>
+                            <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>–</span>
+                            <span>Prepare a report (as per B Tech project thesis) on the work done at the last part of summer internship. Report should contain: (i) introduction to the problem, (ii) objectives of the work, (iii) literature, (iv) data, (v) analysis and (vi) discussions and conclusions.</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        At the last part of summer internship, student should approach supervisor/ guide and request him/her to correct summer internship report.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Student should fill up the details PART- A of the Evaluation sheet (CDPC/ Annexure III) of the summer internship and hand it over the form to supervisor /guide and request him/her to fill up Part-B of the sheet.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Supervisor should be requested to post the evaluation report to respective branch coordinator of the campus. Student should provide the address of your branch coordinator (Part-C of CDPC/Annexure III).
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Students should not carry the sheet of evaluation; it should be posted to HOD/branch coordinator.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Students should report to campus on the day of reopening along with summer internship report and submit a supervisor&apos;s signed copy of the report to the branch coordinator.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Student should maintain at most discipline during entire summer internship duration and they should be punctual to the work.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        While working in the workshop/laboratories, students should not operate any instrument without supervisor&apos;s permission.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Students should take care of their health and safety. They should move in group not as individual. Use of caps during sunlight, drinking of adequate portable water, eating of seasonal fruits and proper food are some of the points to be kept in mind.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        Students should not leave the organization without supervisor&apos;s permission. The whereabouts of individual students should be known to the supervisor/guide.
+                      </span>
+                    </li>
+                    <li style={{ display: "flex", gap: "0.75rem", fontSize: "0.92rem", color: "#334155", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--primary-maroon)", fontWeight: 700, flexShrink: 0 }}>•</span>
+                      <span>
+                        For any problem faced by the students during summer internship duration, they are advised to contact Faculty of RGUKT or campus CDPC.
+                      </span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </section>
