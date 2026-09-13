@@ -674,324 +674,71 @@ export default function EducationAtRGUKTPage() {
 
             {/* 12. Anti Ragging */}
             <section id="antiragging" style={{ scrollMarginTop: "100px", marginBottom: "2.75rem" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
-                <span style={{ background: "rgba(220, 38, 38, 0.1)", color: "#b91c1c", padding: "0.25rem 0.75rem", borderRadius: "999px", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase" }}>
-                  Campus Safety &amp; Discipline
-                </span>
-                <span style={{ background: "#fef2f2", color: "#991b1b", padding: "0.25rem 0.75rem", borderRadius: "999px", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase" }}>
-                  Zero Tolerance
-                </span>
-              </div>
-
-              <h3 style={{ color: "var(--primary-dark)", fontSize: "1.65rem", fontWeight: 800, marginBottom: "0.75rem" }}>
+              <h3 style={{ color: "var(--primary-dark)", fontSize: "1.45rem", fontWeight: 800, marginBottom: "1rem" }}>
                 Anti Ragging
               </h3>
-              <p style={{ fontSize: "0.98rem", color: "#334155", lineHeight: 1.75, marginBottom: "1.5rem" }}>
-                Rajiv Gandhi University of Knowledge Technologies (RGUKT) RK Valley enforces a strict <strong>Zero Tolerance Policy</strong> against ragging and any conduct amounting to harassment within or outside campus premises. In accordance with statutory directives of the Supreme Court of India, UGC regulations, and State prohibitions, round-the-clock vigilance is maintained across hostels, academic blocks, mess halls, and campus grounds.
-              </p>
 
-              {/* UGC Regulation Document Card */}
-              <div
-                style={{
-                  background: "#fff",
-                  border: "1px solid #fed7aa",
-                  borderLeft: "5px solid #ea580c",
-                  borderRadius: "10px",
-                  padding: "1.25rem 1.5rem",
-                  marginBottom: "2rem",
-                  boxShadow: "0 4px 12px rgba(234, 88, 12, 0.06)",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "flex-start", gap: "1rem" }}>
-                  <div
-                    style={{
-                      background: "#fff7ed",
-                      color: "#ea580c",
-                      padding: "0.75rem",
-                      borderRadius: "8px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                      <polyline points="14 2 14 8 20 8"></polyline>
-                      <line x1="16" y1="13" x2="8" y2="13"></line>
-                      <line x1="16" y1="17" x2="8" y2="17"></line>
-                      <polyline points="10 9 9 9 8 9"></polyline>
-                    </svg>
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ fontSize: "0.78rem", fontWeight: 700, textTransform: "uppercase", color: "#c2410c", letterSpacing: "0.05em", marginBottom: "0.25rem" }}>
-                      Statutory Regulatory Framework
-                    </div>
-                    <a
-                      href="https://www.rguktrkv.ac.in/pdfdoc/gazzetaug2010.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="ugc-link"
-                      style={{
-                        fontSize: "1.05rem",
-                        fontWeight: 700,
-                        color: "var(--primary-dark)",
-                        textDecoration: "none",
-                        lineHeight: 1.5,
-                        display: "inline-block",
-                        marginBottom: "0.35rem",
-                      }}
-                    >
-                      UGC Regulation on curbing the menace of Ragging in Higher Educational Institutions ↗
-                    </a>
-                    <p style={{ fontSize: "0.88rem", color: "#64748b", margin: "0 0 0.75rem 0", lineHeight: 1.5 }}>
-                      Official Gazette notification governing prevention, prohibition, and penal actions against ragging in higher educational institutions.
-                    </p>
-                    <a
-                      href="https://www.rguktrkv.ac.in/pdfdoc/gazzetaug2010.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "0.4rem",
-                        background: "#ea580c",
-                        color: "#ffffff",
-                        padding: "0.45rem 1rem",
-                        borderRadius: "6px",
-                        fontSize: "0.85rem",
-                        fontWeight: 600,
-                        textDecoration: "none",
-                        boxShadow: "0 2px 4px rgba(234, 88, 12, 0.2)",
-                      }}
-                    >
-                      Download UGC Gazette Notification (PDF)
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Committees Container */}
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "1.5rem", marginBottom: "2rem" }}>
-                {/* 1. Anti Ragging monitoring committee */}
-                <div
+              <div style={{ marginBottom: "1.5rem" }}>
+                <a
+                  href="https://www.rguktrkv.ac.in/pdfdoc/gazzetaug2010.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
-                    background: "#ffffff",
-                    border: "1px solid #e2e8f0",
-                    borderRadius: "12px",
-                    overflow: "hidden",
-                    boxShadow: "0 4px 16px rgba(0,0,0,0.04)",
-                  }}
-                >
-                  <div style={{ background: "linear-gradient(135deg, #7a0019 0%, #9e1c36 100%)", padding: "1.25rem 1.5rem", color: "#ffffff" }}>
-                    <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", opacity: 0.9, marginBottom: "0.25rem" }}>
-                      Institutional Oversight
-                    </div>
-                    <h4 style={{ margin: 0, fontSize: "1.15rem", fontWeight: 800, color: "#ffffff", lineHeight: 1.4 }}>
-                      Anti Ragging monitoring committee in RGUKT, RK Valley Campus
-                    </h4>
-                  </div>
-
-                  <div style={{ padding: "1.5rem", display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-                    {/* Chairman */}
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: "0.85rem", paddingBottom: "1rem", borderBottom: "1px solid #f1f5f9" }}>
-                      <div style={{ width: "36px", height: "36px", borderRadius: "8px", background: "rgba(122, 0, 25, 0.08)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary-maroon)", flexShrink: 0, marginTop: "0.15rem" }}>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                          <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                      </div>
-                      <div>
-                        <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--primary-maroon)" }}>
-                          Apex Leadership
-                        </div>
-                        <div style={{ fontSize: "1.05rem", fontWeight: 800, color: "var(--primary-dark)" }}>
-                          Chairman
-                        </div>
-                        <div style={{ fontSize: "0.85rem", color: "#64748b", marginTop: "0.2rem", lineHeight: 1.5 }}>
-                          Administrative head ensuring institution-wide statutory adherence, disciplinary enforcement, and overall supervisory command.
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Coordinator */}
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: "0.85rem", paddingBottom: "1rem", borderBottom: "1px solid #f1f5f9" }}>
-                      <div style={{ width: "36px", height: "36px", borderRadius: "8px", background: "rgba(122, 0, 25, 0.08)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary-maroon)", flexShrink: 0, marginTop: "0.15rem" }}>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <circle cx="12" cy="12" r="10"></circle>
-                          <line x1="12" y1="8" x2="12" y2="12"></line>
-                          <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                        </svg>
-                      </div>
-                      <div>
-                        <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--primary-maroon)" }}>
-                          Operational In-Charge
-                        </div>
-                        <div style={{ fontSize: "1.05rem", fontWeight: 800, color: "var(--primary-dark)" }}>
-                          Coordinator
-                        </div>
-                        <div style={{ fontSize: "0.85rem", color: "#64748b", marginTop: "0.2rem", lineHeight: 1.5 }}>
-                          Manages campus squad schedules, coordinates vigilance patrols, acts as the primary contact for inquiries, and handles case escalations.
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Committee Members */}
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: "0.85rem" }}>
-                      <div style={{ width: "36px", height: "36px", borderRadius: "8px", background: "rgba(122, 0, 25, 0.08)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary-maroon)", flexShrink: 0, marginTop: "0.15rem" }}>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                          <circle cx="9" cy="7" r="4"></circle>
-                          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                      </div>
-                      <div>
-                        <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--primary-maroon)" }}>
-                          Vigilance &amp; Representation
-                        </div>
-                        <div style={{ fontSize: "1.05rem", fontWeight: 800, color: "var(--primary-dark)" }}>
-                          Committee Members
-                        </div>
-                        <div style={{ fontSize: "0.85rem", color: "#64748b", marginTop: "0.2rem", lineHeight: 1.5 }}>
-                          Comprising Senior Faculty Members, Dean of Student Welfare (DSW), Chief Wardens (Boys &amp; Girls), Security In-Charges, and Campus Administration.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 2. Anti Women Harassment committee */}
-                <div
-                  style={{
-                    background: "#ffffff",
-                    border: "1px solid #fbcfe8",
-                    borderRadius: "12px",
-                    overflow: "hidden",
-                    boxShadow: "0 4px 16px rgba(219, 39, 119, 0.05)",
-                  }}
-                >
-                  <div style={{ background: "linear-gradient(135deg, #9d174d 0%, #be185d 100%)", padding: "1.25rem 1.5rem", color: "#ffffff" }}>
-                    <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", opacity: 0.9, marginBottom: "0.25rem" }}>
-                      Gender Equity &amp; Safety
-                    </div>
-                    <h4 style={{ margin: 0, fontSize: "1.15rem", fontWeight: 800, color: "#ffffff", lineHeight: 1.4 }}>
-                      Anti Women Harassment committee in RGUKT, RK Valley Campus
-                    </h4>
-                  </div>
-
-                  <div style={{ padding: "1.5rem", display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-                    {/* Chairman */}
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: "0.85rem", paddingBottom: "1rem", borderBottom: "1px solid #fdf2f8" }}>
-                      <div style={{ width: "36px", height: "36px", borderRadius: "8px", background: "#fdf2f8", display: "flex", alignItems: "center", justifyContent: "center", color: "#be185d", flexShrink: 0, marginTop: "0.15rem" }}>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                          <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                      </div>
-                      <div>
-                        <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "#9d174d" }}>
-                          Presiding Authority
-                        </div>
-                        <div style={{ fontSize: "1.05rem", fontWeight: 800, color: "var(--primary-dark)" }}>
-                          Chairman
-                        </div>
-                        <div style={{ fontSize: "0.85rem", color: "#64748b", marginTop: "0.2rem", lineHeight: 1.5 }}>
-                          Leads the Internal Complaints Committee (ICC) ensuring strict compliance with POSH regulations, gender equality, and safe working/learning environment.
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Coordinator */}
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: "0.85rem", paddingBottom: "1rem", borderBottom: "1px solid #fdf2f8" }}>
-                      <div style={{ width: "36px", height: "36px", borderRadius: "8px", background: "#fdf2f8", display: "flex", alignItems: "center", justifyContent: "center", color: "#be185d", flexShrink: 0, marginTop: "0.15rem" }}>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <circle cx="12" cy="12" r="10"></circle>
-                          <path d="M12 16v-4"></path>
-                          <path d="M12 8h.01"></path>
-                        </svg>
-                      </div>
-                      <div>
-                        <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "#9d174d" }}>
-                          Counsel &amp; Redressal
-                        </div>
-                        <div style={{ fontSize: "1.05rem", fontWeight: 800, color: "var(--primary-dark)" }}>
-                          Coordinator
-                        </div>
-                        <div style={{ fontSize: "0.85rem", color: "#64748b", marginTop: "0.2rem", lineHeight: 1.5 }}>
-                          Conducts preliminary inquiries, provides confidential counseling, facilitates awareness sessions, and maintains safe reporting channels.
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Committee Members */}
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: "0.85rem" }}>
-                      <div style={{ width: "36px", height: "36px", borderRadius: "8px", background: "#fdf2f8", display: "flex", alignItems: "center", justifyContent: "center", color: "#be185d", flexShrink: 0, marginTop: "0.15rem" }}>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                          <circle cx="9" cy="7" r="4"></circle>
-                          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                      </div>
-                      <div>
-                        <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "#9d174d" }}>
-                          Multi-Disciplinary Team
-                        </div>
-                        <div style={{ fontSize: "1.05rem", fontWeight: 800, color: "var(--primary-dark)" }}>
-                          Committee Members
-                        </div>
-                        <div style={{ fontSize: "0.85rem", color: "#64748b", marginTop: "0.2rem", lineHeight: 1.5 }}>
-                          Comprising Senior Women Faculty Members, Lady Medical Officers, Girls Hostel Wardens, Student Representatives, and External NGO Legal Advisors.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Emergency Helplines & Direct Reporting Banner */}
-              <div
-                style={{
-                  background: "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)",
-                  border: "1px solid #cbd5e1",
-                  borderRadius: "10px",
-                  padding: "1.25rem 1.5rem",
-                  display: "flex",
-                  flexWrap: "wrap",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  gap: "1rem",
-                }}
-              >
-                <div>
-                  <div style={{ fontSize: "0.8rem", fontWeight: 700, color: "var(--primary-maroon)", textTransform: "uppercase", letterSpacing: "0.04em" }}>
-                    24x7 Emergency Helplines &amp; Immediate Assistance
-                  </div>
-                  <div style={{ fontSize: "0.95rem", color: "#334155", marginTop: "0.2rem" }}>
-                    <strong>National Anti-Ragging Helpline:</strong> 1800-180-5522 (Toll-Free) &nbsp;|&nbsp; <strong>Dean Student Welfare:</strong> +91 85602 87842
-                  </div>
-                </div>
-                <Link
-                  href="/grievance#antiragging"
-                  style={{
-                    background: "var(--primary-maroon)",
-                    color: "#ffffff",
-                    padding: "0.6rem 1.25rem",
-                    borderRadius: "6px",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    color: "var(--primary-maroon)",
                     fontWeight: 700,
-                    fontSize: "0.85rem",
-                    textDecoration: "none",
-                    boxShadow: "0 2px 4px rgba(122, 0, 25, 0.2)",
+                    fontSize: "1rem",
+                    textDecoration: "underline",
+                    lineHeight: 1.5,
                   }}
                 >
-                  Submit Grievance Online →
-                </Link>
+                  UGC Regulation on curbing the menace of Ragging in Higher Educational Institutions
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
+                <div
+                  style={{
+                    background: "#f8fafc",
+                    border: "1px solid #e2e8f0",
+                    borderRadius: "8px",
+                    padding: "1.25rem 1.5rem",
+                  }}
+                >
+                  <h4 style={{ color: "var(--primary-dark)", fontSize: "1.05rem", fontWeight: 800, marginBottom: "0.85rem", lineHeight: 1.4 }}>
+                    Anti Ragging monitoring committee in RGUKT, RK Valley Campus
+                  </h4>
+                  <ul style={{ listStyleType: "disc", paddingLeft: "1.25rem", margin: 0, color: "#334155", fontSize: "0.95rem", lineHeight: 1.8 }}>
+                    <li>Chairman</li>
+                    <li>Coordinator</li>
+                    <li>Committee Members</li>
+                  </ul>
+                </div>
+
+                <div
+                  style={{
+                    background: "#f8fafc",
+                    border: "1px solid #e2e8f0",
+                    borderRadius: "8px",
+                    padding: "1.25rem 1.5rem",
+                  }}
+                >
+                  <h4 style={{ color: "var(--primary-dark)", fontSize: "1.05rem", fontWeight: 800, marginBottom: "0.85rem", lineHeight: 1.4 }}>
+                    Anti Women Harassment committee in RGUKT, RK Valley Campus
+                  </h4>
+                  <ul style={{ listStyleType: "disc", paddingLeft: "1.25rem", margin: 0, color: "#334155", fontSize: "0.95rem", lineHeight: 1.8 }}>
+                    <li>Chairman</li>
+                    <li>Coordinator</li>
+                    <li>Committee Members</li>
+                  </ul>
+                </div>
               </div>
             </section>
           </article>
