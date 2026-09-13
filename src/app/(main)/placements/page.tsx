@@ -145,12 +145,78 @@ export default function PlacementsPage() {
               </div>
 
               <h2 style={{ color: "var(--primary-dark)", fontSize: "2rem", fontWeight: 800, margin: "0.25rem 0 1rem" }}>
-                Career Development &amp; Placement Cell (CDPC)
+                Career Development and Placement Cell (CDPC)
               </h2>
 
-              <p style={{ fontSize: "1.05rem", color: "#334155", lineHeight: 1.7, marginBottom: "1.75rem" }}>
-                {RGUKT_DATA.placements.overview}
+              <p style={{ fontSize: "1.05rem", color: "#334155", lineHeight: 1.75, marginBottom: "1.5rem" }}>
+                Career Development and Placement Cell (CDPC) at RGUKT, R.K.Valley is dedicated to enriching the students of the institute as competent and efficient human resources for the nation. Our students are guided and trained through a constantly updated curriculum, by a highly qualified and dedicated faculty, meeting the fast-changing needs of the industry. The CDPC at RGUKT R.K.Valley regularly understands the needs of the industry and acts as a bridge between the industry and academia.
               </p>
+
+              {/* Major Objectives Card */}
+              <div
+                style={{
+                  background: "#f8fafc",
+                  border: "1px solid #e2e8f0",
+                  borderRadius: "10px",
+                  padding: "1.5rem",
+                  marginBottom: "2rem",
+                }}
+              >
+                <h3 style={{ color: "var(--primary-dark)", fontSize: "1.15rem", fontWeight: 800, marginBottom: "1rem" }}>
+                  The major objectives of the CDPC at RGUKT, R.K.Valley includes
+                </h3>
+                <ul
+                  style={{
+                    listStyleType: "none",
+                    padding: 0,
+                    margin: 0,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.85rem",
+                  }}
+                >
+                  {[
+                    "To maintain an ecosystem where collaboration with industry thrives by continuous and very productive relationships with corporations of all sizes, from Start-Ups to Multi-National Corporations from different sectors of Industry.",
+                    "To expose the students towards different Career Options available after graduation and helping them in identifying their Career Objectives.",
+                    "To provide an efficient environment for the students in enhancing their skills and their preparation strategies towards fulfilling their Career Objectives.",
+                    "Enabling the students to meet the industry expectation based on the expected objectives by organizing various programmes to improve soft skills, professional communication, and personality.",
+                    "To provide employment opportunities for the students by approaching the organizations for the Campus Placements at the Institute.",
+                    "To assist the departments in organizing Industry Oriented Workshops, Leadership Talks, Lectures, Curriculum Oriented Career Prospects.",
+                  ].map((objective, idx) => (
+                    <li
+                      key={idx}
+                      style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "0.75rem",
+                        color: "#334155",
+                        fontSize: "0.95rem",
+                        lineHeight: 1.6,
+                      }}
+                    >
+                      <span
+                        style={{
+                          width: "20px",
+                          height: "20px",
+                          borderRadius: "50%",
+                          background: "rgba(122, 0, 25, 0.1)",
+                          color: "var(--primary-maroon)",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          flexShrink: 0,
+                          fontSize: "0.75rem",
+                          fontWeight: 700,
+                          marginTop: "0.15rem",
+                        }}
+                      >
+                        ✓
+                      </span>
+                      <span>{objective}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
               {/* Statistics Grid */}
               <div
