@@ -74,6 +74,194 @@ export default function ContactPage() {
               </div>
             </div>
 
+            {/* Contacts of Career Development and Placement Cell Office */}
+            <div style={{ marginTop: "2.5rem", marginBottom: "2.5rem" }}>
+              <div style={{ borderBottom: "2px solid #e2e8f0", paddingBottom: "0.6rem", marginBottom: "1.5rem" }}>
+                <h3 style={{ color: "var(--primary-maroon)", fontSize: "1.35rem", fontWeight: 800, marginBottom: "0.3rem" }}>
+                  Contacts of Career Development and Placement Cell Office
+                </h3>
+                <p style={{ fontSize: "0.9rem", color: "#64748b", margin: 0 }}>
+                  Career Development &amp; Placement Cell (CDPC), MME Department Building, RGUKT RK Valley
+                </p>
+              </div>
+
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+                  gap: "1.5rem",
+                }}
+              >
+                {/* 1. Mr. Satyanandaram N */}
+                <div
+                  style={{
+                    background: "#ffffff",
+                    border: "1px solid #e2e8f0",
+                    borderRadius: "8px",
+                    padding: "1.5rem",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "1.25rem", marginBottom: "1.25rem" }}>
+                      <img
+                        src="/images/placementcoordinators/2082209.jpg"
+                        alt="Mr. Satyanandaram N"
+                        style={{
+                          width: "75px",
+                          height: "90px",
+                          objectFit: "cover",
+                          borderRadius: "6px",
+                          border: "1px solid #cbd5e1",
+                          boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+                          flexShrink: 0,
+                        }}
+                      />
+                      <div>
+                        <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--primary-maroon)", marginBottom: "0.25rem" }}>
+                          Faculty Coordinator
+                        </div>
+                        <h4 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--primary-dark)", margin: 0 }}>
+                          Mr. Satyanandaram N
+                        </h4>
+                      </div>
+                    </div>
+
+                    <ul style={{ listStyle: "none", padding: 0, margin: 0, fontSize: "0.92rem", color: "#334155" }}>
+                      <li style={{ marginBottom: "0.45rem" }}>
+                        <strong>Role:</strong> Faculty Coordinator, Career Development and Placement Cell (CDPC)
+                      </li>
+                      <li style={{ marginBottom: "0.45rem", color: "#475569" }}>
+                        <strong>Designation:</strong> Lecturer, Dept. of Computer Science and &amp; Engineering
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div style={{ marginTop: "1.25rem", paddingTop: "0.85rem", borderTop: "1px solid #f1f5f9", fontSize: "0.92rem" }}>
+                    <strong style={{ color: "#334155" }}>Email:</strong>{" "}
+                    <a href="mailto:cpi@rguktrkv.ac.in" style={{ color: "var(--accent-royal)", fontWeight: 700, textDecoration: "none" }}>
+                      cpi@rguktrkv.ac.in
+                    </a>
+                  </div>
+                </div>
+
+                {/* 2. Mr. G S Sundar */}
+                <div
+                  style={{
+                    background: "#ffffff",
+                    border: "1px solid #e2e8f0",
+                    borderRadius: "8px",
+                    padding: "1.5rem",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "1.25rem", marginBottom: "1.25rem" }}>
+                      <img
+                        src="/images/placementcoordinators/2137601.jpg"
+                        alt="Mr. G S Sundar"
+                        style={{
+                          width: "75px",
+                          height: "90px",
+                          objectFit: "cover",
+                          borderRadius: "6px",
+                          border: "1px solid #cbd5e1",
+                          boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+                          flexShrink: 0,
+                        }}
+                      />
+                      <div>
+                        <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--primary-maroon)", marginBottom: "0.25rem" }}>
+                          Placement Officer
+                        </div>
+                        <h4 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--primary-dark)", margin: 0 }}>
+                          Mr. G S Sundar
+                        </h4>
+                      </div>
+                    </div>
+
+                    <ul style={{ listStyle: "none", padding: 0, margin: 0, fontSize: "0.92rem", color: "#334155" }}>
+                      <li style={{ marginBottom: "0.45rem" }}>
+                        <strong>Role:</strong> Placement Officer
+                      </li>
+                      <li style={{ marginBottom: "0.45rem", color: "#475569" }}>
+                        <strong>Cell:</strong> Career Development &amp; Placement Cell
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div style={{ marginTop: "1.25rem", paddingTop: "0.85rem", borderTop: "1px solid #f1f5f9", fontSize: "0.92rem" }}>
+                    <strong style={{ color: "#334155" }}>Email:</strong>{" "}
+                    <a href="mailto:po@rguktrkv.ac.in" style={{ color: "var(--accent-royal)", fontWeight: 700, textDecoration: "none" }}>
+                      po@rguktrkv.ac.in
+                    </a>
+                  </div>
+                </div>
+
+                {/* 3. Mr. G. Ravibabu */}
+                <div
+                  style={{
+                    background: "#ffffff",
+                    border: "1px solid #e2e8f0",
+                    borderRadius: "8px",
+                    padding: "1.5rem",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "1.25rem", marginBottom: "1.25rem" }}>
+                      <img
+                        src="/images/placementcoordinators/2098012.jpg"
+                        alt="Mr. G. Ravibabu"
+                        style={{
+                          width: "75px",
+                          height: "90px",
+                          objectFit: "cover",
+                          borderRadius: "6px",
+                          border: "1px solid #cbd5e1",
+                          boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+                          flexShrink: 0,
+                        }}
+                      />
+                      <div>
+                        <div style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", color: "var(--primary-maroon)", marginBottom: "0.25rem" }}>
+                          Assistant Coordinator
+                        </div>
+                        <h4 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--primary-dark)", margin: 0 }}>
+                          Mr. G. Ravibabu
+                        </h4>
+                      </div>
+                    </div>
+
+                    <ul style={{ listStyle: "none", padding: 0, margin: 0, fontSize: "0.92rem", color: "#334155" }}>
+                      <li style={{ marginBottom: "0.45rem" }}>
+                        <strong>Role:</strong> Assistant Coordinator
+                      </li>
+                      <li style={{ marginBottom: "0.45rem", color: "#475569" }}>
+                        <strong>Designation:</strong> Mentor in IT
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div style={{ marginTop: "1.25rem", paddingTop: "0.85rem", borderTop: "1px solid #f1f5f9", fontSize: "0.92rem" }}>
+                    <strong style={{ color: "#334155" }}>Email:</strong>{" "}
+                    <a href="mailto:cpc@rguktrkv.ac.in" style={{ color: "var(--accent-royal)", fontWeight: 700, textDecoration: "none" }}>
+                      cpc@rguktrkv.ac.in
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div style={{ marginTop: "2rem", padding: "1.5rem", background: "#f8fafc", border: "1px dashed #cbd5e1", borderRadius: "8px", textAlign: "center" }}>
               <a href="https://www.rguktrkv.ac.in/Institute.php?view=CD" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", padding: "0.75rem 1.5rem", background: "var(--primary-maroon)", color: "#fff", fontWeight: 600, borderRadius: "6px", textDecoration: "none" }}>
                 View Full Communication Directory
