@@ -10,7 +10,7 @@ export default function DocumentModal() {
 
   return (
     <div className="modal-backdrop active" onClick={closeDocModal} role="dialog" aria-modal="true">
-      <div className="modal-window" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-window" style={docModal.customContent ? { maxWidth: "900px", width: "95%" } : {}} onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <span className="modal-title">{docModal.title || "Official Document"}</span>
           <button className="modal-close-btn" onClick={closeDocModal} aria-label="Close Document">✕</button>

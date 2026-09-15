@@ -314,9 +314,56 @@ export const ACADEMIC_REGULATIONS_SECTIONS: AcademicSectionItem[] = [
         url: "/pdfdoc/Academic-Regulations-2019.pdf",
         fileName: "Academic-Regulations-2019.pdf",
         size: "918 KB",
-        subtitle: "Academic Regulations (Applicable for Batches Admitted from AY 2019-20)",
+        subtitle: "Academic Rules & Regulations (With Effect from AY 2019-20)",
         description: [
-          "Approved by the Academic Council for 6-Year Integrated B.Tech programs covering curriculum structure, internal assessment weightages, 75% attendance criteria, grading schemes, and degree eligibility."
+          "Approved by the Academic Council of Rajiv Gandhi University of Knowledge Technologies (RGUKT) - AP, these academic rules and regulations govern the 6-Year Integrated B.Tech Program across all four constituent campuses: Nuzvid, RK Valley, Ongole, and Srikakulam with effect from the Academic Year 2019-20."
+        ],
+        contentBlocks: [
+          {
+            heading: "Program Architecture & Course Structure",
+            text: "The Six-Year Integrated B.Tech program comprises a 2-Year Pre-University Course (PUC) followed by a 4-Year specialized Bachelor of Technology (B.Tech) degree program.",
+            bullets: [
+              "2-Year Pre-University Course (PUC): Rigorous foundation in Mathematics, Physics, Chemistry, English, and Information Technology.",
+              "4-Year B.Tech Program: Specialized technical engineering curricula across Chemical, Civil, Computer Science, Electronics & Communication, Materials Science, and Mechanical Engineering.",
+              "Cooperative learning model with modern multimedia classrooms, continuous assessment, and hands-on laboratory practice."
+            ]
+          },
+          {
+            heading: "Degree Requirements & Credit Distribution",
+            text: "A student shall be eligible for the award of B.Tech degree upon successfully earning the prescribed minimum credits within the stipulated maximum duration.",
+            bullets: [
+              "Total AICTE-aligned credits required for B.Tech degree: 160 credits.",
+              "Provision for earning Honors or Minor degrees by securing additional credits in advanced specialized or interdisciplinary courses.",
+              "Mandatory non-credit courses including Environmental Sciences, Constitution of India, and Essence of Indian Traditional Knowledge."
+            ]
+          },
+          {
+            heading: "Attendance & Continuous Assessment Scheme",
+            text: "RGUKT strictly emphasizes regularity and continuous evaluation across all semesters.",
+            bullets: [
+              "Minimum attendance requirement of 75% in aggregate across all registered theory and practical courses.",
+              "Condonation of attendance up to 10% (between 65% and 75%) on genuine medical grounds subject to approval by the competent authority.",
+              "Assessment: 8 Weekly Tests (best 5 considered for 10 marks) and 3 Mid Examinations (best 2 considered for 30 marks), totaling 40 continuous internal assessment marks and 60 End-Semester examination marks."
+            ]
+          },
+          {
+            heading: "Grading System & Class Award",
+            text: "Academic performance is evaluated using the 10-point letter grading scale:",
+            bullets: [
+              "Grades: Ex (Outstanding - 10), A (Excellent - 9), B (Very Good - 8), C (Good - 7), D (Fair - 6), Rem (Remedial / Backlog - 0).",
+              "First Class with Distinction: Cumulative Grade Point Average (CGPA) ≥ 7.5 without any backlog cleared throughout the program.",
+              "First Class: CGPA ≥ 6.5 and < 7.5 (or CGPA ≥ 7.5 with backlogs cleared).",
+              "Second Class: CGPA ≥ 5.5 and < 6.5."
+            ]
+          },
+          {
+            heading: "Internships & Practical Training",
+            text: "Industry immersion is a mandatory graduation requirement for all undergraduate engineering scholars.",
+            bullets: [
+              "Summer Industrial Internship: Mandatory 6 to 8 weeks internship during summer vacation following the 3rd year (E3).",
+              "Long-Term Semester Internship: Provision for select eligible students to pursue a semester-long capstone internship at recognized industrial firms or R&D institutions in their final year (E4)."
+            ]
+          }
         ]
       }
     ]
@@ -342,38 +389,6 @@ export const ACADEMIC_REGULATIONS_SECTIONS: AcademicSectionItem[] = [
         url: "/pdfdoc/PhDRegulations250323.pdf",
         fileName: "PhDRegulations250323.pdf",
         size: "1.5 MB"
-      }
-    ]
-  },
-  {
-    id: "calendar",
-    label: "Academic Calendar",
-    title: "Academic Calendar",
-    subtitle: "Semester Schedules & Important Dates",
-    contentBlocks: [
-      {
-        heading: "Annual Academic Schedules",
-        text: "Detailed semester chronologies specifying instructional commencement, continuous assessment mid-test schedules, preparation holidays, end-semester examinations, and vacations."
-      }
-    ],
-    documents: [
-      {
-        title: "Academic Calendar 2024-25 (Engineering - I)",
-        url: "/pdfdoc/AC_AY2024-25_E1.pdf",
-        fileName: "AC_AY2024-25_E1.pdf",
-        size: "420 KB"
-      },
-      {
-        title: "Academic Calendar 2024-25 (PUC-II, E2 & E3)",
-        url: "/pdfdoc/AC_AY2024-25_P2_E2_E3.pdf",
-        fileName: "AC_AY2024-25_P2_E2_E3.pdf",
-        size: "450 KB"
-      },
-      {
-        title: "Academic Calendar 2024-25 (Engineering - IV)",
-        url: "/pdfdoc/AC_AY2024-25_E4.pdf",
-        fileName: "AC_AY2024-25_E4.pdf",
-        size: "380 KB"
       }
     ]
   }

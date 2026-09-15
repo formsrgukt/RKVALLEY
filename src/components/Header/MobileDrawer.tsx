@@ -121,7 +121,25 @@ export default function MobileDrawer() {
               <Link href="/placements" className="drawer-link" onClick={closeMobileDrawer}>Placements (CDPC)</Link>
             </li>
             <li className="drawer-item">
-              <Link href="/research" className="drawer-link" onClick={closeMobileDrawer}>Research & Innovation</Link></li>
+              <button onClick={() => toggleAccordion("research")} className="drawer-link" style={{ width: "100%" }}>
+                <span>Research</span>
+                <span>{openAccordions["research"] ? "−" : "+"}</span>
+              </button>
+              <ul className={`drawer-submenu ${openAccordions["research"] ? "open" : ""}`}>
+                <li><Link href="/research/vision" className="drawer-sublink" onClick={closeMobileDrawer}>Vision</Link></li>
+                <li><Link href="/research/research-head" className="drawer-sublink" onClick={closeMobileDrawer}>Research Head</Link></li>
+                <li><Link href="/research/ethics-for-research" className="drawer-sublink" onClick={closeMobileDrawer}>Ethics for Research</Link></li>
+                <li><Link href="/research/thrust-areas" className="drawer-sublink" onClick={closeMobileDrawer}>Thrust Areas</Link></li>
+                <li><Link href="/research/research-guidelines" className="drawer-sublink" onClick={closeMobileDrawer}>Research Guidelines</Link></li>
+                <li><Link href="/research/collaboration-mous" className="drawer-sublink" onClick={closeMobileDrawer}>Collaboration MoU&apos;s</Link></li>
+                <li><Link href="/research/patent" className="drawer-sublink" onClick={closeMobileDrawer}>Patent</Link></li>
+                <li><Link href="/research/research-and-advisory-committee" className="drawer-sublink" onClick={closeMobileDrawer}>Research and Advisory Committee</Link></li>
+                <li><Link href="/research/dr-ysr-memorial-lecture-series" className="drawer-sublink" onClick={closeMobileDrawer}>Dr.YSR Memorial Lecture Series</Link></li>
+                <li><Link href="/research/1st-memorial-lecture" className="drawer-sublink" onClick={closeMobileDrawer}>1st Memorial Lecture</Link></li>
+                <li><Link href="/research/2nd-memorial-lecture" className="drawer-sublink" onClick={closeMobileDrawer}>2nd Memorial Lecture</Link></li>
+                <li><Link href="/research/3rd-memorial-lecture" className="drawer-sublink" onClick={closeMobileDrawer}>3rd Memorial Lecture</Link></li>
+              </ul>
+            </li>
             <li className="drawer-item">
               <Link href="/tenders" className="drawer-link" onClick={closeMobileDrawer}>Tenders & Procurement</Link>
             </li>

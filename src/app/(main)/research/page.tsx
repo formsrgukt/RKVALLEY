@@ -14,14 +14,7 @@ export default function ResearchPage() {
 
       <div className="container">
         <div className="page-content-layout">
-          <aside className="page-sidebar" aria-label="Section Navigation">
-            <h4 className="sidebar-menu-title">Explore Section</h4>
-            <ul className="sidebar-nav-list">
-              <li><Link href="/research" className="sidebar-link active">Thrust Areas & Projects</Link></li>
-              <li><Link href="/departments" className="sidebar-link">Department Labs</Link></li>
-              <li><Link href="/academics" className="sidebar-link">Academic Programs</Link></li>
-            </ul>
-          </aside>
+
 
           <article className="page-main-body">
             <h3>Fostering Indigenous Innovation</h3>

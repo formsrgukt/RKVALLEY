@@ -40,48 +40,67 @@ export default function AcademicCalendarView() {
     openDocModal(
       doc.title,
       doc.pdfName,
-      <div style={{ padding: "1rem 0" }}>
-        <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "1rem 1.25rem", marginBottom: "1.25rem" }}>
-          <h5 style={{ color: "var(--primary-dark)", margin: "0 0 0.5rem 0", fontWeight: 700 }}>
-            {doc.title}
-          </h5>
-          <p style={{ margin: "0 0 0.5rem 0", fontSize: "0.88rem", color: "#475569" }}>
-            {doc.scope || "Official academic schedule approved by RGUKT Academic Council."}
-          </p>
-          <div style={{ fontSize: "0.8rem", color: "#64748b" }}>
-            <strong>File Reference:</strong> <code>{doc.pdfName}</code>
+      <div style={{ padding: "0.5rem 0" }}>
+        <div
+          style={{
+            background: "#f8fafc",
+            border: "1px solid #e2e8f0",
+            borderRadius: "8px",
+            padding: "1rem 1.25rem",
+            marginBottom: "1rem",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: "0.75rem"
+          }}
+        >
+          <div>
+            <h5 style={{ color: "var(--primary-dark)", margin: "0 0 0.35rem 0", fontWeight: 700, fontSize: "1.05rem" }}>
+              {doc.title}
+            </h5>
+            <p style={{ margin: 0, fontSize: "0.85rem", color: "#475569" }}>
+              {doc.scope || "Official academic schedule approved by RGUKT Academic Council."}
+            </p>
           </div>
+
+          <a
+            href={doc.pdfUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn"
+            style={{
+              textDecoration: "none",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.45rem",
+              background: "var(--primary-maroon)",
+              color: "#ffffff",
+              padding: "0.5rem 1rem",
+              borderRadius: "6px",
+              fontSize: "0.85rem",
+              fontWeight: 600,
+              boxShadow: "0 2px 4px rgba(122,0,25,0.15)"
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>View PDF in New Tab</span>
+          </a>
         </div>
 
-        <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", marginTop: "1rem" }}>
-          <a
-            href={doc.pdfUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-            style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.4rem" }}
-          >
-            <span>Download Official PDF</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-          </a>
-          <a
-            href={doc.pdfUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-gold"
-            style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.4rem" }}
-          >
-            <span>Open in New Tab</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              <polyline points="15 3 21 3 21 9" />
-              <line x1="10" y1="14" x2="21" y2="3" />
-            </svg>
-          </a>
+        {/* Respective Content in PDF Format */}
+        <div style={{ width: "100%", height: "550px", borderRadius: "8px", overflow: "hidden", border: "1px solid #cbd5e1", background: "#f1f5f9" }}>
+          <iframe
+            src={`${doc.pdfUrl}#toolbar=1`}
+            title={doc.title}
+            style={{ width: "100%", height: "100%", border: "none" }}
+          />
         </div>
       </div>
     );
@@ -248,40 +267,45 @@ export default function AcademicCalendarView() {
                     </p>
                   </div>
 
-                  <div style={{ paddingTop: "1rem", borderTop: "1px dashed #e2e8f0", display: "flex", gap: "0.6rem", flexWrap: "wrap" }}>
+                  <div style={{ paddingTop: "1rem", borderTop: "1px dashed #e2e8f0", display: "flex", gap: "0.6rem", flexWrap: "wrap", alignItems: "center" }}>
                     <button
                       type="button"
-                      className={btnClass}
-                      style={{ fontSize: "0.8rem", padding: "0.45rem 0.9rem", borderRadius: "6px" }}
                       onClick={() => handleOpenPdf(doc)}
-                    >
-                      View Details
-                    </button>
-                    <a
-                      href={doc.pdfUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="btn"
+                      aria-label={`View PDF for ${doc.title}`}
                       style={{
-                        fontSize: "0.8rem",
-                        padding: "0.45rem 0.9rem",
+                        fontSize: "0.82rem",
+                        padding: "0.45rem 1rem",
                         borderRadius: "6px",
-                        background: "#f1f5f9",
-                        color: "#334155",
-                        border: "1px solid #cbd5e1",
-                        textDecoration: "none",
+                        background: "var(--primary-maroon)",
+                        color: "#ffffff",
+                        border: "none",
+                        cursor: "pointer",
                         display: "inline-flex",
                         alignItems: "center",
-                        gap: "0.35rem"
+                        gap: "0.45rem",
+                        fontWeight: 600,
+                        boxShadow: "0 2px 4px rgba(122, 0, 25, 0.15)",
+                        transition: "all 0.2s ease"
+                      }}
+                      onMouseOver={(e) => {
+                        e.currentTarget.style.background = "#5a0010";
+                        e.currentTarget.style.transform = "translateY(-1px)";
+                      }}
+                      onMouseOut={(e) => {
+                        e.currentTarget.style.background = "var(--primary-maroon)";
+                        e.currentTarget.style.transform = "translateY(0)";
                       }}
                     >
-                      <span>Download PDF</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                        <polyline points="7 10 12 15 17 10" />
-                        <line x1="12" y1="15" x2="12" y2="3" />
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
                       </svg>
-                    </a>
+                      <span>View PDF</span>
+                    </button>
                   </div>
                 </div>
               );
@@ -508,43 +532,38 @@ export default function AcademicCalendarView() {
                             <button
                               type="button"
                               onClick={() => handleOpenPdf(doc)}
+                              aria-label={`View PDF for ${doc.title}`}
                               style={{
-                                padding: "0.35rem 0.75rem",
+                                padding: "0.35rem 0.85rem",
                                 fontSize: "0.78rem",
                                 fontWeight: 600,
                                 borderRadius: "5px",
-                                background: "#eff6ff",
-                                color: "#1e40af",
-                                border: "1px solid #bfdbfe",
-                                cursor: "pointer"
-                              }}
-                            >
-                              Preview
-                            </button>
-                            <a
-                              href={doc.pdfUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              style={{
-                                padding: "0.35rem 0.75rem",
-                                fontSize: "0.78rem",
-                                fontWeight: 600,
-                                borderRadius: "5px",
-                                background: "var(--accent-royal)",
+                                background: "var(--primary-maroon)",
                                 color: "#ffffff",
-                                textDecoration: "none",
+                                border: "none",
+                                cursor: "pointer",
                                 display: "inline-flex",
                                 alignItems: "center",
-                                gap: "0.3rem"
+                                gap: "0.35rem",
+                                boxShadow: "0 1px 3px rgba(122, 0, 25, 0.15)",
+                                transition: "all 0.2s ease"
+                              }}
+                              onMouseOver={(e) => {
+                                e.currentTarget.style.background = "#5a0010";
+                              }}
+                              onMouseOut={(e) => {
+                                e.currentTarget.style.background = "var(--primary-maroon)";
                               }}
                             >
-                              <span>Download PDF</span>
-                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                                <polyline points="7 10 12 15 17 10" />
-                                <line x1="12" y1="15" x2="12" y2="3" />
+                              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
                               </svg>
-                            </a>
+                              <span>View PDF</span>
+                            </button>
                           </div>
                         </div>
                       ))}

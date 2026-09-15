@@ -7,7 +7,7 @@ import { RGUKT_DATA } from "@/data/rguktData";
 import { useApp } from "@/context/AppContext";
 
 export default function AcademicsPage() {
-  const { openDocModal, openGpaModal } = useApp();
+  const { openDocModal } = useApp();
   const [deptFilter, setDeptFilter] = useState<"All" | "Engineering" | "Sciences">("All");
 
   const engineeringDepartments = RGUKT_DATA.departments.filter(
@@ -451,32 +451,6 @@ export default function AcademicsPage() {
             </Link>
           </div>
         </section>
-
-        {/* QUICK ACTIONS & OFFICIAL TOOLS */}
-        <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginTop: "1rem" }}>
-          <button
-            type="button"
-            className="btn btn-gold"
-            onClick={() => openDocModal("Official Academic Regulations & Syllabus", "AcademicRulesRegulations071022.pdf")}
-          >
-            Download Academic Regulations (PDF)
-          </button>
-          <button
-            type="button"
-            className="btn"
-            style={{ background: "#f1f5f9", color: "#003366", border: "1px solid #cbd5e1" }}
-            onClick={openGpaModal}
-          >
-            RGUKT CGPA Calculator Tool
-          </button>
-          <Link
-            href="/academics/academic-programmes"
-            className="btn btn-primary"
-            style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}
-          >
-            <span>Explore Academic Programmes (UG, PG &amp; Summer) →</span>
-          </Link>
-        </div>
       </div>
     </div>
   );

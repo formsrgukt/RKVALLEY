@@ -25,6 +25,7 @@ export interface CouncilMeetingRecord {
   meetingTime: string;
   venue: string;
   intro: string;
+  pdfUrl?: string;
   membersPresent: CouncilMember[];
   virtualMembers?: CouncilMember[];
   agendaItems: CouncilAgendaItem[];
@@ -43,6 +44,7 @@ export const ACADEMIC_COUNCIL_MINUTES_DATA: Record<string, CouncilMeetingRecord>
     meetingDate: "9th January 2018",
     meetingTime: "09:30 AM",
     venue: "Conference Hall, Guest House of IIIT RK Valley, RGUKT-AP, Idupulapaya, YSR Kadapa District, Andhra Pradesh",
+    pdfUrl: "/pdfdoc/AcdConMinRKV1604.pdf",
     intro: "The Academic Council (A.C.) meeting of Rajiv Gandhi University of Knowledge Technologies - AP was conducted at 09:30 AM on 9th January 2018 at the Conference Hall in the Guest House of IIIT RK Valley, RGUKT-AP, Idupulapaya, YSR District.",
     membersPresent: [
       { sno: 1, name: "Prof. D. Raj Reddy", designation: "Chancellor, RGUKT-AP", representation: "Chairman" },
@@ -113,6 +115,7 @@ export const ACADEMIC_COUNCIL_MINUTES_DATA: Record<string, CouncilMeetingRecord>
     meetingDate: "28th May 2019",
     meetingTime: "02:30 PM",
     venue: "Conference Hall, RGUKT-AP Headquarters, V.R. Mansion, Kunchanapalli, Guntur District, Andhra Pradesh",
+    pdfUrl: "/pdfdoc/AcdConMinRGU2805.pdf",
     intro: "The Academic Council meeting of RGUKT-AP was held on 28th May 2019 at 2:30 PM in the conference hall, RGUKT-AP Head quarters, V.R. Mansion, Kunchanapalli, Guntur District, Andhra Pradesh.",
     membersPresent: [
       { sno: 1, name: "Prof. V. Ramachandra Raju", designation: "Chancellor (FAC) and Vice-Chancellor", representation: "Chairman" },
@@ -292,6 +295,7 @@ export const ACADEMIC_COUNCIL_MINUTES_DATA: Record<string, CouncilMeetingRecord>
     meetingDate: "20th September 2020",
     meetingTime: "03:30 PM",
     venue: "Conference Hall, RGUKT R.K. Valley Campus, Idupulapaya, YSR Kadapa District, Andhra Pradesh",
+    pdfUrl: "/pdfdoc/AcdConMinRKV2009.pdf",
     intro: "The First meeting of the reconstituted Academic Council of RGUKT was held at 03:30 PM on 20th September 2020 in the Conference Hall, RGUKT R.K. Valley Campus, Idupulapaya, YSR Kadapa District. Several eminent council members joined virtually via Skype Web Application.",
     membersPresent: [
       { sno: 1, name: "Prof. K.C. Reddy", designation: "Chancellor, RGUKT", representation: "Chairman" },

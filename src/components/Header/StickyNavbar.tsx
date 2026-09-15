@@ -260,8 +260,30 @@ export default function StickyNavbar() {
             </li>
 
             {/* Research */}
-            <li className={`nav-item ${isActive("/research") ? "active" : ""}`}>
-              <Link href="/research" className="nav-link" onClick={() => setPinnedDropdown(null)}>Research</Link>
+            <li 
+              className={`nav-item ${isActive("/research") ? "active" : ""} ${pinnedDropdown === "research" ? "pinned" : ""}`}
+              onMouseEnter={() => setPinnedDropdown(null)}
+            >
+              <Link href="/research" className="nav-link" onClick={(e) => handleDropdownClick(e, "research")}>
+                Research
+                <svg className="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </Link>
+              <div className="dropdown-menu">
+                <Link href="/research/vision" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Vision</Link>
+                <Link href="/research/research-head" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Research Head</Link>
+                <Link href="/research/ethics-for-research" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Ethics for Research</Link>
+                <Link href="/research/thrust-areas" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Thrust Areas</Link>
+                <Link href="/research/research-guidelines" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Research Guidelines</Link>
+                <Link href="/research/collaboration-mous" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Collaboration MoU&apos;s</Link>
+                <Link href="/research/patent" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Patent</Link>
+                <Link href="/research/research-and-advisory-committee" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Research and Advisory Committee</Link>
+                <Link href="/research/dr-ysr-memorial-lecture-series" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>Dr.YSR Memorial Lecture Series</Link>
+                <Link href="/research/1st-memorial-lecture" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>1st Memorial Lecture</Link>
+                <Link href="/research/2nd-memorial-lecture" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>2nd Memorial Lecture</Link>
+                <Link href="/research/3rd-memorial-lecture" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>3rd Memorial Lecture</Link>
+              </div>
             </li>
 
             {/* Tenders & Careers */}

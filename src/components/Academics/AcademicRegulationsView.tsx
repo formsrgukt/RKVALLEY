@@ -51,6 +51,25 @@ export default function AcademicRegulationsView({
 
   const selectedDocument = activeSection.documents?.find((d) => d.title === activeDocTitle);
 
+  const resultRef = useRef<HTMLElement>(null);
+
+  const handleDocClick = (docTitle: string) => {
+    setActiveDocTitle(docTitle);
+    // Smoothly scroll down to the regulation result section below
+    setTimeout(() => {
+      const targetElement = document.getElementById("regulation-details-result");
+      if (targetElement) {
+        const topOffset = 85;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - topOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    }, 50);
+  };
+
   const handleSectionClick = (secId: string) => {
     setActiveSectionId(secId);
     setActiveDocTitle(null);
@@ -102,7 +121,7 @@ export default function AcademicRegulationsView({
               paddingLeft: "0.5rem"
             }}
           >
-            Regulations & Calendars
+            Academic Regulations
           </div>
 
           <nav aria-label="Regulations Navigation" style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
@@ -204,29 +223,47 @@ export default function AcademicRegulationsView({
               {activeSection.documents.map((doc, dIdx) => {
                 const isDocSelected = activeDocTitle === doc.title;
                 return (
-                  <div
-                    key={dIdx}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "0.75rem"
-                    }}
-                  >
+                  <div key={dIdx}>
                     <button
                       type="button"
-                      onClick={() => setActiveDocTitle(isDocSelected ? null : doc.title)}
-                      aria-label={`Toggle ${doc.title}`}
+                      onClick={() => handleDocClick(doc.title)}
+                      aria-label={`Select ${doc.title}`}
                       style={{
-                        background: "none",
-                        border: "none",
-                        padding: 0,
+                        background: isDocSelected ? "rgba(128, 5, 23, 0.06)" : "transparent",
+                        border: isDocSelected ? "1px solid rgba(128, 5, 23, 0.15)" : "1px solid transparent",
+                        padding: "0.45rem 0.75rem",
+                        borderRadius: "6px",
                         cursor: "pointer",
-                        display: "flex",
-                        alignItems: "center"
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "0.75rem",
+                        textAlign: "left",
+                        transition: "all 0.2s ease"
+                      }}
+                      onMouseOver={(e) => {
+                        e.currentTarget.style.background = "rgba(128, 5, 23, 0.08)";
+                        const span = e.currentTarget.querySelector("span");
+                        if (span) {
+                          span.style.color = "#4a000f";
+                          span.style.textDecoration = "underline";
+                        }
+                        const circle = e.currentTarget.querySelector("circle");
+                        if (circle) circle.setAttribute("fill", "#4a000f");
+                      }}
+                      onMouseOut={(e) => {
+                        e.currentTarget.style.background = isDocSelected ? "rgba(128, 5, 23, 0.06)" : "transparent";
+                        const span = e.currentTarget.querySelector("span");
+                        if (span) {
+                          span.style.color = "#800517";
+                          if (!isDocSelected) span.style.textDecoration = "none";
+                        }
+                        const circle = e.currentTarget.querySelector("circle");
+                        if (circle) circle.setAttribute("fill", isDocSelected ? "#4a000f" : "#800517");
                       }}
                     >
+                      {/* Circular Bullet Icon */}
                       <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0 }}>
-                        <circle cx="10" cy="10" r="9" fill={isDocSelected ? "#800517" : "#0077b6"} />
+                        <circle cx="10" cy="10" r="9" fill={isDocSelected ? "#4a000f" : "#800517"} />
                         <path
                           d="M8 6l5 4-5 4"
                           stroke="#ffffff"
@@ -235,34 +272,20 @@ export default function AcademicRegulationsView({
                           strokeLinejoin="round"
                         />
                       </svg>
-                    </button>
 
-                    <button
-                      type="button"
-                      onClick={() => setActiveDocTitle(isDocSelected ? null : doc.title)}
-                      style={{
-                        background: "none",
-                        border: "none",
-                        padding: 0,
-                        textAlign: "left",
-                        cursor: "pointer",
-                        color: isDocSelected ? "#800517" : "#0077b6",
-                        fontSize: "1.05rem",
-                        fontWeight: isDocSelected ? 700 : 500,
-                        lineHeight: 1.45,
-                        transition: "color 0.2s ease",
-                        textDecoration: isDocSelected ? "underline" : "none"
-                      }}
-                      onMouseOver={(e) => {
-                        e.currentTarget.style.color = "#004875";
-                        e.currentTarget.style.textDecoration = "underline";
-                      }}
-                      onMouseOut={(e) => {
-                        e.currentTarget.style.color = isDocSelected ? "#800517" : "#0077b6";
-                        if (!isDocSelected) e.currentTarget.style.textDecoration = "none";
-                      }}
-                    >
-                      {doc.title}
+                      {/* Clean Link Title in Maroon */}
+                      <span
+                        style={{
+                          color: "#800517",
+                          fontSize: "1.05rem",
+                          fontWeight: isDocSelected ? 700 : 500,
+                          lineHeight: 1.45,
+                          transition: "color 0.2s ease",
+                          textDecoration: isDocSelected ? "underline" : "none"
+                        }}
+                      >
+                        {doc.title}
+                      </span>
                     </button>
                   </div>
                 );
@@ -273,13 +296,17 @@ export default function AcademicRegulationsView({
           {/* Selected Document Content Card */}
           {selectedDocument && (
             <article
+              ref={resultRef}
+              id="regulation-details-result"
               style={{
                 background: "#fafbfc",
                 border: "1px solid #e2e8f0",
                 borderRadius: "10px",
-                padding: "2.25rem",
+                padding: "2rem 2.25rem",
                 boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
-                marginBottom: "2.5rem"
+                marginBottom: "2.5rem",
+                scrollMarginTop: "90px",
+                transition: "all 0.3s ease"
               }}
             >
               <div
@@ -294,7 +321,7 @@ export default function AcademicRegulationsView({
                   marginBottom: "1.75rem"
                 }}
               >
-                <div>
+                <div style={{ flex: "1 1 400px" }}>
                   <div
                     style={{
                       fontSize: "0.82rem",
@@ -320,49 +347,56 @@ export default function AcademicRegulationsView({
                   </h3>
                 </div>
 
-                <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", flexWrap: "wrap" }}>
+                {/* Right Corner: View PDF Button */}
+                <div style={{ flexShrink: 0 }}>
                   <a
                     href={selectedDocument.url}
-                    download={selectedDocument.fileName}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn"
+                    aria-label={`View PDF for ${selectedDocument.title}`}
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
-                      gap: "0.45rem",
-                      background: "#800517",
-                      color: "#ffffff",
+                      gap: "0.5rem",
                       padding: "0.6rem 1.25rem",
+                      background: "var(--primary-maroon)",
+                      color: "#ffffff",
                       borderRadius: "6px",
-                      fontWeight: 700,
-                      fontSize: "0.92rem",
-                      textDecoration: "none",
-                      boxShadow: "0 2px 6px rgba(128,5,23,0.25)",
-                      transition: "all 0.2s ease"
-                    }}
-                  >
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.3">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                      <polyline points="7 10 12 15 17 10" />
-                      <line x1="12" y1="15" x2="12" y2="3" />
-                    </svg>
-                    <span>Download PDF {selectedDocument.size ? `(${selectedDocument.size})` : ""}</span>
-                  </a>
-
-                  <button
-                    type="button"
-                    onClick={() => setActiveDocTitle(null)}
-                    style={{
-                      background: "#f1f5f9",
-                      color: "#475569",
-                      border: "1px solid #cbd5e1",
-                      padding: "0.6rem 0.85rem",
-                      borderRadius: "6px",
+                      fontSize: "0.88rem",
                       fontWeight: 600,
-                      fontSize: "0.85rem",
-                      cursor: "pointer"
+                      textDecoration: "none",
+                      boxShadow: "0 2px 4px rgba(122, 0, 25, 0.15)",
+                      transition: "all 0.2s ease",
+                      whiteSpace: "nowrap"
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.background = "#5a0010";
+                      e.currentTarget.style.transform = "translateY(-1px)";
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.background = "var(--primary-maroon)";
+                      e.currentTarget.style.transform = "translateY(0)";
                     }}
                   >
-                    Close Preview ✕
-                  </button>
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <line x1="16" y1="13" x2="8" y2="13"></line>
+                      <line x1="16" y1="17" x2="8" y2="17"></line>
+                      <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    View PDF
+                  </a>
                 </div>
               </div>
 

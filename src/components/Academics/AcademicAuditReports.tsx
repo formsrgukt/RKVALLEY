@@ -95,7 +95,7 @@ export default function AcademicAuditReports({
               background: "none",
               border: "none",
               padding: 0,
-              color: selectedYear === "2020-21" ? "#800517" : "#0077b6",
+              color: "#800517",
               fontSize: "1.1rem",
               fontWeight: selectedYear === "2020-21" ? 700 : 500,
               cursor: "pointer",
@@ -105,11 +105,11 @@ export default function AcademicAuditReports({
               transition: "color 0.2s ease"
             }}
             onMouseOver={(e) => {
-              e.currentTarget.style.color = "#004875";
+              e.currentTarget.style.color = "#4a000f";
               e.currentTarget.style.textDecoration = "underline";
             }}
             onMouseOut={(e) => {
-              e.currentTarget.style.color = selectedYear === "2020-21" ? "#800517" : "#0077b6";
+              e.currentTarget.style.color = "#800517";
               if (selectedYear !== "2020-21") e.currentTarget.style.textDecoration = "none";
             }}
           >
@@ -126,7 +126,7 @@ export default function AcademicAuditReports({
               background: "none",
               border: "none",
               padding: 0,
-              color: selectedYear === "2021-22" ? "#800517" : "#0077b6",
+              color: "#800517",
               fontSize: "1.1rem",
               fontWeight: selectedYear === "2021-22" ? 700 : 500,
               cursor: "pointer",
@@ -136,11 +136,11 @@ export default function AcademicAuditReports({
               transition: "color 0.2s ease"
             }}
             onMouseOver={(e) => {
-              e.currentTarget.style.color = "#004875";
+              e.currentTarget.style.color = "#4a000f";
               e.currentTarget.style.textDecoration = "underline";
             }}
             onMouseOut={(e) => {
-              e.currentTarget.style.color = selectedYear === "2021-22" ? "#800517" : "#0077b6";
+              e.currentTarget.style.color = "#800517";
               if (selectedYear !== "2021-22") e.currentTarget.style.textDecoration = "none";
             }}
           >
@@ -156,38 +156,13 @@ export default function AcademicAuditReports({
           background: "#fafbfc",
           border: "1px solid #e2e8f0",
           borderRadius: "10px",
-          padding: "2.5rem",
-          marginTop: "1.5rem",
+          padding: "2rem 2.25rem",
+          marginTop: "0.5rem",
           width: "100%",
           scrollMarginTop: "90px",
           transition: "all 0.3s ease"
         }}
       >
-        {/* Active Selection Banner */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: "0.5rem",
-            background: "#fdf2f4",
-            border: "1px solid #fecdd3",
-            borderRadius: "6px",
-            padding: "0.55rem 1rem",
-            marginBottom: "1.5rem"
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-            <span style={{ fontSize: "0.95rem" }}>📋</span>
-            <span style={{ fontSize: "0.85rem", color: "#800517", fontWeight: 700 }}>
-              Viewing Results for Academic Audit Report {selectedYear}
-            </span>
-          </div>
-          <span style={{ fontSize: "0.78rem", color: "#64748b" }}>
-            Official External Committee Audit
-          </span>
-        </div>
         {/* Report Header Bar */}
         <div
           style={{
@@ -232,32 +207,43 @@ export default function AcademicAuditReports({
             </h3>
           </div>
 
-          {/* Download original document button */}
+          {/* View original document button */}
           <a
             href={report.pdfUrl}
-            download={report.pdfFileName}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn"
             style={{
               display: "inline-flex",
               alignItems: "center",
-              gap: "0.45rem",
+              gap: "0.5rem",
               padding: "0.6rem 1.25rem",
               background: "var(--primary-maroon)",
               color: "#ffffff",
               borderRadius: "6px",
-              fontSize: "0.85rem",
+              fontSize: "0.88rem",
               fontWeight: 600,
               textDecoration: "none",
               boxShadow: "0 2px 4px rgba(122, 0, 25, 0.15)",
               transition: "all 0.2s ease"
             }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.background = "#5a0010";
+              e.currentTarget.style.transform = "translateY(-1px)";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.background = "var(--primary-maroon)";
+              e.currentTarget.style.transform = "translateY(0)";
+            }}
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
             </svg>
-            Download PDF ({report.pdfSize})
+            View PDF
           </a>
         </div>
 
