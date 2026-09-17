@@ -23,7 +23,10 @@ export async function generateMetadata({
   params: Promise<{ id: string; section: string }>;
 }) {
   const { id, section } = await params;
-  const dept = RGUKT_DATA.departments.find((d) => d.id === id);
+  const targetId = id.toLowerCase();
+  const dept = RGUKT_DATA.departments.find(
+    (d) => d.id.toLowerCase() === targetId || (targetId === "civil" && d.id === "ce")
+  );
   const currentSec = DEPARTMENT_SECTIONS.find((s) => s.id === section);
 
   if (!dept || !currentSec) {
@@ -42,7 +45,10 @@ export default async function DepartmentSectionPage({
   params: Promise<{ id: string; section: string }>;
 }) {
   const { id, section } = await params;
-  const dept = RGUKT_DATA.departments.find((d) => d.id === id);
+  const targetId = id.toLowerCase();
+  const dept = RGUKT_DATA.departments.find(
+    (d) => d.id.toLowerCase() === targetId || (targetId === "civil" && d.id === "ce")
+  );
 
   if (!dept || !VALID_DEPARTMENT_SECTION_IDS.includes(section as any)) {
     notFound();

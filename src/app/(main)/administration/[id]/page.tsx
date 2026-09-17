@@ -23,21 +23,54 @@ export default async function AdministrationSectionPage({ params }: { params: Pr
 
   return (
     <div className="page-view-container">
-      <Breadcrumb title="University Administration & Leadership" category="Administration" />
+      <Breadcrumb title={id === 'dosw' ? "Students' Welfare" : "University Administration & Leadership"} category="Administration" />
 
       <div className="container">
         <div className="page-content-layout">
-          <aside className="page-sidebar" aria-label="Section Navigation">
-            <h4 className="sidebar-menu-title">Central Administration</h4>
-            <ul className="sidebar-nav-list">
-              <li><Link href="/administration/director" className={`sidebar-link ${id === 'director' ? 'active' : ''}`}>Director</Link></li>
-              <li><Link href="/administration/ao" className={`sidebar-link ${id === 'ao' ? 'active' : ''}`}>Administrative Officer</Link></li>
-              <li><Link href="/administration/fo" className={`sidebar-link ${id === 'fo' ? 'active' : ''}`}>Finance Officer</Link></li>
-              <li><Link href="/administration/establishment" className={`sidebar-link ${id === 'establishment' ? 'active' : ''}`}>Establishment Section</Link></li>
-              <li><Link href="/administration/doa" className={`sidebar-link ${id === 'doa' ? 'active' : ''}`}>Dean of Academics</Link></li>
-              <li><Link href="/administration/dosw" className={`sidebar-link ${id === 'dosw' ? 'active' : ''}`}>Dean of Students Welfare</Link></li>
-            </ul>
-          </aside>
+          {id === 'dosw' ? (
+            <aside className="page-sidebar" aria-label="Section Navigation">
+              <h4 className="sidebar-menu-title">Students' Welfare</h4>
+              <ul className="sidebar-nav-list">
+                {[
+                  "About Dean",
+                  "Activities of Students' Welfare",
+                  "Events",
+                  "Departments",
+                  "Contact Details",
+                  "Achievements",
+                  "Initiations of Students' Welfare",
+                  "Grievance Cell"
+                ].map((item, idx) => (
+                  <li key={idx}>
+                    {idx === 0 ? (
+                      <div className="sidebar-link active" style={{ cursor: "pointer" }}>
+                        {item}
+                      </div>
+                    ) : (
+                      <PlaceholderLink
+                        href="#"
+                        title={item}
+                        className="sidebar-link"
+                        style={{ display: "block" }}
+                      />
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          ) : (
+            <aside className="page-sidebar" aria-label="Section Navigation">
+              <h4 className="sidebar-menu-title">Central Administration</h4>
+              <ul className="sidebar-nav-list">
+                <li><Link href="/administration/director" className={`sidebar-link ${id === 'director' ? 'active' : ''}`}>Director</Link></li>
+                <li><Link href="/administration/ao" className={`sidebar-link ${id === 'ao' ? 'active' : ''}`}>Administrative Officer</Link></li>
+                <li><Link href="/administration/fo" className={`sidebar-link ${id === 'fo' ? 'active' : ''}`}>Finance Officer</Link></li>
+                <li><Link href="/administration/establishment" className={`sidebar-link ${id === 'establishment' ? 'active' : ''}`}>Establishment Section</Link></li>
+                <li><Link href="/administration/doa" className={`sidebar-link ${id === 'doa' ? 'active' : ''}`}>Dean of Academics</Link></li>
+                <li><Link href="/administration/dosw" className={`sidebar-link ${id === 'dosw' ? 'active' : ''}`}>Dean of Students Welfare</Link></li>
+              </ul>
+            </aside>
+          )}
 
           <article className="page-main-body">
             {leader && id === 'coe' ? (

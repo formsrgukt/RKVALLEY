@@ -15,7 +15,10 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const dept = RGUKT_DATA.departments.find((d) => d.id === id);
+  const targetId = id.toLowerCase();
+  const dept = RGUKT_DATA.departments.find(
+    (d) => d.id.toLowerCase() === targetId || (targetId === "civil" && d.id === "ce")
+  );
   if (!dept) {
     return { title: "Department Not Found | RGUKT RK Valley" };
   }
@@ -31,7 +34,10 @@ export default async function DepartmentDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const dept = RGUKT_DATA.departments.find((d) => d.id === id);
+  const targetId = id.toLowerCase();
+  const dept = RGUKT_DATA.departments.find(
+    (d) => d.id.toLowerCase() === targetId || (targetId === "civil" && d.id === "ce")
+  );
 
   if (!dept) {
     notFound();

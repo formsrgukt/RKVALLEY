@@ -412,13 +412,147 @@ export const RGUKT_DATA = {
           }
         ]
       }
+    },
+    {
+      id: "doa",
+      title: "Dean of Academics",
+      name: "Mr. Daundkar Ramesh Kailas",
+      qualifications: "Assistant Professor in Civil",
+      designation: "Dean of Academics",
+      image: "/images/Mr_Daundkar_Ramesh_Kailas.jpg",
+      message: "",
+      profile: `<h4 style="color: var(--primary-dark); margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Education</h4>
+<ul style="list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.5rem;">
+  <li style="margin-bottom: 0.5rem;">Masters of Technology in Hydraulic and Water Resources Engineering from IIT Kharagpur (2008-10).</li>
+  <li style="margin-bottom: 0.5rem;">Bachelor of Technology in Agricultural Engineering from K.K.Wagh College of Agricultural Engg, Nasik (2004-08).</li>
+</ul>
+<h4 style="color: var(--primary-dark); margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Teaching Experience</h4>
+<ul style="list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.5rem;">
+  <li style="margin-bottom: 0.5rem;">Working as Assistant Professor in Department of Civil Engineering at IIIT R K Valley, RGUKT from 15th Feb 2016 to till date.</li>
+  <li style="margin-bottom: 0.5rem;">Worked as Assistant Professor in Department of Civil Engineering at Rajiv Gandhi University of Knowledge Technology, IIIT RK valley (16/06/2010 to 14-07-2016).</li>
+  <li style="margin-bottom: 0.5rem;">Successfully taught subjects like Engineering Mechanics, Engineering Drawing, Water Resource Engineering, Hydraulic Engineering, Fluid Mechanics, Surveying &amp; Leveling and Mechanics of Solids.</li>
+</ul>
+<p style="margin-top: 1.5rem;"><a href="/departments/ce/faculty/fac-daundkar-ramesh-kailas" style="color: var(--primary-maroon); font-weight: bold; text-decoration: underline;">Click here for profile ...</a></p>`,
+      extendedProfile: {
+        contact: {
+          phone: "08588-283683",
+          email: "da@rguktrkv.ac.in"
+        },
+        peshi: [
+          {
+            name: "Dr. H.M.S. Mostafa Mazarbhuiya",
+            role: "Associate Dean, Assistant Professor in the dept. of Mechanical Engineering",
+            email: "ada@rguktrkv.ac.in",
+            image: "/images/Dr_HMS_Mostafa_Mazarbhuiya.jpg",
+            profileLink: "/departments/me/faculty/fac-hms-mostafa-mazarbhuiya"
+          },
+          {
+            name: "Mr. K.S. Khaja Hussain",
+            role: "Associate Dean, Assistant Professor in the dept. of EEE",
+            email: "ada@rguktrkv.ac.in"
+          },
+          {
+            name: "Dr. Bukke Eswara Naik",
+            role: "Associate Dean (PUC), Mentor in the dept. of Chemistry",
+            email: "adapuc@rguktrkv.ac.in",
+            image: "/images/Dr_Bukke_Eswara_Naik.jpg",
+            profileLink: "/departments/chem/faculty/fac-bukke-eswara-naik"
+          },
+          {
+            name: "Dr. B Tilak",
+            role: "Associate Dean (PUC), Assistant Professor in the dept. of EEE",
+            email: "adapuc1@rguktrkv.ac.in"
+          }
+        ]
+      }
+    },
+    {
+      id: "dosw",
+      title: "Dean of Students Welfare",
+      name: "Mr. G. Venkatesh",
+      qualifications: "Assistant Professor in Civil Engineering",
+      designation: "Dean of Students Welfare",
+      image: "/images/Mr._G._Venkatesh.jpg",
+      message: "",
+      profile: `<p>The Dean of Students Welfare acts as a guide, mentor, and problem solver for the students. The office primarily handles student accommodation, discipline, cultural activities, and general well-being on campus.</p>
+<h4 style="color: var(--primary-dark); margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Hostel Administration</h4>
+<p style="margin-bottom: 1.5rem;">The Students' Welfare Office manages both Boys and Girls hostels, ensuring a safe, hygienic, and conducive environment for academic pursuits. Wardens and caretakers are appointed for each block to address student needs round the clock.</p>`,
+      extendedProfile: {
+        contact: {
+          phone: "08588-283654",
+          email: "dsw@rguktrkv.ac.in"
+        },
+        address: "The Dean, Students' Welfare, G007, Ground Floor, Academic Block - 1, IIIT-RK Valley, RGUKT-AP, Idupulapaya (Vill), Vempally (Mdl), YSR Kadapa District, Andhra Pradesh -516 330.",
+        peshi: [
+          {
+            name: "Mr. M. Imran",
+            role: "Assistant Coordinator, Mentor in the dept. of IT, Boys Hostels, Warden for Penna Hostel",
+            image: "/images/Mr._M._Imran.jpg"
+          },
+          {
+            name: "Dr. K. Ramu",
+            role: "Warden (North Block), Mentor in Telugu",
+            email: "k.ramu@rguktrkv.ac.in",
+            image: "/images/ramu.jpg"
+          },
+          {
+            name: "Mr. B. Ramesh",
+            role: "Warden (South Block), Mentor in IT, Warden for Papagni Hostel",
+            email: "bramesh@rguktrkv.ac.in",
+            image: "/images/Mr._B._Ramesh.jpg"
+          },
+          {
+            name: "Dr. Balagovind Tiwari",
+            role: "Warden (North Block), Assistant Professor in Physics",
+            email: "balagovindtiwari@rguktrkv.ac.in",
+            image: "/images/2102710.jpg"
+          },
+          {
+            name: "Dr. D. Konappa",
+            role: "Warden (South Block), Assistant Librarian, Warden for Rho & Theta Hostel (OLD Campus)",
+            email: "drkonappa@rguktrkv.ac.in",
+            image: "/images/2137302.jpg"
+          },
+          {
+            name: "Mr. K. Pavan Kumar Reddy",
+            role: "Warden, Mentor in Mathematics, Girls Hostels, Warden for Kundu Hostel, Warden for Chitravati Hostel",
+            email: "kpavankumarreddy@rguktrkv.ac.in",
+            image: "/images/2082405.jpg"
+          },
+          {
+            name: "Mrs. Vimala Persis",
+            role: "Warden",
+            email: "warden@rguktrkv.ac.in"
+          },
+          {
+            name: "Mrs. Sreelakshmi",
+            role: "Music (Vocal) Trainer, Warden for Alpha and Beta Hostel (OLD Campus), Warden for Gama Hostel (OLD Campus)"
+          },
+          {
+            name: "Ms. S. Sreedevi",
+            role: "Warden, Mentor in IT",
+            email: "s.sridevi@rguktrkv.ac.in",
+            image: "/images/2098031.jpg"
+          },
+          {
+            name: "Dr. T. Suvarna",
+            role: "Warden, Mentor in Biology, Warden for Delta Hostel (OLD Campus)",
+            email: "t.suvarna@rguktrkv.ac.in",
+            image: "/images/2091106.jpg"
+          },
+          {
+            name: "Dr. Suda Ankamma",
+            role: "Warden, Assistant Professor"
+          }
+        ]
+      }
     }
   ] as LeadershipMember[],
 
   administration: [
     { role: "Director", name: "Prof. G. Vijaya Prakash", email: "director@rguktrkv.ac.in", phone: "08588-283603" },
     { role: "Administrative Officer (AO)", name: "Sri B. Venkata Rami Reddy", email: "ao@rguktrkv.ac.in", phone: "08560-287839" },
-    { role: "Dean of Academics", name: "Dr. S. Mallikarjuna Rao", email: "dean.academics@rguktrkv.ac.in", phone: "08560-287841" },
+    { role: "Dean of Academics", name: "Mr. Daundkar Ramesh Kailas", email: "da@rguktrkv.ac.in", phone: "08588-283683" },
     { role: "Dean of Student Welfare (DSW)", name: "Dr. V. Rajesh", email: "dsw@rguktrkv.ac.in", phone: "08560-287842" },
     { role: "Dean of Research & Development", name: "Dr. K. Ramanjaneyulu", email: "dean.rnd@rguktrkv.ac.in", phone: "08560-287843" },
     { role: "Finance Officer (i/c)", name: "Dr. G. Ramesh", email: "fo@rguktrkv.ac.in", phone: "08588-283681" },

@@ -116,8 +116,36 @@ export const getDepartmentFaculty = (dept: Department): FacultyProfile[] => {
     ];
   }
 
-  if (dept.id === "civil") {
+  if (dept.id === "civil" || dept.id === "ce") {
     return [
+      {
+        id: "fac-hod",
+        name: dept.hod,
+        designation: "Head of the Department & Associate Professor",
+        qualification: "Ph.D. in " + dept.name,
+        almaMater: "Indian Institute of Technology (IIT) Madras",
+        specialization: dept.highlights[0] || "Structural Design & Infrastructure",
+        email: dept.hodEmail,
+        phone: "+91 8560 287834 (Ext. HOD)",
+        cabin: "Cabin HOD-01, Civil Engineering Block",
+        experience: "16+ Years Academic & Research Experience",
+        publicationsCount: 28,
+        patentsCount: 2,
+        researchAreas: [
+          "Structural Engineering",
+          "Geotechnical Engineering",
+          "Smart Infrastructure"
+        ],
+        coursesTaught: [
+          "Structural Analysis",
+          "Design of Concrete Structures"
+        ],
+        officeHours: "Mon-Fri: 10:00 AM - 5:00 PM",
+        bio: `${dept.hod} serves as Head of the Department of Civil Engineering at RGUKT R.K. Valley.`,
+        gender: "m",
+        isHod: true,
+        image: "/images/vin.jpeg"
+      },
       {
         id: "fac-durga-kishore",
         name: "MR. A V Durga Kishore Reddy",
@@ -150,6 +178,217 @@ export const getDepartmentFaculty = (dept: Department): FacultyProfile[] => {
         workshopsAttended: "NPTEL workshop conducted by IIT Madras (2013)\nTEQIP-II sponsored intensive training programme on \"Structural Analysis\" at SVU, Tirupati (2014)\nRefresher Course in engineering (RCC & Steel) at SVU, Tirupati (2015)\nFaculty Development Programme on \"Formulation, Preparation and writing of project proposal for funding agencies\" (2020)\nAttended webinar on \"Advances in Chemical Admixture Systems for Precast concrete\" by Master Builder Solutions (2020)\nRecent developments in non-destructive testing and evaluating of civil engineering structures at MSRIT (2020)",
         administrativePositions: "Warden (03.02.2023 to till date)",
         committeeMemberships: "Civil Works Advisory Committee Member (20.01.2021 to 20.01.2022)\nCivil Dept NBA Coordinator (09.11.2021 to till date)",
+      },
+      {
+        id: "fac-daundkar-ramesh-kailas",
+        name: "Mr. Daundkar Ramesh Kailas",
+        designation: "Assistant Professor, Head of the Department",
+        qualification: "M.Tech",
+        almaMater: "IIT Kharagpur",
+        specialization: "Hydraulic and Water Resources Engineering",
+        email: "ramesh2016@rguktrkv.ac.in",
+        phone: "08588-283683",
+        cabin: "Civil Engineering Department",
+        experience: "14+ Years",
+        publicationsCount: 0,
+        patentsCount: 0,
+        researchAreas: [
+          "Applied Hydrology",
+          "Water Resource Engineering",
+          "Hydraulics of Sediment Transport",
+          "Irrigation and Drainage Engineering"
+        ],
+        coursesTaught: [
+          "Engineering Mechanics",
+          "Engineering Drawing",
+          "Water Resource Engineering",
+          "Hydraulic Engineering",
+          "Fluid Mechanics",
+          "Surveying & Leveling",
+          "Mechanics of Solids"
+        ],
+        officeHours: "Mon-Fri: 10:00 AM - 5:00 PM",
+        bio: "Assistant Professor and Head of the Department in Civil Engineering at RGUKT R.K. Valley.",
+        gender: "m",
+        isHod: true,
+        image: "/images/Mr_Daundkar_Ramesh_Kailas.jpg",
+        educationDetails: "Masters of Technology in Hydraulic and Water Resources Engineering from IIT Kharagpur (2008-10)\nBachelor of Technology in Agricultural Engineering from K.K.Wagh College of Agricultural Engg, Nasik (2004-08)",
+        teachingExperience: "Working as Assistant Professor in Department of Civil Engineering at IIIT R K Valley, RGUKT from 15th Feb 2016 to till date\nWorked as Assistant Professor in Department of Civil Engineering at Rajiv Gandhi University of Knowledge Technology, IIIT RK valley (16/06/2010 to 14-07-2016).",
+        administrativePositions: "Currently Working as Institute Engineer from September 2016 at IIIT R K Valley for Academic Year 2016-17.\nCurrently working as Branch Coordinator at IIIT RK Valley, RGUKT for Academic Year 2016-17.\nWorked as Academic Coordinator at IIIT RK Valley, RGUKT for Academic Year 2013-14.\nWorked as Branch Coordinator at IIIT RK Valley, RGUKT from July 2012 to June 2013.\nActed as Member of Discipline Committee at RGUKT Rk Valley (2012-13).\nEstablishment and conduction of Surveying lab, Fluid Mechanics lab, Soil Mechanics & Transportation lab.",
+        scholarshipsAwards: "Graduate Aptitude Test for Engineering (GATE 2008): All India Rank: 39 (96.03 percentage)\n2nd Rank in M.tech (Hydraulic and Water Resource Engineering in 2008-2010 batch) at IIT Kharagpur.\nM.H.R.D Scholarship awarded by Government of India for Post Graduation Studies at IIT Kharagpur.",
+        extendedBioHtml: `
+<h4 style="color: var(--primary-dark); margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">M.Tech Project</h4>
+<p style="margin-bottom: 1.5rem;">Study &amp; Numerical Modeling of local Scour Characteristics Under Low Tail Water Condition Below Stilling Basins. The objective of the study was to carry out the experiments on one bay of a typical diversion structure model to study the effect of different gate opening and tail water conditions on downstream scour. The computational fluid dynamics (CFD) software FLUENT was used to find the water surface profile numerically.</p>
+
+<h4 style="color: var(--primary-dark); margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Professional Trainings</h4>
+<ul style="list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.5rem;">
+  <li>Trained in Agricultural Processing work for one month (May 2006) at Central Institute of Agricultural Engineering Government of India, Bhopal, MP, India.</li>
+  <li>Trained in Farm Machinery and Equipment based works for one month (June 2007) at Southern Farm-Machinery Testing Training Institute, Government of India, Anantpur, AP, India.</li>
+</ul>
+
+<h4 style="color: var(--primary-dark); margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Special Subjects &amp; Electives taken during M.Tech</h4>
+<p style="margin-bottom: 1.5rem;">Applied Hydrology, Free Surface Flow /Open Channel Flow, Hydraulic Structures, Hydropower Engineering, Hydraulics of Sediment Transport, River Engineering, Integrated Watershed Management, Advanced Computational Hydraulics, System Approach To Management.</p>
+
+<h4 style="color: var(--primary-dark); margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Subjects studied during B.Tech</h4>
+<p style="margin-bottom: 1.5rem;">Hydrology, Fluid Mechanics, Surveying &amp; Leveling, Mechanics of Solid, Soil Mechanics, Environmental Engineering &amp; Renewable Energy, Irrigation &amp; Drainage Engineering, Engineering Drawing &amp; Graphics, Engineering Mechanics</p>
+`
+      }
+    ];
+  }
+
+  if (dept.id === "chem") {
+    return [
+      {
+        id: "fac-hod",
+        name: dept.hod,
+        designation: "Head of the Department & Associate Professor",
+        qualification: "Ph.D. in " + dept.name,
+        almaMater: "Indian Institute of Technology (IIT) Madras",
+        specialization: dept.highlights[0] || "Advanced Research & Engineering Systems",
+        email: dept.hodEmail,
+        phone: "+91 8560 287834 (Ext. HOD)",
+        cabin: "Cabin HOD-01, Academic Block-I",
+        experience: "16+ Years Academic & Research Experience",
+        publicationsCount: 34,
+        patentsCount: 3,
+        researchAreas: [
+          dept.highlights[0] || "Advanced Systems",
+          "Applied Computational Modeling",
+          "Interdisciplinary Technology Solutions",
+          "Laboratory Instrumentation"
+        ],
+        coursesTaught: [
+          `Advanced ${dept.code} Principles`,
+          "Research Methodologies & Design Thinking",
+          "Capstone Project Guidance"
+        ],
+        officeHours: "Mon, Wed & Fri: 3:00 PM - 5:00 PM",
+        bio: `${dept.hod} has been spearheading the Department of ${dept.name} with an emphasis on research-driven education, industry collaborations, and modern student laboratory learning.`,
+        gender: "f",
+        isHod: true,
+        image: "/images/vin.jpeg"
+      },
+      {
+        id: "fac-bukke-eswara-naik",
+        name: "Dr. Bukke Eswara Naik",
+        designation: "Mentor",
+        qualification: "M.Sc, B.Ed, Ph.D",
+        almaMater: "Rayalaseema University",
+        specialization: "Analytical Chemistry",
+        email: "beswar2009@rguktrkv.ac.in",
+        phone: "08588-283683",
+        cabin: "Chemistry Department",
+        experience: "16+ Years",
+        publicationsCount: 0,
+        patentsCount: 0,
+        researchAreas: [
+          "Spectrophotometric Determination of Drugs",
+          "Analytical Reagents for Drugs",
+          "Pharmaceutical Formulations"
+        ],
+        coursesTaught: [
+          "PUC-1 Chemistry Theory courses",
+          "PUC-2 Chemistry Theory courses",
+          "PUC-1 Chemistry - lab courses",
+          "PUC-2 Chemistry - lab courses"
+        ],
+        officeHours: "Mon-Fri: 10:00 AM - 5:00 PM",
+        bio: "Faculty in Chemistry at RGUKT, R.K. Valley since 2009.",
+        gender: "m",
+        isHod: false,
+        image: "/images/Dr_Bukke_Eswara_Naik.jpg",
+        educationDetails: "Ph.D from Rayalaseema University (Analytical Chemistry), 2020\nM.Phil from V.M.University, Salem\nMaster of Sciences (Chemistry) from Sri Venkateswara University, June, 2004.\nBachelor of Education from Sri Venkateswara University, June, 2007.\nBachelor of Science from Sri Venkateswara University, Oct, 2001.",
+        teachingExperience: "Faculty in Chemistry at RGUKT, R.K. Valley since 2009",
+        researchExperience: "Spectrophotometric Determination of Drugs by using Analytical Reagents for some selected and widely used drugs in pure and pharmaceutical formulations and in human body fluids. From the obtain results of linearity, correlation coefficient, recovery results, LOD, LOQ, molar absorbity, Sandell's sensitivity values and recovery studies.",
+        administrativePositions: "Head of the department Rajiv Gandhi University of Knowledge Technologies-RK Valley, YSR Kadapa, AP from August 2021 to 2022\nAssociate Subject Coordinator Rajiv Gandhi University of Knowledge Technologies-RK Valley, YSR Kadapa, AP during 2016-17\nAssociate Subject Coordinator Rajiv Gandhi University of Knowledge Technologies-RK Valley, YSR Kadapa, AP during 2012-13",
+        extendedBioHtml: `
+<h4 style="color: var(--primary-dark); margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Full Profile</h4>
+<p style="margin-bottom: 1.5rem;"><a href="https://www.rguktrkv.ac.in/pdfdoc/EswarNaik_Profile.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--primary-maroon); font-weight: bold; text-decoration: underline;">Click here for Full Profile (PDF)</a></p>
+`
+      }
+    ];
+  }
+
+  if (dept.id === "me") {
+    return [
+      {
+        id: "fac-hod",
+        name: dept.hod,
+        designation: "Head of the Department & Associate Professor",
+        qualification: "Ph.D. in " + dept.name,
+        almaMater: "Indian Institute of Technology (IIT) Madras",
+        specialization: dept.highlights[0] || "Advanced Research & Engineering Systems",
+        email: dept.hodEmail,
+        phone: "+91 8560 287834 (Ext. HOD)",
+        cabin: "Cabin HOD-01, Academic Block-I",
+        experience: "16+ Years Academic & Research Experience",
+        publicationsCount: 34,
+        patentsCount: 3,
+        researchAreas: [
+          dept.highlights[0] || "Advanced Systems",
+          "Applied Computational Modeling",
+          "Interdisciplinary Technology Solutions",
+          "Laboratory Instrumentation"
+        ],
+        coursesTaught: [
+          `Advanced ${dept.code} Principles`,
+          "Research Methodologies & Design Thinking",
+          "Capstone Project Guidance"
+        ],
+        officeHours: "Mon, Wed & Fri: 3:00 PM - 5:00 PM",
+        bio: `${dept.hod} has been spearheading the Department of ${dept.name} with an emphasis on research-driven education, industry collaborations, and modern student laboratory learning.`,
+        gender: "m",
+        isHod: true,
+        image: "/images/vin.jpeg"
+      },
+      {
+        id: "fac-hms-mostafa-mazarbhuiya",
+        name: "Dr. Hussain Mahamed Sahed Mostafa Mazarbhuiya",
+        designation: "Assistant Professor",
+        qualification: "Ph.D",
+        almaMater: "NIT Silchar",
+        specialization: "CFD & Renewable Energy",
+        email: "mazarbhuiya@rguktrkv.ac.in",
+        phone: "08588-283640",
+        cabin: "Mechanical Engineering Department",
+        experience: "5+ Years",
+        publicationsCount: 7,
+        patentsCount: 0,
+        researchAreas: [
+          "Blade Aerodynamics",
+          "Vertical Axis Wind Turbine",
+          "Renewable Energy",
+          "CFD"
+        ],
+        coursesTaught: [
+          "Renewable Energy Resources",
+          "Management Science & Productivity",
+          "Manufacturing Processes",
+          "Kinematics of Machinery",
+          "Dynamics of Machinery",
+          "Metal Cutting and Machine Tools",
+          "Mechanical Technology"
+        ],
+        officeHours: "Mon-Fri: 10:00 AM - 5:00 PM",
+        bio: "Dr. Hussain Mahamed Sahed Mostafa Mazarbhuiya completed his B. Tech. in Mechanical Engineering from Jawaharlal Nehru Technological University Hyderabad in 2011, M. Tech. in CAD-CAM & Automation from National Institute of Technology Silchar in 2015 and Ph. D. in Mechanical Engineering from National Institute of Technology Silchar in 2020. At present he is working as an Assistant Professor (Contract) in the Mechanical Engineering Department at Rajiv Gandhi University of Knowledge Technologies-A.P., R K Valley Campus. He has published several papers in reputed Journals and presented in numerous conferences. His research area includes computational as well as experimental investigations in the broad domains of vertical axis wind turbines design and development.",
+        gender: "m",
+        isHod: false,
+        image: "/images/Dr_HMS_Mostafa_Mazarbhuiya.jpg",
+        educationDetails: "Ph. D. in Mechanical Engineering: National Institute of Technology Silchar\nM. Tech in CAD-CAM & Automation: National Institute of Technology Silchar\nB. Tech. in Mechanical Engineering: Jawaharlal Nehru Technological University Hyderabad",
+        teachingExperience: "Experience @ RK Valley: 5 years, 2 months, and 5 days (Date of Join: 09-July-2021)",
+        administrativePositions: "Associate Dean of Academics (w.e.f. 30-04-2026)",
+        journalPapers: "[1] Mazarbhuiya HMSM, Biswas A, Sharma KK. Performance investigations of modified asymmetric blade H-Darrieus VAWT rotors. Journal of Renewable and Sustainable Energy 10, 033302 (2018). (SCIE).\n[2] Mazarbhuiya HMSM, Biswas A, Sharma KK. Blade thickness effect on the aerodynamic performance of an asymmetric NACA six series blade vertical axis wind turbine in low wind speed. International Journal of Green Energy, 17:2, 171-179 (2020). (SCIE).\n[3] Mazarbhuiya HMSM, Biswas A, Sharma KK. Low wind speed aerodynamics of asymmetric blade H-Darrieus wind turbine- its desired blade pitch for performance improvement in the built environment. Journal of the Brazilian Society of Mechanical Sciences and Engineering, 42, 326 (2020). (SCIE).\n[4] Mazarbhuiya HMSM, Biswas A, Sharma KK. Effect of blade attachments on the performance of an asymmetric blade H-Darrieus turbine at low wind speed. Energy Sources, Part A: Recovery, Utilization, and Environmental Effects. (SCIE).\n[5] Mazarbhuiya HMSM, Biswas A, Sharma KK. A 2D numerical simulation of blade twist effect on the aerodynamic performance of an asymmetric blade vertical axis wind turbine in low wind speed. EAI Endorsed Transactions on Energy Web, 7:28 (2020). (SCOPUS).\n[6] Mazarbhuiya HMSM, Sengupta AR, Biswas A, Sharma KK. Wind tunnel investigation of blade pitch effect for performance improvement of an asymmetric bladed H-Darrieus VAWT under low wind speed condition. International Journal of Ambient Energy, 45:1, 1-12, (2023). (SCOPUS)\n[7] Maddela SK and Mazarbhuiya HMSM, A thin wall machining for electric vehicles: A Review on Precise, Efficient and Sustainable Approach. Endorsed Transactions on Energy Web, 12(2025). (SCOPUS)",
+        conferencePapers: "[1] Mazarbhuiya HMSM, Biswas A, Sharma KK. Performance Prediction of Asymmetrical Bladed H-Darrieus VAWT Rotors in Low Wind Speed Condition using CFD. AIP Conference Proceedings 1952, 020040 (2018). (SCOPUS).\n[2] Mazarbhuiya HMSM, Biswas A, Sharma KK. Experimental Investigation on the Performance of Varying Thickness H-Darrieus Rotor. IOP Conference Series: Journal of Physics: Conference Series 1172 (2019) 012082. (SCOPUS).\n[3] Mazarbhuiya HMSM and Pandey KM. Steady State Structural Analysis of High Pressure Gas Turbine Blade using Finite Element Analysis. IOP Conference Series: Material Science and Engineering 2017; 225: 012113. (SCOPUS).\n[4] Mazarbhuiya HMSM, Biswas A and Sharma KK. Performance Improvement of Turbine Blade using Flow Control Techniques: A Review. Recent Advances in Mechanical Engineering, 823-828 (2021). (SCOPUS).\n[5] Kumar Y, Sengupta AR, Biswas A, Mazarbhuiya HMSM, Gupta R. CFD Analysis of the Performance of an H-Darrieus Wind Turbine Having Cavity Blades. Recent Advances in Mechanical Engineering, 711-719 (2021). (SCOPUS).",
+        extendedBioHtml: `
+<h4 style="color: var(--primary-dark); margin-top: 1.5rem; margin-bottom: 0.75rem; font-size: 1.15rem; font-weight: 700;">Laboratory Handled</h4>
+<ul style="list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.5rem;">
+  <li>Computer Aided Engineering Lab</li>
+  <li>Metal Cutting and Machine Tools Lab</li>
+  <li>Workshop Practice</li>
+  <li>Computer Aided Machine Drawing Lab</li>
+  <li>Engineering Graphics and Computer Drafting Lab</li>
+</ul>
+`
       }
     ];
   }

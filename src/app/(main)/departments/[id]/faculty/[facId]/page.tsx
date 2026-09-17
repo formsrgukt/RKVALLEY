@@ -12,12 +12,43 @@ interface FacultyProfilePageProps {
 export default async function FacultyProfilePage({ params }: FacultyProfilePageProps) {
   const { id, facId } = await params;
   
-  const dept = RGUKT_DATA.departments.find((d) => d.id === id);
+  const targetId = id.toLowerCase();
+  const dept = RGUKT_DATA.departments.find(
+    (d) => d.id.toLowerCase() === targetId || 
+           (targetId === "civil" && d.id === "ce") || 
+           (targetId === "ce" && d.id === "civil")
+  );
   if (!dept) return notFound();
 
   const facultyList = getDepartmentFaculty(dept);
-  const normalizedFacId = decodeURIComponent(facId).replace(/\s+/g, '-');
-  const faculty = facultyList.find((f) => f.id === facId || f.id === normalizedFacId);
+  const rawId = decodeURIComponent(facId).toLowerCase().trim();
+  const normalizedFacId = rawId.replace(/\s+/g, '-');
+  
+  let faculty = facultyList.find((f) => {
+    const fid = f.id.toLowerCase();
+    return fid === rawId || 
+           fid === normalizedFacId || 
+           fid === facId.toLowerCase() ||
+           fid.replace(/-/g, '') === normalizedFacId.replace(/-/g, '') ||
+           (fid.includes('durga') && (rawId.includes('durga') || rawId.includes('kishore'))) ||
+           (fid.includes('roger') && (rawId.includes('roger') || rawId.includes('binny')));
+  });
+
+  // Ultimate fallback for Durga Kishore Reddy if matched by name or partial id
+  if (!faculty && (rawId.includes('durga') || rawId.includes('kishore'))) {
+    const ceDept = RGUKT_DATA.departments.find((d) => d.id === 'ce' || d.id === 'civil');
+    if (ceDept) {
+      faculty = getDepartmentFaculty(ceDept).find((f) => f.id === 'fac-durga-kishore');
+    }
+  }
+
+  // Ultimate fallback for Roger Binny if matched by name or partial id
+  if (!faculty && (rawId.includes('roger') || rawId.includes('binny'))) {
+    const bioDept = RGUKT_DATA.departments.find((d) => d.id === 'bio');
+    if (bioDept) {
+      faculty = getDepartmentFaculty(bioDept).find((f) => f.id === 'fac-dr-roger-binny');
+    }
+  }
   
   if (!faculty) return notFound();
 
