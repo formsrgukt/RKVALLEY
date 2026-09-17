@@ -29,9 +29,6 @@ export default function PlacementsPage() {
     if (typeof window !== "undefined" && window.location.hash) {
       const hash = window.location.hash.replace("#", "");
       if (hash === "campus-placements" || hash === "summer-internship" || hash === "srp" || hash === "rpcp" || hash === "psp") {
-        setStudentsOpen(true);
-      }
-      if (hash === "campus-placements" || hash === "srp" || hash === "rpcp" || hash === "psp") {
         setCampusPlacementsOpen(true);
       }
       if (hash) {
