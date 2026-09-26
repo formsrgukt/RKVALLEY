@@ -6,7 +6,7 @@ import { useApp } from "@/context/AppContext";
 
 export default function HeroSection() {
   const { openGpaModal } = useApp();
-  const [counts, setCounts] = useState({ students: 0, acres: 0, placement: 0, faculty: 0 });
+  const [counts, setCounts] = useState({ students: 0, acres: 0, placement: 0, faculty: 0, alumni: 0 });
   const [activeSlide, setActiveSlide] = useState(0);
 
   const slides = [
@@ -45,10 +45,11 @@ export default function HeroSection() {
     const timer = setInterval(() => {
       currentStep++;
       setCounts({
-        students: Math.min(6500, Math.floor((6500 / totalSteps) * currentStep)),
+        students: Math.min(6600, Math.floor((6600 / totalSteps) * currentStep)),
         acres: Math.min(330, Math.floor((330 / totalSteps) * currentStep)),
         placement: Math.min(87, Math.floor((87 / totalSteps) * currentStep)),
-        faculty: Math.min(240, Math.floor((240 / totalSteps) * currentStep))
+        faculty: Math.min(240, Math.floor((240 / totalSteps) * currentStep)),
+        alumni: Math.min(22000, Math.floor((22000 / totalSteps) * currentStep))
       });
       if (currentStep >= totalSteps) clearInterval(timer);
     }, 30);
@@ -125,6 +126,10 @@ export default function HeroSection() {
             <div className="stat-item">
               <span className="stat-number">{counts.students.toLocaleString()}+</span>
               <span className="stat-label">Students Enrolled</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">{counts.alumni.toLocaleString()}+</span>
+              <span className="stat-label">Alumni</span>
             </div>
             <div className="stat-item">
               <span className="stat-number">{counts.acres}+</span>
