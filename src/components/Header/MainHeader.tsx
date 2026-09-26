@@ -42,6 +42,12 @@ export default function MainHeader() {
             </p>
           </div>
         </div>
+
+        <div className="header-affiliations" style={{ display: 'flex', alignItems: 'center', gap: '2.5rem', marginLeft: 'auto', marginRight: '3rem' }}>
+          <img src="/images/header/naac.png" alt="NAAC" style={{ height: '70px', objectFit: 'contain' }} />
+          <img src="/images/header/g2.png" alt="G20" style={{ height: '70px', objectFit: 'contain' }} />
+          <img src="/images/header/75.png" alt="75 Years of Independence" style={{ height: '70px', objectFit: 'contain' }} />
+        </div>
       </div>
     </header>
   );

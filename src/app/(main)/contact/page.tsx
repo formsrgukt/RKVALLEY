@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import ImagePopup from "@/components/Common/ImagePopup";
 
 export default function ContactPage() {
   return (
@@ -114,17 +115,18 @@ export default function ContactPage() {
                     alignItems: "flex-start",
                   }}
                 >
-                  <img
+                  <ImagePopup
                     src="/images/placementcoordinators/2082209.jpg"
                     alt="Mr. Satyanandaram N"
-                    style={{
+                    width={400}
+                    containerStyle={{
                       width: "90px",
                       height: "110px",
-                      objectFit: "cover",
                       borderRadius: "8px",
                       border: "1px solid #cbd5e1",
                       boxShadow: "0 2px 5px rgba(0,0,0,0.06)",
                       flexShrink: 0,
+                      overflow: "hidden"
                     }}
                   />
                   <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: "110px" }}>
@@ -168,17 +170,18 @@ export default function ContactPage() {
                     alignItems: "flex-start",
                   }}
                 >
-                  <img
+                  <ImagePopup
                     src="/images/placementcoordinators/2137601.jpg"
                     alt="Mr. G S Sundar"
-                    style={{
+                    width={400}
+                    containerStyle={{
                       width: "90px",
                       height: "110px",
-                      objectFit: "cover",
                       borderRadius: "8px",
                       border: "1px solid #cbd5e1",
                       boxShadow: "0 2px 5px rgba(0,0,0,0.06)",
                       flexShrink: 0,
+                      overflow: "hidden"
                     }}
                   />
                   <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: "110px" }}>
@@ -222,17 +225,18 @@ export default function ContactPage() {
                     alignItems: "flex-start",
                   }}
                 >
-                  <img
+                  <ImagePopup
                     src="/images/placementcoordinators/2098012.jpg"
                     alt="Mr. G. Ravibabu"
-                    style={{
+                    width={400}
+                    containerStyle={{
                       width: "90px",
                       height: "110px",
-                      objectFit: "cover",
                       borderRadius: "8px",
                       border: "1px solid #cbd5e1",
                       boxShadow: "0 2px 5px rgba(0,0,0,0.06)",
                       flexShrink: 0,
+                      overflow: "hidden"
                     }}
                   />
                   <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: "110px" }}>
@@ -331,7 +335,13 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       style={{ color: "var(--primary-maroon)", textDecoration: "none" }}
                     >
-                      Directions to Reach Us &rarr;
+                      <span style={{ display: "inline-flex", alignItems: "center", gap: "0.25rem" }}>
+                        Directions to Reach Us 
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <line x1="5" y1="12" x2="19" y2="12"></line>
+                          <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                      </span>
                     </a>
                   </h4>
 
@@ -371,8 +381,45 @@ export default function ContactPage() {
               </div>
             </div>
 
+            {/* FAQ Section */}
+            <div style={{ marginTop: "3rem", marginBottom: "3rem" }}>
+              <div style={{ borderBottom: "2px solid #e2e8f0", paddingBottom: "0.6rem", marginBottom: "1.5rem" }}>
+                <h3 style={{ color: "var(--primary-maroon)", fontSize: "1.35rem", fontWeight: 800, marginBottom: "0.3rem" }}>
+                  Frequently Asked Questions
+                </h3>
+                <p style={{ fontSize: "0.9rem", color: "#64748b", margin: 0 }}>
+                  Common queries regarding reaching out to the campus
+                </p>
+              </div>
+
+              <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "8px", padding: "1.5rem", boxShadow: "0 2px 8px rgba(0,0,0,0.03)" }}>
+                {[
+                  {
+                    question: "What are the working hours of the administrative office?",
+                    answer: "The administrative office is open from Monday to Saturday, 9:00 AM to 5:00 PM. It remains closed on Sundays and public holidays."
+                  },
+                  {
+                    question: "How can I get directions to the RK Valley Campus?",
+                    answer: "The campus is located in Rajiv Knowledge Valley (Idupulapaya) Village, Vempalli Mandal, Kadapa District. We provide transportation from Kadapa for visitors. You can find detailed directions under the 'Directions to Reach Us' section above."
+                  },
+                  {
+                    question: "Who should I contact for admissions-related queries?",
+                    answer: "For admissions, please reach out to the Admissions Cell through the respective contact numbers provided during the admission cycle, or email the Director's office directly."
+                  },
+                  {
+                    question: "Where can I find the full communication directory of all faculty?",
+                    answer: "You can click on the 'View Full Communication Directory' button at the bottom of this page to access the complete contact list of all staff and faculty."
+                  }
+                ].map((faq, idx) => {
+                  return (
+                    <FAQItem key={idx} question={faq.question} answer={faq.answer} isLast={idx === 3} />
+                  );
+                })}
+              </div>
+            </div>
+
             <div style={{ marginTop: "2rem", padding: "1.5rem", background: "#f8fafc", border: "1px dashed #cbd5e1", borderRadius: "8px", textAlign: "center" }}>
-              <a href="https://www.rguktrkv.ac.in/Institute.php?view=CD" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", padding: "0.75rem 1.5rem", background: "var(--primary-maroon)", color: "#fff", fontWeight: 600, borderRadius: "6px", textDecoration: "none" }}>
+              <a href="https://www.rguktrkv.ac.in/Institute.php?view=CD" target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", padding: "0.75rem 1.5rem", background: "var(--primary-maroon)", color: "#fff", fontWeight: 600, borderRadius: "6px", textDecoration: "none", transition: "background 0.2s" }} onMouseOver={(e) => e.currentTarget.style.background = "var(--primary-dark)"} onMouseOut={(e) => e.currentTarget.style.background = "var(--primary-maroon)"}>
                 View Full Communication Directory
               </a>
             </div>
@@ -382,3 +429,60 @@ export default function ContactPage() {
     </div>
   );
 }
+
+const FAQItem = ({ question, answer, isLast }: { question: string; answer: string; isLast: boolean }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <div style={{ borderBottom: isLast ? "none" : "1px solid #e2e8f0", padding: isLast ? "1rem 0 0" : "1rem 0" }}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          background: "none",
+          border: "none",
+          padding: "0.5rem 0",
+          cursor: "pointer",
+          fontSize: "1.02rem",
+          fontWeight: 600,
+          color: isOpen ? "var(--primary-maroon)" : "var(--primary-dark)",
+          textAlign: "left",
+          transition: "color 0.2s ease"
+        }}
+      >
+        <span>{question}</span>
+        <div style={{ 
+          transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", 
+          transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+          color: isOpen ? "var(--primary-maroon)" : "#94a3b8",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          width: "24px",
+          height: "24px",
+          borderRadius: "50%",
+          background: isOpen ? "rgba(122,0,25,0.05)" : "transparent"
+        }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+      </button>
+      <div
+        style={{
+          maxHeight: isOpen ? "200px" : "0px",
+          overflow: "hidden",
+          transition: "max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease",
+          opacity: isOpen ? 1 : 0,
+        }}
+      >
+        <p style={{ margin: 0, padding: "1rem 0 0.5rem", color: "#475569", fontSize: "0.95rem", lineHeight: 1.6 }}>
+          {answer}
+        </p>
+      </div>
+    </div>
+  );
+};

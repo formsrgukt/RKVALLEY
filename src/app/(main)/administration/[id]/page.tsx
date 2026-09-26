@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import PlaceholderLink from "@/components/Common/PlaceholderLink";
+import ImagePopup from "@/components/Common/ImagePopup";
 import { RGUKT_DATA } from "@/data/rguktData";
 
 export function generateStaticParams() {
@@ -92,8 +93,13 @@ export default async function AdministrationSectionPage({ params }: { params: Pr
                 <div style={{ display: "flex", gap: "1rem", marginBottom: "2rem" }}>
                   {/* COE Card */}
                   <div style={{ display: "flex", gap: "1rem", alignItems: "flex-start", background: "#fff", padding: "1rem", borderRadius: "12px", border: "1px solid #e2e8f0", flex: 1, minWidth: "300px" }}>
-                    <div style={{ width: "120px", height: "140px", borderRadius: "8px", overflow: "hidden", border: "1px solid #e2e8f0", flexShrink: 0 }}>
-                      <img src={leader.image} alt={leader.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    <div style={{ flexShrink: 0 }}>
+                      <ImagePopup 
+                        src={leader.image} 
+                        alt={leader.name}
+                        width={400} 
+                        containerStyle={{ width: "120px", height: "140px", borderRadius: "8px", overflow: "hidden", border: "1px solid #e2e8f0" }} 
+                      />
                     </div>
                     <div style={{ display: "flex", flexDirection: "column" }}>
                       <h4 style={{ color: "var(--primary-dark)", fontSize: "1.1rem", fontWeight: 700, marginBottom: "0.15rem" }}>{leader.name}</h4>
@@ -271,10 +277,12 @@ export default async function AdministrationSectionPage({ params }: { params: Pr
 
                     <div style={{ display: "block" }}>
                       <div style={{ float: "right", marginLeft: "2rem", marginBottom: "1rem", width: "250px", display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
-                        <img
-                          src={leader.image}
-                          alt={leader.name}
-                          style={{ width: "100%", height: "auto", borderRadius: "12px", objectFit: "cover", boxShadow: "0 4px 15px rgba(0,0,0,0.1)", marginBottom: "1rem" }}
+                        <ImagePopup 
+                          src={leader.image} 
+                          alt={leader.name} 
+                          width={450}
+                          containerStyle={{ width: "100%", height: "auto", borderRadius: "12px", boxShadow: "0 4px 15px rgba(0,0,0,0.1)", marginBottom: "1rem" }}
+                          imageStyle={{ borderRadius: "12px" }}
                         />
                         {leader.extendedProfile?.link && leader.extendedProfile.link.endsWith('.pdf') && (
                           <a href={leader.extendedProfile.link} data-pdf-title={`${leader.name} - Profile Document`} target="_blank" rel="noreferrer" style={{ color: "var(--accent-royal)", fontWeight: 700, fontSize: "0.9rem", textDecoration: "none", marginTop: "0.5rem" }}>

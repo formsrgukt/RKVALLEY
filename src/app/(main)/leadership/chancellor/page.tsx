@@ -1,7 +1,11 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 
 export default function ChancellorProfilePage() {
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+
   return (
     <div className="container" style={{ padding: "4rem 1rem", width: "100%", margin: "0 auto", maxWidth: "1200px", minHeight: "80vh" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem", flexWrap: "wrap", gap: "1rem" }}>
@@ -31,8 +35,11 @@ export default function ChancellorProfilePage() {
               borderRadius: "12px", 
               overflow: "hidden",
               boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
-              border: "1px solid #000000"
-            }}>
+              border: "1px solid #000000",
+              cursor: "pointer"
+            }}
+            onClick={() => setIsImageModalOpen(true)}
+            >
               <Image 
                 src="/images/leadership/KMadhuMurthy_ful.jpeg" 
                 alt="Prof. K. Madhu Murthy"
@@ -125,6 +132,70 @@ export default function ChancellorProfilePage() {
           </div>
         </div>
       </div>
+
+      {/* Image Modal Popup */}
+      {isImageModalOpen && (
+        <div 
+          style={{ 
+            position: "fixed", 
+            top: 0, 
+            left: 0, 
+            width: "100vw", 
+            height: "100vh", 
+            backgroundColor: "rgba(0, 0, 0, 0.8)", 
+            display: "flex", 
+            justifyContent: "center", 
+            alignItems: "center", 
+            zIndex: 9999,
+            padding: "2rem"
+          }}
+          onClick={() => setIsImageModalOpen(false)}
+        >
+          <div 
+            style={{ 
+              position: "relative", 
+              maxWidth: "90vw", 
+              maxHeight: "90vh",
+              width: "400px",
+              aspectRatio: "3/4",
+              borderRadius: "8px", 
+              overflow: "hidden",
+              boxShadow: "0 20px 40px rgba(0,0,0,0.4)"
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              onClick={() => setIsImageModalOpen(false)}
+              style={{
+                position: "absolute",
+                top: "10px",
+                right: "10px",
+                background: "var(--primary-maroon)",
+                color: "white",
+                border: "none",
+                borderRadius: "50%",
+                width: "32px",
+                height: "32px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                zIndex: 10,
+                boxShadow: "0 2px 8px rgba(0,0,0,0.2)"
+              }}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <Image 
+              src="/images/leadership/KMadhuMurthy_ful.jpeg" 
+              alt="Prof. K. Madhu Murthy (Full Size)"
+              fill
+              style={{ objectFit: "contain", backgroundColor: "#fff" }}
+              priority
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

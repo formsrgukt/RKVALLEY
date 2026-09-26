@@ -1,8 +1,20 @@
-import React from 'react';
-import Link from 'next/link';
+'use client';
+
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import LandingBackground from '@/components/Common/LandingBackground';
 
 export default function LandingPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.push('/home');
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [router]);
+
   return (
     <div style={{
       display: 'flex',
@@ -28,26 +40,6 @@ export default function LandingPage() {
       <h2 className="animate-fade-in-up delay-500" style={{ color: '#c62828', fontSize: 'clamp(1.2rem, 3.5vw, 3rem)', marginBottom: '3rem', fontWeight: 800, textWrap: 'balance', lineHeight: 1.2 }}>
         RK Valley Campus, Idupulapaya
       </h2>
-      <div className="animate-fade-in-up delay-700">
-        <Link href="/home" className="btn btn-primary" style={{ 
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '0.75rem',
-          padding: '1rem 2.5rem', 
-          fontSize: '1.2rem', 
-          borderRadius: '50px',
-          backgroundColor: '#c62828',
-          borderColor: '#c62828',
-          boxShadow: 'var(--shadow-lg)',
-          transition: 'transform 0.2s, box-shadow 0.2s'
-        }}>
-          Continue
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </Link>
-      </div>
     </div>
   );
 }

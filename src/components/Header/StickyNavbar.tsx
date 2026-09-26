@@ -72,8 +72,23 @@ export default function StickyNavbar() {
               </Link>
             </li>
 
-            <li className={`nav-item ${isActive("/home") || isActive("/") ? "active" : ""}`}>
-              <Link href="/home" className="nav-link" onClick={() => setPinnedDropdown(null)}>Home</Link>
+            <li 
+              className={`nav-item ${isActive("/home") || isActive("/") ? "active" : ""}`}
+              style={{
+                width: isScrolled ? "auto" : "0px",
+                opacity: isScrolled ? 1 : 0,
+                overflow: "hidden",
+                padding: isScrolled ? undefined : "0",
+                marginRight: isScrolled ? "0.25rem" : "0px",
+                transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+              }}
+            >
+              <Link href="/home" className="nav-link" aria-label="Home" onClick={() => setPinnedDropdown(null)}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+              </Link>
             </li>
 
             {/* Institute Dropdown */}
@@ -157,6 +172,9 @@ export default function StickyNavbar() {
                 </Link>
                 <Link href="/academics/examinations" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
                   Examinations
+                </Link>
+                <Link href="/erp" className="dropdown-link" onClick={() => setPinnedDropdown(null)}>
+                  ERP
                 </Link>
               </div>
             </li>

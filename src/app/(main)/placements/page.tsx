@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import ImagePopup from "@/components/Common/ImagePopup";
 import { RGUKT_DATA } from "@/data/rguktData";
 import { useApp } from "@/context/AppContext";
 
@@ -1361,17 +1362,18 @@ export default function PlacementsPage() {
                     alignItems: "flex-start",
                   }}
                 >
-                  <img
+                  <ImagePopup
                     src="/images/placementcoordinators/2082209.jpg"
                     alt="Mr. Satyanandaram N"
-                    style={{
+                    width={400}
+                    containerStyle={{
                       width: "90px",
                       height: "110px",
-                      objectFit: "cover",
                       borderRadius: "8px",
                       border: "1px solid #cbd5e1",
                       boxShadow: "0 2px 5px rgba(0,0,0,0.06)",
                       flexShrink: 0,
+                      overflow: "hidden"
                     }}
                   />
                   <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: "110px" }}>
@@ -1411,17 +1413,18 @@ export default function PlacementsPage() {
                     alignItems: "flex-start",
                   }}
                 >
-                  <img
+                  <ImagePopup
                     src="/images/placementcoordinators/2137601.jpg"
                     alt="Mr. G S Sundar"
-                    style={{
+                    width={400}
+                    containerStyle={{
                       width: "90px",
                       height: "110px",
-                      objectFit: "cover",
                       borderRadius: "8px",
                       border: "1px solid #cbd5e1",
                       boxShadow: "0 2px 5px rgba(0,0,0,0.06)",
                       flexShrink: 0,
+                      overflow: "hidden"
                     }}
                   />
                   <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: "110px" }}>
@@ -1461,17 +1464,18 @@ export default function PlacementsPage() {
                     alignItems: "flex-start",
                   }}
                 >
-                  <img
+                  <ImagePopup
                     src="/images/placementcoordinators/2098012.jpg"
                     alt="Mr. G. Ravibabu"
-                    style={{
+                    width={400}
+                    containerStyle={{
                       width: "90px",
                       height: "110px",
-                      objectFit: "cover",
                       borderRadius: "8px",
                       border: "1px solid #cbd5e1",
                       boxShadow: "0 2px 5px rgba(0,0,0,0.06)",
                       flexShrink: 0,
+                      overflow: "hidden"
                     }}
                   />
                   <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: "110px" }}>

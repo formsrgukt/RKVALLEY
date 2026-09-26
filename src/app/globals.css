@@ -2098,12 +2098,13 @@ button {
 .footer-links-list a {
   color: #eed6d9;
   font-size: 0.85rem;
-  transition: color var(--transition-fast);
+  display: inline-block;
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
 .footer-links-list a:hover {
   color: #ffffff;
-  padding-left: 4px;
+  transform: translateX(4px);
 }
 
 .footer-contact-item {

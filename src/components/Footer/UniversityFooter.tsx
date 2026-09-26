@@ -116,7 +116,7 @@ export default function UniversityFooter() {
             <Link href="/grievance">RTI Act</Link>
             <Link href="/about">Privacy Policy</Link>
             <Link href="/about">Terms of Use</Link>
-            <Link href="/contact">Webmaster</Link>
+            <Link href="/developer">CSC</Link>
             <Link href="/contact">Feedback</Link>
           </div>
         </div>

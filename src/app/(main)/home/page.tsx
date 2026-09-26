@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import HeroSection from "@/components/Hero/HeroSection";
-import QuickAccessGrid from "@/components/Hero/QuickAccessGrid";
 import NoticeBoard from "@/components/Notices/NoticeBoard";
 import ImportantNews from "@/components/Notices/ImportantNews";
 
@@ -17,9 +16,15 @@ import { useApp } from "@/context/AppContext";
 export default function HomePage() {
   const { openDocModal } = useApp();
   const [tendersData, setTendersData] = useState<Tender[]>([]);
+  const [isVideoHovered, setIsVideoHovered] = useState(false);
+  const [isLoadingTenders, setIsLoadingTenders] = useState(true);
 
   useEffect(() => {
-    fetchTenders().then(setTendersData).catch(console.error);
+    setIsLoadingTenders(true);
+    fetchTenders()
+      .then(setTendersData)
+      .catch(console.error)
+      .finally(() => setIsLoadingTenders(false));
   }, []);
 
   return (
@@ -30,8 +35,6 @@ export default function HomePage() {
       {/* Important News Ticker */}
       <ImportantNews />
 
-      {/* 2. Quick Access Command Grid */}
-      <QuickAccessGrid />
 
       {/* 3. Live Notice Board & Urgent Updates */}
       <NoticeBoard />
@@ -42,8 +45,9 @@ export default function HomePage() {
           <div className="about-grid">
             
             {/* Left Column: Text Content */}
-            <div>
-              <span className="section-tag">Institutional Heritage</span>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <div>
+                <span className="section-tag">Institutional Heritage</span>
               <h3 className="section-title" style={{ marginBottom: "1rem" }}>
                 Empowering Exceptional Talent Through Technology
               </h3>
@@ -103,31 +107,128 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-
-              <Link href="/about" className="btn btn-primary" style={{ marginTop: "1rem" }}>
-                Learn More About RGUKT Paradigm â†’
-              </Link>
+              </div>
+              
+              <div>
+                <style>{`
+                  .btn-animated-arrow { transition: transform 0.2s ease-in-out; }
+                  .btn:hover .btn-animated-arrow { transform: translateX(4px); }
+                `}</style>
+                <Link href="/about" className="btn btn-primary" style={{ marginTop: "1rem", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+                  Learn More About RGUKT Paradigm
+                  <svg className="btn-animated-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </Link>
+              </div>
             </div>
 
-            {/* Right Column: Video */}
-            <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
-              <span className="section-tag" style={{ marginBottom: "0.5rem" }}>Campus Life</span>
-              <h3 className="section-title" style={{ marginBottom: "1rem" }}>Experience RGUKT RK Valley</h3>
-              <p className="section-subtitle" style={{ marginBottom: "2rem" }}>
-                Take a glimpse into the vibrant academic environment, world-class infrastructure, and lush green campus.
-              </p>
+            {/* Right Column: Video & Social Networks */}
+            <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", height: "100%" }}>
               
-              <div style={{ width: "100%", maxWidth: "480px", margin: "0 auto", borderRadius: "16px", overflow: "hidden", boxShadow: "var(--shadow-xl)", aspectRatio: "16/9", background: "#000" }}>
-                <iframe 
-                  width="100%" 
-                  height="100%" 
-                  src="https://www.youtube.com/embed/FjK9tdeIFiM?rel=0" 
-                  title="RGUKT RK Valley Campus Tour" 
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowFullScreen
-                ></iframe>
+              {/* Campus Video */}
+              <div>
+                <span className="section-tag" style={{ marginBottom: "0.5rem" }}>Campus Life</span>
+                <h3 className="section-title" style={{ marginBottom: "1rem" }}>Experience RGUKT RK Valley</h3>
+                <div 
+                  style={{ 
+                    width: "100%", 
+                    maxWidth: "520px", 
+                    margin: "0 auto", 
+                    borderRadius: "16px", 
+                    overflow: "hidden", 
+                    boxShadow: isVideoHovered ? "var(--shadow-2xl, 0 25px 50px -12px rgba(0, 0, 0, 0.25))" : "var(--shadow-xl)", 
+                    aspectRatio: "16/9", 
+                    background: "#000",
+                    transform: isVideoHovered ? "scale(1.05)" : "scale(1)",
+                    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                    zIndex: isVideoHovered ? 10 : 1,
+                    position: "relative"
+                  }}
+                  onMouseEnter={() => setIsVideoHovered(true)}
+                  onMouseLeave={() => setIsVideoHovered(false)}
+                >
+                  <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src={`https://www.youtube.com/embed/FjK9tdeIFiM?rel=0${isVideoHovered ? "&autoplay=1&mute=1" : ""}`}
+                    title="RGUKT RK Valley Campus Tour" 
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
+
+              {/* Social Networks */}
+              <div style={{ marginTop: "2.5rem" }}>
+                <span className="section-tag" style={{ marginBottom: "0.5rem" }}>Social Networks</span>
+                <h3 className="section-title" style={{ marginBottom: "1rem" }}>Join Our Digital Community</h3>
+                <div style={{
+                  display: "flex",
+                  flexWrap: "nowrap",
+                  gap: "0.5rem",
+                  overflowX: "auto",
+                  paddingBottom: "0.5rem",
+                  scrollbarWidth: "none", // Firefox
+                  msOverflowStyle: "none",  // IE and Edge
+                }} className="social-pills-container">
+                  <style>{`.social-pills-container::-webkit-scrollbar { display: none; }`}</style>
+                  {/* Facebook Pill */}
+                  <a href="https://www.facebook.com/share/19PbLCmiBr/" target="_blank" rel="noopener noreferrer" style={{
+                    background: "#ffffff", borderRadius: "50px", padding: "0.4rem 0.75rem 0.4rem 0.75rem", display: "flex", alignItems: "center", gap: "0.4rem", textDecoration: "none", color: "#1877F2", boxShadow: "0 1px 3px rgba(0,0,0,0.05)", transition: "all 0.2s", whiteSpace: "nowrap"
+                  }} onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 6px rgba(24, 119, 242, 0.15)"; }} onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.05)"; }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <span style={{ fontSize: "0.8rem", fontWeight: 600, color: "#1e293b", lineHeight: "1" }}>Facebook</span>
+                      <span style={{ fontSize: "0.65rem", color: "#64748b", marginTop: "2px" }}>@rguktrkv</span>
+                    </div>
+                  </a>
+
+                  {/* Twitter Pill */}
+                  <a href="https://x.com/RGUKTRKVOFFI" target="_blank" rel="noopener noreferrer" style={{
+                    background: "#ffffff", borderRadius: "50px", padding: "0.4rem 0.75rem 0.4rem 0.75rem", display: "flex", alignItems: "center", gap: "0.4rem", textDecoration: "none", color: "#1DA1F2", boxShadow: "0 1px 3px rgba(0,0,0,0.05)", transition: "all 0.2s", whiteSpace: "nowrap"
+                  }} onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 6px rgba(29, 161, 242, 0.15)"; }} onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.05)"; }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <span style={{ fontSize: "0.8rem", fontWeight: 600, color: "#1e293b", lineHeight: "1" }}>Twitter</span>
+                      <span style={{ fontSize: "0.65rem", color: "#64748b", marginTop: "2px" }}>@rguktrkv</span>
+                    </div>
+                  </a>
+
+                  {/* LinkedIn Pill */}
+                  <a href="https://www.linkedin.com/school/rgukt-rkv/" target="_blank" rel="noopener noreferrer" style={{
+                    background: "#ffffff", borderRadius: "50px", padding: "0.4rem 0.75rem 0.4rem 0.75rem", display: "flex", alignItems: "center", gap: "0.4rem", textDecoration: "none", color: "#0A66C2", boxShadow: "0 1px 3px rgba(0,0,0,0.05)", transition: "all 0.2s", whiteSpace: "nowrap"
+                  }} onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 6px rgba(10, 102, 194, 0.15)"; }} onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.05)"; }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <span style={{ fontSize: "0.8rem", fontWeight: 600, color: "#1e293b", lineHeight: "1" }}>LinkedIn</span>
+                      <span style={{ fontSize: "0.65rem", color: "#64748b", marginTop: "2px" }}>RGUKT RK Valley</span>
+                    </div>
+                  </a>
+
+                  {/* Youtube Pill */}
+                  <a href="https://youtube.com/@adminsocialnetwork?si=mQhKRFaoIE_YA-y6" target="_blank" rel="noopener noreferrer" style={{
+                    background: "#ffffff", borderRadius: "50px", padding: "0.4rem 0.75rem 0.4rem 0.75rem", display: "flex", alignItems: "center", gap: "0.4rem", textDecoration: "none", color: "#FF0000", boxShadow: "0 1px 3px rgba(0,0,0,0.05)", transition: "all 0.2s", whiteSpace: "nowrap"
+                  }} onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 6px rgba(255, 0, 0, 0.15)"; }} onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.05)"; }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <span style={{ fontSize: "0.8rem", fontWeight: 600, color: "#1e293b", lineHeight: "1" }}>YouTube</span>
+                      <span style={{ fontSize: "0.65rem", color: "#64748b", marginTop: "2px" }}>@rguktrkv_official</span>
+                    </div>
+                  </a>
+
+                  {/* Instagram Pill */}
+                  <a href="https://www.instagram.com/rguktrkv_official?utm_source=qr&igsh=NXVrNmlpcjY2ZmM0" target="_blank" rel="noopener noreferrer" style={{
+                    background: "#ffffff", borderRadius: "50px", padding: "0.4rem 0.75rem 0.4rem 0.75rem", display: "flex", alignItems: "center", gap: "0.4rem", textDecoration: "none", color: "#E1306C", boxShadow: "0 1px 3px rgba(0,0,0,0.05)", transition: "all 0.2s", whiteSpace: "nowrap"
+                  }} onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 6px rgba(225, 48, 108, 0.15)"; }} onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.05)"; }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <span style={{ fontSize: "0.8rem", fontWeight: 600, color: "#1e293b", lineHeight: "1" }}>Instagram</span>
+                      <span style={{ fontSize: "0.65rem", color: "#64748b", marginTop: "2px" }}>@rgukt_rkvalley</span>
+                    </div>
+                  </a>
+              </div>
+            </div>
+            {/* End Right Column wrapper */}
             </div>
 
           </div>
@@ -148,8 +249,9 @@ export default function HomePage() {
                 Dedicated 24x7 student amenities supporting academic, physical, and holistic personal growth.
               </p>
             </div>
-            <Link href="/students" className="btn btn-primary" style={{ fontSize: "0.85rem" }}>
-              Explore Campus Life â†’
+            <Link href="/students" className="btn btn-primary" style={{ fontSize: "0.85rem", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+              Explore Campus Life
+              <svg className="btn-animated-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </Link>
           </div>
 
@@ -209,7 +311,16 @@ export default function HomePage() {
           </div>
 
                     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-            {tendersData.slice(0,3).map((tender: Tender, idx) => (
+            {isLoadingTenders ? (
+              <div style={{ textAlign: "center", padding: "3rem" }}>
+                <svg viewBox="0 0 1105 1424" width="40" height="51" className="logo-loader">
+                  <path d="M 129.50,22.00 Q 121.00,19.00 115.50,41.00 Q 110.00,63.00 115.00,115.50 Q 120.00,168.00 154.00,269.00 Q 188.00,370.00 239.00,453.50 Q 290.00,537.00 349.50,590.50 Q 409.00,644.00 313.00,718.50 Q 217.00,793.00 164.50,867.50 Q 112.00,942.00 72.50,1048.00 Q 33.00,1154.00 23.50,1224.50 Q 14.00,1295.00 17.00,1340.00 Q 20.00,1385.00 32.50,1375.00 Q 45.00,1365.00 95.50,1243.00 Q 146.00,1121.00 188.00,1059.00 Q 230.00,997.00 296.00,936.50 Q 362.00,876.00 420.50,851.00 Q 479.00,826.00 526.50,829.50 Q 574.00,833.00 645.00,870.00 Q 716.00,907.00 804.00,972.50 Q 892.00,1038.00 969.00,1121.00 Q 1046.00,1204.00 1055.00,1204.00 Q 1064.00,1204.00 1077.00,1175.00 Q 1090.00,1146.00 1080.00,1123.00 Q 1070.00,1100.00 965.00,978.00 Q 860.00,856.00 755.00,752.00 Q 650.00,648.00 741.50,590.00 Q 833.00,532.00 895.00,467.00 Q 957.00,402.00 1007.50,312.50 Q 1058.00,223.00 1070.00,182.50 Q 1082.00,142.00 1082.00,113.50 Q 1082.00,85.00 1070.00,86.50 Q 1058.00,88.00 991.50,184.50 Q 925.00,281.00 869.50,334.50 Q 814.00,388.00 749.00,421.00 Q 684.00,454.00 617.00,462.50 Q 550.00,471.00 488.50,454.00 Q 427.00,437.00 372.00,394.50 Q 317.00,352.00 274.00,294.50 Q 231.00,237.00 184.50,131.00 Q 138.00,25.00 129.50,22.00 Z M 549.50,171.00 Q 538.00,171.00 526.00,173.00 Q 514.00,175.00 506.50,177.50 Q 499.00,180.00 484.50,188.00 Q 470.00,196.00 459.00,206.00 Q 448.00,216.00 440.50,226.50 Q 433.00,237.00 427.50,249.50 Q 422.00,262.00 419.00,277.00 Q 416.00,292.00 416.00,303.00 Q 416.00,314.00 418.00,325.50 Q 420.00,337.00 426.50,352.50 Q 433.00,368.00 439.50,377.50 Q 446.00,387.00 454.50,395.50 Q 463.00,404.00 475.00,412.00 Q 487.00,420.00 498.00,424.50 Q 509.00,429.00 521.00,431.50 Q 533.00,434.00 547.50,434.00 Q 562.00,434.00 579.00,430.00 Q 596.00,426.00 608.00,420.00 Q 620.00,414.00 627.50,408.50 Q 635.00,403.00 644.50,393.00 Q 654.00,383.00 659.00,375.50 Q 664.00,368.00 670.50,352.50 Q 677.00,337.00 679.00,326.00 Q 681.00,315.00 681.00,302.00 Q 681.00,289.00 678.50,276.50 Q 676.00,264.00 671.50,252.50 Q 667.00,241.00 660.50,231.00 Q 654.00,221.00 643.00,210.00 Q 632.00,199.00 622.00,192.50 Q 612.00,186.00 601.50,181.50 Q 591.00,177.00 576.00,174.00 Q 561.00,171.00 549.50,171.00 Z" className="logo-outline"></path>
+                  <path d="M 129.50,22.00 Q 121.00,19.00 115.50,41.00 Q 110.00,63.00 115.00,115.50 Q 120.00,168.00 154.00,269.00 Q 188.00,370.00 239.00,453.50 Q 290.00,537.00 349.50,590.50 Q 409.00,644.00 313.00,718.50 Q 217.00,793.00 164.50,867.50 Q 112.00,942.00 72.50,1048.00 Q 33.00,1154.00 23.50,1224.50 Q 14.00,1295.00 17.00,1340.00 Q 20.00,1385.00 32.50,1375.00 Q 45.00,1365.00 95.50,1243.00 Q 146.00,1121.00 188.00,1059.00 Q 230.00,997.00 296.00,936.50 Q 362.00,876.00 420.50,851.00 Q 479.00,826.00 526.50,829.50 Q 574.00,833.00 645.00,870.00 Q 716.00,907.00 804.00,972.50 Q 892.00,1038.00 969.00,1121.00 Q 1046.00,1204.00 1055.00,1204.00 Q 1064.00,1204.00 1077.00,1175.00 Q 1090.00,1146.00 1080.00,1123.00 Q 1070.00,1100.00 965.00,978.00 Q 860.00,856.00 755.00,752.00 Q 650.00,648.00 741.50,590.00 Q 833.00,532.00 895.00,467.00 Q 957.00,402.00 1007.50,312.50 Q 1058.00,223.00 1070.00,182.50 Q 1082.00,142.00 1082.00,113.50 Q 1082.00,85.00 1070.00,86.50 Q 1058.00,88.00 991.50,184.50 Q 925.00,281.00 869.50,334.50 Q 814.00,388.00 749.00,421.00 Q 684.00,454.00 617.00,462.50 Q 550.00,471.00 488.50,454.00 Q 427.00,437.00 372.00,394.50 Q 317.00,352.00 274.00,294.50 Q 231.00,237.00 184.50,131.00 Q 138.00,25.00 129.50,22.00 Z M 549.50,171.00 Q 538.00,171.00 526.00,173.00 Q 514.00,175.00 506.50,177.50 Q 499.00,180.00 484.50,188.00 Q 470.00,196.00 459.00,206.00 Q 448.00,216.00 440.50,226.50 Q 433.00,237.00 427.50,249.50 Q 422.00,262.00 419.00,277.00 Q 416.00,292.00 416.00,303.00 Q 416.00,314.00 418.00,325.50 Q 420.00,337.00 426.50,352.50 Q 433.00,368.00 439.50,377.50 Q 446.00,387.00 454.50,395.50 Q 463.00,404.00 475.00,412.00 Q 487.00,420.00 498.00,424.50 Q 509.00,429.00 521.00,431.50 Q 533.00,434.00 547.50,434.00 Q 562.00,434.00 579.00,430.00 Q 596.00,426.00 608.00,420.00 Q 620.00,414.00 627.50,408.50 Q 635.00,403.00 644.50,393.00 Q 654.00,383.00 659.00,375.50 Q 664.00,368.00 670.50,352.50 Q 677.00,337.00 679.00,326.00 Q 681.00,315.00 681.00,302.00 Q 681.00,289.00 678.50,276.50 Q 676.00,264.00 671.50,252.50 Q 667.00,241.00 660.50,231.00 Q 654.00,221.00 643.00,210.00 Q 632.00,199.00 622.00,192.50 Q 612.00,186.00 601.50,181.50 Q 591.00,177.00 576.00,174.00 Q 561.00,171.00 549.50,171.00 Z" className="logo-fill"></path>
+                </svg>
+              </div>
+            ) : tendersData.length === 0 ? (
+              <div style={{ padding: "2rem", textAlign: "center", color: "#94a3b8" }}>No active tenders currently available.</div>
+            ) : tendersData.slice(0,3).map((tender: Tender, idx) => (
               <div key={tender.id} style={{
                 background: "#ffffff",
                 border: "1px solid #e2e8f0",
@@ -280,157 +391,7 @@ export default function HomePage() {
       {/* 10. Campus Gallery */}
       <CampusGallery />
 
-      {/* 11. Social Media Connect */}
-      <section className="section-padding" style={{ background: "var(--surface-bg, #f8fafc)" }} aria-label="Social Media">
-        <div className="container">
-          <div className="section-header" style={{ textAlign: "center", justifyContent: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <div style={{ maxWidth: "800px" }}>
-              <span className="section-tag" style={{ justifyContent: "center" }}>Social Networks</span>
-              <h3 className="section-title">Join Our Digital Community</h3>
-              <p className="section-subtitle" style={{ margin: "0 auto" }}>
-                Stay updated with the latest news, events, and student activities across our official social media channels.
-              </p>
-            </div>
-          </div>
-          
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-            gap: "1.5rem",
-            marginTop: "2.5rem"
-          }}>
-            {/* Facebook Card */}
-            <a href="https://www.facebook.com/share/19PbLCmiBr/" target="_blank" rel="noopener noreferrer" style={{
-              background: "#ffffff",
-              borderRadius: "16px",
-              padding: "2rem",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "1rem",
-              textDecoration: "none",
-              color: "inherit",
-              boxShadow: "var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1))",
-              transition: "transform 0.3s, box-shadow 0.3s",
-            }}
-            onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "var(--shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1))"; }}
-            onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1))"; }}
-            >
-              <div style={{ color: "#1877F2" }}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-              </div>
-              <h4 style={{ margin: 0, fontSize: "1.1rem", fontWeight: 600 }}>Facebook</h4>
-              <span style={{ color: "#64748b", fontSize: "0.9rem" }}>@rguktrkv</span>
-            </a>
 
-            {/* Twitter Card */}
-            <a href="https://x.com/RGUKTRKVOFFI" target="_blank" rel="noopener noreferrer" style={{
-              background: "#ffffff",
-              borderRadius: "16px",
-              padding: "2rem",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "1rem",
-              textDecoration: "none",
-              color: "inherit",
-              boxShadow: "var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1))",
-              transition: "transform 0.3s, box-shadow 0.3s",
-            }}
-            onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "var(--shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1))"; }}
-            onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1))"; }}
-            >
-              <div style={{ color: "#1DA1F2" }}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                </svg>
-              </div>
-              <h4 style={{ margin: 0, fontSize: "1.1rem", fontWeight: 600 }}>Twitter</h4>
-              <span style={{ color: "#64748b", fontSize: "0.9rem" }}>@rguktrkv</span>
-            </a>
-
-            {/* LinkedIn Card */}
-            <a href="https://www.linkedin.com/school/rgukt-rkv/" target="_blank" rel="noopener noreferrer" style={{
-              background: "#ffffff",
-              borderRadius: "16px",
-              padding: "2rem",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "1rem",
-              textDecoration: "none",
-              color: "inherit",
-              boxShadow: "var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1))",
-              transition: "transform 0.3s, box-shadow 0.3s",
-            }}
-            onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "var(--shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1))"; }}
-            onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1))"; }}
-            >
-              <div style={{ color: "#0A66C2" }}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </div>
-              <h4 style={{ margin: 0, fontSize: "1.1rem", fontWeight: 600 }}>LinkedIn</h4>
-              <span style={{ color: "#64748b", fontSize: "0.9rem" }}>RGUKT RK Valley</span>
-            </a>
-
-            {/* Youtube Card */}
-            <a href="https://youtube.com/@adminsocialnetwork?si=mQhKRFaoIE_YA-y6" target="_blank" rel="noopener noreferrer" style={{
-              background: "#ffffff",
-              borderRadius: "16px",
-              padding: "2rem",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "1rem",
-              textDecoration: "none",
-              color: "inherit",
-              boxShadow: "var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1))",
-              transition: "transform 0.3s, box-shadow 0.3s",
-            }}
-            onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "var(--shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1))"; }}
-            onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1))"; }}
-            >
-              <div style={{ color: "#FF0000" }}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
-              </div>
-              <h4 style={{ margin: 0, fontSize: "1.1rem", fontWeight: 600 }}>YouTube</h4>
-              <span style={{ color: "#64748b", fontSize: "0.9rem" }}>@adminsocialnetwork</span>
-            </a>
-
-            {/* Instagram Card */}
-            <a href="https://www.instagram.com/rguktrkv_official?utm_source=qr&igsh=NXVrNmlpcjY2ZmM0" target="_blank" rel="noopener noreferrer" style={{
-              background: "#ffffff",
-              borderRadius: "16px",
-              padding: "2rem",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "1rem",
-              textDecoration: "none",
-              color: "inherit",
-              boxShadow: "var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1))",
-              transition: "transform 0.3s, box-shadow 0.3s",
-            }}
-            onMouseOver={(e) => { e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "var(--shadow-xl, 0 20px 25px -5px rgba(0, 0, 0, 0.1))"; }}
-            onMouseOut={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1))"; }}
-            >
-              <div style={{ color: "#E1306C" }}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                </svg>
-              </div>
-              <h4 style={{ margin: 0, fontSize: "1.1rem", fontWeight: 600 }}>Instagram</h4>
-              <span style={{ color: "#64748b", fontSize: "0.9rem" }}>@rgukt_rkvalley</span>
-            </a>
-          </div>
-        </div>
-      </section>
 
       {/* 12. Accreditations Bar */}
       <div className="official-links-bar" aria-label="Official Links & Accreditations">

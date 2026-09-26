@@ -88,6 +88,7 @@ export default function MobileDrawer() {
                 <li><Link href="/curriculum" className="drawer-sublink" onClick={closeMobileDrawer}>Curricula</Link></li>
                 <li><Link href="/academics/departments" className="drawer-sublink" onClick={closeMobileDrawer}>Departments</Link></li>
                 <li><Link href="/academics/examinations" className="drawer-sublink" onClick={closeMobileDrawer}>Examinations</Link></li>
+                <li><Link href="/erp" className="drawer-sublink" onClick={closeMobileDrawer}>ERP</Link></li>
               </ul>
             </li>
 
