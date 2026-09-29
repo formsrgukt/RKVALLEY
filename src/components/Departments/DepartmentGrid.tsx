@@ -5,14 +5,7 @@ import Link from "next/link";
 import { RGUKT_DATA, Department } from "@/data/rguktData";
 
 export default function DepartmentGrid() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
-  const categories = ["All", "Engineering", "Sciences", "Humanities"];
-
-  let depts = RGUKT_DATA.departments;
-  if (selectedCategory !== "All") {
-    depts = depts.filter((d) => d.category.toLowerCase() === selectedCategory.toLowerCase());
-  }
+  const depts = RGUKT_DATA.departments.filter(d => d.category === "Engineering").slice(0, 8);
 
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = React.useRef<HTMLElement>(null);
@@ -60,7 +53,7 @@ export default function DepartmentGrid() {
 
         <div style={{ 
           display: "grid", 
-          gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", 
+          gridTemplateColumns: "repeat(4, 1fr)", 
           gap: "1.5rem" 
         }}>
           {depts.map((d: Department, idx: number) => {
@@ -133,6 +126,60 @@ export default function DepartmentGrid() {
               </div>
             );
           })}
+        </div>
+
+        <div style={{ display: "flex", justifyContent: "center", marginTop: "3.5rem" }}>
+          <div 
+            className={`department-card dept-card-red popup-card ${isVisible ? "visible" : ""}`}
+            style={{ 
+              borderLeft: "4px solid var(--primary-maroon)",
+              maxWidth: "450px",
+              width: "100%",
+              transitionDelay: "0.4s"
+            }}
+          >
+            <div className="dept-header">
+              <div 
+                className="dept-icon-box"
+                style={{ background: "#fdf2f4", color: "var(--primary-maroon)" }}
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 2l9 4.9V17L12 22l-9-4.9V7z"/>
+                </svg>
+              </div>
+              <span 
+                className="dept-code-badge"
+                style={{ color: "var(--primary-maroon)", background: "#fdf2f4", borderColor: "#fecdd3" }}
+              >
+                H&S
+              </span>
+            </div>
+            <h4 className="dept-title" style={{ color: "var(--primary-maroon)" }}>
+              Humanities & Sciences
+            </h4>
+            <p className="dept-overview">
+              Encompassing essential disciplines including Mathematics, Physics, Chemistry, Biology, Telugu, English, and Management to build a strong foundation.
+            </p>
+            <div className="dept-meta-pills">
+              <span><strong>7</strong> Departments</span>
+            </div>
+            <div className="dept-action-row" style={{ justifyContent: "flex-start", marginTop: "1.5rem" }}>
+              <Link 
+                href="/academics/departments"
+                className="btn"
+                style={{ 
+                  background: "var(--primary-maroon)", 
+                  color: "#ffffff", 
+                  padding: "0.6rem 1.5rem",
+                  borderRadius: "var(--radius-md)",
+                  fontWeight: 600,
+                  fontSize: "0.95rem"
+                }}
+              >
+                View All Departments &rarr;
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>
